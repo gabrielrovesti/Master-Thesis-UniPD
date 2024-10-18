@@ -22,6 +22,7 @@
 ```
 
 > npx expo start --android
+(in this case, open Android Studio and switch on a device, so to have the app immediately deployed)
     
 ```
 
@@ -63,5 +64,11 @@ To run on iOS (if you're on a Mac):
 ```
 > adb devices
 > npx react-native run-android --deviceId=DEVICE_ID
+
+If project does not have an Android folder, we do:
+> npx react-native eject
+
+> npx expo prebuild (what I did)
+> npx react-native run-android
 
 ```

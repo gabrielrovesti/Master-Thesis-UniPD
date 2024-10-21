@@ -28,16 +28,40 @@ As mobile applications become increasingly central to daily life, ensuring their
 
 An estimated portion of over one billion people lives globally with some forms of disability \cite{article:who-disability}. Inaccessible mobile applications can, therefore, present considerable barriers to participation in that large and growing part of modern life that involves education, employment, social interaction, and even basic services. Accessibility is not about a majority giving special dispensation to a minority but rather about providing equal access and opportunities to very big and diverse user bases.
 
-Accessibility encompasses a wide range of considerations, including but not limited to:
+This encompasses a wide range of considerations to be made on the actual products design and the user classes, including but not limited to:
 \begin{enumerate}
-    \item \textit{Visual accessibility}
+    \item \textit{Visual accessibility}: supporting users who are blind or have low vision, requiring alternative description, a clear language and screen readers support;
 
-    \item \textit{Auditory accessibility}
+    \item \textit{Auditory accessibility}: providing alternatives for users who are deaf or hard of hearing, offering clear controls and alternative  visuals for audio content, ensuring compatibility with assistive devices and giving feedback to specific actions done by users;
 
-    \item \textit{Motor accessibility}
+    \item \textit{Motor accessibility}: accommodating users with limited dexterity or mobility, providing alternative input navigation, create a design so to help avoiding complex gestures, customize the interactions and gestures, reducing precision and accommodating errors;
 
-    \item \textit{Cognitive accessibility}
+    \item \textit{Cognitive accessibility}: ensuring content is understandable for users with different cognitive abilities, creating a consistent and predictable navigation, visual support on UI so to support focus and attention and enhancing comprehension of interface components.
+    
 \end{enumerate}
+
+In the mobile environment, such considerations is important, since there is a complex web of interactions to be considered, mainly focusing on two aspects:
+
+\begin{enumerate}
+    \item Device diversity and integration - accommodating different gestures, interfaces and interaction modalities
+        \begin{itemize}
+            \item Traditional mobile devices (smartphones, tablets)
+            \item Emerging form factors (foldables, dual-screen devices)
+            \item Wearable technology (smartwatches, fitness trackers)
+            \item Embedded systems (vehicle interfaces, smart home controls)
+            \item IoT devices with mobile interfaces
+        \end{itemize}
+    \item Usage context variations - may influence the overload of information and the cognitive load perceived by the user
+        \begin{itemize}
+            \item Environmental conditions (lighting, noise, movement)
+            \item User posture and mobility situations
+            \item Attention availability and cognitive load
+            \item Physical constraints and limitations
+            \item Social and cultural contexts
+        \end{itemize}
+\end{enumerate}
+
+These considerations are important since they impact how accessibility features should go above and beyond, carefully considering the design in terms of \gls{uig} (\acrshort{ui}), considering the design and layout of interactive elements and the actual experience in using the product, considering the degree of satisfaction and meeting of user's needs, so the \gls{uxg} (\acrshort{ux}).  
 
 \section{Related works}
 \label{chap:intro-related-works}
@@ -46,15 +70,15 @@ Accessibility encompasses a wide range of considerations, including but not limi
 \label{chap:intro-structure} 
 
 % \begin{description}
-%     \item[{\hyperref[chap:processi-metodologie]{The second chapter}}] describes ...
+%     \item[{\hyperref[chap:second-chapter]{The second chapter}}] describes ...
 %     
-%     \item[{\hyperref[chap:descrizione-stage]{The third chapter}}] describes ...
+%     \item[{\hyperref[chap:third-chapter]{The third chapter}}] describes ...
 %     
-%     \item[{\hyperref[chap:analisi-requisiti]{The fourth chapter}}] describes ...
+%     \item[{\hyperref[chap:fourth-chapter]{The fourth chapter}}] describes ...
 %     
-%     \item[{\hyperref[chap:progettazione-codifica]{The fifth chapter}}] describes ...
+%     \item[{\hyperref[chap:fifth-chapter]{The fifth chapter}}] describes ...
 %     
-%     \item[{\hyperref[chap:verifica-validazione]{The sixth chapter}}] describes ...
+%     \item[{\hyperref[chap:sixth-chapter]{The sixth chapter}}] describes ...
 %     
 %     \item[{\hyperref[chap:conclusions]{The last chapter}}] describes ...
 % \end{description}
@@ -65,17 +89,5 @@ Accessibility encompasses a wide range of considerations, including but not limi
 % 	\item For the first occurrence of terms listed in the glossary, the following nomenclature is used: \gls{apig};
 % 	\item foreign language terms or those belonging to technical jargon are highlighted in \textit{italic} characters.
 % \end{itemize}
-% 
-% \begin{listing}[H]
-% \begin{minted}{c}
-% #include <stdio.h>
-% int main() {
-%     print("Hello, world!");
-%     return 0;
-% }
-% \end{minted}
-% \caption{Example of code}
-% \label{listing:a}
-% \end{listing}
 
 \newpage

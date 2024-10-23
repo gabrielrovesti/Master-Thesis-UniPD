@@ -1,3 +1,10 @@
+## Create from scratch an example
+
+```
+> npx react-native init <projectName>
+
+```
+
 ## Run a minimal example
 
 ```

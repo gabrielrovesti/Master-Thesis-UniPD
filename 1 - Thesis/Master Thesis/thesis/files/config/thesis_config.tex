@@ -1,11 +1,12 @@
 % Load variables
 \input{config/variables}
-\input{references/glossary_acronyms}
 
 % Define custom colors
 \definecolor{hyperColor}{HTML}{0B3EE3}
 \definecolor{tableGray}{HTML}{F5F5F7}
 \definecolor{veryPeri}{HTML}{6667ab}
+
+\chapterfont{\fontsize{24}{22}\selectfont}  % Reduces chapter font size
 
 % Set line height
 \linespread{1.5}
@@ -77,6 +78,7 @@
     \addtocounter{page}{+1}
 }
 
+\input{references/glossary_acronyms}
 % Make glossaries and bibliography
 \makeglossaries
 % Redefine the format for the glossary entries to be italic

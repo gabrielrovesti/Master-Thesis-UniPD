@@ -6,7 +6,7 @@
 
 - Preventing accessibility barriers: Guidelines for using user interface design patterns in mobile applications
 
-- Browsing without clicking – two proposals of web interface design for universal accessibility
+- Browsing without clicking - two proposals of web interface design for universal accessibility
 
 - Study of Accessibility Guidelines of Mobile Applications
 

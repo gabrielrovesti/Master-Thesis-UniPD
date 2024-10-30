@@ -4,7 +4,7 @@
 \section{Mobile accessibility: context \& foundations}
 \label{chap:intro-background}
 
-In an era where digital technology permeates every aspect of our lives, mobile devices have emerged as the primary gateway to the digital world, allowing a lot of new people to be connected at any given time, no matter the condition. An estimated number of circa 7 billions \cite{article:number-of-users}, representing a dramatic increase from just one billion users in 2013. This explosive growth has not only changed how we communicate and access information but has also created a massive market for different needs and introduced new categories of users, with different habits and cultures into a truly global market.
+In an era where digital technology permeates every aspect of our lives, mobile devices have emerged as the primary gateway to the digital world, allowing a lot of new people to be connected at any given time, no matter the condition. An estimated number of circa 7 billions \cite{article:number-of-users}, representing a dramatic increase from just one billion users in 2013, is currently using mobile devices and exploiting the possibilities they offer on an everyday basis. This explosive growth has not only changed how we communicate and access information but has also created a massive market for different needs and introduced new categories of users, with different habits and cultures into a truly global market.
 
 As mobile applications become increasingly central to daily life, ensuring their accessibility to all users, regardless of their abilities or disabilities, has become a critical imperative, since not only technology should be able to connect, but also to unite seamlessly people with different capabilities. Accessibility refers to the design and development practices enabling all users, regardless of their abilities or disabilities, to perceive, understand and navigate with digital content effectively. Not only the quantity of media increased, but also the quantity of different media which allow to access information definitely increased; finding appropriate measurements to establish a good level of understanding and usability is important and finding appropriate levels of measurements is non-trivial. \\
 
@@ -12,13 +12,13 @@ An estimated portion of over one billion people lives globally with some forms o
 
 This encompasses a wide range of considerations to be made on the actual products design and the user classes, including but not limited to:
 \begin{enumerate}
-    \item \textit{Visual accessibility}: supporting users who are blind or have low vision, requiring alternative description, a clear language and screen readers support;
+    \item \textit{Visual accessibility}: supporting users who have a visual impairment or have low vision, requiring alternative description, a clear language and screen readers support;
 
-    \item \textit{Auditory accessibility}: providing alternatives for users who are deaf or hard of hearing, offering clear controls and alternative  visuals for audio content, ensuring compatibility with assistive devices and giving feedback to specific actions done by users;
+    \item \textit{Auditory accessibility}: providing alternatives for users who have a hearing impairment or hard of hearing, offering clear controls and alternative  visuals for audio content, ensuring compatibility with assistive devices and giving feedback to specific actions done by users;
 
     \item \textit{Motor accessibility}: accommodating users with limited dexterity or mobility, providing alternative input navigation, create a design so to help avoiding complex gestures, customize the interactions and gestures, reducing precision and accommodating errors;
 
-    \item \textit{Cognitive accessibility}: ensuring content is understandable for users with different cognitive abilities, creating a consistent and predictable navigation, visual support on UI so to support focus and attention and enhancing comprehension of interface components.
+    \item \textit{Cognitive accessibility}: ensuring content is understandable for users with different cognitive abilities. This includes having consistent and predictable navigation, using visual aids to help users stay focused, and making sure all parts of the interface are easy to understand.
     
 \end{enumerate}
 
@@ -27,19 +27,19 @@ In the mobile environment, such considerations is important, since there is a co
 \begin{enumerate}
     \item Device diversity and integration - accommodating different gestures, interfaces and interaction modalities
         \begin{itemize}
-            \item Traditional mobile devices (smartphones, tablets)
-            \item Emerging form factors (foldables, dual-screen devices)
-            \item Wearable technology (smartwatches, fitness trackers)
-            \item Embedded systems (vehicle interfaces, smart home controls)
-            \item IoT devices with mobile interfaces
+            \item Standard mobile devices (smartphones, tablets);
+            \item Emerging device formats (foldables, dual-screen devices);
+            \item Wearable technology (smartwatches, fitness trackers);
+            \item Embedded systems (vehicle interfaces, smart home controls);
+            \item IoT devices with mobile interfaces.
         \end{itemize}
     \item Usage context variations - may influence the overload of information and the cognitive load perceived by the user
         \begin{itemize}
-            \item Environmental conditions (lighting, noise, movement)
-            \item User posture and mobility situations
-            \item Attention availability and cognitive load
-            \item Physical constraints and limitations
-            \item Social and cultural contexts
+            \item Environmental conditions (lighting, noise, movement);
+            \item User posture and mobility situations;
+            \item Attention availability and cognitive load;
+            \item Physical constraints and limitations;
+            \item Social and cultural contexts.
         \end{itemize}
 \end{enumerate}
 
@@ -47,9 +47,13 @@ These considerations are important since they impact how accessibility features 
 
 \begin{itemize}
     \item \textit{Touch-based interactions}: here, traditional interactions present specific challenges and opportunities for accessibility: actions like tapping (selection/activation), double tapping (confirmation/secondary actions), long pressing (contextual menus/additional options), swiping (navigation/list scrolling) and pinching (zoom control) are used. These gestures may need alternatives regarding timing in long presses, touch stabilization and increased touch target sizes, since they can be also combined with multiple patterns e.g. multi-finger gestures and edge swipes;
+    
     \item \textit{Voice control and speech input}: navigation commands and action triggers can be activated giving directions (e.g. "go back", "scroll down"), inputting text thorough dictation, while giving auditory feedback and interactions vocally;
+    
     \item \textit{Motion and sensor-based input}: modern devices offer various sensor-based interaction methods, like tilting controls for navigation, shaking gestures for specific actions, orientation changes for layout adaptation, using proximity sensors to detect gestures without touch;
+    
     \item \textit{Switch access and external devices}: providing support for alternative input methods is crucial, providing physical single or multiple switch support, sequential focus navigation and customizable timing controls. Some users might find useful to have external input devices like keyboards, specialized controllers, Braille displays, but also help from custom assistive devices;
+    
     \item \textit{Haptic feedback}: tactile feedback provides important interaction cues, on actions confirmation, error notifications and context-sensitive responses, e.g. force-touch interactions and pressure-based controls.
 \end{itemize}
 
@@ -58,51 +62,36 @@ It's useful to analyze such commands since the focus would be describing how to 
 \begin{itemize}
     \item \textit{TalkBack for Android}: Google's screen reader provides comprehensive accessibility support through:
         \begin{itemize}
-            \item Touch exploration mode allowing users to hear screen content by touching it
-            \item Custom gesture navigation system for efficient interface interaction
-            \item Customizable feedback settings for different user preferences
-            \item Integration with external Braille displays and keyboards (also with complementary services like \textit{BrailleBack})
+            \item Linear navigation mode that allows users to systematically explore screen content through swipe gestures, which replaces traditional mouse or direct touch interaction;
+            \item Touch exploration mode allowing users to hear screen content by touching it and make navigation predictable and systematic;
+            \item Custom gesture navigation system for efficient interface interaction;
+            \item Customizable feedback settings for different user preferences;
+            \item Integration with external Braille displays and keyboards (also with complementary services like \textit{BrailleBack});
             \item Support for different languages and speech rates
-            \item Help in combination of \textit{Switch Access}, built-in feature to help users using switches instead of touch gestures
+            \item Help in combination of \textit{Switch Access}, built-in feature to help users using switches instead of touch gestures.
         \end{itemize}
     
     \item \textit{VoiceOver for iOS}: Apple's integrated screen reader offers:
         \begin{itemize}
-            \item Rotor control for customizable navigation options
-            \item Advanced gesture recognition system
-            \item Direct touch exploration of screen elements
-            \item Automatic language detection and switching
-            \item Comprehensive Braille support across multiple standards
-            \item Complete integration with \textit{Zoom}, a built-in screen magnifier present in iOS devices to zoom in on any part of the screen
-            \item Integrated with other a suite of other accessibility tools present in iOS devices, available to all users
+            \item Rotor control for customizable navigation options;
+            \item Advanced gesture recognition system;
+            \item Direct touch exploration of screen elements;
+            \item Automatic language detection and switching;
+            \item Comprehensive Braille support across multiple standards;
+            \item Complete integration with \textit{Zoom}, a built-in screen magnifier present in iOS devices to zoom in on any part of the screen;
+            \item Integrated with other a suite of other accessibility tools present in iOS devices, available to all users.
         \end{itemize}
 
     \item \textit{Select to Speak for Android}: A complementary feature that provides:
         \begin{itemize}
-            \item On-demand reading of selected screen content
-            \item Visual highlighting of spoken text
-            \item Simple activation through dedicated gestures
-            \item Integration with system-wide accessibility settings
+            \item On-demand reading of selected screen content;
+            \item Visual highlighting of spoken text;
+            \item Simple activation through dedicated gestures;
+            \item Integration with system-wide accessibility settings.
         \end{itemize}
 \end{itemize}
 
-In the thesis, apart from considering the degree of importance of each kind of interactions, the implementation of accessibility support between two of the most popular mobile development frameworks will be given. The implementation of accessibility support varies significantly between Flutter and React Native, particularly in how they interact with these native features. Flutter creates an accessibility tree that maps to native accessibility APIs, while React Native provides direct bindings to platform-specific accessibility features. This fundamental difference affects how developers must approach accessibility implementation in their applications and such will be explored in related chapters and subsections.
-
-\section{Related works}
-\label{chap:intro-related-works}
-
-Research in mobile accessibility spans multiple areas, from user interaction studies to framework-specific analyses. This section presents relevant work organized by key research themes that inform our framework comparison approach. Different studies will be presented here, discussing the importance of studies between people and interaction with mobile devices, may they be with disabilities or not, evaluating accessibility barriers and understanding guidelines which can be generally used. \\
-
-In exploring accessibility solutions for mobile applications, a notable contribution comes from Zaina et al. "Preventing accessibility barriers: Guidelines for using user interface design patterns in mobile applications" \cite{zaina2022preventing}, who conducted extensive research into accessibility barriers that arise when using design patterns for building mobile user interfaces. The authors recognize that several user interface design patterns are present inside of libraries, but do not attach significant importance to accessibility features, which are already present in language. This study tried to adopt a \gls{grayliteraturereview} approach, gathering insights and capture real practitioners' experiences and challenges in implementing UI patterns, done by investigating professional forums or blogs. This approach proved valuable, since this was recognized as a source of practical knowledge and evidence a comprehensive catalog documenting 9 different user interface design patterns, along with descriptions of accessibility barriers present for each one and specific guidelines for prevention, for example inside of Input and Data components but also animated parts. The study's validation phase involved 60 participants, highlighting the fact participants saw value in the guidelines not just for implementing accessibility features, but also for improving their overall understanding of accessible design principles. These comprehensive results demonstrated both the practical applicability of the guidelines in real development scenarios and their effectiveness as an educational tool for raising awareness about accessibility concerns among developers.\\
-
-Another significant contribution to report here was conducted by Vendome et al. "Can everyone use my app? An Empirical Study on Accessibility in Android Apps" \cite{vendome2019can} analyzed the implementation of accessibility features inside of Android applications both quantitatively and qualitatively, with the main goal of understanding accessibility practices among developers and identify common implementation patterns through a systematic approach, while mining the web to look for data. The methodology of the research contained two major parts: first, they did a mining-based analysis of 13,817 Android applications from GitHub that had at least one follower, star, or fork to avoid abandoned projects. They have done a static analysis on the usage of accessibility APIs and the presence of assistive content description in GUI components. A second component was a qualitative review of 366 Stack Overflow discussions related to accessibility, which were formally coded following an open-coding process with multi-author agreement. \\
-
-The key results of the mining study were that while half of the apps supported assistive content descriptions for all GUI components, only 2.08\% used accessibility APIs. The Stack Overflow analysis revealed that support for visually impaired users dominated the discussions-43\% of the questions-and remarkably enough, 36\% of the accessibility API-related questions were about using these APIs for non-accessibility purposes.
-The study identified several critical barriers to accessibility implementation: lack of developer knowledge about accessibility features, limited automated support and insufficient guidance for screen readers, while having a notable gap between accessibility guidelines and implementation practices. \\
-
-Another paper reporting notable findings is the one from Pandey et al. "Accessibility of UI Frameworks and Libraries for Programmers with Visual Impairments" \cite{pandey2022accessibility}, an analytical work of 96 mailing list threads combined with 18 interviews carried out with programmers with visual impairments. The authors investigate how frameworks shape programming experiences and collaboration with sighted developers. As expected, it concluded that accessibility problems are difficult to be reduced either to programming tool UI frameworks alone: they result from interactions between multiple software components including IDEs, browser developer tools, UI frameworks, operating systems, and screen readers, a topic of this thesis and research. Results showed that, although UI frameworks have the potential to enable relatively independent creation of user interfaces that reduce reliance on sighted assistance, many of those frameworks claimed themselves to be accessible out-of-the-box, but only partially lived up to this promise. Indeed, their results showed that various accessibility barriers in programming tools and UI frameworks complicate writing UI code, debugging, and testing, and even collaboration with sighted colleagues. \\
-
-A research discussing and comparing the two frameworks addressing accessibility issues, which this thesis wants to base upon, is the research by Gaggi and Perinello "Accessibility of Mobile User Interfaces using Flutter and React Native" \cite{perinello2024accessibility}, investigating three main questions: whether components are accessible by default, if non-accessible components can be made accessible, and the development cost in terms of additional code required. The study examines a set of UI elements against WCAG criteria and proposes solutions when official documentation is insufficient. This thesis wants to expand previous research conducted by Budai "Mobile content accessibility guidelines on the Flutter framework" \cite{budai2024mobile} on Flutter's accessibility features, proposing mobile-specific guidelines when necessary, proposing connection and a deeper evaluation of both frameworks and proposing a more practical and developer-focused approach. The actual goal is to provide a practical resource that helps developers making informed decisions about accessibility implementation in their mobile apps, while analyzing and comparing in detail components between Flutter and React Native.  
+In the thesis, apart from considering the degree of importance of each kind of interactions, the implementation of accessibility support between two of the most popular mobile development frameworks will be given. The implementation of accessibility support varies significantly between Flutter and React Native, particularly in how they interact with these native features. Flutter creates an accessibility tree that maps to native accessibility APIs, while React Native provides direct bindings to platform-specific accessibility features. This fundamental difference affects how developers must approach accessibility implementation in their applications and it will be explored. 
 
 \section{Thesis structure}
 \label{chap:intro-structure} 
@@ -110,7 +99,7 @@ A research discussing and comparing the two frameworks addressing accessibility 
 In this subsection, a brief description of the rest of the thesis is given:
 
 \begin{description}
-    \item[{\hyperref[chap:accessibility]{The second chapter}}]  examines accessibility guidelines specific to mobile applications, including WCAG mobile adaptations, platform-specific requirements for iOS and Android, legal framework regulations, implementation considerations and testing methodologies;
+    \item[{\hyperref[chap:accessibility]{The second chapter}}] employs a literature overview on the themes regarding mobile accessibility and goes in better depth discussing about accessibility guidelines specific to mobile applications, including WCAG mobile adaptations, platform-specific requirements for iOS and Android, legal framework regulations, implementation considerations and testing methodologies;
     
     \item[{\hyperref[chap:frameworks]{The third chapter}}] provides an overview of Flutter and React Native architecture and component modeling, while discussing framework-specific accessibility support features;
     

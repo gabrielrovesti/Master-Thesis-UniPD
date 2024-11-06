@@ -50,6 +50,27 @@
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
+% Keep chapter format with "Chapter X" but modify spacing
+\titleformat{\chapter}[display]
+    {\normalfont\huge\bfseries}
+    {\chaptertitlename\ \thechapter}
+    {10pt}   % Reduced space between "Chapter X" and the title
+    {\Huge}
+
+% Reduce spacing before and after the chapter
+\titlespacing*{\chapter}
+    {0pt}    % left margin
+    {20pt}   % space before title (reduced from default 50pt)
+    {20pt}   % space after title (reduced from default 40pt)
+
+\newcommand{\chapterintroline}[1]{%
+    \begin{quote}
+    \normalfont
+    #1
+    \end{quote}
+    \centerline{\rule{0.5\textwidth}{0.5pt}}  % Adds a horizontal line
+}
+
 % Page styling
 \pagestyle{fancy}
 \fancyhf{}

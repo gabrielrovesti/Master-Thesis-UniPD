@@ -5,19 +5,16 @@
     a4paper,
     english
 ]{book}
-
 \setcounter{secnumdepth}{4}
-
 \input{config/packages}
 \input{config/thesis_config}
-
 \date{}
-
 \hypersetup{pdfstartview=}
+
 \begin{document}
     \frontmatter
     \input{preface/1_title_page}
-    \increasepagenumbering % increase the page numbrering by 1, in order to cout the frontispiece
+    \increasepagenumbering
     \input{preface/2_copyright}
     \input{preface/3_acknowledgements}
     
@@ -25,15 +22,14 @@
     \input{preface/5_table_of_contents}
     \printglossary[type=\acronymtype, title=Acronyms and abbreviations, toctitle=Acronyms and abbreviations]
     \printglossary[type=main, title=Glossary, toctitle=Glossary]
-
+    
     \mainmatter
     \input{chapters/1_introduction}
     \input{chapters/2_accessibility}
     \input{chapters/3_frameworks}
     \input{chapters/4_analysis}
     \input{chapters/5_conclusions}
-
-    \pagenumbering{roman}
+    
     \backmatter
     \input{references/bibliography}
 \end{document}

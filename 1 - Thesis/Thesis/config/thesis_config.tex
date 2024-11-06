@@ -6,13 +6,14 @@
 \definecolor{tableGray}{HTML}{F5F5F7}
 \definecolor{veryPeri}{HTML}{6667ab}
 
-\chapterfont{\fontsize{24}{22}\selectfont}  % Reduces chapter font size
+% Set chapter font size
+\chapterfont{\fontsize{24}{22}\selectfont}
 
 % Set line height
 \linespread{1.5}
 
 % Custom hyphenation rules
-\hyphenation {
+\hyphenation{
     data-base
     al-go-rithms
     soft-ware
@@ -29,33 +30,34 @@
 % Images path
 \graphicspath{{img/}}
 
-% Force page color, as some editors set a grayish color as default
+% Force page color
 \pagecolor{white}
 
 % Better spacing for footnotes
 \setlength{\skip\footins}{5mm}
 \setlength{\footnotesep}{5mm}
 
-\setlength{\headheight}{14.5pt}
-\addtolength{\topmargin}{-2.45pt}
+% Fix header height warning
+\setlength{\headheight}{27.11652pt}
+\addtolength{\topmargin}{-12.61652pt}
 
-% Add a subscript G to a glossary entry
+% Add glossary subscript
 \newcommand{\glox}{\textsubscript{\textbf{\textit{G}}}}
 
-% Improvements the paragraph command
+% Paragraph formatting
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-% Apply fancy styling to pages
+% Page styling
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\leftmark} % Places Chapter N. Chatper title on the top left
-\fancyfoot[C]{\thepage} % Page number in the center of the footer
+\fancyhead[L]{\leftmark}
+\fancyfoot[C]{\thepage}
 
-% Adds a blank page while increasing the page number
-\newcommand\blankpage{ 
+% Utility commands
+\newcommand\blankpage{
 \clearpage
     \begingroup
     \null
@@ -65,35 +67,36 @@
 \endgroup
 }
 
-% Adds a blank page while increasing the page number
-\newcommand\blankpagewithnumber{ 
+\newcommand\blankpagewithnumber{
   \clearpage
-  \thispagestyle{plain} % Use plain page style to keep the page number
+  \thispagestyle{plain}
   \null
   \clearpage
 }
 
-% Increase page numbering
 \newcommand\increasepagenumbering{
     \addtocounter{page}{+1}
 }
 
+% Load glossaries
 \input{references/glossary_acronyms}
-% Make glossaries and bibliography
 \makeglossaries
-% Redefine the format for the glossary entries to be italic
 \renewcommand*{\glstextformat}[1]{\textit{#1}\glox}
 \glsaddall
 
-\bibliography{references/bibliography}
-\defbibheading{bibliography} {
+% Bibliography setup
+\addbibresource{references/bibliography.bib}
+\defbibheading{bibliography}{
     \cleardoublepage
     \phantomsection
     \addcontentsline{toc}{chapter}{\bibname}
     \chapter*{\bibname\markboth{\bibname}{\bibname}}
 }
 
-% Set up hyperlinks
+% Add this to suppress split bibliography warning
+\BiblatexSplitbibDefernumbersWarningOff
+
+% Hyperref setup
 \hypersetup{
     colorlinks=true,
     linktocpage=true,
@@ -112,7 +115,7 @@
     allcolors = hyperColor
 }
 
-% Set up captions
+% Caption setup
 \captionsetup{
     tableposition=top,
     figureposition=bottom,

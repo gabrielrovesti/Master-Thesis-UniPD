@@ -62,6 +62,7 @@ To run on iOS (if you're on a Mac):
 - On physical device
 
 ```
+
 > npx react-native run-android
 
 ```
@@ -69,13 +70,35 @@ To run on iOS (if you're on a Mac):
 - To choose between multiple running emulators:
 
 ```
+
 > adb devices
 > npx react-native run-android --deviceId=DEVICE_ID
 
-If project does not have an Android folder, we do:
-> npx react-native eject
+```
 
+If project does not have an Android folder, we do:
+
+```
+
+> npx react-native eject
 > npx expo prebuild (what I did)
 > npx react-native run-android
 
 ```
+
+- Create APK directly or create Android folder:
+    
+```
+
+> npx expo build:android
+
+```
+
+or 
+
+```
+
+npx expo run:android
+
+```
+

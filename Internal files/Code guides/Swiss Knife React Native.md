@@ -98,7 +98,7 @@ or
 
 ```
 
-npx expo run:android
+n
 
 ```
 

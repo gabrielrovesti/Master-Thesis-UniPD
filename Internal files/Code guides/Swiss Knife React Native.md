@@ -98,7 +98,9 @@ or
 
 ```
 
-n
+npx react-native build-android --mode=release
+
+😭 https://stackoverflow.com/questions/32634352/react-native-android-build-failed-sdk-location-not-found
 
 ```
 

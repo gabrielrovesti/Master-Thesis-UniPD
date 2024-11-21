@@ -10,7 +10,6 @@
 ```
 > npx create-expo-app ProjectName
 > cd ProjectName
-> npm start
 
 ```
 
@@ -81,7 +80,15 @@ If project does not have an Android folder, we do:
 ```
 
 > npx react-native eject
-> npx expo prebuild (what I did)
+> npx expo prebuild 
+
+OR
+
+> npx expo prebuild --clean
+(deletes android folders and ios folders)
+
+```
+
 > npx react-native run-android
 
 ```
@@ -100,7 +107,8 @@ or
 
 npx react-native build-android --mode=release
 
-😭 https://stackoverflow.com/questions/32634352/react-native-android-build-failed-sdk-location-not-found
-
 ```
 
+Common errors:
+- https://stackoverflow.com/questions/42393545/how-to-fix-missing-gradle-project-configuration-file-issue-in-buildship
+- https://stackoverflow.com/questions/32634352/react-native-android-build-failed-sdk-location-not-found

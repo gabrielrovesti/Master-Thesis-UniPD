@@ -1,12 +1,118 @@
-\chapter{Cross-platform development frameworks}
+\chapter{Cross-platform frameworks: An accessibility-oriented discussion and creation of a developers manual application}
 \label{chap:frameworks}
 
 \chapterintroline{
-    Lorem ipsum
+    This chapter analyzes the development of an accessibility-focused application that serves as a manual for developers. The project aims to enhance the implementation of accessibility in mobile development through practical examples and technical documentation via the realization of an ad-hoc mobile application. Building upon Budai's research, this work shifts focus to provide developers with direct implementation guidance, comparing different mobile frameworks while maintaining a structured educational approach. Starting from the application itself, cross-development frameworks will be discussed and compared by an overview, comparing precisely their features in the following chapter.
 }
 
-\section{Section}
-\label{sec:third-section}
+\section{Introduction and context}
+\label{sec:intro-context}
+
+The development of accessible mobile applications presents unique challenges for developers, particularly in cross-platform environments. While accessibility guidelines exist through WCAG and platform-specific documentation, there remains a significant gap between theoretical guidelines and practical implementation. Current research, including Budai's work on Flutter accessibility testing, has primarily focused on end-user validation and testing methodologies. However, developers need practical, implementation-focused guidance that bridges multiple frameworks and platforms.
+
+This thesis addresses these issues by providing a comprehensive guide for implementing accessibility features and offering a structured comparison between frameworks, offering developers a fast and precise way to implement such guidelines inside of their projects.
+
+The goal is to create an accessible application that serves three key purposes:
+\begin{enumerate}
+    \item To provide developers with practical, interactive examples of accessibility implementation, able to be copied easily and ported inside of other projects;
+    \item To compare and contrast accessibility approaches between the main cross-development mobile frameworks in the current mobile landscape;
+    \item To establish a reusable pattern library that demonstrates engine architecture, widget systems, and native platform integration, while ensuring compliance with current accessibility guidelines and legal requirements.
+\end{enumerate}
+
+The following sections will detail the development of AccessibleHub, an application developed in React Native designed to serve as a practical manual for implementing accessibility features. While the technical aspects of cross-platform frameworks will be discussed later, the focus remains on providing developers with actionable implementation patterns and comparative insights for building accessible applications.
+
+\section{AccessibleHub: A Developer's Manual}
+\label{sec:accessiblehub}
+
+\subsection{Application overview and goals}
+\label{subsec:overview-goals}
+
+AccessibleHub is a React Native application designed to serve as an interactive manual for implementing accessibility features in mobile development. Unlike traditional documentation or testing frameworks, the application provides developers with hands-on examples and implementation patterns that can be directly applied to their projects.
+
+The application is structured around four main sections:
+\begin{enumerate}
+    \item \textit{Component examples}: Interactive demonstrations of common UI elements with proper accessibility implementations, including buttons, forms, media content, and navigation patterns. This allows developers to clearly see the implementation of an accessible component and easily copy the code to their convenience.
+    
+    \item \textit{Framework comparison}: A detailed analysis of accessibility implementation approaches between React Native and Flutter, highlighting differences in component structure, properties, and required code.
+    
+    \item \textit{Testing tools}: Built-in utilities for validating accessibility features, allowing developers to understand how screen readers and other assistive technologies interact with their implementations.
+    
+    \item \textit{Implementation guidelines}: Technical documentation that connects WCAG requirements to practical code examples, providing clear paths for meeting accessibility standards.
+\end{enumerate}
+
+Each component in AccessibleHub serves dual purposes: demonstrating proper accessibility implementation while providing reusable code patterns. The application emphasizes practical implementation over theoretical guidelines, showing developers not just what to implement, but how to implement it effectively.
+
+By focusing on developer experience, AccessibleHub bridges the gap between accessibility requirements and actual implementation, providing a resource that can be directly integrated into the development workflow.
+
+\subsection{Design philosophy}
+
+\begin{itemize}
+\item Principles guiding the design of AccessibleHub
+\item Emphasis on usability, learnability, and accessibility
+\item Design patterns and best practices incorporated
+\end{itemize}
+
+\subsection{Educational approach}
+
+\begin{itemize}
+\item Strategies used to make the application an effective learning tool
+\item Interactive examples, clear explanations, and progressive complexity
+\item Integration of accessibility concepts and practical implementation
+\end{itemize}
+
+\section{Implementation analysis}
+
+\subsection{WCAG Guidelines implementation}
+
+\begin{itemize}
+\item How WCAG guidelines are incorporated into AccessibleHub
+\item Mapping of guidelines to specific components and features
+\item Challenges and solutions in implementing WCAG in a practical context
+\end{itemize}
+
+\subsection{Comparison with Budai's approach}
+
+\begin{itemize}
+\item Discussion of how AccessibleHub builds upon and differs from Budai's research
+\item Focus on developer guidance versus end-user validation and testing
+\item Enhancements and new perspectives offered by AccessibleHub
+\end{itemize}
+
+\subsection{Framework-specific considerations}
+
+\begin{itemize}
+\item Unique aspects of implementing accessibility in React Native
+\item Leveraging framework capabilities and overcoming limitations
+\item Comparison with Flutter and other cross-platform frameworks
+\end{itemize}
+
+\section{Framework analysis}
+
+\subsection{Flutter Overview}
+
+\begin{itemize}
+\item Brief introduction to Flutter and its key features
+\item Accessibility support and tools provided by Flutter
+\item Strengths and weaknesses of Flutter for accessible development
+\end{itemize}
+
+\subsection{React Native Overview}
+
+\begin{itemize}
+\item Brief introduction to React Native and its key features
+\item Accessibility support and tools provided by React Native
+\item Strengths and weaknesses of React Native for accessible development
+\end{itemize}
+
+\subsection{Accessibility implementation comparison}
+
+\begin{itemize}
+\item Detailed comparison of accessibility implementation between React Native and Flutter
+\item Code examples, properties, and required effort
+\item Insights and recommendations for developers choosing between frameworks
+\end{itemize}
+
+\newpage
 
 %% Example of code usage
 

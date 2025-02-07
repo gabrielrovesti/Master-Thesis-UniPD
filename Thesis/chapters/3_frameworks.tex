@@ -1,4 +1,4 @@
-\chapter{Cross-platform frameworks: An accessibility-oriented discussion and creation of a developers manual application}
+\chapter{Cross-platform frameworks: An accessibility-oriented discussion and creation of a developers manual}
 \label{chap:frameworks}
 
 \chapterintroline{
@@ -24,8 +24,7 @@ The following sections will detail the development of AccessibleHub, an applicat
 \section{AccessibleHub: A Developer's Manual}
 \label{sec:accessiblehub}
 
-\subsection{Application overview and goals}
-\label{subsec:overview-goals}
+\subsection{Core architecture and design principles}
 
 AccessibleHub is a React Native application designed to serve as an interactive manual for implementing accessibility features in mobile development. Unlike traditional documentation or testing frameworks, the application provides developers with hands-on examples and implementation patterns that can be directly applied to their projects.
 
@@ -40,25 +39,40 @@ The application is structured around four main sections:
     \item \textit{Implementation guidelines}: Technical documentation that connects WCAG requirements to practical code examples, providing clear paths for meeting accessibility standards.
 \end{enumerate}
 
-Each component in AccessibleHub serves dual purposes: demonstrating proper accessibility implementation while providing reusable code patterns. The application emphasizes practical implementation over theoretical guidelines, showing developers not just what to implement, but how to implement it effectively.
+Each component in AccessibleHub serves dual purposes: demonstrating proper accessibility implementation while providing reusable code patterns. The application emphasizes practical implementation over theoretical guidelines, showing developers not just what to implement effectively. By focusing on developer experience, AccessibleHub bridges the gap between accessibility requirements and actual implementation, providing a resource that can be directly integrated into the development workflow. \\
 
-By focusing on developer experience, AccessibleHub bridges the gap between accessibility requirements and actual implementation, providing a resource that can be directly integrated into the development workflow.
+The \textit{design} philosophy of AccessibleHub is founded on principles that bridge theoretical accessibility guidelines with practical implementation needs. While analyzing the current landscape of mobile development frameworks and accessibility implementation presented in \ref{chap:accessibility-literature}, a clear pattern emerges: developers need more practical, implementation-focused guidance that directly addresses the complexity of building accessible applications. To address this need, AccessibleHub adopts three fundamental architectural principles:
 
-\subsection{Design philosophy}
+\begin{enumerate}
+    \item The usage of a \textit{component-first architecture}, where each UI element exists as an independent, self-contained unit demonstrating both implementation patterns and accessibility features. In other words, each one of them is being constructed within an \textit{accessibility-first} experience which ensures that usage of screen readers and other assistive technologies is kept as a priority. This modular approach provides two advantages: it first allows developers to comprehend and apply accessibility features in isolation, hence reducing cognitive load and implementation complexity, and enables systematic testing and validation of accessibility features of every component. Also, this means accessibility patterns can be studied, implemented, and verified in isolation from added complexity brought in by interactions among those components. 
 
-\begin{itemize}
-\item Principles guiding the design of AccessibleHub
-\item Emphasis on usability, learnability, and accessibility
-\item Design patterns and best practices incorporated
-\end{itemize}
+    \item \textit{Progressive enhancement} as a core design methodology. Instead of presenting accessibility as big challenge from the start, components are structured in increasing levels of complexity. This starts with basic elements like buttons and text inputs where basic accessibility patterns can be established. As developers master these foundational components, the application introduces more complex patterns such as forms, navigation systems, and gesture-based interactions. This helps into guiding the development towards more complicated scenarios.
 
-\subsection{Educational approach}
+    \item Focus on \textit{framework-agnostic patterns}, not depending on a specific framework while providing concrete code implementations. Even though AccessibleHub has been implemented in React Native, all the patterns and principles explained are designed to transcend into specific framework implementations. The approach wants to give importance to the compatibility and reusability in the framework on the mobile development side. It will compare the implementations, mainly between React Native and Flutter, to show how developers can port accessibility patterns across different frameworks and understand core accessibility concepts in an easy-to-implement manner within professional projects. 
+    
+\end{enumerate}
 
-\begin{itemize}
-\item Strategies used to make the application an effective learning tool
-\item Interactive examples, clear explanations, and progressive complexity
-\item Integration of accessibility concepts and practical implementation
-\end{itemize}
+Through these principles, AccessibleHub aims to transform accessibility from an afterthought into an \textit{accessibility-by-design}. The application serves not just as a reference implementation, but as an educational tool that guides developers through the process of building truly accessible applications. This approach recognizes that effective accessibility implementation requires both theoretical understanding and practical experience, providing developers with the tools they need to create more inclusive mobile applications.
+
+\subsection{Component architecture}
+% Detail the specific implementation of the component-first approach, including:
+- How components are structured to prioritize accessibility
+- The relationship between UI elements and accessibility features
+- Validation and testing mechanisms built into components
+
+\subsection{Educational framework}
+% Expand your educational approach section to include:
+- The learning progression model
+- Integration of theoretical concepts with practical implementation
+- Assessment and feedback mechanisms
+- Developer skill development tracking
+
+\subsection{Implementation patterns and guidelines}
+% This would be a new section focusing on:
+- Pattern library organization
+- Documentation structure
+- Code reusability principles
+- Accessibility validation workflows
 
 \section{Implementation analysis}
 

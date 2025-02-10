@@ -1,0 +1,664 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{jaramillo2017cognitive}{article}{}
+      \name{author}{3}{}{%
+        {{hash=9c3c3a679ed4adf3cbcc28e6fdc09816}{%
+           family={Angel},
+           familyi={A\bibinitperiod},
+           given={Jaramillo-Alcázar},
+           giveni={J\bibinithyphendelim A\bibinitperiod}}}%
+        {{hash=999a98b6d5a46e11b6dbda6e8f0de2e4}{%
+           family={Sergio},
+           familyi={S\bibinitperiod},
+           given={Luján-Mora\bibnamedelima -},
+           giveni={L\bibinithyphendelim M\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod}}}%
+        {{hash=29779007eb7e825269c10c2e44e82fcb}{%
+           family={Luis},
+           familyi={L\bibinitperiod},
+           given={Salvador-Ullauri},
+           giveni={S\bibinithyphendelim U\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{6d8c74f27026d346eb87f36284043029}
+      \strng{fullhash}{6d8c74f27026d346eb87f36284043029}
+      \strng{bibnamehash}{6d8c74f27026d346eb87f36284043029}
+      \strng{authorbibnamehash}{6d8c74f27026d346eb87f36284043029}
+      \strng{authornamehash}{6d8c74f27026d346eb87f36284043029}
+      \strng{authorfullhash}{6d8c74f27026d346eb87f36284043029}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2017 International Conference on Information Systems and Computer Science (INCISCOS)}
+      \field{title}{Accessibility Assessment of Mobile Serious Games for People with Cognitive Impairments}
+      \field{year}{2017}
+      \field{pages}{323\bibrangedash 328}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/INCISCOS.2017.12
+      \endverb
+    \endentry
+    \entry{budai2024mobile}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b7f60de028bf93ba731e20a20da24657}{%
+           family={Budai},
+           familyi={B\bibinitperiod},
+           given={Matteo},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {University of Padua}%
+      }
+      \list{location}{1}{%
+        {Padua, Italy}%
+      }
+      \list{publisher}{1}{%
+        {Department of Mathematics "Tullio Levi-Civita"}%
+      }
+      \strng{namehash}{b7f60de028bf93ba731e20a20da24657}
+      \strng{fullhash}{b7f60de028bf93ba731e20a20da24657}
+      \strng{bibnamehash}{b7f60de028bf93ba731e20a20da24657}
+      \strng{authorbibnamehash}{b7f60de028bf93ba731e20a20da24657}
+      \strng{authornamehash}{b7f60de028bf93ba731e20a20da24657}
+      \strng{authorfullhash}{b7f60de028bf93ba731e20a20da24657}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mobile content accessibility guidelines on the Flutter framework}
+      \field{type}{Master's Thesis}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://hdl.handle.net/20.500.12608/68870
+      \endverb
+      \verb{url}
+      \verb https://hdl.handle.net/20.500.12608/68870
+      \endverb
+    \endentry
+    \entry{chen2023automated}{article}{}
+      \name{author}{3}{}{%
+        {{hash=06debc36f6b61a405e8f0da1c7ccd6ca}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Wei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=8b41fe0754fd3864ac9f18e92f6daf24}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=32a08717e0d6dcde59bc98b96800ed6c}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{421787c9c591486b8a0e542088bc45bf}
+      \strng{fullhash}{421787c9c591486b8a0e542088bc45bf}
+      \strng{bibnamehash}{421787c9c591486b8a0e542088bc45bf}
+      \strng{authorbibnamehash}{421787c9c591486b8a0e542088bc45bf}
+      \strng{authornamehash}{421787c9c591486b8a0e542088bc45bf}
+      \strng{authorfullhash}{421787c9c591486b8a0e542088bc45bf}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Transactions on Accessible Computing}
+      \field{number}{2}
+      \field{title}{AccuBot: Automated Accessibility Testing for Mobile Applications}
+      \field{volume}{16}
+      \field{year}{2023}
+      \field{pages}{1\bibrangedash 25}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1145/3584701
+      \endverb
+    \endentry
+    \entry{silva2018survey}{article}{}
+      \name{author}{3}{}{%
+        {{hash=027e2321ee71881c48170030cf9176c8}{%
+           family={Claudia},
+           familyi={C\bibinitperiod},
+           given={Silva},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b28067b3f75c6429bbd15f4ff4b951e1}{%
+           family={M.},
+           familyi={M\bibinitperiod},
+           given={Eler\bibnamedelimb -\bibnamedelima Marcelo},
+           giveni={E\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=56a101b70f805f1a55626013ad6dd138}{%
+           family={Gordon},
+           familyi={G\bibinitperiod},
+           given={Fraser},
+           giveni={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{d08af153399fb50e205a98dcca1f23fd}
+      \strng{fullhash}{d08af153399fb50e205a98dcca1f23fd}
+      \strng{bibnamehash}{d08af153399fb50e205a98dcca1f23fd}
+      \strng{authorbibnamehash}{d08af153399fb50e205a98dcca1f23fd}
+      \strng{authornamehash}{d08af153399fb50e205a98dcca1f23fd}
+      \strng{authorfullhash}{d08af153399fb50e205a98dcca1f23fd}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the 8th International Conference on Software Development and Technologies for Enhancing Accessibility and Fighting Info-exclusion}
+      \field{title}{A survey on the tool support for the automatic evaluation of mobile accessibility}
+      \field{year}{2018}
+      \field{pages}{286\bibrangedash 293}
+      \range{pages}{8}
+    \endentry
+    \entry{article:right-to-internet}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ed07ed7390e982d74fd6615afef29149}{%
+           family={Council\bibnamedelimb of\bibnamedelima Europe},
+           familyi={C\bibinitperiod\bibinitdelim o\bibinitperiod\bibinitdelim E\bibinitperiod},
+           given={Parliament\bibnamedelima Assembly},
+           giveni={P\bibinitperiod\bibinitdelim A\bibinitperiod},
+           prefix={of\bibnamedelima the},
+           prefixi={o\bibinitperiod\bibinitdelim t\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Europian Union}%
+      }
+      \strng{namehash}{ed07ed7390e982d74fd6615afef29149}
+      \strng{fullhash}{ed07ed7390e982d74fd6615afef29149}
+      \strng{bibnamehash}{ed07ed7390e982d74fd6615afef29149}
+      \strng{authorbibnamehash}{ed07ed7390e982d74fd6615afef29149}
+      \strng{authornamehash}{ed07ed7390e982d74fd6615afef29149}
+      \strng{authorfullhash}{ed07ed7390e982d74fd6615afef29149}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The right to Internet access}
+      \field{urlday}{4}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{2014}
+      \field{urldateera}{ce}
+      \true{nocite}
+      \verb{urlraw}
+      \verb https://assembly.coe.int/nw/xml/XRef/Xref-XML2HTML-en.asp?fileid=20870
+      \endverb
+      \verb{url}
+      \verb https://assembly.coe.int/nw/xml/XRef/Xref-XML2HTML-en.asp?fileid=20870
+      \endverb
+    \endentry
+    \entry{oliveira2018elderly}{article}{}
+      \name{author}{4}{}{%
+        {{hash=844122921913161b8d1009a126b3283a}{%
+           family={de},
+           familyi={d\bibinitperiod},
+           given={Oliveira\bibnamedelimb Camila\bibnamedelima Dias},
+           giveni={O\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=9b1027b48e91de1ce6dedfdc55b53eea}{%
+           family={Lydia},
+           familyi={L\bibinitperiod},
+           given={Fioravanti\bibnamedelimb -\bibnamedelima Maria},
+           giveni={F\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=caecf82738a203bd88920f30fe19017c}{%
+           family={Mattos},
+           familyi={M\bibinitperiod},
+           given={Fortes\bibnamedelimb -\bibnamedelimb Renata\bibnamedelima Pontin},
+           giveni={F\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim R\bibinitperiod\bibinitdelim P\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=6f43a16e673d821a1bb79d52af1970b2}{%
+           family={Francine},
+           familyi={F\bibinitperiod},
+           given={Barbosa\bibnamedelimb -\bibnamedelima Ellen},
+           giveni={B\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{99e43326c69a6baef2a6d4df1b89d403}
+      \strng{fullhash}{dda3901d4a235e0a8f000d73f4e7af50}
+      \strng{bibnamehash}{99e43326c69a6baef2a6d4df1b89d403}
+      \strng{authorbibnamehash}{99e43326c69a6baef2a6d4df1b89d403}
+      \strng{authornamehash}{99e43326c69a6baef2a6d4df1b89d403}
+      \strng{authorfullhash}{dda3901d4a235e0a8f000d73f4e7af50}
+      \field{sortinit}{d}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2018 IEEE Frontiers in Education Conference (FIE)}
+      \field{title}{Accessibility in Mobile Applications for Elderly Users: A Systematic Mapping}
+      \field{year}{2018}
+      \field{pages}{1\bibrangedash 9}
+      \range{pages}{9}
+    \endentry
+    \entry{article:number-of-users}{online}{}
+      \name{author}{1}{}{%
+        {{hash=faf19df46d07203502a5ad8ae90f820d}{%
+           family={Department},
+           familyi={D\bibinitperiod},
+           given={Statista\bibnamedelima Research},
+           giveni={S\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Statista}%
+      }
+      \strng{namehash}{faf19df46d07203502a5ad8ae90f820d}
+      \strng{fullhash}{faf19df46d07203502a5ad8ae90f820d}
+      \strng{bibnamehash}{faf19df46d07203502a5ad8ae90f820d}
+      \strng{authorbibnamehash}{faf19df46d07203502a5ad8ae90f820d}
+      \strng{authornamehash}{faf19df46d07203502a5ad8ae90f820d}
+      \strng{authorfullhash}{faf19df46d07203502a5ad8ae90f820d}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Number of smartphone users worldwide from 2014 to 2029}
+      \field{urlday}{20}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{year}{2024}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.statista.com/statistics/203734/global-smartphone-penetration-per-capita-since-2005/
+      \endverb
+      \verb{url}
+      \verb https://www.statista.com/statistics/203734/global-smartphone-penetration-per-capita-since-2005/
+      \endverb
+    \endentry
+    \entry{vendome2019can}{article}{}
+      \name{author}{2}{}{%
+        {{hash=94356bcae32c3e880201ded8b3a57792}{%
+           family={Diana},
+           familyi={D\bibinitperiod},
+           given={Vendome\bibnamedelimb Christopher\bibnamedelimb -\bibnamedelima Solano},
+           giveni={V\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=45f2ff18e3ae241f06df1d7b3dd0a48a}{%
+           family={Mario},
+           familyi={M\bibinitperiod},
+           given={Liñán\bibnamedelimb Santiago\bibnamedelimb -\bibnamedelima Linares-Vásquez},
+           giveni={L\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim L\bibinithyphendelim V\bibinitperiod}}}%
+      }
+      \strng{namehash}{93604c25d45f7108750be0cacb78a292}
+      \strng{fullhash}{93604c25d45f7108750be0cacb78a292}
+      \strng{bibnamehash}{93604c25d45f7108750be0cacb78a292}
+      \strng{authorbibnamehash}{93604c25d45f7108750be0cacb78a292}
+      \strng{authornamehash}{93604c25d45f7108750be0cacb78a292}
+      \strng{authorfullhash}{93604c25d45f7108750be0cacb78a292}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 IEEE International Conference on Software Maintenance and Evolution (ICSME)}
+      \field{journaltitle}{IEEE}
+      \field{title}{Can everyone use my app? An Empirical Study on Accessibility in Android Apps}
+      \field{year}{2019}
+      \field{pages}{41\bibrangedash 52}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/ICSME.2019.00014
+      \endverb
+    \endentry
+    \entry{zahra2022systematic}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f15ac456bc0dabd5d6d2536f8e3d4183}{%
+           family={Husam},
+           familyi={H\bibinitperiod},
+           given={Abu\bibnamedelimb Zahra\bibnamedelima -},
+           giveni={A\bibinitperiod\bibinitdelim Z\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod}}}%
+        {{hash=31b4803daf1c4c2b8996d6a45fbff6be}{%
+           family={Samer},
+           familyi={S\bibinitperiod},
+           given={Zein\bibnamedelima -},
+           giveni={Z\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{2dbfbd9774a9671f129caaf96a38c480}
+      \strng{fullhash}{2dbfbd9774a9671f129caaf96a38c480}
+      \strng{bibnamehash}{2dbfbd9774a9671f129caaf96a38c480}
+      \strng{authorbibnamehash}{2dbfbd9774a9671f129caaf96a38c480}
+      \strng{authornamehash}{2dbfbd9774a9671f129caaf96a38c480}
+      \strng{authorfullhash}{2dbfbd9774a9671f129caaf96a38c480}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT)}
+      \field{title}{A Systematic Comparison Between Flutter and React Native from Automation Testing Perspective}
+      \field{year}{2022}
+      \field{pages}{6\bibrangedash 12}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/ISMSIT56059.2022.9932749
+      \endverb
+    \endentry
+    \entry{alshayban2020accessibility}{article}{}
+      \name{author}{2}{}{%
+        {{hash=762bd154adaf01d1418d6f1c70bb5654}{%
+           family={Iftekhar},
+           familyi={I\bibinitperiod},
+           given={Alshayban\bibnamedelimb Abdulaziz\bibnamedelimb -\bibnamedelima Ahmed},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=3c7d68ee7038a730a9ea5d8a9f20c2bd}{%
+           family={Sam},
+           familyi={S\bibinitperiod},
+           given={Malek},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{24591574346c84659d206278d3d94ab6}
+      \strng{fullhash}{24591574346c84659d206278d3d94ab6}
+      \strng{bibnamehash}{24591574346c84659d206278d3d94ab6}
+      \strng{authorbibnamehash}{24591574346c84659d206278d3d94ab6}
+      \strng{authornamehash}{24591574346c84659d206278d3d94ab6}
+      \strng{authorfullhash}{24591574346c84659d206278d3d94ab6}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{International Conference on Software Engineering (ICSE)}
+      \field{title}{Accessibility Issues in Android Apps: State of Affairs, Sentiments, and Ways Forward}
+      \field{year}{2020}
+      \field{pages}{1323\bibrangedash 1334}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1145/3377811.3380392
+      \endverb
+    \endentry
+    \entry{lee2021screenmate}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=68849de7bddc631134e79e037c50c3ee}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Jihoon},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9b05acf1dd7c823ec16f34fd2b6faf39}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Soomin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b0b312b71e9f0f0ba01027017c18717b}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Hyunwoo},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{2ae1ea7bd75ed629eaf69cfb0f19f0c2}
+      \strng{fullhash}{2ae1ea7bd75ed629eaf69cfb0f19f0c2}
+      \strng{bibnamehash}{2ae1ea7bd75ed629eaf69cfb0f19f0c2}
+      \strng{authorbibnamehash}{2ae1ea7bd75ed629eaf69cfb0f19f0c2}
+      \strng{authornamehash}{2ae1ea7bd75ed629eaf69cfb0f19f0c2}
+      \strng{authorfullhash}{2ae1ea7bd75ed629eaf69cfb0f19f0c2}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 24th International ACM SIGACCESS Conference on Computers and Accessibility}
+      \field{title}{ScreenMate: A Screen-Reader Simulation Toolkit for Mobile Accessibility Testing}
+      \field{year}{2021}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1145/3441852.3471213
+      \endverb
+    \endentry
+    \entry{nguyen2022flutter}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c8bdda2adbc6ce781c24d689336fd11a}{%
+           family={Nguyen},
+           familyi={N\bibinitperiod},
+           given={An},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5d0ddda3a367ceb26fbaeca02e391c22}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{cf02002a002d0c4c72a0f78991958312}
+      \strng{fullhash}{cf02002a002d0c4c72a0f78991958312}
+      \strng{bibnamehash}{cf02002a002d0c4c72a0f78991958312}
+      \strng{authorbibnamehash}{cf02002a002d0c4c72a0f78991958312}
+      \strng{authornamehash}{cf02002a002d0c4c72a0f78991958312}
+      \strng{authorfullhash}{cf02002a002d0c4c72a0f78991958312}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Mobile Engineering}
+      \field{title}{AccessiFlutter: Enhancing Accessibility in Flutter Applications through Automated Widget Analysis}
+      \field{volume}{8}
+      \field{year}{2022}
+      \field{pages}{45\bibrangedash 60}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1016/j.jme.2022.03.004
+      \endverb
+    \endentry
+    \entry{perinello2024accessibility}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e8a4ed4b2eed7970cbec9ee6c72ddc58}{%
+           family={Perinello},
+           familyi={P\bibinitperiod},
+           given={Lorenzo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=0829213c71043eae2d8d8b741759a86e}{%
+           family={Gaggi},
+           familyi={G\bibinitperiod},
+           given={Ombretta},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{8aaffebf02f5673bec5f2e959ea4cfbf}
+      \strng{fullhash}{8aaffebf02f5673bec5f2e959ea4cfbf}
+      \strng{bibnamehash}{8aaffebf02f5673bec5f2e959ea4cfbf}
+      \strng{authorbibnamehash}{8aaffebf02f5673bec5f2e959ea4cfbf}
+      \strng{authornamehash}{8aaffebf02f5673bec5f2e959ea4cfbf}
+      \strng{authorfullhash}{8aaffebf02f5673bec5f2e959ea4cfbf}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2024 IEEE 21st Consumer Communications & Networking Conference (CCNC)}
+      \field{journaltitle}{IEEE}
+      \field{title}{Accessibility of Mobile User Interfaces using Flutter and React Native}
+      \field{year}{2024}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/CCNC51664.2024.10454681
+      \endverb
+    \endentry
+    \entry{zaina2022preventing}{article}{}
+      \name{author}{3}{}{%
+        {{hash=11b9bb15e8af4f10ab7c110bdab5517a}{%
+           family={PM},
+           familyi={P\bibinitperiod},
+           given={Zaina\bibnamedelimb Luciana\bibnamedelimb AM\bibnamedelimb Fortes\bibnamedelimb -\bibnamedelima Renata},
+           giveni={Z\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=2fe129f9d6f5a10eeb092af13152714f}{%
+           family={Seiji},
+           familyi={S\bibinitperiod},
+           given={Casadei\bibnamedelimb Vitor\bibnamedelimb -\bibnamedelimb Nozaki\bibnamedelimb -\bibnamedelima Leonardo},
+           giveni={C\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=01fa502296711c59df490208a2cb6c70}{%
+           family={Paiva},
+           familyi={P\bibinitperiod},
+           given={Débora\bibnamedelimb Maria\bibnamedelima Barroso},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{7285ddc1a82b7a112c6321ceeb356047}
+      \strng{fullhash}{7285ddc1a82b7a112c6321ceeb356047}
+      \strng{bibnamehash}{7285ddc1a82b7a112c6321ceeb356047}
+      \strng{authorbibnamehash}{7285ddc1a82b7a112c6321ceeb356047}
+      \strng{authornamehash}{7285ddc1a82b7a112c6321ceeb356047}
+      \strng{authorfullhash}{7285ddc1a82b7a112c6321ceeb356047}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Systems and Software}
+      \field{title}{Preventing accessibility barriers: Guidelines for using user interface design patterns in mobile applications}
+      \field{volume}{186}
+      \field{year}{2022}
+      \field{pages}{111213}
+      \range{pages}{1}
+    \endentry
+    \entry{pandey2022accessibility}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4e332333a9786e6d94db18e20b43ee09}{%
+           family={Sile},
+           familyi={S\bibinitperiod},
+           given={Pandey\bibnamedelimb Maulishree\bibnamedelimb -\bibnamedelimb Bondre\bibnamedelimb Sharvari\bibnamedelimb -\bibnamedelima O'Modhrain},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim O\bibinitperiod}}}%
+        {{hash=a75e5d96cf540c52709d4b9d9eec60a2}{%
+           family={Oney},
+           familyi={O\bibinitperiod},
+           given={Steve},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{fdf2395f07b64cf13961373a592545c3}
+      \strng{fullhash}{fdf2395f07b64cf13961373a592545c3}
+      \strng{bibnamehash}{fdf2395f07b64cf13961373a592545c3}
+      \strng{authorbibnamehash}{fdf2395f07b64cf13961373a592545c3}
+      \strng{authornamehash}{fdf2395f07b64cf13961373a592545c3}
+      \strng{authorfullhash}{fdf2395f07b64cf13961373a592545c3}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC)}
+      \field{journaltitle}{IEEE}
+      \field{title}{Accessibility of UI Frameworks and Libraries for Programmers with Visual Impairments}
+      \field{year}{2022}
+      \field{pages}{1\bibrangedash 10}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/VL/HCC53370.2022.9833098
+      \endverb
+    \endentry
+    \entry{singh2023react}{article}{}
+      \name{author}{2}{}{%
+        {{hash=a94b2fa705c4db0f1e3dfc4917e9f735}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Priya},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b72170df76f9ffe0feca70f6ea172bbc}{%
+           family={Thompson},
+           familyi={T\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{6d17a8687f69134288a02a67dacbd899}
+      \strng{fullhash}{6d17a8687f69134288a02a67dacbd899}
+      \strng{bibnamehash}{6d17a8687f69134288a02a67dacbd899}
+      \strng{authorbibnamehash}{6d17a8687f69134288a02a67dacbd899}
+      \strng{authornamehash}{6d17a8687f69134288a02a67dacbd899}
+      \strng{authorfullhash}{6d17a8687f69134288a02a67dacbd899}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Software}
+      \field{number}{3}
+      \field{title}{A11yReact: A React Native Library for Streamlined Accessibility Compliance}
+      \field{volume}{40}
+      \field{year}{2023}
+      \field{pages}{78\bibrangedash 85}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/MS.2023.3245678
+      \endverb
+    \endentry
+    \entry{article:universal-design}{online}{}
+      \name{author}{1}{}{%
+        {{hash=320ac32330c89fa7fa6fe412207ec964}{%
+           family={University},
+           familyi={U\bibinitperiod},
+           given={Ronald\bibnamedelimb L.Mace\bibnamedelimb -\bibnamedelimb North\bibnamedelimb Carolina\bibnamedelima State},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod\bibinitdelim \bibinithyphendelim \bibinitperiod\bibinitdelim N\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {UC Berkeley}%
+      }
+      \strng{namehash}{320ac32330c89fa7fa6fe412207ec964}
+      \strng{fullhash}{320ac32330c89fa7fa6fe412207ec964}
+      \strng{bibnamehash}{320ac32330c89fa7fa6fe412207ec964}
+      \strng{authorbibnamehash}{320ac32330c89fa7fa6fe412207ec964}
+      \strng{authornamehash}{320ac32330c89fa7fa6fe412207ec964}
+      \strng{authorfullhash}{320ac32330c89fa7fa6fe412207ec964}
+      \field{sortinit}{U}
+      \field{sortinithash}{6901a00e45705986ee5e7ca9fd39adca}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Universal Design Principles}
+      \field{urlday}{4}
+      \field{urlmonth}{11}
+      \field{urlyear}{2024}
+      \field{year}{1997}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://dac.berkeley.edu/services/campus-building-accessibility/universal-design-principles
+      \endverb
+      \verb{url}
+      \verb https://dac.berkeley.edu/services/campus-building-accessibility/universal-design-principles
+      \endverb
+    \endentry
+    \entry{article:who-disability}{online}{}
+      \name{author}{1}{}{%
+        {{hash=531217507bec092b6ec36c0f78f46736}{%
+           family={{World Health Organization}},
+           familyi={W\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {World Health Organization}%
+      }
+      \strng{namehash}{531217507bec092b6ec36c0f78f46736}
+      \strng{fullhash}{531217507bec092b6ec36c0f78f46736}
+      \strng{bibnamehash}{531217507bec092b6ec36c0f78f46736}
+      \strng{authorbibnamehash}{531217507bec092b6ec36c0f78f46736}
+      \strng{authornamehash}{531217507bec092b6ec36c0f78f46736}
+      \strng{authorfullhash}{531217507bec092b6ec36c0f78f46736}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{WHO - Disability}
+      \field{urlday}{17}
+      \field{urlmonth}{10}
+      \field{urlyear}{2024}
+      \field{year}{2023}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.who.int/news-room/fact-sheets/detail/disability-and-health
+      \endverb
+      \verb{url}
+      \verb https://www.who.int/news-room/fact-sheets/detail/disability-and-health
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

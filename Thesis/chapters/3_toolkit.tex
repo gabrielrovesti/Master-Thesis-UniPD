@@ -2,7 +2,7 @@
 \label{chap:accessibility-toolkit}
 
 \chapterintroline{
-    This chapter presents an accessibility-focused learning toolkit, which is an all-encompassing guide to mobile application developers. It extends Budai's research into Flutter accessibility and gives a more focused approach to orient the developers themselves in how to actually implement an accessible mobile application. Here AccessibleHub is introduced, an interactive learning toolkit built using React Native, which aims to enhance accessibility implementation through hands-on examples, component-level guidance, and comparative insights between React Native and Flutter. By providing a structured educational approach grounded in WCAG principles and mobile-specific considerations, AccessibleHub empowers developers to bridge the gap between accessibility guidelines and real-world implementation. 
+    This chapter presents an accessibility-focused learning toolkit, which is an all-encompassing guide to mobile application developers. It extends Budai's research into Flutter accessibility and gives a more focused approach to orient the developers themselves in how to actually implement an accessible mobile application. Here \textit{AccessibleHub} is introduced, an interactive learning toolkit built using \gls{reactnative}, which aims to enhance accessibility implementation through hands-on examples, component-level guidance, and comparative insights between React Native and \gls{flutter}. By providing a structured educational approach grounded in \gls{wcagg} principles and mobile-specific considerations, AccessibleHub empowers developers to bridge the gap between accessibility guidelines and real-world implementation. 
 }
 
 \section{Introduction}
@@ -11,9 +11,9 @@
 \subsection{Challenges in implementing accessibility guidelines}
 
 The importance of mobile app accessibility extends beyond mere compliance with legal regulations.. Ensuring equal access to digital content and services is not only an ethical obligation but also a smart business decision. By prioritizing accessibility, app developers and companies can tap into a larger user base, improve user satisfaction, and demonstrate their commitment to social responsibility.
-Despite the clear benefits and moral imperatives of mobile app accessibility, many developers still struggle to effectively implement accessibility guidelines in their projects. The Web Content Accessibility Guidelines (WCAG), developed by the World Wide Web Consortium (W3C), serve as the international standard for digital accessibility. However, translating these guidelines into practical implementation can be a challenging task, particularly starting from pure formal guidelines into everyday code. \\
+Despite the clear benefits and moral imperatives of mobile app accessibility, many developers still struggle to effectively implement accessibility guidelines in their projects. The \acrshort{wcagacr}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility. However, translating these guidelines into practical implementation can be a challenging task, particularly starting from pure formal guidelines into everyday code. \\
 
-One of the primary challenges lies in the complexity of the guidelines themselves. WCAG encompasses a wide range of \textit{success criteria}, organized under four main general \textit{principles}: perceivable, operable, understandable, and robust. Each principle contains multiple guidelines, and each guideline has several success criteria at different levels of conformance (A, AA, AAA). Navigating this intricate web of requirements and understanding how to apply them to specific mobile app components can be overwhelming for developers, especially those new to accessibility. 
+One of the primary challenges lies in the complexity of the guidelines themselves. WCAG encompasses a wide range of \textit{success criteria}, organized under four main general \textit{principles}: perceivable, operable, understandable, and robust. Each principle contains multiple guidelines, and each guideline has several success criteria at different levels of \textit{conformance} (A, AA, AAA). Navigating this intricate web of requirements and understanding how to apply them to specific mobile app components can be overwhelming for developers, especially those new to accessibility. 
 Moreover, the practical implementation of accessibility guidelines often varies across different platforms and frameworks. iOS and Android, the two dominant mobile operating systems, have their own unique accessibility APIs, tools, and best practices. Cross-platform frameworks like React Native and Flutter add another layer of complexity, as developers must ensure that their accessibility implementations are compatible with the underlying platform-specific mechanisms. \\ 
 
 Furthermore, there is often a lack of clear, practical examples and guidance on how to implement accessibility features in real-world mobile app projects. While the WCAG provides a solid foundation, it is primarily focused on web content and may not always directly address the unique challenges and interaction patterns of mobile apps. Developers often struggle to bridge the gap between the theoretical guidelines and the specific implementation details required for their projects.
@@ -24,7 +24,7 @@ To address these challenges and bridge the gap between accessibility guidelines 
 This is where the concept of an \textit{accessibility learning toolkit} comes into play. An accessibility toolkit is designed to serve as a comprehensive, interactive resource that empowers developers to create accessible mobile applications by providing:
 
 \begin{enumerate}
-    \item Clear explanations of WCAG guidelines and their applicability to mobile apps
+    \item Clear explanations of \acrshort{wcagacr} guidelines and their applicability to mobile apps
     \item Step-by-step implementation guidance for common mobile app components and interaction patterns
     \item Practical code examples and tutorials that demonstrate best practices
     \item Hands-on exercises and challenges to reinforce learning and build confidence
@@ -38,13 +38,17 @@ Current research, including Budai's work on Flutter accessibility testing, has p
 Despite widespread accessibility guidelines and standard, mobile application developers face significant challenges in translating theoretical requirements into practical implementations. This gap between guidelines and implementation is particularly evident in mobile development, where different platforms, screen sizes, and interaction models add complexity to accessibility implementation. Some of the most common challenges include:
 
 \begin{itemize}
-    \item Complex testing requirements - developers must validate across multiple devices, screen readers, and interaction modes
-    \item Framework-specific implementations - each platform has unique accessibility APIs and requirements
+    \item Complex testing requirements - developers must validate across multiple devices, \gls{screenreaderg}, and interaction modes
+    \item Framework-specific implementations - each platform has unique accessibility \gls{apig}s and requirements
     \item Limited practical examples - most documentation focuses on theoretical guidelines rather than concrete implementation patterns
     \item Performance considerations - accessibility features must be implemented without compromising app performance
 \end{itemize}
 
-This thesis addresses these issues by providing a comprehensive guide for implementing accessibility features and offering a structured comparison between frameworks, offering developers a fast sand precise way to implement such guidelines inside of their projects. 
+Effective developer education in accessibility requires a solid grounding in learning theories that emphasize hands-on, interactive approaches. By integrating established learning theories with technical education principles, it's possible to justify the interactive and practical approach adopted in this toolkit. In doing so, we draw on constructivist and experiential learning models, which have been widely recognized as effective frameworks in technical and developer education.
+
+Constructivist learning theories, pioneered by Piaget \cite{piaget1970science} and Vygotsky \cite{vygotsky1978mind}, posit that learning is an active process in which individuals construct knowledge based on their prior experiences and interactions with the environment. In the context of developer education, this suggests that hands-on learning is more effective than passive instruction \cite{savery2006overview}. By engaging with real-world accessibility challenges and actively experimenting with code implementations, developers can build a deeper understanding of accessibility guidelines and best practices, by having a tool at their disposal easy to use and to navigate. \\
+
+Kolb's \textit{Experiential Learning Theory} \cite{kolb1984experiential} further supports this approach by describing learning as a four-stage cycle: concrete experience, reflective observation, abstract conceptualization, and active experimentation. For developers learning about accessibility, this cycle might involve encountering accessibility issues in their projects, analyzing existing solutions and guidelines, synthesizing their understanding of \acrshort{wcagacr} principles, and applying these principles to their own code. AccessibleHub facilitates this learning cycle by providing a structured, interactive environment for developers to engage with accessibility concepts and implementations being organized into different core sections. By aligning with these proven pedagogical approaches, AccessibleHub aims to provide an effective and engaging learning experience for developers. Moreover, by fostering a community of practice around accessibility while providing easier access to learning resources, this project encourages ongoing learning and knowledge sharing among developers, promoting the continuous improvement and dissemination of accessibility best practices.
 
 \subsection{Research objectives and methodology}
 
@@ -76,7 +80,7 @@ Accessibility guidelines and standards form the foundation upon which inclusive 
 
 \subsection{Web Content Accessibility Guidelines (WCAG)}
 
-The Web Content Accessibility Guidelines (WCAG), developed by the World Wide Web Consortium (W3C), serve as the international standard for digital accessibility. Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
+The \gls{wcagg}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility. Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
 
 \begin{itemize}
     \item \textit{Perceivable}: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, creating content that can be presented in different ways without losing meaning, and making it easier for users to see and hear content.
@@ -87,15 +91,36 @@ The Web Content Accessibility Guidelines (WCAG), developed by the World Wide Web
 
 Under each principle, the WCAG provides specific guidelines and success criteria at three levels of conformance (A, AA, and AAA). These success criteria are testable statements that help developers determine whether their app meets the accessibility requirements. By understanding and applying the WCAG principles and guidelines, mobile app developers can create more inclusive and accessible experiences for their users.
 
-\subsection{Mobile-specific accessibility considerations}
+\subsection{Mobile Content Accessibility Guidelines (MCAG)}
 
-While the WCAG provides a solid foundation for digital accessibility, mobile apps present unique challenges and considerations that require additional attention. Some of the key mobile-specific accessibility factors include:
+While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms introduce additional complexities that may not be fully addressed by web-centric guidelines. The \gls{mcagg} build upon the previous ones by focusing on the specific interaction patterns, form factors, and environmental contexts unique to mobile devices. For example, MCAG emphasizes:
 
 \begin{itemize}
-    \item \textit{Touch interaction}: Mobile devices rely heavily on touch-based interactions, such as tapping, swiping, and multi-finger gestures. Developers must ensure that all interactive elements are large enough to be easily tapped, provide alternative input methods for complex gestures, and offer appropriate haptic and visual feedback.
-    \item \textit{Small screens}: The limited screen real estate on mobile devices can pose challenges for users with visual impairments. Developers should provide sufficient contrast, use clear and legible fonts, and ensure that content can be easily zoomed or resized without losing functionality.
-    \item \textit{Screen reader compatibility}: Mobile screen readers, such as VoiceOver on iOS and TalkBack on Android, require proper labeling and semantic structure to effectively convey content and functionality to users with visual impairments. Developers must use appropriate accessibility APIs and ensure that all elements are properly labeled and navigable.
-    \item \textit{Device fragmentation}: The wide range of mobile devices, screen sizes, and operating system versions can complicate accessibility testing and implementation. Developers should test their apps on a diverse range of devices and ensure that accessibility features function consistently across different configurations.
+    \item \textit{Touch interaction and gestures}: Ensuring that tap targets, swipe gestures, and multi-finger interactions are usable for individuals with varying motor skills;
+    
+    \item \textit{Limited screen real estate}: Designing content that remains clear and functional on smaller displays, including proper zooming and reflow behavior;
+
+    \item \textit{Diverse mardware and os versions}: Accounting for a wide range of device capabilities, operating system versions, and hardware configurations that can affect accessibility;
+
+    \item \textit{Contextual usage scenarios}: Recognizing that mobile apps are often used in changing lighting conditions, noisy environments, or while users are on the move.
+    
+\end{itemize}
+
+In practice, \acrshort{mcagacr} complements \acrshort{wcagacr} by providing more granular, mobile-oriented guidance considering specific factors. Developers who follow these guidelines in addition to \acrshort{wcagacr} are better equipped to deliver an inclusive experience that accounts for real-world mobile usage. As part of this work, AccessibleHub integrates both sets of guidelines to ensure comprehensive coverage of accessibility requirements across platforms.
+
+\subsection{Mobile-specific accessibility considerations}
+
+While the previous guidelines provide by themselves a solid foundation for digital accessibility, mobile apps present unique challenges and considerations that require additional attention. Some of the key mobile-specific accessibility factors include:
+
+\begin{itemize}
+    \item \textit{Touch interaction}: Mobile devices rely heavily on touch-based interactions, such as tapping, swiping, and multi-finger gestures. Developers must ensure that all interactive elements are large enough to be easily tapped, provide alternative input methods for complex gestures, and offer appropriate haptic and visual feedback;
+    
+    \item \textit{Small screens}: The limited screen real estate on mobile devices can pose challenges for users with visual impairments. Developers should provide sufficient contrast, use clear and legible fonts, and ensure that content can be easily zoomed or resized without losing functionality;
+    
+    \item \textit{Screen reader compatibility}: Mobile screen readers, such as VoiceOver on iOS and TalkBack on Android, require proper labeling and semantic structure to effectively convey content and functionality to users with visual impairments. Developers must use appropriate accessibility APIs and ensure that all elements are properly labeled and navigable;
+    
+    \item \textit{Device fragmentation}: The wide range of mobile devices, screen sizes, and operating system versions can complicate accessibility testing and implementation. Developers should test their apps on a diverse range of devices and ensure that accessibility features function consistently across different configurations;
+    
     \item \textit{Mobile context}: Mobile apps are often used in a variety of contexts, such as outdoors, in low-light conditions, or in noisy environments. Developers should consider these contexts and provide appropriate accommodations, such as high-contrast modes or subtitles for audio content.
 \end{itemize}
 
@@ -108,18 +133,18 @@ By understanding and addressing these mobile-specific accessibility consideratio
 
 AccessibleHub is a React Native application designed to serve as an interactive manual for implementing accessibility features in mobile development. Unlike traditional documentation or testing frameworks, the application provides developers with hands-on examples and implementation patterns that can be directly applied to their projects.
 
-The application is structured around four main sections:
+The application is structured around four conceptual main sections:
 \begin{enumerate}
-    \item \textit{Component examples}: Interactive demonstrations of common UI elements with proper accessibility implementations, including buttons, forms, media content, and navigation patterns. This allows developers to clearly see the implementation of an accessible component and easily copy the code to their convenience.
+    \item \textit{Component examples}: Interactive demonstrations of common \acrshort{ui} elements with proper accessibility implementations, including buttons, forms, media content, and navigation patterns. This allows developers to clearly see the implementation of an accessible component and easily copy the code to their convenience;
     
-    \item \textit{Framework comparison}: A detailed analysis of accessibility implementation approaches between React Native and Flutter, highlighting differences in component structure, properties, and required code.
+    \item \textit{Framework comparison}: A detailed analysis of accessibility implementation approaches between React Native and Flutter, highlighting differences in component structure, properties, and required code;
     
-    \item \textit{Testing tools}: Built-in utilities for validating accessibility features, allowing developers to understand how screen readers and other assistive technologies interact with their implementations.
+    \item \textit{Testing tools}: Built-in utilities for validating accessibility features, allowing developers to understand how screen readers and other assistive technologies interact with their implementations;
     
     \item \textit{Implementation guidelines}: Technical documentation that connects WCAG requirements to practical code examples, providing clear paths for meeting accessibility standards.
 \end{enumerate}
 
-Each component in AccessibleHub serves dual purposes: demonstrating proper accessibility implementation while providing reusable code patterns. The application emphasizes practical implementation over theoretical guidelines, showing developers not just what to implement effectively. By focusing on developer experience, AccessibleHub bridges the gap between accessibility requirements and actual implementation, providing a resource that can be directly integrated into the development workflow. \\
+Each component presented serves dual purposes: demonstrating proper accessibility implementation while providing reusable code patterns. The application emphasizes practical implementation over theoretical guidelines, showing developers not just what to implement effectively. By focusing on developer experience, AccessibleHub bridges the gap between accessibility requirements and actual implementation, providing a resource that can be directly integrated into the development workflow. \\
 
 The \textit{design} philosophy of AccessibleHub is founded on principles that bridge theoretical accessibility guidelines with practical implementation needs. While analyzing the current landscape of mobile development frameworks and accessibility implementation presented in \ref{chap:accessibility-literature}, a clear pattern emerges: developers need more practical, implementation-focused guidance that directly addresses the complexity of building accessible applications. To address this need, AccessibleHub adopts three fundamental architectural principles:
 
@@ -141,51 +166,61 @@ AccessibleHub's educational framework is designed to provide a structured, incre
 The core of the application is divided into different main sections, following:
 
 \begin{enumerate}
-    \item The \textit{Home} screen - The entry point for the AccessibleHub application. It provides an overview of the main sections and guides users on where to start their accessibility learning journey. The Home screen is designed to be intuitive and user-friendly, with clear call-to-action towards the accessible components section, allowing a developer or a user navigate to the desired section from the Home screen, comprehensive of comparison between the main mobile frameworks, learn about best practices in mobile accessibility and access testing tools documentation. There is also present a compliance dashboard provides an overview of an app's accessibility compliance status, based on the WCAG and MCAG guidelines. Developers can use this information to prioritize their accessibility efforts and focus on the areas that need the most attention.
+    \item The \textit{Home} screen - The entry point for the AccessibleHub application. It provides an overview of the main sections and guides users on where to start their accessibility learning journey. The Home screen is designed to be intuitive and user-friendly, with clear call-to-action towards the accessible components section, allowing a developer or a user navigate to the desired section from the Home screen, comprehensive of comparison between the main mobile frameworks, learn about best practices in mobile accessibility and access testing tools documentation. There is also present a compliance dashboard provides an overview of an app's accessibility compliance status, based on the \acrshort{wcagacr} and \acrshort{mcagacr} guidelines. Developers can use this information to prioritize their accessibility efforts and focus on the areas that need the most attention;
 
     \item The \textit{Accessible Components} screen - Developers can learn how to implement accessible UI components in their mobile applications. This section is divided into four subscreens, each focusing on a specific category of components:
 
     \begin{itemize}
-        \item \textit{Buttons and Touchables}: This subscreen covers the implementation of accessible buttons and touchable elements. It provides code examples and best practices for ensuring that these interactive elements are perceivable, operable, and understandable by all users, including those with disabilities;
+        \item \textit{Buttons and Touchables}: It covers the implementation of accessible buttons and touchable elements. It provides code examples and best practices for ensuring that these interactive elements are perceivable, operable, and understandable by all users, including those with disabilities;
 
-        \item \textit{Forms}: The Forms subscreen focuses on creating accessible input forms, including text fields, checkboxes, radio buttons, and more. It demonstrates how to properly label form elements, provide instructions and feedback, and ensure that forms can be navigated and completed using various input methods, such as keyboards and screen readers;
+        \item \textit{Forms}: The subscreen focuses on creating accessible input forms, including text fields, checkboxes, radio buttons, and date/time pickers. It demonstrates how to properly label form elements, provide instructions and feedback, and ensure that forms can be navigated and completed using various input methods, such as keyboards and screen readers;
 
         \item \textit{Media}: In the Media subscreen, developers learn how to make media content, such as images, videos, and audio, accessible to users with visual or auditory impairments. This includes providing alternative text for images, captions for videos, and transcripts for audio content;
 
-        \item \textit{Dialogs}: The Dialogs subscreen covers the creation of accessible modal dialogs, popups, and alerts. It provides guidance on how to ensure that these elements are properly announced by screen readers, can be easily dismissed, and do not interfere with the user's ability to navigate the application.
+        \item \textit{Dialogs}: It covers the creation of accessible modal dialogs, popups, and alerts. It provides guidance on how to ensure that these elements are properly announced by screen readers, can be easily dismissed, and do not interfere with the user's ability to navigate the application, maintaining focus management and ensuring clear exit strategies;
+
+       \item \textit{Advanced}: This particular subscreen covers elements like alerts, sliders, progress bars and tab navigation, analyzing how accessibility may regard different animated or interactive components for more complex gesture interactions used everyday by users.
     \end{itemize}
 
-Throughout the Accessible Components section, code implementations are provided, which developers can easily copy to their clipboard and integrate into their own projects. This hands-on approach allows developers to quickly apply the accessibility principles they learn and see the results in action.
+Throughout the Components section, code implementations are provided, which developers can easily copy to their clipboard and integrate into their own projects. This hands-on approach allows developers to quickly apply the accessibility principles they learn and see the results in action.
 
 \item The \textit{Best Practices} screen - Designed to give developers a general understanding of the overarching principles and guidelines for creating accessible mobile applications. It is divided into five subscreens, each addressing a key aspect of mobile accessibility:
 
     \begin{itemize}
-        \item \textit{Gestures Tutorial}: This subscreen provides an overview of the various gesture interactions used in mobile applications and how to make them accessible to users with motor impairments or those relying on assistive technologies. It covers best practices for implementing alternative input methods and providing clear instructions and feedback.
+        \item \textit{Gestures Tutorial}: This subscreen provides an overview of the various gesture interactions used in mobile applications and how to make them accessible to users with motor impairments or those relying on assistive technologies. It covers best practices for implementing alternative input methods and providing clear instructions and feedback. These gestures are general, tested to be used universally, both by everyday users and screen reader ones;
 
-        \item \textit{Semantics Structure}: In the Semantics Structure subscreen, developers learn about the importance of using semantic HTML and WAI-ARIA roles to convey the structure and meaning of the application's content. This helps screen readers and other assistive technologies better understand and navigate the application.
+        \item \textit{Semantics Structure}: Here, developers learn about the importance of using semantic \textit{HTML} and \gls{ariag} roles to convey the structure and meaning of the application's content. This helps screen readers and other assistive technologies better understand and navigate the application;
 
-        \item \textit{Navigation}: The Navigation subscreen focuses on creating accessible navigation patterns, such as menus, tabs, and breadcrumbs. It provides guidance on how to ensure that navigation elements are properly labeled, can be operated using various input methods, and provide clear feedback to the user.
+        \item \textit{Navigation}: This one focuses on creating accessible navigation patterns, such as menus, tabs, and breadcrumbs. It provides guidance on how to ensure that navigation elements are properly labeled, can be operated using various input methods, and provide clear feedback to the user, jumping directly to the main context of a screen and bringing the attention to an element on-screen without distracting him from the action to be completed;
 
-        \item \textit{Screen Reader Support}: This subscreen covers the specific considerations for making mobile applications compatible with screen readers, such as VoiceOver on iOS and TalkBack on Android. It includes best practices for labeling elements, providing alternative text, and ensuring that the application's content and functionality can be fully accessed and understood using a screen reader.
+        \item \textit{Screen Reader Support}: This subscreen covers the specific considerations for making mobile applications compatible with screen readers, such as \gls{voiceover} on \textit{iOS} and \gls{talkback} on \textit{Android}. It includes best practices for labeling elements, providing alternative text, and ensuring that the application's content and functionality can be fully accessed and understood using a screen reader;
 
-        \item \textit{Accessibility Guidelines}: The Accessibility Guidelines subscreen provides an overview of the key accessibility standards and guidelines, such as the Web Content Accessibility Guidelines (WCAG), and how they apply to mobile application development. It helps developers understand the different levels of conformance and how to assess their application's accessibility against these guidelines.
+        \item \textit{Accessibility Guidelines}: The Accessibility Guidelines subscreen provides an overview of the key accessibility standards to be followed and a general list of principles to incorporate into a project, seeing how they apply to mobile application development. It helps developers understand the different levels of conformance and how to assess their application's accessibility against these guidelines.
     \end{itemize}
 
-\item The \textit{Framework Comparison} screen - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter. This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. By highlighting the similarities and differences between frameworks, developers can make informed decisions about which framework to use for their accessibility needs and how to optimize their implementations for each platform.
+\item The \textit{Framework Comparison} screen - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter. This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. By highlighting the similarities and differences between frameworks, developers can make informed decisions about which framework to use for their accessibility needs and how to optimize their implementations for each platform;
 
-\item The \textit{Tools} screen - It serves as a central hub for accessing various accessibility-related tools and resources. This includes links to official documentation, such as the React Native Accessibility API reference and the Flutter Accessibility package documentation. It also provides quick access to popular accessibility testing tools, such as Accessibility Scanner for Android and Accessibility Inspector for iOS. By consolidating these resources in one place, the Tools screen makes it easy for developers to find the information and tools they need to ensure their applications are fully accessible.
+\item The \textit{Tools} screen - It serves as a central hub for accessing various accessibility-related tools and resources. This includes links to official documentation, such as the React Native Accessibility \acrshort{api} reference and the \textit{Flutter Accessibility package} documentation. It also provides quick access to popular accessibility testing tools, such as \textit{Accessibility Scanner} for \textit{Android} and \textit{Accessibility Inspector} for \textit{iOS}. By consolidating these resources in one place, the Tools screen makes it easy for developers to find the information and tools they need to ensure their applications are fully accessible; 
 
-\item The \textit{Settings} screen - It allows users to customize various aspects of the AccessibleHub application to suit their individual learning needs and preferences. This includes options for adjusting the font size, color contrast, and language settings to ensure that the application itself is accessible to a wide range of users. It also provides information on how to configure the accessibility settings on the user's device, such as enabling screen readers or adjusting the display settings. By offering these customization options and guidance, the Settings page reinforces the importance of accessibility as an everyday tool, meant to accompany practical user needs in an easy and quick way.\\
+\item The \textit{Settings} screen - It allows users to customize various aspects of the AccessibleHub application to suit their individual learning needs and preferences. This includes options for adjusting the font size, color contrast (including options for gray scale and dark mode), reduced motion settings and others to help users and ensure the application itself is accessible to a wide range of users. It also provides information on how to configure the accessibility settings on the user's device, such as enabling screen readers or adjusting the display settings. By offering these customization options and guidance, the Settings page reinforces the importance of accessibility as an everyday tool, meant to accompany practical user needs in an easy and quick way;
+
+\item The \textit{Instruction and Community} screen - It provides a collaborative learning environment that extends beyond technical implementation. This section offers developers an opportunity to dive deeper into accessibility knowledge through curated resources and community engagement allowing for easier exploration towards other online resources. By providing a platform for continuous learning and collaboration, this screen reinforces the importance of accessibility as a collective effort and a fundamental aspect of modern mobile application development.
     
 \end{enumerate}
 
-**TODO COMMENT** What I would do here personally:
+\subsection{From guidelines to implementation: a screen-based methodology}
+
+Accessibility guidelines and standards - most notably the \acrshort{wcagacr}  and related mobile-specific considerations—establish the formal foundation for inclusive digital design. These criteria are essential but inherently abstract and can be challenging to implement directly in code. Building on Budai's approach focusing solely on post-implementation testing, the methodology presented embeds accessibility into the development process. We do this by analyzing each screen of the application through a structured framework that connects theoretical requirements with practical implementation strategies. The approach to be considered is built following these layers:
 
 \begin{enumerate}
-    \item Providing screenshots or wireframes of key app screens and user flows.
-    \item Explaining the rationale behind the app structure and content organization.
-    \item Discussing the pedagogical principles and learning theories guiding your approach.
+    \item \textit{Theoretical foundation} – This layer encompasses the abstract principles and success criteria defined by WCAG/\acrshort{mcagacr}. For example, WCAG’s four core principles require that content be presented in ways users can perceive, interact with, and understand. These criteria serve as the benchmark for our analysis;
+
+    \item \textit{Implementation pattern} – Here, we translate the abstract requirements into concrete code structures within a mobile development context. In AccessibleHub, this involves the systematic use of React Native properties (such as \textit{accessibilityLabel}, \textit{accessibilityRole}, etc.) to ensure that \acrshort{ui} components satisfy the established guidelines;
+
+    \item \textit{User interaction flow} – Finally, we consider how end users interact with these components. This includes the behavior of assistive technologies (like screen readers), proper focus management, and the overall usability of the component within its real-world context.
 \end{enumerate}
+
+To illustrate this methodology in practice, we first map the UI elements of a representative screen to their corresponding semantic roles. Next, we link each component to the relevant \acrshort{wcagacr} and \acrshort{mcagacr} criteria presented in the previous subsections, noting both the minimum compliance requirements and potential enhancements. Finally, we describe the technical solution—specifically, how React Native accessibility code properties are applied to meet and exceed these standards. This structured approach not only bridges the gap between abstract guidelines and real-world coding tasks but also sets the stage for the more detailed, screen-by-screen analyses presented in the next section.
 
 \section{Accessibility Implementation Guidelines}
 \label{sec:implementation-guidelines}

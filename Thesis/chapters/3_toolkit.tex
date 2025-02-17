@@ -80,7 +80,7 @@ Accessibility guidelines and standards form the foundation upon which inclusive 
 
 \subsection{Web Content Accessibility Guidelines (WCAG)}
 
-The \gls{wcagg}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility. Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
+The \gls{wcagg}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility (as per \cite{site:wcag}). Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
 
 \begin{itemize}
     \item \textit{Perceivable}: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, creating content that can be presented in different ways without losing meaning, and making it easier for users to see and hear content.
@@ -93,7 +93,7 @@ Under each principle, the WCAG provides specific guidelines and success criteria
 
 \subsection{Mobile Content Accessibility Guidelines (MCAG)}
 
-While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms introduce additional complexities that may not be fully addressed by web-centric guidelines. The \gls{mcagg} build upon the previous ones by focusing on the specific interaction patterns, form factors, and environmental contexts unique to mobile devices. For example, MCAG emphasizes:
+While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms introduce additional complexities that may not be fully addressed by web-centric guidelines (as per \cite{site:mcag}). The \gls{mcagg} build upon the previous ones by focusing on the specific interaction patterns, form factors, and environmental contexts unique to mobile devices. For example, MCAG emphasizes:
 
 \begin{itemize}
     \item \textit{Touch interaction and gestures}: Ensuring that tap targets, swipe gestures, and multi-finger interactions are usable for individuals with varying motor skills;
@@ -129,7 +129,7 @@ By understanding and addressing these mobile-specific accessibility consideratio
 \section{React Native Overview}
 \label{sec:reactnative-overview}
 
-The following section is present to help a reader understand the implementation of code and guidelines when looking in detail at each of the applications screens, so to have a complete understanding of the following parts. \gls{reactnative} is an open-source framework developed by Facebook that enables developers to build mobile applications using JavaScript and the React paradigm. It employs a declarative, component-based approach through the use of \textit{JSX}—an XML-like syntax that allows developers to intermix JavaScript logic with markup. This combination not only improves code readability but also enhances modularity and facilitates code reuse.
+The following section is present to help a reader understand the implementation of code and guidelines when looking in detail at each of the applications screens, so to have a complete understanding of the following parts. \gls{reactnative} is an open-source framework developed by Facebook that enables developers to build mobile applications using JavaScript and the React paradigm (as per \cite{site:reactnative}). It employs a declarative, component-based approach through the use of \textit{JSX}, which is an XML-like syntax that allows developers to intermix JavaScript logic with markup. This combination not only improves code readability but also enhances modularity and facilitates code reuse.
 
 \begin{figure}[ht]
     \centering
@@ -157,16 +157,35 @@ The following section is present to help a reader understand the implementation 
 \end{itemize}
 
 \subsection{Accessibility in React Native}
-React Native integrates accessibility features directly into its component model. Developers can attach accessibility properties to components in much the same way as ARIA attributes are added to HTML elements in web development. Key accessibility properties include:
+React Native provides a robust set of accessibility features that are deeply integrated into its component model. This allows developers to create inclusive applications without relying on external libraries or writing platform-specific code (following what's present into \cite{site:reactnativeaccess}). Here are the key accessibility features in React Native:
+
 \begin{itemize}
-    \item \texttt{accessibilityLabel}: Provides a text description that is read by screen readers;
-    \item \texttt{accessibilityRole}: Defines the role (e.g., \texttt{"button"}, \texttt{"header"}) of an element, aiding assistive technologies in interpreting it correctly;
-    \item \texttt{accessibilityHint}: Offers additional context about an element's function.
-    \item \texttt{accessibilityState}: Conveys the current state of an element (for example, whether it is selected or disabled).
+    \item \textbf{Accessibility properties}: React Native components can be enhanced with a variety of accessibility properties that provide semantic meaning and context for assistive technologies. These properties include:
+    \begin{itemize}
+        \item \texttt{accessibilityLabel}: A concise, descriptive string that identifies the component for screen reader users;
+        \item \texttt{accessibilityRole}: Defines the component's semantic role (e.g., \texttt{"button"}, \texttt{"header"}), helping assistive technologies interpret its purpose correctly;
+        \item \texttt{accessibilityHint}: Provides additional context about a component's function or the result of interacting with it;
+        \item \texttt{accessibilityState}: Describes the current state of a component (e.g., \texttt{selected}, \texttt{disabled}), which is essential for conveying dynamic changes.
+    \end{itemize}
+    
+    \item \textbf{Accessibility actions}: React Native allows developers to define custom accessibility actions for components, enabling advanced interactions beyond the default gestures. For example, a custom \texttt{accessibilityAction} could be added to a component to trigger a specific behavior when activated by an assistive technology;
+    
+    \item \textbf{Accessibility focus}: React Native manages accessibility focus automatically, ensuring that the correct component receives focus when navigating with assistive technologies. Developers can also programmatically control focus using the \texttt{accessibilityElementsHidden} and \texttt{importantForAccessibility} properties;
+    
+    \item \textbf{Accessibility events}: React Native provides accessibility events that notify assistive technologies when important changes occur in the application. These events include:
+    \begin{itemize}
+        \item \texttt{onAccessibilityTap}: Called when a user double-taps a component while using an assistive technology;
+        \item \texttt{onMagicTap}: Called when a user performs the "magic tap" gesture (a double-tap with two fingers) to activate a component;
+        \item \texttt{onAccessibilityFocus}: Called when a component receives accessibility focus;
+        \item \texttt{onAccessibilityBlur}: Called when a component loses accessibility focus.
+    \end{itemize}
 \end{itemize}
 
+By leveraging these built-in accessibility features, developers can create React Native applications that are inclusive and accessible to users with diverse needs and abilities. The tight integration of accessibility into the core component model ensures that developers can create accessible apps without sacrificing performance or maintainability.
+
 \subsection{Advantages and developer benefits}
-Using React Native offers several benefits for developers:
+
+Using React Native offers several benefits for developers, briefly listed here:
 \begin{itemize}
     \item \textit{Rapid development:}  
     Thanks to hot reloading and a vast ecosystem of reusable components, developers can iterate quickly and efficiently;
@@ -187,7 +206,7 @@ Using React Native offers several benefits for developers:
 \subsection{Differences from native iOS/Android and web development}
 \begin{itemize}
     \item \textit{Native iOS/Android:}  
-    In native development, accessibility is handled through platform-specific APIs—\gls{voiceover} on iOS and \gls{talkback} on Android—which require different tools and approaches. React Native provides a unified \acrshort{api}, streamlining the implementation of accessibility features across both platforms.
+    In native development, accessibility is handled through platform-specific \gls{apig}: \gls{voiceover} on \textit{iOS} and \gls{talkback} on \textit{Android}, which require different tools and approaches. React Native provides a unified \textit{API}s, streamlining the implementation of accessibility features across both platforms.
     
     \item \textit{Web development:}  
     Whereas web accessibility is achieved by adding \gls{ariag} attributes to \textit{HTML}, React Native integrates accessibility directly within its component structure. This intrinsic approach treats accessibility as a core attribute of each component, rather than an external addition.
@@ -232,12 +251,12 @@ Through these principles, AccessibleHub aims to transform accessibility from an 
 
 AccessibleHub's educational framework is designed to provide a structured, incremental learning experience that progressively builds accessibility knowledge and skills. The content is organized into different \textit{learning modules}, each focusing on a key aspect of mobile accessibility. This is structured incrementally, so to help a developer gather a general idea on what needs to be implemented following a practical roadmap of steps: this allows to focus on different aspects of mobile accessibility, selecting each time the most relevant ones.
 
-The core of the application is divided into different main sections, following:
+The core of the application is divided into different main screens, following:
 
 \begin{enumerate}
-    \item The \textit{Home} screen - The entry point for the AccessibleHub application. It provides an overview of the main sections and guides users on where to start their accessibility learning journey. The Home screen is designed to be intuitive and user-friendly, with clear call-to-action towards the accessible components section, allowing a developer or a user navigate to the desired section from the Home screen, comprehensive of comparison between the main mobile frameworks, learn about best practices in mobile accessibility and access testing tools documentation. There is also present a compliance dashboard provides an overview of an app's accessibility compliance status, based on the \acrshort{wcagacr} and \acrshort{mcagacr} guidelines. Developers can use this information to prioritize their accessibility efforts and focus on the areas that need the most attention;
+    \item \textbf{Home} - The entry point for the AccessibleHub application. It provides an overview of the main sections and guides users on where to start their accessibility learning journey. The Home screen is designed to be intuitive and user-friendly, with clear call-to-action towards the accessible components section, allowing a developer or a user navigate to the desired section from the Home screen, comprehensive of comparison between the main mobile frameworks, learn about best practices in mobile accessibility and access testing tools documentation. There is also present a compliance dashboard provides an overview of an app's accessibility compliance status, based on the \acrshort{wcagacr} and \acrshort{mcagacr} guidelines. Developers can use this information to prioritize their accessibility efforts and focus on the areas that need the most attention;
 
-    \item The \textit{Accessible Components} screen - Developers can learn how to implement accessible UI components in their mobile applications. This section is divided into four subscreens, each focusing on a specific category of components:
+    \item \textbf{Accessible Components} - Developers can learn how to implement accessible UI components in their mobile applications. This section is divided into four subscreens, each focusing on a specific category of components:
 
     \begin{itemize}
         \item \textit{Buttons and Touchables}: It covers the implementation of accessible buttons and touchable elements. It provides code examples and best practices for ensuring that these interactive elements are perceivable, operable, and understandable by all users, including those with disabilities;
@@ -253,7 +272,7 @@ The core of the application is divided into different main sections, following:
 
 Throughout the Components section, code implementations are provided, which developers can easily copy to their clipboard and integrate into their own projects. This hands-on approach allows developers to quickly apply the accessibility principles they learn and see the results in action.
 
-\item The \textit{Best Practices} screen - Designed to give developers a general understanding of the overarching principles and guidelines for creating accessible mobile applications. It is divided into five subscreens, each addressing a key aspect of mobile accessibility:
+\item \textbf{Best Practices} - Designed to give developers a general understanding of the overarching principles and guidelines for creating accessible mobile applications. It is divided into five subscreens, each addressing a key aspect of mobile accessibility:
 
     \begin{itemize}
         \item \textit{Gestures Tutorial}: This subscreen provides an overview of the various gesture interactions used in mobile applications and how to make them accessible to users with motor impairments or those relying on assistive technologies. It covers best practices for implementing alternative input methods and providing clear instructions and feedback. These gestures are general, tested to be used universally, both by everyday users and screen reader ones;
@@ -267,13 +286,13 @@ Throughout the Components section, code implementations are provided, which deve
         \item \textit{Accessibility Guidelines}: The Accessibility Guidelines subscreen provides an overview of the key accessibility standards to be followed and a general list of principles to incorporate into a project, seeing how they apply to mobile application development. It helps developers understand the different levels of conformance and how to assess their application's accessibility against these guidelines.
     \end{itemize}
 
-\item The \textit{Framework Comparison} screen - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter. This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. By highlighting the similarities and differences between frameworks, developers can make informed decisions about which framework to use for their accessibility needs and how to optimize their implementations for each platform;
+\item \textbf{Framework Comparison} - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter. This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. By highlighting the similarities and differences between frameworks, developers can make informed decisions about which framework to use for their accessibility needs and how to optimize their implementations for each platform;
 
-\item The \textit{Tools} screen - It serves as a central hub for accessing various accessibility-related tools and resources. This includes links to official documentation, such as the React Native Accessibility \acrshort{api} reference and the \textit{Flutter Accessibility package} documentation. It also provides quick access to popular accessibility testing tools, such as \textit{Accessibility Scanner} for \textit{Android} and \textit{Accessibility Inspector} for \textit{iOS}. By consolidating these resources in one place, the Tools screen makes it easy for developers to find the information and tools they need to ensure their applications are fully accessible; 
+\item \textbf{Tools} - It serves as a central hub for accessing various accessibility-related tools and resources. This includes links to official documentation, such as the React Native Accessibility \acrshort{api} reference and the \textit{Flutter Accessibility package} documentation. It also provides quick access to popular accessibility testing tools, such as \textit{Accessibility Scanner} for \textit{Android} and \textit{Accessibility Inspector} for \textit{iOS}. By consolidating these resources in one place, the Tools screen makes it easy for developers to find the information and tools they need to ensure their applications are fully accessible; 
 
-\item The \textit{Settings} screen - It allows users to customize various aspects of the AccessibleHub application to suit their individual learning needs and preferences. This includes options for adjusting the font size, color contrast (including options for gray scale and dark mode), reduced motion settings and others to help users and ensure the application itself is accessible to a wide range of users. It also provides information on how to configure the accessibility settings on the user's device, such as enabling screen readers or adjusting the display settings. By offering these customization options and guidance, the Settings page reinforces the importance of accessibility as an everyday tool, meant to accompany practical user needs in an easy and quick way;
+\item \textbf{Settings} - Allows users to customize various aspects of the AccessibleHub application to suit their individual learning needs and preferences. This includes options for adjusting the font size, color contrast (including options for gray scale and dark mode), reduced motion settings and others to help users and ensure the application itself is accessible to a wide range of users. It also provides information on how to configure the accessibility settings on the user's device, such as enabling screen readers or adjusting the display settings. By offering these customization options and guidance, the page reinforces the importance of accessibility as an everyday tool, meant to accompany practical user needs in an easy and quick way;
 
-\item The \textit{Instruction and Community} screen - It provides a collaborative learning environment that extends beyond technical implementation. This section offers developers an opportunity to dive deeper into accessibility knowledge through curated resources and community engagement allowing for easier exploration towards other online resources. By providing a platform for continuous learning and collaboration, this screen reinforces the importance of accessibility as a collective effort and a fundamental aspect of modern mobile application development.
+\item \textbf{Instruction and Community} - It provides a collaborative learning environment that extends beyond technical implementation. This section offers developers an opportunity to dive deeper into accessibility knowledge through curated resources and community engagement allowing for easier exploration towards other online resources. By providing a platform for continuous learning and collaboration, this screen reinforces the importance of accessibility as a collective effort and a fundamental aspect of modern mobile application development.
     
 \end{enumerate}
 
@@ -282,19 +301,19 @@ Throughout the Components section, code implementations are provided, which deve
 Accessibility guidelines and standards - most notably the \acrshort{wcagacr}  and related mobile-specific considerations—establish the formal foundation for inclusive digital design. These criteria are essential but inherently abstract and can be challenging to implement directly in code. Building on Budai's approach focusing solely on post-implementation testing, the methodology presented embeds accessibility into the development process. We do this by analyzing each screen of the application through a structured framework that connects theoretical requirements with practical implementation strategies. The approach to be considered is built following these layers:
 
 \begin{enumerate}
-    \item \textit{Theoretical foundation} – This layer encompasses the abstract principles and success criteria defined by WCAG/\acrshort{mcagacr}. For example, WCAG’s four core principles require that content be presented in ways users can perceive, interact with, and understand. These criteria serve as the benchmark for our analysis;
+    \item \textit{Theoretical foundation} – This layer encompasses the abstract principles and success criteria defined by \textit{WCAG}/\acrshort{mcagacr}. For example, \textit{WCAG}’s four core principles require that content be presented in ways users can perceive, interact with, and understand. These criteria serve as the benchmark for our analysis;
 
     \item \textit{Implementation pattern} – Here, we translate the abstract requirements into concrete code structures within a mobile development context. In AccessibleHub, this involves the systematic use of React Native properties (such as \textit{accessibilityLabel}, \textit{accessibilityRole}, etc.) to ensure that \acrshort{ui} components satisfy the established guidelines;
 
     \item \textit{User interaction flow} – Finally, we consider how end users interact with these components. This includes the behavior of assistive technologies (like screen readers), proper focus management, and the overall usability of the component within its real-world context.
 \end{enumerate}
 
-To illustrate this methodology in practice, we first map the UI elements of a representative screen to their corresponding semantic roles. Next, we link each component to the relevant \acrshort{wcagacr} and \acrshort{mcagacr} criteria presented in the previous subsections, noting both the minimum compliance requirements and potential enhancements. Finally, we describe the technical solution—specifically, how React Native accessibility code properties are applied to meet and exceed these standards. This structured approach not only bridges the gap between abstract guidelines and real-world coding tasks but also sets the stage for the more detailed, screen-by-screen analyses presented in the next section.
+To illustrate this methodology in practice, we first map the \textit{UI} elements of a representative screen to their corresponding semantic roles. Next, we link each component to the relevant \acrshort{wcagacr} and \acrshort{mcagacr} criteria presented in the previous subsections, noting both the minimum compliance requirements and potential enhancements. Finally, we describe the technical solution—specifically, how React Native accessibility code properties are applied to meet and exceed these standards. This structured approach not only bridges the gap between abstract guidelines and real-world coding tasks but also sets the stage for the more detailed, screen-by-screen analyses presented in the next section.
 
 \section{Accessibility Implementation Guidelines}
 \label{sec:implementation-guidelines}
 
-Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \acrshort{wcagacr} and \acrshort{mcagacr}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Budai \cite{budai2024mobile} in Flutter - following guidelines and then giving advice into introducing new ones.
+Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Budai \cite{budai2024mobile} in Flutter - following guidelines and then giving advice into introducing new ones.
 
 \subsection{Home Screen}
 
@@ -332,7 +351,7 @@ Below is a structured analysis referencing both \textit{WCAG 2.2} and mobile-spe
     Interactive elements, such as the \texttt{TouchableOpacity} used for the Quick Start button, include a clear focus indicator. This is critical for users who navigate via keyboard or switch devices.
     
     \item \textbf{2.5.8 Target Size (Minimum) (Level AA)}\\ 
-    To support users with reduced dexterity, touch targets (buttons and cards) are designed to be at least 24\,px by 24\,px.
+    To support users with reduced dexterity, touch targets (buttons and cards) are designed to be at least \textit{24\,px by 24\,px.}
 \end{itemize}
 
 \paragraph{MCAG}
@@ -345,7 +364,6 @@ Below is a structured analysis referencing both \textit{WCAG 2.2} and mobile-spe
 \end{itemize}
 
 \subsubsection{Implementation details in React Native}
-\label{subsubsec:home-reactnative-impl}
 
 The following refined code snippet illustrates how the above success criteria are applied in the Home Screen. In addition, several key accessibility metrics are computed to provide real-time feedback on compliance:
 
@@ -429,15 +447,125 @@ export default function HomeScreen() {
 \end{itemize}
 
 \paragraph{Future enhancements}
-The Home Screen is the first point of contact, and as such, it must effectively embody the four pillars of accessibility: Perceivable, Operable, Understandable, and Robust. By integrating computed metrics, the interface not only complies with established guidelines but also provides immediate feedback to developers, encouraging iterative improvements. This approach mirrors Budai’s methodology \cite{budai2024mobile} and offers a practical roadmap for applying WCAG 2.2 and MCAG success criteria in a cross-platform development environment.
+The Home Screen is the first point of contact, and as such, it must effectively embody the four pillars of accessibility: Perceivable, Operable, Understandable, and Robust. By integrating computed metrics, the interface not only complies with established guidelines but also provides immediate feedback to developers, encouraging iterative improvements. This approach mirrors Budai’s methodology \cite{budai2024mobile} and offers a practical roadmap for applying \textit{WCAG 2.2} and \textit{MCAG} success criteria in a cross-platform development environment.
 
 Future work may include:
 \begin{itemize}
     \item Implementing real-time accessibility monitoring to update metrics dynamically.
-    \item Allowing user customization for font sizes and high-contrast modes.
     \item Extending this detailed analysis to additional screens and components, with a comparative analysis of additional code required (LOC) for full accessibility compliance.
 \end{itemize}
 
+\subsection{Accessible Components Section}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Future enhancements}
+
+\subsection{Accessible Component 1}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Future enhancements}
+
+\subsection{Best Practices Section}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Future enhancements}
+
+\subsection{Best Practice 1}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Future enhancements}
+
+\subsection{Framework Comparison}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Tools}
+
+\subsection{Best Practice 1}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Future enhancements}
+
+\subsection{Settings}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Future enhancements}
+
+\subsection{Instruction and Community}
+
+\subsubsection{Relevant guidelines and success criteria}
+
+\paragraph{WCAG 2.2}
+
+\paragraph{MCAG}
+
+\subsubsection{Implementation details in React Native}
+
+\paragraph{Key observations}
+
+\paragraph{Future enhancements}
 
 
 \newpage

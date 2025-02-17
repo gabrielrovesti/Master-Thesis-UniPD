@@ -1,44 +1,61 @@
-\PassOptionsToPackage{dvipsnames}{xcolor} % colori PDF/A
+% First pass color options before any packages
+\PassOptionsToPackage{dvipsnames}{xcolor}
 
+% PDF/A compliance and basic document setup
 \usepackage{colorprofiles}
-% PDF/A
-% validate in https://www.pdf-online.com/osa/validate.aspx
 \usepackage[a-1a,mathxmp]{pdfx}[2018/12/22]
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{bookmark}
-\usepackage{subcaption} % for subfigure - immagini una a fianco all'altra
+
+% Load figure-related packages in the correct order
+\usepackage{graphicx}
 \usepackage{caption}
+\usepackage{subcaption}
+
+% Document structure and layout
+\usepackage{bookmark}
 \usepackage{comment}
-\usepackage{chngpage, calc} % centra il frontespizio
-\usepackage{emptypage} % pagine vuote senza testatina e piede di pagina
-\usepackage{epigraph} % per epigrafi
-\usepackage{indentfirst} % rientra il primo paragrafo di ogni sezione
-\usepackage{graphicx} % immagini
-\usepackage{mparhack,relsize}  % finezze tipografiche
-\usepackage{nameref} % visualizza nome dei riferimenti
-\usepackage[font=small]{quoting} % citazioni
-\usepackage{subfig} % sottofigure, sottotabelle
-\usepackage[italian]{varioref} % riferimenti completi della pagina
-\usepackage{longtable} % tabelle su più pagine
+\usepackage{chngpage, calc}
+\usepackage{emptypage}
+\usepackage{epigraph}
+\usepackage{indentfirst}
+\usepackage{mparhack,relsize}
+\usepackage{nameref}
+\usepackage[font=small]{quoting}
+\usepackage[italian]{varioref}
+\usepackage{longtable}
+
+% Bibliography and glossary support
 \usepackage[toc, acronym]{glossaries}
 \usepackage[backend=biber, backref, style=numeric]{biblatex}
+
+% Font and typography
 \usepackage{lmodern}
-\usepackage[top=2.75cm, bottom=2.75cm, right=3cm, left=3.75cm]{geometry} % 1in+17pt+0.6cm
+
+% Page geometry and layout
+\usepackage[top=2.75cm, bottom=2.75cm, right=3cm, left=3.75cm]{geometry}
 \usepackage{fancyhdr}
 \usepackage{lipsum}
 \usepackage{setspace}
+
+% Section and title formatting
 \usepackage{titlesec}
-\usepackage{hyperref}
-\usepackage[dvipsnames,hyperref=false]{xcolor}
-\usepackage[normalem]{ulem}
 \usepackage{sectsty}
-\usepackage{sectsty} % gestisce i font di capitoli e sezioni
-\usepackage{csquotes} % gestisce automaticamente i caratteri (")
+
+% Text formatting and special characters
+\usepackage{csquotes}
 \usepackage{etoolbox}
 \usepackage[bottom]{footmisc}
 \usepackage{zref-totpages}
+
+% Code listings
 \usepackage{listings}
-\usepackage{xcolor}
+
+% Load xcolor with correct options (remove hyperref option)
+\usepackage[dvipsnames]{xcolor}
+\usepackage[normalem]{ulem}
 \usepackage{pifont}
+
+% Load hyperref last
+\usepackage{hyperref}

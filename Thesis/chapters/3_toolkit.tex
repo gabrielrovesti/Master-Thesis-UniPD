@@ -10,13 +10,13 @@
 
 \subsection{Challenges in implementing accessibility guidelines}
 
-The importance of mobile app accessibility extends beyond mere compliance with legal regulations.. Ensuring equal access to digital content and services is not only an ethical obligation but also a smart business decision. By prioritizing accessibility, app developers and companies can tap into a larger user base, improve user satisfaction, and demonstrate their commitment to social responsibility.
+The importance of mobile app accessibility extends beyond mere compliance with legal regulations. Ensuring equal access to digital content and services is not only an ethical obligation but also a smart business decision. By prioritizing accessibility, app developers and companies can tap into a larger user base, improve user satisfaction, and demonstrate their commitment to social responsibility.
 Despite the clear benefits and moral imperatives of mobile app accessibility, many developers still struggle to effectively implement accessibility guidelines in their projects. The \acrshort{wcagacr}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility. However, translating these guidelines into practical implementation can be a challenging task, particularly starting from pure formal guidelines into everyday code. \\
 
 One of the primary challenges lies in the complexity of the guidelines themselves. WCAG encompasses a wide range of \textit{success criteria}, organized under four main general \textit{principles}: perceivable, operable, understandable, and robust. Each principle contains multiple guidelines, and each guideline has several success criteria at different levels of \textit{conformance} (A, AA, AAA). Navigating this intricate web of requirements and understanding how to apply them to specific mobile app components can be overwhelming for developers, especially those new to accessibility. 
-Moreover, the practical implementation of accessibility guidelines often varies across different platforms and frameworks. iOS and Android, the two dominant mobile operating systems, have their own unique accessibility APIs, tools, and best practices. Cross-platform frameworks like React Native and Flutter add another layer of complexity, as developers must ensure that their accessibility implementations are compatible with the underlying platform-specific mechanisms. \\ 
+Moreover, the practical implementation of accessibility guidelines often varies across different platforms and frameworks. \textit{iOS} and \textit{Android}, the two dominant mobile operating systems, have their own unique accessibility \textit{API}s, tools, and best practices. Cross-platform frameworks like React Native and Flutter add another layer of complexity, as developers must ensure that their accessibility implementations are compatible with the underlying platform-specific mechanisms. \\ 
 
-Furthermore, there is often a lack of clear, practical examples and guidance on how to implement accessibility features in real-world mobile app projects. While the WCAG provides a solid foundation, it is primarily focused on web content and may not always directly address the unique challenges and interaction patterns of mobile apps. Developers often struggle to bridge the gap between the theoretical guidelines and the specific implementation details required for their projects.
+Furthermore, there is often a lack of clear, practical examples and guidance on how to implement accessibility features in real-world mobile app projects. While the \textit{WCAG} provides a solid foundation, it is primarily focused on web content and may not always directly address the unique challenges and interaction patterns of mobile apps. Developers often struggle to bridge the gap between the theoretical guidelines and the specific implementation details required for their projects.
 
 \subsection{The need for practical developer education}
 
@@ -24,11 +24,15 @@ To address these challenges and bridge the gap between accessibility guidelines 
 This is where the concept of an \textit{accessibility learning toolkit} comes into play. An accessibility toolkit is designed to serve as a comprehensive, interactive resource that empowers developers to create accessible mobile applications by providing:
 
 \begin{enumerate}
-    \item Clear explanations of \acrshort{wcagacr} guidelines and their applicability to mobile apps
-    \item Step-by-step implementation guidance for common mobile app components and interaction patterns
-    \item Practical code examples and tutorials that demonstrate best practices
-    \item Hands-on exercises and challenges to reinforce learning and build confidence
-    \item Tools and techniques for testing and validating the accessibility of mobile apps
+    \item Clear explanations of \acrshort{wcagacr} guidelines and their applicability to mobile apps;
+    
+    \item Step-by-step implementation guidance for common mobile app components and interaction patterns;
+    
+    \item Practical code examples and tutorials that demonstrate best practices;
+    
+    \item Hands-on exercises and challenges to reinforce learning and build confidence;
+    
+    \item Tools and techniques for testing and validating the accessibility of mobile apps.
 \end{enumerate}
 
 The primary goal of an accessibility learning toolkit is to bridge the gap between the theoretical knowledge of accessibility guidelines and the practical skills needed to implement them effectively in real-world projects. 
@@ -38,10 +42,13 @@ Current research, including Budai's work on Flutter accessibility testing, has p
 Despite widespread accessibility guidelines and standard, mobile application developers face significant challenges in translating theoretical requirements into practical implementations. This gap between guidelines and implementation is particularly evident in mobile development, where different platforms, screen sizes, and interaction models add complexity to accessibility implementation. Some of the most common challenges include:
 
 \begin{itemize}
-    \item Complex testing requirements - developers must validate across multiple devices, \gls{screenreaderg}, and interaction modes
-    \item Framework-specific implementations - each platform has unique accessibility \gls{apig}s and requirements
-    \item Limited practical examples - most documentation focuses on theoretical guidelines rather than concrete implementation patterns
-    \item Performance considerations - accessibility features must be implemented without compromising app performance
+    \item Complex testing requirements - developers must validate across multiple devices, \gls{screenreaderg}, and interaction modes;
+    
+    \item Framework-specific implementations - each platform has unique accessibility \gls{apig}s and requirements;
+    
+    \item Limited practical examples - most documentation focuses on theoretical guidelines rather than concrete implementation patterns;
+    
+    \item Performance considerations - accessibility features must be implemented without compromising app performance.
 \end{itemize}
 
 Effective developer education in accessibility requires a solid grounding in learning theories that emphasize hands-on, interactive approaches. By integrating established learning theories with technical education principles, it's possible to justify the interactive and practical approach adopted in this toolkit. In doing so, we draw on constructivist and experiential learning models, which have been widely recognized as effective frameworks in technical and developer education.
@@ -57,8 +64,10 @@ Building upon previous research into mobile accessibility, this work aims to pro
 This research addresses three fundamental questions about accessibility implementation in mobile development frameworks (referring to these ones as \textit{research questions}, following the work in \cite{perinello2024accessibility}:
 
 \begin{itemize}
-    \item First, we investigate whether components and widgets provided by frameworks are \textit{accessible by default}, without requiring additional developer intervention. This analysis is crucial for understanding the baseline accessibility support provided by each framework and identifying areas where additional implementation effort may be required.
-    \item Second, we examine the \textit{feasibility of making non-accessible components accessible} through additional development effort. This involves analyzing the technical capabilities of each framework and identifying the necessary modifications to achieve accessibility compliance.
+    \item First, we investigate whether components and widgets provided by frameworks are \textit{accessible by default}, without requiring additional developer intervention. This analysis is crucial for understanding the baseline accessibility support provided by each framework and identifying areas where additional implementation effort may be required;
+    
+    \item Second, we examine the \textit{feasibility of making non-accessible components accessible} through additional development effort. This involves analyzing the technical capabilities of each framework and identifying the necessary modifications to achieve accessibility compliance;
+    
     \item Third, we quantify the \textit{development overhead required to implement accessibility features} when they are not provided by default. This includes measuring additional code requirements, analyzing complexity increases, and evaluating the impact on development workflows.
 \end{itemize}
 
@@ -67,7 +76,9 @@ These questions is addressed via the usage of a systematic methodology aiming to
 The \textit{goal} is to create an accessible application that serves three key purposes:
 \begin{enumerate}
     \item To provide developers with practical, interactive examples of accessibility implementation, able to be copied easily and ported inside of other projects;
+    
     \item To compare and contrast accessibility approaches between the main cross-development mobile frameworks in the current mobile landscape;
+    
     \item To establish a reusable pattern library that demonstrates engine architecture, widget systems, and native platform integration, while ensuring compliance with current accessibility guidelines and legal requirements.
 \end{enumerate}
 
@@ -83,9 +94,12 @@ Accessibility guidelines and standards form the foundation upon which inclusive 
 The \gls{wcagg}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility (as per \cite{site:wcag}). Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
 
 \begin{itemize}
-    \item \textit{Perceivable}: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, creating content that can be presented in different ways without losing meaning, and making it easier for users to see and hear content.
-    \item \textit{Operable}: User interface components and navigation must be operable. This means that all functionality should be available from a keyboard, users should have enough time to read and use the content, and content should not cause seizures or physical reactions.
-    \item \textit{Understandable}: Information and the operation of the user interface must be understandable. This involves making text content readable and understandable, making content appear and operate in predictable ways, and helping users avoid and correct mistakes.
+    \item \textit{Perceivable}: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, creating content that can be presented in different ways without losing meaning, and making it easier for users to see and hear content;
+    
+    \item \textit{Operable}: User interface components and navigation must be operable. This means that all functionality should be available from a keyboard, users should have enough time to read and use the content, and content should not cause seizures or physical reactions;
+    
+    \item \textit{Understandable}: Information and the operation of the user interface must be understandable. This involves making text content readable and understandable, making content appear and operate in predictable ways, and helping users avoid and correct mistakes;
+    
     \item \textit{Robust}: Content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies. This requires maximizing compatibility with current and future user agents.
 \end{itemize}
 
@@ -365,16 +379,15 @@ Below is a structured analysis referencing both \textit{WCAG 2.2} and mobile-spe
 
 \subsubsection{Implementation details in React Native}
 
-The following refined code snippet illustrates how the above success criteria are applied in the Home Screen. In addition, several key accessibility metrics are computed to provide real-time feedback on compliance:
+The refined code snippet presented in \ref{lst:home-screen-rn} illustrates how the above success criteria are applied in the Home Screen. In addition, several key accessibility metrics are computed to provide real-time feedback on compliance:
 
 \begin{lstlisting}[
-  style=reactNativeStyle,
+  style=ReactNativeStyle,
   caption={Concise Home Screen snippet in React Native}, 
   label={lst:home-screen-rn}, 
   basicstyle=\ttfamily\footnotesize,
-  numbers=left
+  numbers=left,
 ]
-
 export default function HomeScreen() {
   const router = useRouter();
   const { colors } = useTheme();
@@ -435,7 +448,7 @@ export default function HomeScreen() {
 
 \paragraph{Key observations}
 \begin{itemize}
-    \item \textbf{Contrast (WCAG 1.4.3):} The text colors (\texttt{colors.text} and \texttt{colors.textSecondary}) are chosen to ensure a contrast ratio of at least 4.5:1 against the white background.
+    \item \textbf{Contrast (WCAG 1.4.3):} The text colors (\texttt{colors.text} and \\\texttt{colors.textSecondary}) are chosen to ensure a contrast ratio of at least 4.5:1 against the white background.
     \item \textbf{Focus Visibility (WCAG 2.4.7):} The use of appropriate accessibility roles (e.g., \texttt{header} for the title, \texttt{button} for the Quick Start card) ensures that users navigating via assistive technologies receive clear visual and auditory focus indicators.
     \item \textbf{Touch Target (WCAG 2.5.8):} By specifying minimum dimensions for the Quick Start button (48\,px by 180\,px), we ensure that touch targets are sufficiently large for users with reduced dexterity.
     \item \textbf{Metric Computation:} The computed metrics provide a quick quantitative overview of accessibility:

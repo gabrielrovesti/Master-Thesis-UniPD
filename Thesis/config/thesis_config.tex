@@ -171,49 +171,8 @@
     float=htbp
 }
 
-% Language-specific settings
-\lstdefinelanguage{ReactNative}{
-  keywords={
-    import, export, default, function, return, const, let, var, 
-    if, else, for, while, do, switch, case, break, continue, 
-    class, extends, new, try, catch, finally, throw, async, await,
-    useState, useEffect, useContext, useRef
-  },
-  sensitive=true,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  morestring=[b]`
-}
-
-% Create list of listings
-\renewcommand{\lstlistlistingname}{List of listings}
-\let\originaladdcontentsline\addcontentsline
-\renewcommand{\addcontentsline}[3]{%
-  \originaladdcontentsline{#1}{#2}{#3}%
-  \ifthenelse{\equal{#1}{lol}}{\originaladdcontentsline{toc}{section}{#3}}{}%
-}
-% In your preamble or thesis-config file:
-
 % Language definition for React Native
-\lstdefinelanguage{ReactNative}{
-  keywords={
-    import, export, default, function, return, const, let, var, 
-    if, else, for, while, do, switch, case, break, continue, 
-    class, extends, new, try, catch, finally, throw, async, await,
-    useState, useEffect, useContext, useRef
-  },
-  sensitive=true,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]",
-  morestring=[b]`
-}
 
-% Now set your global listings style for React Native:
-% First define the language
 \lstdefinelanguage{ReactNative}{
   keywords={
     import, export, default, function, return, const, let, var, 

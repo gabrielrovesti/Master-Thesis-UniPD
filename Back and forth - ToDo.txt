@@ -1,3 +1,28 @@
+Buongiorno professoressa,
+come sempre in primis la ringrazio per la disponibilità e per il lavoro,
+aspetto senza problemi le sue correzioni per la tesi in base a quando avrà modo.
+
+Avevo notato l'azione dello swipe aggiuntivo, avevo cercato di rendere tutte le immagini non descrivibili, ma in effetti non ho curato la loro non raggiungibilità, cerco di tenerne conto.
+Riguardo al testo del codice, verifico e cerco di sistemare l'indentazione presentata per schermata; nell'ultima implementazione, quando testando su screen reader ho voluto di proposito rendere la lettura del codice un blocco unico, perché pensavo che magari non fosse rilevante leggere tutto il singolo codice per un utente dell'applicazione. Mi trovo a concordare però che se l'applicazione è rivolta ai developers, la lettura del codice, come blocco unico, avrebbe perfettamente senso.
+
+Mi occupo anche della raggiungibilità in merito alla condivisione codice, trovo l'osservazione pertinente per garantire veramente l'accessibilità in ogni sua parte del prodotto finale, la ringrazio. La ringrazio per aver chiesto in merito alle gesture, tengo in questo modo. Dello slider gliene accennavo, vedo se riesco a trovare un modo per renderlo pienamente funzionante. Quando avevo testato le gesture con SR, ero riuscito ad "azionarle" tutte mi ricordo, verifico per rendere il tutto certo.
+
+Attualmente i valori in Home Screen sono calcolati sul numero di componenti matematicamente in modo statico, come avrà modo di vedere anche in tesi nella parte di descrizione codice. Ero infatti incerto sull'effettiva valutazione formale, come anche per lo screen di Framework Comparison.
+La mia idea è la seguente:
+- per i componenti documentare ogni elemento di interfaccia e verificare se le linee guida WCAG (che saranno poi citate nelle singole schermate) sono rispettate oppure no, verificando tutti i criteri rilevanti
+- riguardo ai test con screen reader, definirei un protocollo formale con scenari specifici in maniera tale da garantire un vero score per singole schermate; potrebbe essere utile documentare una parte metrica e poi inserirla sempre parlando di questa schermata in tesi, verificando dispositivi utilizzato e verificando quali issue ci sono (per esempio i punti comuni trattati, descrizioni, gerarchie, codice leggibile, gesture attuabili)
+
+Un'idea similare per formalizzare Frameworks Comparison potrebbe essere descrivere l'implementazione esatta di specifici criteri WCAG e difficoltà di implementazione (in merito a linee di codice e risultati test SR) citando esattamente le fonti in schermata, quindi definire anche qui "custom" dei criteri esatti e poi documentarli opportunamente. Confermo che anche qui i valori sono staticamente assegnati. Avevo tolto già Ionic in una delle ultime versioni compilate, successive all'ultimo invio della release.
+Da diverso tempo per entrambe le schermate sto provando a ragionare al modo migliore per mostrare dei dati pertinenti e le fonti non sono poi molte; credo per lo scopo di tesi queste modalità dovrebbero essere sufficientemente corrette (volevo sapere se anche lei fosse d'accordo, perché secondo me rappresenta il punto fondamentale del link tra linee guida e implementazione pratica).
+
+La ringrazio per l'idea di breadcrumb, potrebbe effettivamente essere una buona idea. In merito ai testing tools presenti ho effettivamente ragionato su dei link generali di consultazione, avrebbe senso però descrivere gli strumenti presenti con un fine pratico mi rendo conto. Magari, parlando di questa schermata poi in tesi, potrei pensare di introdurre lo scopo degli strumenti e dare delle considerazioni pratiche.
+
+Ringrazio e cordialmente saluto,
+Gabriel Rovesti
+LM Computer Science
+Matricola 2103389
+
+
 Caro Gabriel,
 
 ecco finalmente le mie correzioni. Mi spiace per il tempo che ci metto, ma è un periodo molto impegnato e devo dare priorità a chi si laurea ad Aprile.

@@ -1,11 +1,11 @@
-\chapter{Mobile accessibility guidelines and standards}
+\chapter{Mobile accessibility: guidelines, standards and related works}
 \label{chap:accessibility}
 
 \chapterintroline{
-    This chapter provides an overview of mobile accessibility guidelines and standards to provide a guide in their implementation for their usage in frameworks. A review of the present literature linked to the general theme of mobile accessibility will be given, in order to a have a comprehensive overview for mobile application development.
+    This chapter provides a structured overview of existing research and established standards related to mobile accessibility. It begins by reviewing the present legislative frameworks regulating accessibility, then outlines the key guidelines and standards that inform inclusive mobile application development, highlighting practical considerations for developers aiming to bridge theoretical accessibility frameworks and real-world implementation effectively. Lastly, an overview of the significant studies and literature concerning user experiences, development challenges, and testing methodologies for mobile accessibility. 
 }
 
-\section{Accessibility legislative frameworks and standards}
+\section{Accessibility legislative frameworks}
 \label{chap:accessibility-history-rules}
 
 The journey towards digital accessibility has been shaped by both legislative frameworks and technological advancements, alongside the evolution of devices and how they integrate into daily life. These developments reflect not just a response to legal requirements, but a fundamental shift in how we approach digital design and development. The goal has evolved from simple compliance to embracing universal design principles - creating products and services that can be used by everyone, regardless of their abilities or circumstances \cite{article:universal-design}.
@@ -23,6 +23,62 @@ To understand the current state of mobile accessibility, it's crucial to examine
 \end{itemize}
 
 These legislative frameworks are supported by international technical standards, especially the \textit{Web Content Accessibility Guidelines}, created by the \acrshort{w3c}. WCAG has evolved from its first version in 1999 to this year's WCAG 2.2 (came out in 2023), reflecting increased sophistication in digital interfaces and interaction patterns. In each iteration, more scope and detail about the requirements have been added; recent versions place particular emphasis on mobile and touch interfaces. WCAG serves as the primary technical foundation for digital accessibility implementation worldwide, providing specific, testable criteria for making content accessible to people with disabilities, serving as one of the main foundations for developers and content creators to be used as standard of reference. The guidelines implement three levels of conformance (A, AA, and AAA), providing increasingly stringent accessibility requirements. These will be explored in depth and used as main reference for the work present inside of this research, to establish clear degrees of success criteria to be met by the frameworks relative implementations.
+
+\section{Accessibility standard guidelines}
+\label{sec:guidelines}
+
+Accessibility guidelines and standards form the foundation upon which inclusive mobile app development practices are built. They provide a shared framework for understanding and addressing the diverse needs of users with disabilities, ensuring that mobile apps are perceivable, operable, understandable, and robust. This section explores the key accessibility guidelines and standards relevant to mobile app development, describing them briefly before seeing how they apply to the concrete use case of this thesis' application, following the principles presented here.
+
+\subsection{Web Content Accessibility Guidelines (WCAG)}
+
+The \gls{wcagg}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility (as per \cite{site:wcag}). Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
+
+\begin{itemize}
+    \item \textit{Perceivable}: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, creating content that can be presented in different ways without losing meaning, and making it easier for users to see and hear content;
+    
+    \item \textit{Operable}: User interface components and navigation must be operable. This means that all functionality should be available from a keyboard, users should have enough time to read and use the content, and content should not cause seizures or physical reactions;
+    
+    \item \textit{Understandable}: Information and the operation of the user interface must be understandable. This involves making text content readable and understandable, making content appear and operate in predictable ways, and helping users avoid and correct mistakes;
+    
+    \item \textit{Robust}: Content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies. This requires maximizing compatibility with current and future user agents.
+\end{itemize}
+
+Under each principle, the WCAG provides specific guidelines and success criteria at three levels of conformance (A, AA, and AAA). These success criteria are testable statements that help developers determine whether their app meets the accessibility requirements. By understanding and applying the WCAG principles and guidelines, mobile app developers can create more inclusive and accessible experiences for their users.
+
+\subsection{Mobile Content Accessibility Guidelines (MCAG)}
+
+While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms introduce additional complexities that may not be fully addressed by web-centric guidelines (as per \cite{site:mcag}). The \gls{mcagg} build upon the previous ones by focusing on the specific interaction patterns, form factors, and environmental contexts unique to mobile devices. For example, MCAG emphasizes:
+
+\begin{itemize}
+    \item \textit{Touch interaction and gestures}: Ensuring that tap targets, swipe gestures, and multi-finger interactions are usable for individuals with varying motor skills;
+    
+    \item \textit{Limited screen real estate}: Designing content that remains clear and functional on smaller displays, including proper zooming and reflow behavior;
+
+    \item \textit{Diverse mardware and os versions}: Accounting for a wide range of device capabilities, operating system versions, and hardware configurations that can affect accessibility;
+
+    \item \textit{Contextual usage scenarios}: Recognizing that mobile apps are often used in changing lighting conditions, noisy environments, or while users are on the move.
+    
+\end{itemize}
+
+In practice, \acrshort{mcagacr} complements \acrshort{wcagacr} by providing more granular, mobile-oriented guidance considering specific factors. Developers who follow these guidelines in addition to \acrshort{wcagacr} are better equipped to deliver an inclusive experience that accounts for real-world mobile usage. As part of this work, AccessibleHub integrates both sets of guidelines to ensure comprehensive coverage of accessibility requirements across platforms.
+
+\subsection{Mobile-specific accessibility considerations}
+
+While the previous guidelines provide by themselves a solid foundation for digital accessibility, mobile apps present unique challenges and considerations that require additional attention. Some of the key mobile-specific accessibility factors include:
+
+\begin{itemize}
+    \item \textit{Touch interaction}: Mobile devices rely heavily on touch-based interactions, such as tapping, swiping, and multi-finger gestures. Developers must ensure that all interactive elements are large enough to be easily tapped, provide alternative input methods for complex gestures, and offer appropriate haptic and visual feedback;
+    
+    \item \textit{Small screens}: The limited screen real estate on mobile devices can pose challenges for users with visual impairments. Developers should provide sufficient contrast, use clear and legible fonts, and ensure that content can be easily zoomed or resized without losing functionality;
+    
+    \item \textit{Screen reader compatibility}: Mobile screen readers, such as VoiceOver on iOS and TalkBack on Android, require proper labeling and semantic structure to effectively convey content and functionality to users with visual impairments. Developers must use appropriate accessibility APIs and ensure that all elements are properly labeled and navigable;
+    
+    \item \textit{Device fragmentation}: The wide range of mobile devices, screen sizes, and operating system versions can complicate accessibility testing and implementation. Developers should test their apps on a diverse range of devices and ensure that accessibility features function consistently across different configurations;
+    
+    \item \textit{Mobile context}: Mobile apps are often used in a variety of contexts, such as outdoors, in low-light conditions, or in noisy environments. Developers should consider these contexts and provide appropriate accommodations, such as high-contrast modes or subtitles for audio content.
+\end{itemize}
+
+By understanding and addressing these mobile-specific accessibility considerations, developers can create apps that are more inclusive and usable for a wider range of users.
 
 \section{State of research and literature review}
 \label{chap:accessibility-literature}
@@ -76,7 +132,7 @@ This thesis wants to expand previous research conducted by Budai \cite{budai2024
 
 \subsection{Accessibility tools and extensions}
 
-Accessibility tool and extension development has been instrumental in bridging the gap between theory and practice. These tools have also allowed developers to efficiently include accessibility in their applications while meeting standards. For instance, Chen et al. \cite{chen2023automated} presented \textit{AccuBot}, a publicly available automated testing tool for mobile applications. The tool is integrated with continuous integration pipelines for the detection of WCAG 2.2 criteria violations, such as insufficient contrast ratios and missing \acrshort{aria} labels. In their evaluation of $500$ mobile apps, they reported that \textit{AccuBot} reduces manual testing efforts by $40$\% while sustaining high precision in identifying technical accessibility barriers.\\
+Accessibility tools and extensions development has been instrumental in bridging the gap between theory and practice. These tools have also allowed developers to efficiently include accessibility in their applications while meeting standards. For instance, Chen et al. \cite{chen2023automated} presented \textit{AccuBot}, a publicly available automated testing tool for mobile applications. The tool is integrated with continuous integration pipelines for the detection of WCAG 2.2 criteria violations, such as insufficient contrast ratios and missing \acrshort{aria} labels. In their evaluation of $500$ mobile apps, they reported that \textit{AccuBot} reduces manual testing efforts by $40$\% while sustaining high precision in identifying technical accessibility barriers.\\
 
 Another contribution worth mentioning is the screen-reader simulation toolkit, \textit{ScreenMate}, which has been proposed by Lee et al.\cite{lee2021screenmate}. It allows developers to simulate how their mobile interfaces would behave under popular screen readers such as VoiceOver and TalkBack. By simulating user interactions for visually impaired users, \textit{ScreenMate} helps to early detect navigation inconsistencies and poorly labeled components during the development cycle. The authors have validated the toolkit in a case study with $15$ development teams, showing a $30$\% reduction in post-release bug reports about accessibility.\\
 

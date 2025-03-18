@@ -1,52 +1,263 @@
 \chapter{Accessibility analysis: framework comparison and implementation patterns} 
 \label{chap:implementation}
-
 \chapterintroline{
    This chapter offers a systematic, comparative analysis of accessibility implementation in React Native and Flutter. Through empirical evaluation of equivalent components, we address three core questions: the default accessibility of components, the feasibility of implementing accessibility for non-accessible components, and the development effort required for these implementations. Combining quantitative metrics with qualitative assessments of developer experience, this analysis provides practical insights into how each framework facilitates the creation of accessible mobile applications.
 }
 
-\section {Research methodology}
+\section{Research methodology}
+This chapter builds upon the detailed screen-by-screen analysis of \textit{AccessibleHub} presented in Chapter 3, extending that evaluation framework to a comparative analysis of React Native and Flutter. The methodology applied here is grounded in the formal approach developed by Perinello and Gaggi \cite{perinello2024accessibility}, which establishes a systematic framework for evaluating accessibility implementation in cross-platform mobile frameworks.
 
-\subsection {Research questions and objectives}
+\subsection{Research questions and objectives}
 
-\subsection {Testing approach and criteria}
+Building on the foundation established in Chapter 3, this comparative analysis addresses three fundamental research questions about accessibility implementation across React Native and Flutter:
 
-\subsection {Evaluation metrics}
+\begin{enumerate}
+    \item \textbf{RQ1: Default accessibility support} - To what extent are components and widgets provided by each framework accessible by default, without requiring additional developer intervention? This analysis examines the baseline accessibility support provided by each framework and identifies areas where implementation gaps exist.
+    
+    \item \textbf{RQ2: Implementation feasibility} - When components are not accessible by default, what is the technical feasibility of enhancing them to meet accessibility standards? This includes analyzing the technical capabilities of each framework and identifying the necessary modifications to achieve accessibility compliance.
+    
+    \item \textbf{RQ3: Development overhead} - What is the quantifiable development overhead required to implement accessibility features when they are not provided by default? This includes measuring additional code requirements, analyzing complexity increases, and evaluating the impact on development workflows.
+\end{enumerate}
 
-\section {React Native Approach}
+These research questions provide a structured framework for evaluating how React Native and Flutter support developers in creating accessible mobile applications. By addressing these questions, we aim to provide practical insights that can guide framework selection and implementation strategies for accessibility-focused development.
 
-\subsection {Component accessibility analysis}
+\subsection{Testing approach and criteria}
 
-\subsection {Native platform integration}
+The comparative testing approach builds upon the formal evaluation methodology established in Chapter 3, applying those same rigorous criteria to Flutter implementations. This ensures consistent evaluation across frameworks and enables direct comparison of accessibility support. Our testing methodology consists of four key components:
 
-\subsection {Implementation patterns and solutions}
+\begin{enumerate}
+    \item \textbf{Component equivalence mapping}: We establish functional equivalence between React Native components and Flutter widgets to ensure fair comparison. This mapping is based on the component's purpose and role rather than implementation details.
+    
+    \item \textbf{WCAG/MCAG criteria mapping}: Each component is evaluated against the same set of WCAG 2.2 and MCAG criteria used in Chapter 3, ensuring consistent application of accessibility standards across frameworks.
+    
+    \item \textbf{Implementation testing}: For each component, we develop and test equivalent implementations in both frameworks, focusing on:
+    \begin{itemize}
+        \item Default accessibility support without modifications
+        \item Implementation requirements to achieve full accessibility
+        \item Code complexity and verbosity of accessible implementations
+    \end{itemize}
+    
+    \item \textbf{Assistive technology testing}: All implementations are tested with:
+    \begin{itemize}
+        \item iOS VoiceOver on iPhone XR with iOS 16
+        \item Android TalkBack on Google Pixel 7, running Android 15 (tests were conducted also on Android 13 and 14 on same device)
+    \end{itemize}
+\end{enumerate}
 
-\section {Flutter Approach}
+This multi-faceted testing approach ensures that our evaluation captures both the technical capabilities of each framework and the practical experience of users with disabilities.
 
-\subsection{Framework overview}
+\subsection{Evaluation metrics and quantification methods}
 
-\subsection {Component accessibility patterns}
+To provide rigorous quantitative comparison between frameworks, we employ the formal metrics present in \ref{tab:accessibility_metrics}.
 
-\subsection {Platform-specific considerations}
+\begin{table}[ht]
+\caption{Accessibility Implementation Metrics}
+\label{tab:accessibility_metrics}
+\centering
+\begin{tabular}{|p{4cm}|p{10cm}|}
+\hline
+\textbf{Metric} & \textbf{Description} \\
+\hline
+Component Accessibility Score (CAS) & Percentage of components accessible by default without modification \\
+\hline
+Implementation Overhead (IO) & Additional lines of code required to implement accessibility features \\
+\hline
+Complexity Impact Factor (CIF) & Calculated as: $CIF = \frac{IO}{TC} \times CF$ where TC is total component code and CF is a complexity factor based on nesting depth and property count \\
+\hline
+Screen Reader Support Score (SRSS) & Empirical score (1-5) based on VoiceOver and TalkBack compatibility testing \\
+\hline
+WCAG Compliance Ratio (WCR) & Percentage of applicable WCAG 2.2 success criteria satisfied \\
+\hline
+Developer Time Estimation (DTE) & Estimated development time required to implement accessibility features, based on component complexity \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsection {Common implementation challenges}
+These metrics are calculated using the same methodology established in Chapter 3, ensuring consistency across the comparative analysis. This quantitative approach enables objective comparison between the frameworks and provides concrete data to support our conclusions.
 
-\section {Comparative analysis}
+\subsection{Component selection methodology}
 
-\subsection {Default accessibility support}
+To ensure comprehensive and representative comparison, components for analysis were selected based on the following criteria:
 
-\subsection {Implementation complexity}
+\begin{enumerate}
+    \item \textbf{Functional equivalence}: Selected components must have clear functional equivalents across both frameworks
+    
+    \item \textbf{Accessibility relevance}: Components must be essential to implementing accessible user interfaces
+    
+    \item \textbf{Usage frequency}: Priority given to components that appear frequently in mobile applications
+    
+    \item \textbf{Interaction complexity}: Selection includes a range of components from simple (static text) to complex (multi-state interactive elements)
+    
+    \item \textbf{WCAG criteria coverage}: The component set must collectively address all four WCAG principles
+\end{enumerate}
 
-\subsection {Developer experience}
+Based on these criteria, we selected components from three categories that represent the building blocks of mobile interfaces:
 
-\subsection {Performance implications}
+\begin{enumerate}
+    \item \textbf{Text and typography components}: Headings, paragraphs, language declarations, and abbreviations
+    
+    \item \textbf{Interactive components}: Buttons, form elements, custom gesture handlers
+    
+    \item \textbf{Navigation components}: Navigation systems, tab controls, focus management systems
+    
+    \item \textbf{Media and complex components}: Image rendering, data visualization, dynamic content
+\end{enumerate}
 
-\section {Framework-specific best practices}
+This systematic selection process ensures that our analysis covers a representative range of components while maintaining a focused approach that enables in-depth comparison.
+
+\begin{table}[ht]
+\caption{Component Accessibility Comparison Matrix}
+\label{tab:component_comparison}
+\centering
+\begin{tabular}{|p{2.5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+\textbf{Component} & \textbf{React Native Default} & \textbf{React Native Enhanced} & \textbf{Flutter Default} & \textbf{Flutter Enhanced} & \textbf{Implementation Difference (\%)} \\
+\hline
+Heading & \ding{54} & \ding{51} (+1P) & \ding{54} & \ding{51} (+1W +1P) & +40\% \\
+\hline
+Text language & \ding{51} & - & \ding{54} & \ding{51} (+1W +1P) & +200\% \\
+\hline
+Text abbreviation & \ding{54} & \ding{51} (+1P) & \ding{54} & \ding{51} (+1C +1P) & +100\% \\
+\hline
+Button & \multicolumn{5}{c|}{Additional components will be analyzed with the same structure} \\
+\hline
+\multicolumn{6}{|l|}{Legend: \ding{51}: accessible by default, \ding{54}: not accessible, P: property, W: widget, C: configuration} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{Implementation Overhead Analysis}
+\label{tab:implementation_overhead_comparison}
+\centering
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Component} & \textbf{React Native LOC} & \textbf{Flutter LOC} & \textbf{Difference (LOC)} & \textbf{Complexity Impact} \\
+\hline
+Heading & 7 & 11 & +4 (57\%) & Low \\
+\hline
+Text language & 7 & 21 & +14 (200\%) & High \\
+\hline
+Text abbreviation & 7 & 14 & +7 (100\%) & Medium \\
+\hline
+Button & \multicolumn{4}{c|}{Additional components will be analyzed with the same structure} \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\caption{WCAG Compliance by Framework}
+\label{tab:wcag_compliance_comparison}
+\centering
+\begin{tabular}{|p{2.5cm}|p{5cm}|p{3cm}|p{3cm}|}
+\hline
+\textbf{WCAG Principle} & \textbf{Key Success Criteria} & \textbf{React Native} & \textbf{Flutter} \\
+\hline
+1. Perceivable & 1.1.1, 1.3.1, 1.4.3, 1.4.11 & 92\% & 85\% \\
+\hline
+2. Operable & 2.1.1, 2.4.3, 2.4.7, 2.5.1, 2.5.8 & 100\% & 88\% \\
+\hline
+3. Understandable & 3.2.1, 3.2.4, 3.3.1, 3.3.2 & 80\% & 80\% \\
+\hline
+4. Robust & 4.1.1, 4.1.2, 4.1.3 & 100\% & 100\% \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Component-level comparative analysis}
+
+\subsection{Text and typography components}
+
+\subsubsection{Headings implementation}
+
+\subsubsection{Text labels and descriptions}
+
+\subsubsection{Language declaration}
+
+\subsubsection{Abbreviations and specialized text}
+
+\subsection{Interactive components}
+
+\subsubsection{Buttons and touchable elements}
+
+\subsubsection{Form controls}
+
+\subsubsection{Custom gestures}
+
+\subsection{Navigation components}
+
+\subsubsection{Tabs and drawer navigation}
+
+\subsubsection{Focus management}
+
+\subsubsection{Breadcrumb implementation comparison}
+
+\subsection{Media and complex content}
+
+\subsubsection{Images and decorative elements}
+
+\subsubsection{Data visualization}
+
+\subsubsection{Dynamic content}
+
+\section{Framework architecture impact on accessibility}
+
+\subsection{React Native approach}
+
+\subsubsection{Component-property enhancement model}
+
+\subsubsection{Native bridge considerations}
+
+\subsubsection{Accessibility tree implementation}
+
+\subsection{Flutter approach}
+
+\subsubsection{Widget-based semantic model}
+
+\subsubsection{Semantics layer architecture}
+
+\subsubsection{Native platform integration}
+
+\section{Quantitative analysis of implementation overhead}
+
+\subsection{Lines of code comparison}
+
+\subsection{Implementation complexity metrics}
+
+\subsection{Performance impact assessment}
+
+\subsection{Maintenance considerations}
+
+\section{Addressing WCAG/MCAG criteria}
+
+\subsection{Principle 1: Perceivable}
+
+\subsection{Principle 2: Operable}
+
+\subsection{Principle 3: Understandable}
+
+\subsection{Principle 4: Robust}
+
+\subsection{Mobile-specific accessibility considerations}
+
+\section{Framework-specific best practices}
 
 \subsection{React Native optimization patterns}
 
 \subsection{Flutter accessibility patterns}
 
 \subsection{Cross-platform considerations}
+
+\subsection{Developer education and resources}
+
+\section{Results and discussion}
+
+\subsection{Research questions revisited}
+
+\subsection{Implications for mobile developers}
+
+\subsection{Limitations of current approaches}
+
+\subsection{Future directions}
 
 \newpage

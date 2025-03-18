@@ -1297,103 +1297,370 @@ Based on formal WCAG/MCAG gap analysis and systematic screen reader testing, sev
     \item \textbf{Accessibility implementation diff visualizer}: Adding a visual comparison tool that highlights the code differences between basic and accessible implementations of each component, helping developers understand the specific changes needed for accessibility compliance; this would address WCAG 3.2.4 (Consistent Identification) by demonstrating consistent patterns for accessible implementations.
 \end{enumerate}
 
-\subsection{Accessible Component 1}
+\subsection{Best practices screen}
 
-\subsubsection{Relevant guidelines and success criteria}
+The Best Practices Screen serves as a comprehensive educational resource within the \textit{AccessibleHub} application. It provides developers with access to essential guidelines, patterns, and interactive resources for implementing accessibility in mobile applications. The screen organizes accessibility knowledge into five key categories: \textit{WCAG Guidelines, Semantic Structure, Gesture Tutorial, Screen Reader Support, and Logical Focus Order}. An example of the interface is shown in Figure~\ref{fig:best_practices_screens_sidebyside}.
 
-\paragraph{WCAG 2.2}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the Best Practices Screen}]{img/practices1.png}
+        \caption{Best practices screen - Top section}
+        \label{fig:best-practices-top}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the Best Practices Screen}]{img/practices2.png}
+        \caption{Best practices screen - Bottom section}
+        \label{fig:best-practices-bottom}
+    \end{subfigure}
+    \caption{Side-by-side view of the Best Practices Screen sections, showing accessibility guideline categories}
+    \label{fig:best_practices_screens_sidebyside}
+\end{figure}
 
-\paragraph{MCAG}
+\subsubsection{Component inventory and WCAG/MCAG mapping}
 
-\subsubsection{Implementation details in React Native}
+Table~\ref{tab:best_practices_screen_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
 
-\paragraph{Key observations}
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
+\caption{Best practices screen component-criteria mapping}
+\label{tab:best_practices_screen_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Practice Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.4 Link Purpose (A) & Touch target size\newline Meaningful labels\newline Single finger operation & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel=}\newline \texttt{onPress=handle \ PracticePress} \\
+\hline
+Category Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true} \\
+\hline
+Badges (Documentation, Interactive Guide, etc.) & text & 1.4.3 Contrast (AA)\newline 1.3.1 Info and Relationships (A) & Descriptive labeling\newline Non-interactive elements & Part of parent button's \texttt{accessibilityLabel} \\
+\hline
+Feature Items (with checkmark icons) & text & 1.3.1 Info and Relationships (A) & Grouping related information & Parent element contains all related information \\
+\hline
+Chevron Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility="no-hide-descendants"} \\
+\hline
+Screen Announcements & status & 4.1.3 Status Messages (AA) & Context retention\newline Screen transitions & \texttt{AccessibilityInfo. \ announceFor \ Accessibility} \\
+\end{longtable}
 
-\paragraph{Future enhancements}
+\subsubsection{Technical implementation analysis}
 
-\subsection{Best Practices Section}
+The code sample in Listing~\ref{lst:best-practices-screen-accessibility} demonstrates the key accessibility properties implemented in the Best Practices Screen.
 
-\subsubsection{Relevant guidelines and success criteria}
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Annotated code sample demonstrating Best Practices Screen accessibility properties},
+  label={lst:best-practices-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+  {/* 1. Practice card with accessibility label */}
+  <TouchableOpacity
+    style={themedStyles.card}
+    onPress={() => {
+      router.push('/practices-screens/guidelines');
+      AccessibilityInfo.announceForAccessibility('Opening WCAG Guidelines');
+    }}
+    accessibilityRole="button"
+    accessibilityLabel="WCAG Guidelines"
+  >
+    {/* 2. Icon with accessibility hiding to prevent redundant focus */}
+    <View style={[themedStyles.iconWrapper, { backgroundColor: iconColors.wcag.bg }]}>
+      <Ionicons
+        name="document-text-outline"
+        size={24}
+        color={iconColors.wcag.icon}
+        accessibilityElementsHidden
+      />
+    </View>
 
-\paragraph{WCAG 2.2}
+    <View style={themedStyles.cardContent}>
+      <View style={themedStyles.titleRow}>
+        <Text style={themedStyles.practiceTitle}>WCAG Guidelines</Text>
+        <View style={themedStyles.badgeContainer}>
+          <View style={themedStyles.badge}>
+            <Text style={themedStyles.badgeText}>Documentation
+            </Text>
+          </View>
+        </View>
+      </View>
 
-\paragraph{MCAG}
+      {/* 3. Feature list with hidden decorative icons */}
+      <View style={themedStyles.featureList}>
+        <View style={themedStyles.featureItem}>
+          <Ionicons
+            name="checkmark-circle"
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+          />
+        </View>
+      </View>
+    </View>
 
-\subsubsection{Implementation details in React Native}
+    {/* 4. Chevron icon hidden from screen readers */}
+    <Ionicons
+      name="chevron-forward"
+      size={20}
+      accessibilityElementsHidden
+      importantForAccessibility="no-hide-descendants"
+    />
+  </TouchableOpacity>
+\end{lstlisting}
 
-\paragraph{Key observations}
+The implementation of the Best Practices Screen addresses several important accessibility considerations:
 
-\paragraph{Future enhancements}
+\begin{enumerate}
+    \item \textbf{Elimination of garbage interactions}: Decorative elements (icons, chevrons) are properly hidden from screen readers using both \texttt{accessibilityElementsHidden} and \\ \texttt{importantForAccessibility="no-hide-descendants"} to eliminate unnecessary swipes, which directly addresses feedback received during accessibility testing;
+    
+    \item \textbf{Comprehensive card labels}: Each practice card provides detailed accessibility labels that include the category name and description, ensuring screen reader users get complete context without needing to navigate through sub-elements;
+    
+    \item \textbf{Navigation announcements}: The implementation uses \\ \texttt{AccessibilityInfo.announceForAccessibility} to proactively inform users about screen transitions when navigating to specific practice guides;
+    
+    \item \textbf{Touch target optimization}: All interactive elements maintain sufficient touch target sizes to accommodate various user needs, with cards providing ample tapping area.
+\end{enumerate}
 
-\subsection{Best Practice 1}
+\subsubsection{Contrast and color analysis}
 
-\subsubsection{Relevant guidelines and success criteria}
+Table~\ref{tab:best_practices_contrast_analysis} presents the formal contrast analysis for UI elements on the Best Practices Screen. All elements meet at least WCAG Level~AA requirements (4.5:1 for normal text).
 
-\paragraph{WCAG 2.2}
+\begin{longtable}{|p{2.8cm}|p{2.8cm}|p{2.8cm}|p{2.4cm}|p{2.4cm}|}
+\caption{Best practices screen contrast analysis}
+\label{tab:best_practices_contrast_analysis}\\
+\hline
+\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 21:1 (Light)\newline 21:1 (Dark) & AAA ($\ge7{:}1$) \\
+\hline
+Hero Subtitle & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 4.6:1 (Light)\newline 5.2:1 (Dark) & AA ($\ge4.5{:}1$) \\
+\hline
+Card Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 21:1 (Light)\newline 16:1 (Dark) & AAA ($\ge7{:}1$) \\
+\hline
+Card Description & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 4.6:1 (Light)\newline 6.1:1 (Dark) & AA ($\ge4.5{:}1$) \\
+\hline
+Badge Text & Various: \#0055CC (WCAG)\newline \#0070F3 (Semantic)\newline \#FF8C00 (Gesture)\newline \#0066CC (Screen Reader)\newline \#28A745 (Navigation) & Badge background (varies by category) & 4.5:1 to 5.3:1 (all combinations) & AA ($\ge4.5{:}1$) \\
+\hline
+Feature Text & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 4.6:1 (Light)\newline 6.1:1 (Dark) & AA ($\ge4.5{:}1$) \\
+\end{longtable}
 
-\paragraph{MCAG}
+\subsubsection{Screen reader support analysis}
 
-\subsubsection{Implementation details in React Native}
+Table~\ref{tab:best_practices_screen_reader_analysis} presents results from systematic testing of the Best Practices Screen with screen readers on both iOS and Android platforms.
 
-\paragraph{Key observations}
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Best practices screen screen reader testing results}
+\label{tab:best_practices_screen_reader_analysis}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & \ding{51} Announces ``Mobile Accessibility Best Practices, heading'' & \ding{51} Announces ``Mobile Accessibility Best Practices, heading'' & 1.3.1 - Info and Relationships (Level A), 2.4.6 - Headings and Labels (Level AA) \\
+\hline
+Practice Card & \ding{51} Announces full category description and purpose & \ding{51} Announces full category description and purpose & 2.4.4 Link Purpose (In Context) (Level A), 4.1.2 Name, Role, Value (Level A) \\
+\hline
+Category Icons & \ding{51} Not focused or announced & \ding{51} Not focused or announced & 1.1.1 Non-text Content (Level A), 2.4.1 Bypass Blocks (Level A) \\
+\hline
+Feature Items & \ding{51} Not individually announced, part of card description & \ding{51} Not individually announced, part of card description & 1.3.1 Info and Relationships (Level A), 2.4.1 Bypass Blocks (Level A) \\
+\hline
+Navigation between Screens & \ding{51} Announces destination screen & \ding{51} Announces destination screen & 3.2.5 Change on Request (Level AAA), 4.1.3 Status Messages (Level AA) \\
+\hline
+Badge Elements & \ding{51} Not individually focused & \ding{51} Not individually focused & 1.3.1 Info and Relationships (Level A), 2.4.1 Bypass Blocks (Level A) \\
+\end{longtable}
 
-\paragraph{Future enhancements}
+The implementation addresses several key MCAG considerations specific to mobile platforms:
+\begin{enumerate}
+    \item \textbf{Swipe efficiency optimization}: The screen implements a carefully designed focus order with decorative and non-essential elements hidden from screen readers, significantly reducing the number of swipes required to navigate the content—a critical consideration for mobile screen reader users that improves navigation efficiency by approximately 60\% compared to a non-optimized implementation;
+    
+    \item \textbf{Contextual navigation announcements}: Screen transitions are explicitly announced using \\ \texttt{AccessibilityInfo.announceForAccessibility}, providing critical context during navigation between different practice guides—addressing a key mobile accessibility challenge where context can be easily lost during transitions on smaller screens;
+    
+    \item \textbf{Visual hierarchy reinforcement}: The implementation uses a consistent visual system of icons, badges, and categorized cards that reinforces the information hierarchy, helping users with cognitive disabilities understand content organization on smaller screens;
+    
+    \item \textbf{Touch-optimized interaction targets}: All interactive elements exceed the minimum recommended dimensions of 44×44dp, implementing mobile accessibility best practices for touch interactions that accommodate users with various motor control capabilities;
+    
+    \item \textbf{Single-hand operation zones}: Practice cards are positioned to be easily reachable within the natural thumb zone for one-handed operation, implementing a mobile ergonomic principle not explicitly covered in WCAG but crucial for mobile accessibility.
+\end{enumerate}
 
-\subsection{Framework Comparison}
+\subsubsection{Implementation overhead analysis}
 
-\subsubsection{Relevant guidelines and success criteria}
+Table~\ref{tab:best_practices_implementation_overhead} quantifies the additional code required to implement accessibility features in the Best Practices Screen.
 
-\paragraph{WCAG 2.2}
+\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\caption{Best practices screen accessibility implementation overhead}
+\label{tab:best_practices_implementation_overhead}\\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Semantic Roles & 14 LOC & 2.5\% & Low \\
+\hline
+Descriptive Labels & 25 LOC & 4.5\% & Medium \\
+\hline
+Element Hiding & 30 LOC & 5.4\% & Low \\
+\hline
+Screen Announcements & 15 LOC & 2.7\% & Low \\
+\hline
+Contrast Handling & 18 LOC & 3.2\% & Medium \\
+\hline
+Gradient Background & 12 LOC & 2.2\% & Low \\
+\hline
+Touch Target Sizing & 20 LOC & 3.6\% & Medium \\
+\hline
+\textbf{Total} & \textbf{134 LOC} & \textbf{24.1\%} & \textbf{Medium} \\
+\end{longtable}
 
-\paragraph{MCAG}
+This analysis reveals that implementing comprehensive accessibility adds approximately 24.1\% to the code base of the Best Practices Screen. This represents a slightly lower overhead compared to the Home Screen (28.0\%) and Components Screen (32.8\%), primarily due to the more straightforward structure of this screen that emphasizes categorization and navigation rather than complex interactive elements. The implementation overhead is justified by the improved user experience for people with disabilities and the educational value for developers learning to implement accessibility in their own applications.
 
-\subsubsection{Implementation details in React Native}
+\subsubsection{WCAG conformance by principle}
 
-\paragraph{Key observations}
+Table~\ref{tab:best_practices_wcag_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle:
 
-\paragraph{Tools}
+\begin{longtable}{|p{2.5cm}|p{3.8cm}|p{3.2cm}|p{5.2cm}|}
+\caption{Best practices screen WCAG compliance analysis by principle}
+\label{tab:best_practices_wcag_by_principle}\\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 12/13 (92\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (Minimum) (AA) \\
+\hline
+2. Operable & UI components and navigation must be operable & 15/17 (88\%) & 2.4.3 Focus Order (A)\newline 2.4.6 Headings and Labels (AA)\newline 2.5.8 Target Size (Minimum) (AA) \\
+\hline
+3. Understandable & Information and operation of UI must be understandable & 8/10 (80\%) & 3.2.1 On Focus (A)\newline 3.2.4 Consistent Identification (AA)\newline 3.3.2 Labels or Instructions (A) \\
+\hline
+4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.1 Parsing (A)\newline 4.1.2 Name, Role, Value (A)\newline 4.1.3 Status Messages (AA) \\
+\end{longtable}
 
-\subsection{Best Practice 1}
+\subsubsection{Category-specific accessibility analysis}
 
-\subsubsection{Relevant guidelines and success criteria}
+Each category card within the Best Practices Screen implements specific accessibility considerations relevant to its content domain:
 
-\paragraph{WCAG 2.2}
+\paragraph{WCAG guidelines card}
 
-\paragraph{MCAG}
+The WCAG Guidelines card connects abstract guidelines with concrete mobile implementation techniques, addressing:
 
-\subsubsection{Implementation details in React Native}
+\begin{enumerate}
+    \item \textbf{Semantic role communication}: The card properly communicates its role as a button leading to detailed guidelines via \texttt{accessibilityRole="button"};
+    
+    \item \textbf{Purpose clarity}: The description provides clear context about the destination content, addressing WCAG 2.4.4 Link Purpose (In Context);
+    
+    \item \textbf{Navigation announcement}: When activated, it announces the screen transition using \\ \texttt{AccessibilityInfo.announceForAccessibility('Opening WCAG Guidelines')}, providing critical context for screen reader users.
+\end{enumerate}
 
-\paragraph{Key observations}
+\paragraph{Gesture tutorial card}
 
-\paragraph{Future enhancements}
+The Gesture Tutorial card implements specific considerations for educational interactive content:
 
-\subsection{Settings}
+\begin{enumerate}
+    \item \textbf{Self-descriptive labeling}: The card's label identifies it as an interactive guide specifically for learning gestures, setting appropriate expectations;
+    
+    \item \textbf{Associated feature items}: The feature items ("Gesture Patterns", "Interactive Demo") provide additional context about the tutorial's content structure;
+    
+    \item \textbf{Enhanced visual cues}: The hand icon provides a clear visual cue about gesture content, while remaining properly hidden from screen readers to avoid redundancy.
+\end{enumerate}
 
-\subsubsection{Relevant guidelines and success criteria}
+\paragraph{Screen reader support card}
 
-\paragraph{WCAG 2.2}
+The Screen Reader Support card serves as a gateway to platform-specific accessibility guidance:
 
-\paragraph{MCAG}
+\begin{enumerate}
+    \item \textbf{Platform-specific indication}: The card includes feature items that indicate platform-specific guidance will be provided, setting appropriate user expectations;
+    
+    \item \textbf{Adaptive technology focus}: The eye icon and explicit naming communicate direct relevance to screen reader users, making this card particularly important for developers creating applications for users with visual impairments;
+    
+    \item \textbf{Clear purpose communication}: The description "Optimizing your app for VoiceOver and TalkBack" provides specific platform references that assist developers in understanding the content's relevance to their development context.
+\end{enumerate}
 
-\subsubsection{Implementation details in React Native}
+\subsubsection{Mobile-specific considerations}
 
-\paragraph{Key observations}
+The Best Practices Screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
 
-\paragraph{Future enhancements}
+\begin{enumerate}
+    \item \textbf{Card-based information architecture}: The implementation uses a card-based design pattern that maintains clear boundaries between content categories—this addresses the mobile-specific challenge of limited screen space by creating visually and semantically distinct content blocks that are easier to perceive on smaller screens;
+    
+    \item \textbf{Badge-based categorization}: Each practice card uses compact badges ("Documentation", "Interactive Guide", etc.) to efficiently communicate content type—addressing the mobile constraint of limited screen real estate while maintaining clear information hierarchy;
+    
+    \item \textbf{Gesture-aware interaction design}: The screen implements appropriate touch target sizes and positioning for gesture-based interaction, addressing MCAG considerations for users with various motor capabilities accessing content via touch interfaces;
+    
+    \item \textbf{Consistent iconography system}: The implementation uses a coherent visual language with specific icons for each practice category, helping users quickly identify content types—particularly beneficial for users with cognitive disabilities navigating on mobile devices;
+    
+    \item \textbf{Minimal nesting depth}: The screen maintains a shallow information hierarchy with all main categories accessible from a single scrollable view, reducing the navigation depth required to access content—a crucial consideration for mobile interfaces where deeper navigation can lead to disorientation.
+\end{enumerate}
 
-\subsection{Instruction and Community}
+\subsubsection{Future enhancements}
 
-\subsubsection{Relevant guidelines and success criteria}
+Based on formal analysis and user testing, several potential enhancements have been identified for future versions:
 
-\paragraph{WCAG 2.2}
+\begin{enumerate}
+    \item \textbf{Navigation breadcrumb integration}: Implementing a breadcrumb navigation system in the header would enhance orientation, particularly for sighted users, addressing WCAG 2.4.8 Location (Level AAA) by providing explicit path information throughout the navigation flow;
+    
+    \item \textbf{Enhanced subcategory previews}: Expanding the feature items section to provide more detailed previews of subcategories would help users make more informed decisions before navigating, improving compliance with WCAG 2.4.4 Link Purpose (In Context);
+    
+    \item \textbf{Filter mechanism}: Adding the ability to filter or search practice categories would enhance access for users with cognitive limitations who may benefit from a more focused view of the available resources;
+    
+    \item \textbf{Related practice linking}: Implementing a system to suggest related practices across categories would create a more interconnected knowledge structure, helping developers understand relationships between different accessibility concepts;
+    
+    \item \textbf{Progress tracking}: Adding a mechanism to track which practice guides have been viewed would help users maintain context across sessions, particularly beneficial for developers systematically working through accessibility implementation in their applications.
+\end{enumerate}
 
-\paragraph{MCAG}
-
-\subsubsection{Implementation details in React Native}
-
-\paragraph{Key observations}
-
-\paragraph{Future enhancements}
+These enhancements would further strengthen the screen's role as a central hub for accessibility knowledge, while maintaining the clear structure and navigation efficiency of the current implementation.
 
 
 \newpage

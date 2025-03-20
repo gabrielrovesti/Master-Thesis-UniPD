@@ -24,9 +24,24 @@
 \usepackage{nameref}
 \usepackage[font=small]{quoting}
 \usepackage[italian]{varioref}
+
+% Tables and layout packages
 \usepackage{longtable}
 \usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{adjustbox}
+\usepackage{pdflscape}
 \usepackage{tikz}
+
+% Page geometry - CORRETTO POSIZIONAMENTO
+\usepackage[
+   top=2.5cm,
+   bottom=2.5cm,
+   right=2.0cm,
+   left=2.5cm,
+   includehead,
+   includefoot
+]{geometry}
 
 % Bibliography and glossary support
 \usepackage[toc, acronym]{glossaries}
@@ -35,8 +50,7 @@
 % Font and typography
 \usepackage{lmodern}
 
-% Page geometry and layout
-\usepackage[top=2.75cm, bottom=2.75cm, right=3cm, left=3.75cm]{geometry}
+% Page layout
 \usepackage{fancyhdr}
 \usepackage{lipsum}
 \usepackage{setspace}
@@ -54,7 +68,7 @@
 % Code listings
 \usepackage{listings}
 
-% Load xcolor with correct options (remove hyperref option)
+% Load xcolor with correct options
 \usepackage[dvipsnames]{xcolor}
 \usepackage[normalem]{ulem}
 \usepackage{pifont}

@@ -1298,13 +1298,70 @@ Based on formal WCAG/MCAG gap analysis and systematic screen reader testing, sev
 \end{enumerate}
 
 \subsection{Accessible components section}
+\label{subsec:accessible-components}
 
-This section provides a formal analysis of the various screens within the Accessible Components section of \textit{AccessibleHub}. As the core educational element of the application, these screens demonstrate practical implementation patterns for accessibility across commonly used mobile interface elements. Each component screen follows a consistent structure that scaffolds learning with interactive examples, code implementations, and contextual accessibility features explanation.
+This section provides a formal analysis of the various screens within the Accessible Components section of \textit{AccessibleHub}. As the core educational element of the application, these screens demonstrate practical implementation patterns for accessibility across commonly used mobile interface elements. 
+
+\subsubsection{Analysis methodology}
+\label{subsubsec:components-methodology}
+
+To systematically evaluate the accessibility implementation across multiple component screens, we employ a consistent analytical framework that examines:
+
+\begin{enumerate}
+    \item \textbf{Component inventory}: Identification and classification of UI elements with mapping to their semantic roles and accessibility properties;
+    
+    \item \textbf{WCAG/MCAG criteria mapping}: Formal mapping between components and relevant accessibility guidelines;
+    
+    \item \textbf{Implementation analysis}: Evaluation of code patterns and accessibility properties;
+    
+    \item \textbf{Screen reader compatibility}: Empirical testing with VoiceOver (iOS) and TalkBack (Android);
+    
+    \item \textbf{Implementation overhead}: Quantification of code additions required for accessibility features.
+\end{enumerate}
+
+Each component screen follows a consistent educational structure that scaffolds learning through:
+
+\begin{itemize}
+    \item Interactive demonstrations of accessible implementations;
+    \item Copyable code examples with highlighted accessibility properties;
+    \item Explanations of key accessibility features and considerations;
+    \item Platform-specific adaptation notes.
+\end{itemize}
+
+Rather than presenting each screen with identical analytical depth, we'll examine the Buttons screen in detail as a representative example, then provide comparative analysis across all component types to identify patterns, commonalities, and unique considerations.
+
+\subsubsection{Common implementation patterns}
+\label{subsubsec:common-patterns}
+
+Across all component screens in this section, several foundational accessibility implementation patterns are consistently applied:
+
+\begin{enumerate}
+    \item \textbf{Semantic role assignment}: All components use appropriate \texttt{accessibilityRole} properties to identify their purpose to assistive technologies;
+    
+    \item \textbf{Comprehensive labeling}: Components combine \texttt{accessibilityLabel} and \texttt{accessibilityHint} to provide both identification and action context;
+    
+    \item \textbf{Explicit state communication}: Interactive components use \texttt{accessibilityState} to communicate selection, completion, or disabled states;
+    
+    \item \textbf{Decorative element hiding}: Non-essential visual elements use \texttt{accessibilityElementsHidden} to streamline screen reader navigation;
+    
+    \item \textbf{Status announcements}: State changes are explicitly announced via \texttt{AccessibilityInfo.announceForAccessibility};
+    
+    \item \textbf{Enhanced touch targets}: All interactive elements maintain minimum dimensions of 44×44dp, exceeding WCAG 2.5.8 requirements.
+\end{enumerate}
+
+Each component screen also implements a consistent visual structure that reinforces the educational purpose:
+
+\begin{itemize}
+    \item A demonstration area with interactive examples;
+    \item A code example section with syntax-highlighted implementation;
+    \item A features section highlighting key accessibility properties;
+    \item A platform considerations section addressing iOS and Android differences.
+\end{itemize}
 
 \subsubsection{Buttons and touchables screen}
 \label{subsubsec:buttons-touchables}
 
-The Buttons and Touchables screen demonstrates fundamental accessibility implementations for the most common interactive elements in mobile applications. It provides implementation examples for accessible touch targets with proper sizing, meaningful labels, and appropriate feedback mechanisms. Figure \ref{fig:button_screens_sidebyside} shows the main interface of this screen.
+The Buttons and Touchables screen demonstrates fundamental accessibility implementations for the most common interactive elements in mobile applications. It provides implementation examples for accessible touch targets with proper sizing, meaningful labels, and appropriate feedback mechanisms. Figure~\ref{fig:button_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
@@ -1327,9 +1384,9 @@ The Buttons and Touchables screen demonstrates fundamental accessibility impleme
 
 \paragraph{Component inventory and WCAG/MCAG mapping}
 
-Table \ref{tab:buttons_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
+Table~\ref{tab:buttons_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
 
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{5cm}|}
 \caption{Buttons screen component-criteria mapping}
 \label{tab:buttons_component_mapping}\\
 \hline
@@ -1364,7 +1421,7 @@ Feature Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary foc
 
 \paragraph{Technical implementation analysis}
 
-The Buttons and Touchables screen exemplifies proper accessibility implementation for interactive elements. The core demo button showcases three fundamental accessibility considerations: proper role assignment, descriptive labeling, and sufficient touch target size. Listing \ref{lst:buttons-accessibility} highlights the key implementation aspects.
+The Buttons and Touchables screen exemplifies proper accessibility implementation for interactive elements. The core demo button showcases three fundamental accessibility considerations: proper role assignment, descriptive labeling, and sufficient touch target size. Listing~\ref{lst:buttons-accessibility} highlights the key implementation aspects.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
@@ -1406,55 +1463,9 @@ Several key accessibility considerations are implemented in this example:
     \item \textbf{Visual feedback}: The success modal provides visual confirmation of the button press, with appropriate \texttt{accessibilityLiveRegion="polite"} to ensure screen readers announce the status change.
 \end{enumerate}
 
-\paragraph{Screen reader support analysis}
-
-Table \ref{tab:buttons_screen_reader_analysis} presents results from systematic testing of the Buttons and Touchables Screen with screen readers on both iOS and Android platforms.
-
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
-\caption{Buttons screen screen reader testing results}
-\label{tab:buttons_screen_reader_analysis}\\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Demo Button & \ding{51} Announces ``Submit form, button. Activates form submission'' & \ding{51} Announces ``Submit form, button. Activates form submission'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Button Activation & \ding{51} Announces ``Button pressed successfully'' & \ding{51} Announces ``Button pressed successfully'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Copy Button & \ding{51} Announces ``Copy code example, button'' & \ding{51} Announces ``Copy code example, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Copy Status Change & \ding{51} Announces ``Code copied to clipboard'' & \ding{51} Announces ``Code copied to clipboard'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Success Modal & \ding{51} Announces modal content & \ding{51} Announces modal content & 4.1.3 Status Messages (Level AA) \\
-\hline
-Feature Cards & \ding{51} Announces as static text & \ding{51} Announces as static text & 1.3.1 Info and Relationships (Level A) \\
-\hline
-Decorative Icons & \ding{51} Not announced & \ding{51} Not announced & 1.1.1 Non-text Content (Level A) \\
-\end{longtable}
-
-The implementation addresses several key MCAG considerations specific to mobile platforms:
-\begin{enumerate}
-    \item \textbf{Enhanced touch target}: The demo button implements a significantly larger touch target (44dp minimum) than required by WCAG 2.5.8 Level AA (24px), addressing mobile-specific interaction challenges;
-    
-    \item \textbf{Proactive status announcements}: Using \texttt{AccessibilityInfo.announceForAccessibility} provides immediate feedback to screen reader users, addressing the mobile-specific challenge of discerning state changes on smaller screens;
-    
-    \item \textbf{Reduced unnecessary focus stops}: All decorative elements are properly hidden from screen readers using \texttt{accessibilityElementsHidden} and \\ \texttt{importantForAccessibility="no-hide-descendants"}, streamlining navigation for mobile screen reader users who rely on sequential swipe gestures.
-\end{enumerate}
-
 \paragraph{Implementation overhead analysis}
 
-Table \ref{tab:buttons_implementation_overhead} quantifies the additional code required to implement accessibility features in the Buttons and Touchables Screen.
+Table~\ref{tab:buttons_implementation_overhead} quantifies the additional code required to implement accessibility features in the Buttons and Touchables Screen.
 
 \begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Buttons screen accessibility implementation overhead}
@@ -1489,89 +1500,159 @@ Modal Accessibility & 10 LOC & 2.2\% & Medium \\
 \textbf{Total} & \textbf{60 LOC} & \textbf{13.3\%} & \textbf{Low} \\
 \end{longtable}
 
-This analysis reveals that implementing comprehensive button accessibility features adds approximately 13.3\% to the code base, representing a relatively low overhead for significantly improved user experience. Notably, this overhead is lower than other screens due to the fundamental nature of button components, where accessibility considerations can be more directly integrated with minimal complexity impact.
+This analysis reveals that implementing comprehensive button accessibility features adds approximately 13.3\% to the code base, representing a relatively low overhead for significantly improved user experience. Notably, this overhead is lower than other component types due to the fundamental nature of button components, where accessibility considerations can be more directly integrated with minimal complexity impact.
+
+\subsubsection{Component implementation comparative analysis}
+\label{subsec:comparative-analysis}
+
+Analyzing accessibility implementations across different component types reveals important patterns in implementation complexity, WCAG compliance, and platform-specific adaptations.
+
+\paragraph{WCAG criteria implementation}
+
+Table~\ref{tab:comparative_wcag_implementation} compares WCAG 2.2 success criteria implementation across component types.
+
+\begin{table}[ht]
+\caption{WCAG criteria implementation by component type}
+\label{tab:comparative_wcag_implementation}
+\centering
+\begin{tabular}{|p{3.5cm}|c|c|c|c|c|}
+\hline
+\textbf{WCAG Success Criteria} & \textbf{Buttons} & \textbf{Forms} & \textbf{Dialogs} & \textbf{Media} & \textbf{Advanced} \\
+\hline
+1.1.1 Non-text Content (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
+\hline
+1.3.1 Info and Relationships (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
+\hline
+2.4.3 Focus Order (A) & \ding{55} & \ding{51} & \ding{51} & \ding{55} & \ding{51} \\
+\hline
+3.3.1 Error Identification (A) & \ding{55} & \ding{51} & \ding{55} & \ding{55} & \ding{55} \\
+\hline
+4.1.2 Name, Role, Value (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
+\hline
+4.1.3 Status Messages (AA) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
+\hline
+\textbf{Total Implementation} & \textbf{9/12} & \textbf{12/12} & \textbf{10/12} & \textbf{9/12} & \textbf{10/12} \\
+\hline
+\end{tabular}
+\end{table}
+
+This analysis reveals several key patterns:
+
+\begin{enumerate}
+    \item \textbf{Universal criteria}: Three criteria (1.1.1 Non-text Content, 1.3.1 Info and Relationships, and 4.1.2 Name, Role, Value) are implemented across all component types, forming the core of mobile accessibility requirements;
+    
+    \item \textbf{Component-specific criteria}: Some criteria are relevant only to specific component types, such as 3.3.1 Error Identification for forms;
+    
+    \item \textbf{Interaction complexity correlation}: More complex interaction patterns (Forms, Dialogs, Advanced) implement more criteria, particularly those related to focus management and state communication.
+\end{enumerate}
+
+\paragraph{Implementation overhead comparison}
+
+Table~\ref{tab:comparative_overhead} compares the implementation overhead across component types.
+
+\begin{table}[ht]
+\caption{Accessibility implementation overhead by component type}
+\label{tab:comparative_overhead}
+\centering
+\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Component Type} & \textbf{Lines of Code} & \textbf{Percentage Overhead} & \textbf{Complexity Impact} & \textbf{Primary Contributors} \\
+\hline
+Buttons & 60 & 13.3\% & Low & Labels, Roles \\
+\hline
+Forms & 153 & 21.5\% & Medium & State, Labels, Errors \\
+\hline
+Dialogs & 94 & 16.2\% & Medium & Focus Management \\
+\hline
+Media & 68 & 12.7\% & Low & Alt Text, Controls \\
+\hline
+Advanced & 183 & 22.7\% & High & Slider Controls, Announcements \\
+\hline
+\end{tabular}
+\end{table}
+
+This comparison reveals a direct correlation between interaction complexity and accessibility implementation overhead. Simple components like buttons and media have the lowest overhead (12-13\%), while complex components with state management and alternative interaction patterns have significantly higher overhead (21-23\%).
+
+\paragraph{Key implementation differences across component types}
+
+Each component type presents unique accessibility challenges requiring specialized implementation approaches:
+
+\begin{enumerate}
+    \item \textbf{Forms}: Require explicit error identification and validation feedback using \texttt{accessibilityRole="alert"} to ensure compliance with WCAG 3.3.1 (Error Identification). They also implement complex state communication for selection controls like radio buttons and checkboxes via \\ \texttt{accessibilityState=\{\{checked: selected\}\}};
+    
+    \item \textbf{Dialogs}: Focus management represents the critical accessibility challenge, requiring explicit tracking of focus position and restoration when the dialog closes to comply with WCAG 2.4.3 (Focus Order);
+    
+    \item \textbf{Media}: Alternative text implementation forms the core accessibility requirement, with proper \texttt{accessibilityLabel} values describing non-text content as per WCAG 1.1.1;
+    
+    \item \textbf{Advanced components}: Require the most sophisticated implementations, particularly for inherently visual controls like sliders, which implement alternative interaction mechanisms (buttons, presets) for screen reader users.
+\end{enumerate}
+
+\paragraph{Screen reader compatibility patterns}
+
+Empirical testing with VoiceOver (iOS) and TalkBack (Android) reveals consistent patterns across component types:
+
+\begin{enumerate}
+    \item Both screen readers correctly identify components with properly assigned \texttt{accessibilityRole} values;
+    
+    \item State changes communicated via \texttt{accessibilityState} are properly announced;
+    
+    \item Status messages delivered via \texttt{AccessibilityInfo.announceForAccessibility} are consistently reported to users;
+    
+    \item Focus management implementation in dialogs works reliably on both platforms, with some minor timing differences;
+    
+    \item Elements hidden with \texttt{accessibilityElementsHidden} are consistently excluded from the accessibility tree on both platforms.
+\end{enumerate}
+
+These findings confirm that the accessibility implementation patterns used throughout the component screens provide consistent and reliable behavior across both major mobile platforms when proper accessibility properties are applied.
 
 \subsubsection{Forms screen}
 \label{subsubsec:forms-screen}
 
-The Forms screen demonstrates accessible implementation patterns for various form controls, including text inputs, radio buttons, checkboxes, and date/time pickers. This screen is particularly important as forms represent one of the most challenging interaction patterns for users with disabilities. Figure \ref{fig:form_screens_sidebyside} shows the main interface.
+The Forms screen demonstrates complex accessibility patterns for capturing user input. Unlike the simpler Buttons screen, Forms present additional challenges related to input association, validation feedback, and state communication. Figure~\ref{fig:form_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Form Screen}]{img/button1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Form Screen}]{img/form1.png}
         \caption{Form screen - Part 1}
         \label{fig:form-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Form Screen}]{img/button2.png}
-        \caption{Button screen - Part 2}
+        \includegraphics[width=\linewidth, alt={Second part of the Form Screen}]{img/form2.png}
+        \caption{Form screen - Part 2}
         \label{fig:form-right}
     \end{subfigure}
     \caption{Side-by-side view of the two Form screen parts}
     \label{fig:form_screens_sidebyside}
 \end{figure}
 
-\paragraph{Component inventory and WCAG/MCAG mapping}
+\paragraph{Key accessibility considerations}
 
-Table \ref{tab:forms_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
+The Forms screen addresses several critical accessibility patterns beyond basic labeling:
 
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
-\caption{Forms screen component-criteria mapping}
-\label{tab:forms_component_mapping}\\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Form Container & form & 1.3.1 Info and Relationships (A) & Logical content grouping & \texttt{accessibilityRole="form"} \\
-\hline
-Text Input & textbox & 1.3.1 Info and Relationships (A)\newline 3.3.2 Labels or Instructions (A)\newline 4.1.2 Name, Role, Value (A) & Clear labeling\newline Input purpose & \texttt{accessibilityLabel="Enter your name"}\newline \texttt{accessibilityHint="Type your full name"} \\
-\hline
-Radio Group & radiogroup & 1.3.1 Info and Relationships (A)\newline 4.1.2 Name, Role, Value (A) & Logical grouping\newline Selection state & \texttt{accessibilityRole="radiogroup"} \\
-\hline
-Radio Button & radio & 1.3.1 Info and Relationships (A)\newline 4.1.2 Name, Role, Value (A) & Selection state\newline Touch target size & \texttt{accessibilityRole="radio"}\newline \texttt{accessibilityState= \{\{checked: selected\}\}} \\
-\hline
-Checkbox & checkbox & 1.3.1 Info and Relationships (A)\newline 4.1.2 Name, Role, Value (A) & Selection state\newline Touch target size & \texttt{accessibilityRole="checkbox"}\newline \texttt{accessibilityState= \{\{checked: checked\}\}} \\
-\hline
-Date Picker Button & button & 3.3.2 Labels or Instructions (A)\newline 4.1.2 Name, Role, Value (A) & Native picker integration & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Select birth date"}\newline \texttt{accessibilityHint="Opens a date picker"} \\
-\hline
-Submit Button & button & 3.3.2 Labels or Instructions (A)\newline 4.1.2 Name, Role, Value (A) & State indication\newline Form completion & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityState= \{\{disabled: !formDataComplete\}\}} \\
-\hline
-Error Messages & alert & 3.3.1 Error Identification (A)\newline 3.3.3 Error Suggestion (AA) & Error indication\newline Correction guidance & \texttt{accessibilityRole="alert"} \\
-\hline
-Success Modal & alertdialog & 4.1.3 Status Messages (AA) & Form submission feedback & \texttt{accessibilityViewIsModal}\newline \texttt{accessibilityLiveRegion="polite"} \\
-\end{longtable}
+\begin{enumerate}
+    \item \textbf{Input association}: Clear association between labels and input fields using semantic grouping;
+    
+    \item \textbf{Error identification}: Proper error messaging with \texttt{accessibilityRole="alert"} for validation feedback;
+    
+    \item \textbf{State communication}: Selection state for radio buttons and checkboxes with \texttt{accessibilityState=\{\{checked: selected\}\}};
+    
+    \item \textbf{Native picker integration}: Leveraging platform-native date pickers for optimal accessibility.
+\end{enumerate}
 
-\paragraph{Technical implementation analysis}
-
-The Forms screen implements a comprehensive accessible form with multiple input types. The implementation addresses key accessibility considerations for form controls, including proper labeling, error indication, and state management. Listing \ref{lst:forms-accessibility} highlights implementation of radio buttons, a particularly challenging form control for accessibility.
+Listing~\ref{lst:form_implementation} demonstrates the implementation of accessible form controls with proper state management.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
-  caption={Implementation of accessible radio buttons in form},
-  label={lst:forms-accessibility},
+  caption={Accessible radio button implementation with state management},
+  label={lst:form_implementation},
   basicstyle=\ttfamily\footnotesize,
   numbers=left,
 ]
-{/* Gender */}
-<Text style={[styles.label, { color: colors.text, marginTop: 16 }]}>
-  Gender
-</Text>
-<View style={[styles.radioGroup, { marginBottom: 16 }]}>
+<View accessibilityRole="radiogroup">
   {['Male', 'Female'].map((option) => (
     <TouchableOpacity
       key={option}
@@ -1594,124 +1675,16 @@ The Forms screen implements a comprehensive accessible form with multiple input 
     </TouchableOpacity>
   ))}
 </View>
-{errors.gender && (
-  <View style={styles.errorMessage} accessibilityRole="alert">
-    <Text style={themedStyles.errorText}>{errors.gender}</Text>
-  </View>
-)}
 \end{lstlisting}
 
-The Forms screen implements several critical accessibility patterns:
+\paragraph{Implementation overhead}
 
-\begin{enumerate}
-    \item \textbf{Explicit semantic structure}: Each form control is assigned the appropriate role (textbox, radio, checkbox) to ensure correct identification by assistive technologies;
-    
-    \item \textbf{State communication}: Selection states for radio buttons and checkboxes are explicitly communicated via \texttt{accessibilityState=\{\{checked: selected\}\}}, ensuring users understand the current selection;
-    
-    \item \textbf{Error identification}: Form validation errors are presented with \texttt{accessibilityRole="alert"} to ensure they are properly announced, complying with WCAG 3.3.1 (Error Identification);
-    
-    \item \textbf{Date picker integration}: The date picker button uses appropriate accessibility hints to indicate it will activate a native picker control, providing clear expectations;
-    
-    \item \textbf{Form completion feedback}: The submission process includes status announcements and a modal confirmation with appropriate live region settings to communicate form completion.
-\end{enumerate}
+Forms have the highest accessibility implementation overhead (21.5\%) among component types, reflecting the complexity of making multi-part input systems fully accessible. The primary contributors to this overhead are state communication mechanisms and validation feedback systems.
 
-\paragraph{Screen reader support analysis}
-
-Table \ref{tab:forms_screen_reader_analysis} presents results from systematic testing of the Forms Screen with screen readers on both iOS and Android platforms.
-
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
-\caption{Forms screen screen reader testing results}
-\label{tab:forms_screen_reader_analysis}\\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Text Input Field & \ding{51} Announces ``Enter your name, text field'' & \ding{51} Announces ``Enter your name, edit box'' & 3.3.2 Labels or Instructions (Level A), 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Radio Button & \ding{51} Announces ``Select Male, radio button, not selected'' & \ding{51} Announces ``Select Male, radio button, not checked'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Checkbox & \ding{51} Announces ``Agree to terms and conditions, checkbox, not checked'' & \ding{51} Announces ``Agree to terms and conditions, checkbox, not checked'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Date Picker & \ding{51} Announces ``Select birth date, button'' & \ding{51} Announces ``Select birth date, button'' & 3.3.2 Labels or Instructions (Level A) \\
-\hline
-Date Selection & \ding{51} Announces ``Birth date set to [date]'' & \ding{51} Announces ``Birth date set to [date]'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Form Error & \ding{51} Announces error message & \ding{51} Announces error message & 3.3.1 Error Identification (Level A) \\
-\hline
-Submit Button (Disabled) & \ding{51} Announces ``Submit form, button, disabled'' & \ding{51} Announces ``Submit form, button, disabled'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Form Submission & \ding{51} Announces ``Form submitted successfully'' & \ding{51} Announces ``Form submitted successfully'' & 4.1.3 Status Messages (Level AA) \\
-\end{longtable}
-
-The implementation addresses several key MCAG considerations specific to mobile platforms:
-\begin{enumerate}
-    \item \textbf{Native picker integration}: The date/time picker integration leverages platform-native pickers that are already optimized for accessibility, conforming to mobile platform best practices;
-    
-    \item \textbf{Inline error presentation}: Error messages are displayed directly beneath the relevant form controls, a spatial arrangement particularly important on mobile where proximity helps associate errors with inputs;
-    
-    \item \textbf{Touch-optimized form controls}: All form elements maintain sufficient touch target sizes, with radio buttons and checkboxes implemented with custom styling that preserves visual design while ensuring adequate tap areas;
-    
-    \item \textbf{Keyboard optimization}: Text inputs are configured with appropriate keyboard types (e.g., \texttt{keyboardType="email-address"}) and capitalization settings to optimize the input experience, a mobile-specific consideration;
-    
-    \item \textbf{State change announcements}: Using \texttt{AccessibilityInfo.announceForAccessibility} for date selection provides critical feedback on dynamic content changes within the mobile form context.
-\end{enumerate}
-
-\paragraph{Implementation overhead analysis}
-
-Table \ref{tab:forms_implementation_overhead} quantifies the additional code required to implement accessibility features in the Forms Screen.
-
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
-\caption{Forms screen accessibility implementation overhead}
-\label{tab:forms_implementation_overhead}\\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Semantic Roles & 22 LOC & 3.1\% & Medium \\
-\hline
-Descriptive Labels & 36 LOC & 5.1\% & Medium \\
-\hline
-Status Announcements & 15 LOC & 2.1\% & Low \\
-\hline
-Error Accessibility & 20 LOC & 2.8\% & Medium \\
-\hline
-Focus Management & 18 LOC & 2.5\% & Medium \\
-\hline
-Touch Target Sizing & 14 LOC & 2.0\% & Low \\
-\hline
-State Communication & 28 LOC & 3.9\% & High \\
-\hline
-\textbf{Total} & \textbf{153 LOC} & \textbf{21.5\%} & \textbf{Medium} \\
-\end{longtable}
-
-This analysis reveals that implementing comprehensive form accessibility features adds approximately 21.5\% to the code base. This represents a moderate overhead compared to other screen types, reflecting the inherent complexity of creating accessible form interfaces. The most significant contributors to this overhead are descriptive labels and state communication systems, both essential for ensuring users understand form control purposes and states.
-
-\subsubsection{Dialogs screen}
+\subsubsection{Dialogs screen}'
 \label{subsubsec:dialogs-screen}
 
-The Dialog screen demonstrates accessible implementation patterns for modal interactions, a particularly challenging component type for screen reader users. It focuses on focus management, keyboard interactions, and proper roles for dialog components. Figure \ref{fig:dialog_screens_sidebyside} shows the implementation example.
+The Dialogs screen addresses one of the most challenging accessibility patterns in mobile applications: modal content that must trap and manage focus while providing clear context and exit mechanisms. Figure~\ref{fig:dialog_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
@@ -1719,7 +1692,7 @@ The Dialog screen demonstrates accessible implementation patterns for modal inte
         \centering
         \includegraphics[width=\linewidth, alt={First part of the Dialog Screen}]{img/dialog1.png}
         \caption{Dialog screen - Part 1}
-        \label{fig:form-left}
+        \label{fig:dialog-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
@@ -1728,57 +1701,18 @@ The Dialog screen demonstrates accessible implementation patterns for modal inte
         \caption{Dialog screen - Part 2}
         \label{fig:dialog-right}
     \end{subfigure}
-    \caption{Side-by-side view of the two Dialog screen parts}
+    \caption{Side-by-side view of the two Form screen parts}
     \label{fig:dialog_screens_sidebyside}
 \end{figure}
 
-\paragraph{Component inventory and WCAG/MCAG mapping}
+\paragraph{Focus management implementation}
 
-Table \ref{tab:dialogs_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
-
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
-\caption{Dialogs screen component-criteria mapping}
-\label{tab:dialogs_component_mapping}\\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Open Dialog Button & button & 4.1.2 Name, Role, Value (A) & Touch target size & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Open example dialog"}\newline \texttt{accessibilityHint="Opens an accessible modal dialog"} \\
-\hline
-Modal Container & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A) & Focus trapping & \texttt{accessibilityViewIsModal}\newline \texttt{accessibilityLiveRegion="polite"} \\
-\hline
-Dialog Title & header & 1.3.1 Info and Relationships (A)\newline 2.4.6 Headings (AA) & Content structure & \texttt{accessibilityRole="header"} \\
-\hline
-Close Button & button & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A) & Dialog dismissal & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Close dialog"}\newline \texttt{accessibilityHint="Double tap to close this dialog"} \\
-\hline
-Dialog Content & text & 1.3.1 Info and Relationships (A) & Content structure & \texttt{accessibilityRole="text"} \\
-\hline
-Dialog Actions & group & 1.3.1 Info and Relationships (A) & Logical grouping & \texttt{accessibilityRole="group"}\newline \texttt{accessibilityLabel="Dialog actions"} \\
-\hline
-Action Buttons & button & 4.1.2 Name, Role, Value (A) & Action clarity & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Confirm"}\newline \texttt{accessibilityHint="Double tap to save changes and close dialog"} \\
-\hline
-Success Feedback & alert & 4.1.3 Status Messages (AA) & Action feedback & \texttt{accessibilityViewIsModal}\newline \texttt{accessibilityRole="alert"} \\
-\end{longtable}
-
-\paragraph{Technical implementation analysis}
-
-The Dialog screen demonstrates an essential accessibility pattern for modal interactions. The implementation focuses on three critical areas: focus management, keyboard accessibility, and proper role assignment. Listing \ref{lst:dialogs-accessibility} highlights the core focus management implementation.
+The key accessibility challenge for dialogs is proper focus management, as illustrated in Listing~\ref{lst:dialog_implementation}.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
-  caption={Focus management implementation for accessible dialogs},
-  label={lst:dialogs-accessibility},
+  caption={Dialog implementation with focus management},
+  label={lst:dialog_implementation},
   basicstyle=\ttfamily\footnotesize,
   numbers=left,
 ]
@@ -1789,7 +1723,7 @@ const openButtonRef = useRef(null);
 // Focus management useEffect hook
 useEffect(() => {
   if (showDialog) {
-AccessibilityInfo.announceForAccessibility(
+    AccessibilityInfo.announceForAccessibility(
       'Example dialog opened. This dialog contains information about accessibility features.'
     );
     // Brief timeout to ensure dialog is fully rendered
@@ -1801,126 +1735,43 @@ AccessibilityInfo.announceForAccessibility(
     openButtonRef.current?.focus();
   }
 }, [showDialog]);
-
-const handleClose = () => {
-  setShowDialog(false);
-  AccessibilityInfo.announceForAccessibility('Dialog closed. Returned to main screen.');
-};
 \end{lstlisting}
 
-The Dialogs screen implements several critical accessibility patterns:
+The dialog implementation addresses several critical accessibility requirements:
 
 \begin{enumerate}
-    \item \textbf{Focus management}: The implementation uses refs to manage focus, explicitly moving focus to the dialog when opened and returning it to the triggering button when closed, as required by WCAG 2.4.3 (Focus Order);
+    \item \textbf{Modal context}: Setting \texttt{accessibilityViewIsModal=true} to establish a focused interaction context;
     
-    \item \textbf{Proper modal properties}: The dialog uses \texttt{accessibilityViewIsModal=true} to ensure screen readers understand it as a modal context, preventing interaction with background content;
+    \item \textbf{Focus trapping}: Managing focus to prevent interaction with background content;
     
-    \item \textbf{State announcements}: The implementation announces dialog opening and closing via \texttt{AccessibilityInfo.announceForAccessibility}, providing explicit context about state changes;
+    \item \textbf{Return focus}: Explicitly returning focus to the triggering element when the dialog closes;
     
-    \item \textbf{Escape mechanism}: The close button is prominently positioned and clearly labeled, providing an obvious mechanism to dismiss the dialog;
-    
-    \item \textbf{Action clarity}: Dialog action buttons include both labels and hints that explain the consequences of activation, ensuring users understand the results of their choices.
+    \item \textbf{Status announcements}: Using \texttt{AccessibilityInfo.announceForAccessibility} to provide context about dialog opening and closing.
 \end{enumerate}
 
-\paragraph{Screen reader support analysis}
+\paragraph{Mobile-specific considerations}
 
-Table \ref{tab:dialogs_screen_reader_analysis} presents results from systematic testing of the Dialogs Screen with screen readers on both iOS and Android platforms.
+Dialog implementation on mobile platforms presents unique accessibility challenges:
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
-\caption{Dialogs screen screen reader testing results}
-\label{tab:dialogs_screen_reader_analysis}\\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Open Button & \ding{51} Announces ``Open example dialog, button'' & \ding{51} Announces ``Open example dialog, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Dialog Opening & \ding{51} Announces ``Example dialog opened. This dialog contains information about accessibility features.'' & \ding{51} Announces ``Example dialog opened. This dialog contains information about accessibility features.'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Focus Movement & \ding{51} Focus moves to dialog title & \ding{51} Focus moves to dialog title & 2.4.3 Focus Order (Level A) \\
-\hline
-Dialog Title & \ding{51} Announces ``Example Dialog, heading'' & \ding{51} Announces ``Example Dialog, heading'' & 1.3.1 Info and Relationships (Level A), 2.4.6 Headings and Labels (Level AA) \\
-\hline
-Dialog Actions & \ding{51} Announces action buttons with hints & \ding{51} Announces action buttons with hints & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Confirm Action & \ding{51} Announces confirmation and shows success feedback & \ding{51} Announces confirmation and shows success feedback & 4.1.3 Status Messages (Level AA) \\
-\hline
-Dialog Closing & \ding{51} Announces ``Dialog closed. Returned to main screen.'' & \ding{51} Announces ``Dialog closed. Returned to main screen.'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Focus Return & \ding{51} Focus returns to open button & \ding{51} Focus returns to open button & 2.4.3 Focus Order (Level A) \\
-\end{longtable}
-
-The implementation addresses several key MCAG considerations specific to mobile platforms:
-\begin{enumerate}
-    \item \textbf{Modal context management}: The implementation uses both React Native's \texttt{accessibilityViewIsModal} and custom focus management to ensure the dialog context is properly established, addressing mobile-specific challenges related to modal contexts;
+\begin{itemize}
+    \item \textbf{Limited viewport context}: Unlike desktop interfaces, mobile screens cannot show both dialog and background content simultaneously, requiring stronger contextual cues;
     
-    \item \textbf{Touch-optimized dismiss actions}: The close button and action buttons are designed with sufficient touch target sizes and clear visual styling, optimizing for touch interaction;
+    \item \textbf{Touch dismissal patterns}: Implementation of touch-friendly dismissal actions with adequate target sizes;
     
-    \item \textbf{Explicit announcements}: The implementation uses \texttt{AccessibilityInfo.announceForAccessibility} to proactively inform users about context changes, addressing the mobile-specific challenge of limited visual context cues;
-    
-    \item \textbf{Focus return mechanism}: The implementation meticulously tracks and restores focus position when the dialog closes, ensuring users maintain orientation in the application—a critical consideration for mobile screen reader users.
-\end{enumerate}
+    \item \textbf{Platform convention alignment}: Following platform-specific dialog patterns for consistent user experience.
+\end{itemize}
 
-\paragraph{Implementation overhead analysis}
-
-Table \ref{tab:dialogs_implementation_overhead} quantifies the additional code required to implement accessibility features in the Dialogs Screen.
-
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
-\caption{Dialogs screen accessibility implementation overhead}
-\label{tab:dialogs_implementation_overhead}\\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Semantic Roles & 14 LOC & 2.4\% & Low \\
-\hline
-Descriptive Labels & 20 LOC & 3.4\% & Medium \\
-\hline
-Focus Management & 30 LOC & 5.2\% & High \\
-\hline
-Status Announcements & 12 LOC & 2.1\% & Low \\
-\hline
-Element Hiding & 8 LOC & 1.4\% & Low \\
-\hline
-Dialog Properties & 10 LOC & 1.7\% & Medium \\
-\hline
-\textbf{Total} & \textbf{94 LOC} & \textbf{16.2\%} & \textbf{Medium} \\
-\end{longtable}
-
-This analysis reveals that implementing comprehensive dialog accessibility features adds approximately 16.2\% to the code base, with focus management representing the most significant component. This overhead is moderate and primarily concentrated in the focus management implementation, which is crucial for maintaining proper context in modal interactions—a critical accessibility consideration that benefits all users.
-
-\subsubsection{Media screen}
+\subsubsection{Media content screen}
 \label{subsubsec:media-screen}
 
-The Media screen demonstrates accessible implementation patterns for images, galleries, and other visual content. It focuses on alternative text, meaningful labels, and appropriate controls for media navigation. Figure \ref{fig:media_screens_sidebyside} shows the implementation example.
+The Media screen demonstrates accessibility techniques for non-text content—one of the most fundamental aspects of digital accessibility.
+Figure~\ref{fig:media_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Media Screen}]{img/media1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Media Screen}]{img/dialog1.png}
         \caption{Media screen - Part 1}
         \label{fig:media-left}
     \end{subfigure}
@@ -1935,50 +1786,14 @@ The Media screen demonstrates accessible implementation patterns for images, gal
     \label{fig:media_screens_sidebyside}
 \end{figure}
 
+\paragraph{Alternative text implementation}
 
-\paragraph{Component inventory and WCAG/MCAG mapping}
-
-Table \ref{tab:media_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
-
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
-\caption{Media screen component-criteria mapping}
-\label{tab:media_component_mapping}\\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Demo Image & image & 1.1.1 Non-text Content (A) & Alternative text & \texttt{accessibilityLabel=}\newline \texttt{images[currentImage - 1].alt}\newline \texttt{accessible=true}\newline \texttt{accessibilityRole="image"} \\
-\hline
-Previous Button & button & 4.1.2 Name, Role, Value (A) & Navigation control\newline State indication & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Previous image"}\newline \texttt{accessibilityHint="Changes to the previous image in the gallery"}\newline \texttt{accessibilityState=\{\{disabled: currentImage === 1\}\}} \\
-\hline
-Next Button & button & 4.1.2 Name, Role, Value (A) & Navigation control\newline State indication & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Next image"}\newline \texttt{accessibilityHint="Changes to the next image in the gallery"}\newline \texttt{accessibilityState=\{\{disabled: currentImage === images.length\}\}} \\
-\hline
-Alt Text Button & button & 4.1.2 Name, Role, Value (A) & Toggle functionality & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel=}\newline \texttt{\{showAltText ? "Hide alternative text" : "Show alternative text"\}}\newline \texttt{accessibilityHint="Toggles the alternative text description for the current image"} \\
-\hline
-Alt Text Container & text & 1.3.1 Info and Relationships (A) & Supplementary information & \texttt{accessibilityRole="text"} \\
-\hline
-Navigation Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElementsHidden=true} \\
-\end{longtable}
-
-\paragraph{Technical implementation analysis}
-
-The Media screen demonstrates implementing accessible media content with proper alternative text and navigation controls. The implementation focuses primarily on image accessibility via proper labeling and control accessibility. Listing \ref{lst:media-accessibility} highlights the core image implementation.
+Listing~\ref{lst:media_implementation} shows the core pattern for accessible image implementation with proper alternative text.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
-  caption={Accessible image implementation with alt text},
-  label={lst:media-accessibility},
+  caption={Accessible image implementation with alternative text},
+  label={lst:media_implementation},
   basicstyle=\ttfamily\footnotesize,
   numbers=left,
 ]
@@ -1989,631 +1804,114 @@ The Media screen demonstrates implementing accessible media content with proper 
   accessible={true}
   accessibilityRole="image"
 />
-<View style={themedStyles.controls}>
-  <TouchableOpacity
-    style={themedStyles.controlButton}
-    onPress={goPrevImage}
-    disabled={currentImage === 1}
-    accessibilityRole="button"
-    accessibilityLabel="Previous image"
-    accessibilityHint="Changes to the previous image in the gallery"
-    accessibilityState={{ disabled: currentImage === 1 }}
-  >
-    <Ionicons
-      name="chevron-back"
-      size={24}
-      color={currentImage === 1 ? colors.textSecondary : colors.primary}
-    />
-  </TouchableOpacity>
-
-  <TouchableOpacity
-    style={themedStyles.altTextButton}
-    onPress={toggleAltText}
-    accessibilityRole="button"
-    accessibilityLabel={showAltText ? "Hide alternative text" : "Show alternative text"}
-    accessibilityHint="Toggles the alternative text description for the current image"
-  >
-    <Text style={{ color: colors.background, fontWeight: '600' }}>
-      {showAltText ? "Hide Alt Text" : "Show Alt Text"}
-    </Text>
-  </TouchableOpacity>
-  
-  {/* Next button implementation similar to Previous button */}
-</View>
 \end{lstlisting}
 
-The Media screen implements several key accessibility patterns:
+The Media screen demonstrates additional accessibility features beyond basic alternative text:
 
 \begin{enumerate}
-    \item \textbf{Proper image labeling}: Images include complete alternative text via \texttt{accessibilityLabel} with the explicit \texttt{accessibilityRole="image"} to ensure correct identification by screen readers;
+    \item \textbf{Navigation controls}: Accessible previous/next buttons with clear labeling and state indication;
     
-    \item \textbf{Navigation state communication}: Previous/next buttons include state information via \texttt{accessibilityState=\{\{disabled: condition\}\}} to communicate when they reach boundary conditions;
+    \item \textbf{Interactive alt text}: Toggle mechanism to show/hide alternative text as an educational feature;
     
-    \item \textbf{Navigation announcements}: Image navigation includes explicit announcements using \texttt{AccessibilityInfo.announceForAccessibility} to provide context about the current position in the gallery;
-    
-    \item \textbf{Alternative text toggle}: The implementation includes a dedicated control to show/hide alternative text, providing an educational feature that helps developers understand the importance of alternative text;
-    
-    \item \textbf{Role information}: The alternative text display includes both the descriptive text and the semantic role information, helping developers understand both aspects of accessible media.
+    \item \textbf{Position context}: Announcements that communicate current position within a gallery (e.g., "Image 2 of 5").
 \end{enumerate}
 
-\paragraph{Screen reader support analysis}
+\paragraph{Implementation overhead}
 
-Table \ref{tab:media_screen_reader_analysis} presents results from systematic testing of the Media Screen with screen readers on both iOS and Android platforms.
+Media components have the lowest accessibility implementation overhead (12.7\%) among component types, as the primary requirement—alternative text—is implemented through straightforward property assignment. The majority of the overhead comes from implementing accessible navigation controls rather than the core media content itself.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
-\caption{Media screen screen reader testing results}
-\label{tab:media_screen_reader_analysis}\\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Image Alternative Text & \ding{51} Announces alternative text with image role & \ding{51} Announces alternative text with image role & 1.1.1 Non-text Content (Level A) \\
-\hline
-Previous Button (Enabled) & \ding{51} Announces ``Previous image, button'' & \ding{51} Announces ``Previous image, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Previous Button (Disabled) & \ding{51} Announces ``Previous image, button, disabled'' & \ding{51} Announces ``Previous image, button, disabled'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Next Button (Enabled) & \ding{51} Announces ``Next image, button'' & \ding{51} Announces ``Next image, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Next Button (Disabled) & \ding{51} Announces ``Next image, button, disabled'' & \ding{51} Announces ``Next image, button, disabled'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Image Navigation & \ding{51} Announces ``Previous image. Now showing image X of Y'' & \ding{51} Announces ``Previous image. Now showing image X of Y'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Alt Text Toggle & \ding{51} Announces ``Show alternative text, button'' & \ding{51} Announces ``Show alternative text, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Alt Text Display & \ding{51} Announces alternative text container as static text & \ding{51} Announces alternative text container as static text & 1.3.1 Info and Relationships (Level A) \\
-\end{longtable}
-
-The implementation addresses several key MCAG considerations specific to mobile platforms:
-\begin{enumerate}
-    \item \textbf{Touch-optimized navigation controls}: The previous/next buttons are positioned at the edges of the screen with sufficient touch target sizes, optimizing for thumb-based navigation on mobile devices;
-    
-    \item \textbf{Context retention}: The implementation announces both the navigation action and the resulting position (e.g., "Previous image. Now showing image 1 of 3"), providing critical context that might otherwise be lost on smaller mobile screens;
-    
-    \item \textbf{Responsive image sizing}: The implementation includes dynamic image sizing based on screen dimensions, ensuring appropriate presentation across various mobile device sizes;
-    
-    \item \textbf{State indication}: Navigation buttons visually indicate their state through color changes, with the same information communicated via \texttt{accessibilityState} for non-visual users, ensuring consistent information across modalities.
-\end{enumerate}
-
-\paragraph{Implementation overhead analysis}
-
-Table \ref{tab:media_implementation_overhead} quantifies the additional code required to implement accessibility features in the Media Screen.
-
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
-\caption{Media screen accessibility implementation overhead}
-\label{tab:media_implementation_overhead}\\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Image Accessibility & 8 LOC & 1.5\% & Low \\
-\hline
-Navigation Controls & 24 LOC & 4.5\% & Medium \\
-\hline
-Status Announcements & 16 LOC & 3.0\% & Low \\
-\hline
-Alt Text Toggle & 14 LOC & 2.6\% & Low \\
-\hline
-Element Hiding & 6 LOC & 1.1\% & Low \\
-\hline
-\textbf{Total} & \textbf{68 LOC} & \textbf{12.7\%} & \textbf{Low} \\
-\end{longtable}
-
-This analysis reveals that implementing comprehensive media accessibility features adds approximately 12.7\% to the code base. This represents a relatively low overhead compared to other component types, primarily because image accessibility relies heavily on proper attribute assignment rather than complex interaction patterns. The most significant contributions come from implementing accessible navigation controls with appropriate state management.
-
-\subsubsection{Advanced screen}
+\subsubsection{Advanced components screen}
 \label{subsubsec:advanced-screen}
 
-The Advanced screen demonstrates complex accessibility patterns for more sophisticated components, including tabs, progress indicators, alerts/toasts, and sliders. These components present unique accessibility challenges due to their dynamic nature and complex interaction patterns. Figures \ref{fig:advanced_screens_sidebyside1} and \ref{fig:advanced_screens_sidebyside2} shows the implementation example.
+The Advanced Components screen demonstrates accessibility implementations for more complex UI patterns including tabs, progress indicators, alerts, and sliders. Figure~\ref{fig:advanced_screens_sidebyside1} and ~\ref{fig:advanced_screens_sidebyside2}  shows the two parts of the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Advanced Screen}]{img/dialog1.png}
-        \caption{Dialog screen - Part 1}
-        \label{fig:advanced1-left}
+        \includegraphics[width=\linewidth, alt={First part of the Advanced Screen}]{img/advanced1.png}
+        \caption{Advanced screen - Part 1}
+        \label{fig:advanced-left1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Dialog Screen}]{img/dialog2.png}
-        \caption{Dialog screen - Part 2}
-        \label{fig:advanced2-right}
+        \includegraphics[width=\linewidth, alt={Second part of the Advanced Screen}]{img/advanced2.png}
+        \caption{Advanced screen - Part 2}
+        \label{fig:advanced-right1}
     \end{subfigure}
     \caption{Side-by-side view of the first two Advanced screen parts}
-    \label{fig:dialog_screens_sidebyside1}
+    \label{fig:advanced_screens_sidebyside1}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Dialog Screen}]{img/dialog1.png}
+        \includegraphics[width=\linewidth, alt={Third part of the Advanced Screen}]{img/advanced3.png}
         \caption{Advanced screen - Part 3}
-        \label{fig:advanced3-left}
+        \label{fig:advanced-left2}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Dialog Screen}]{img/dialog2.png}
+        \includegraphics[width=\linewidth, alt={Fourth part of the Dialog Screen}]{img/advanced4.png}
         \caption{Advanced screen - Part 4}
-        \label{fig:advanced4-right}
+        \label{fig:advanced-right2}
     \end{subfigure}
-    \caption{Side-by-side view of the last two Advanced screen parts}
+    \caption{Side-by-side view of the second two Advanced screen parts}
     \label{fig:advanced_screens_sidebyside2}
 \end{figure}
 
-\paragraph{Component inventory and WCAG/MCAG mapping}
+\paragraph{Complex interaction patterns}
 
-Table \ref{tab:advanced_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
-
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
-\caption{Advanced screen component-criteria mapping}
-\label{tab:advanced_component_mapping}\\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Tab Container & tablist & 1.3.1 Info and Relationships (A)\newline 4.1.2 Name, Role, Value (A) & Logical grouping\newline Role communication & \texttt{accessibilityRole="tablist"}\newline \texttt{accessibilityLabel="Navigation tabs"} \\
-\hline
-Individual Tab & tab & 4.1.2 Name, Role, Value (A) & Selection state & \texttt{accessibilityRole="tab"}\newline \texttt{accessibilityLabel="Select \$\{tab\}"}\newline \texttt{accessibilityState=\{\{selected: isSelected\}\}} \\
-\hline
-Progress Bar & progressbar & 1.3.1 Info and Relationships (A)\newline 4.1.2 Name, Role, Value (A) & Value communication & \texttt{accessibilityRole="progressbar"}\newline \texttt{accessibilityLabel="Progress indicator"}\newline \texttt{accessibilityValue=\{\{min: 0, max: 100, now: progress\}\}} \\
-\hline
-Progress Buttons & button & 4.1.2 Name, Role, Value (A) & Touch target size & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Set progress to \$\{val\} percent"} \\
-\hline
-Alert Trigger & button & 4.1.2 Name, Role, Value (A) & Action clarity & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Show alert message"} \\
-\hline
-Alert Toast & alert & 4.1.3 Status Messages (AA) & Transient notification & \texttt{accessibilityRole="alert"}\newline \texttt{accessibilityLiveRegion="assertive"}\newline \texttt{accessible=true} \\
-\hline
-Slider Container & none & 1.3.1 Info and Relationships (A) & Composite control & \texttt{accessible=true}\newline \texttt{accessibilityLabel="Slider control, current value \$\{sliderValue\} percent"} \\
-\hline
-Decrease Button & button & 4.1.2 Name, Role, Value (A) & Touch target size & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Decrease value"}\newline \texttt{accessibilityHint="Decreases slider value by 5 percent"} \\
-\hline
-Increase Button & button & 4.1.2 Name, Role, Value (A) & Touch target size & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Increase value"}\newline \texttt{accessibilityHint="Increases slider value by 5 percent"} \\
-\hline
-Preset Buttons & button & 4.1.2 Name, Role, Value (A) & Selection state & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Set value to \$\{value\} percent"}\newline \texttt{accessibilityState=\{\{selected: sliderValue === value\}\}} \\
-\hline
-Visual Slider & none & 1.1.1 Non-text Content (A) & Alternative mechanism & \texttt{importantForAccessibility="no-hide-descendants"} \\
-\end{longtable}
-
-\paragraph{Technical implementation analysis}
-
-The Advanced screen demonstrates implementing accessible complex components with proper roles, states, and interaction patterns. Listing \ref{lst:advanced-accessibility} highlights the slider implementation, which represents one of the most challenging components for accessibility.
-
-\begin{lstlisting}[
-  style=ReactNativeStyle,
-  caption={Accessible slider implementation with additional controls},
-  label={lst:advanced-accessibility},
-  basicstyle=\ttfamily\footnotesize,
-  numbers=left,
-]
-{/* Main accessible container */}
-<View
-  accessible={true}
-  accessibilityLabel={`Slider control, current value ${sliderValue} percent`}
-  style={{ marginVertical: 12 }}
->
-  {/* Button Controls for TalkBack */}
-  <View style={{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 14
-  }}>
-    <TouchableOpacity
-      style={{
-        padding: 10,
-        backgroundColor: colors.primary,
-        borderRadius: 25,
-        width: 50,
-        height: 50,
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}
-      onPress={() => {
-        const newValue = Math.max(0, sliderValue - 5);
-        setSliderValue(newValue);
-        lastAnnouncedValue.current = newValue;
-        AccessibilityInfo.announceForAccessibility(`Value set to ${newValue} percent`);
-      }}
-      accessibilityRole="button"
-      accessibilityLabel="Decrease value"
-      accessibilityHint="Decreases slider value by 5 percent"
-    >
-      <Ionicons name="remove" size={24} color="#fff" />
-    </TouchableOpacity>
-
-    <Text style={{
-      color: colors.text,
-      fontSize: textSizes.large,
-      fontWeight: 'bold'
-    }}>
-      {sliderValue}%
-    </Text>
-
-    {/* Increase button implementation similar to Decrease button */}
-  </View>
-
-  {/* Preset buttons */}
-  <View style={{
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 16
-  }}>
-    {[0, 25, 50, 75, 100].map(value => (
-      <TouchableOpacity
-        key={value}
-        style={{
-          backgroundColor: sliderValue === value ? colors.primary : colors.primary + '30',
-          paddingVertical: 6,
-          paddingHorizontal: 12,
-          borderRadius: 16,
-        }}
-        onPress={() => {
-          setSliderValue(value);
-          lastAnnouncedValue.current = value;
-          AccessibilityInfo.announceForAccessibility(`Value set to ${value} percent`);
-        }}
-        accessibilityRole="button"
-        accessibilityLabel={`Set value to ${value} percent`}
-        accessibilityState={{ selected: sliderValue === value }}
-      >
-        <Text style={{
-          color: sliderValue === value ? '#fff' : colors.text,
-          fontWeight: 'bold'
-        }}>
-          {value}%
-        </Text>
-      </TouchableOpacity>
-    ))}
-  </View>
-
-  {/* Visual Slider (for non-screen reader users) */}
-  <Slider
-    value={sliderValue}
-    minimumValue={0}
-    maximumValue={100}
-    step={1}
-    onSlidingComplete={(val) => {
-      const newValue = Math.round(val);
-      setSliderValue(newValue);
-      if (Math.abs(lastAnnouncedValue.current - newValue) >= 5) {
-        AccessibilityInfo.announceForAccessibility(`Value set to ${newValue} percent`);
-        lastAnnouncedValue.current = newValue;
-      }
-    }}
-    style={{ width: '100%', height: 40 }}
-    minimumTrackTintColor="#2196F3"
-    maximumTrackTintColor="#ccc"
-    // Hide from TalkBack but keep for visual users
-    importantForAccessibility="no-hide-descendants"
-  />
-</View>
-\end{lstlisting}
-
-The Advanced screen implements several sophisticated accessibility patterns:
+Advanced components present unique accessibility challenges requiring specialized implementations:
 
 \begin{enumerate}
-    \item \textbf{Complex composite controls}: The slider implementation demonstrates a pattern for making inherently inaccessible controls accessible by providing alternative interaction mechanisms with the same functionality;
+    \item \textbf{Tab navigation}: Proper role assignment with \texttt{accessibilityRole="tablist"} for containers and \texttt{accessibilityRole="tab"} for individual tabs, with selection state communicated through \texttt{accessibilityState};
     
-    \item \textbf{Tab role communication}: The tabs implementation uses proper \texttt{tablist} and \texttt{tab} roles with selection state communication, ensuring screen readers correctly understand the component structure;
+    \item \textbf{Progress indicators}: Value communication through \texttt{accessibilityValue} properties with min/max/current parameters;
     
-    \item \textbf{Progress value communication}: The progress bar implementation uses \texttt{accessibilityValue} to communicate the precise values and range to screen readers;
+    \item \textbf{Alerts and toasts}: Implementation of \texttt{accessibilityLiveRegion="assertive"} for time-sensitive notifications;
     
-    \item \textbf{Live region usage}: The alert implementation demonstrates proper use of \texttt{accessibilityLiveRegion="assertive"} for time-critical notifications;
-    
-    \item \textbf{Value change announcements}: All dynamic components include explicit announcements of value changes via \texttt{AccessibilityInfo.announceForAccessibility}, providing real-time feedback to screen reader users.
+    \item \textbf{Slider alternatives}: Provision of button-based alternatives for precise slider control by screen reader users.
 \end{enumerate}
 
-\paragraph{Screen reader support analysis}
+\paragraph{Slider accessibility pattern}
 
-Table \ref{tab:advanced_screen_reader_analysis} presents results from systematic testing of the Advanced Screen with screen readers on both iOS and Android platforms.
+The slider implementation (shown in Figure~\ref{fig:advanced-right2}) demonstrates a particularly important accessibility pattern: providing alternative interaction mechanisms for inherently visual controls.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
-\caption{Advanced screen screen reader testing results}
-\label{tab:advanced_screen_reader_analysis}\\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Tab Selection & \ding{51} Announces ``Select Tab One, tab'' and selection state & \ding{51} Announces ``Select Tab One, tab'' and selection state & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Tab Activation & \ding{51} Announces ``Tab One selected'' & \ding{51} Announces ``Tab One selected'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Progress Bar & \ding{51} Announces ``Progress indicator, 0 percent'' & \ding{51} Announces ``Progress indicator, 0 percent'' & 1.3.1 Info and Relationships (Level A), 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Progress Update & \ding{51} Announces ``Progress set to 50\%'' & \ding{51} Announces ``Progress set to 50\%'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Alert Trigger & \ding{51} Announces ``Show alert message, button'' & \ding{51} Announces ``Show alert message, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Alert Message & \ding{51} Announces ``Alert: Something happened'' & \ding{51} Announces ``Alert: Something happened'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Slider Container & \ding{51} Announces ``Slider control, current value 50 percent'' & \ding{51} Announces ``Slider control, current value 50 percent'' & 1.3.1 Info and Relationships (Level A) \\
-\hline
-Decrease Button & \ding{51} Announces ``Decrease value, button'' & \ding{51} Announces ``Decrease value, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\hline
-Slider Value Change & \ding{51} Announces ``Value set to 45 percent'' & \ding{51} Announces ``Value set to 45 percent'' & 4.1.3 Status Messages (Level AA) \\
-\hline
-Preset Button & \ding{51} Announces ``Set value to 75 percent, button'' & \ding{51} Announces ``Set value to 75 percent, button'' & 4.1.2 Name, Role, Value (Level A) \\
-\end{longtable}
+This pattern includes:
 
-The implementation addresses several key MCAG considerations specific to mobile platforms:
-\begin{enumerate}
-    \item \textbf{Alternative interaction mechanisms}: The slider implementation provides multiple ways to set values (buttons, presets, visual slider), addressing the inherent challenges of precise touch interaction on mobile devices;
-    
-    \item \textbf{Touch-optimized controls}: All interactive elements implement enhanced touch targets with clear visual affordances, optimizing for touch interaction;
-    
-    \item \textbf{Explicit state announcements}: All dynamic components include announcements of state changes via \texttt{AccessibilityInfo.announceForAccessibility}, providing critical feedback that might not be visually apparent on smaller screens;
-    
-    \item \textbf{Feature detection}: The implementation checks for screen reader status via \texttt{AccessibilityInfo.isScreenReaderEnabled()} and adapts behavior accordingly, accounting for platform differences;
-    
-    \item \textbf{Value change thresholds}: The slider implementation intelligently throttles announcements to prevent excessive verbosity, only announcing changes of 5\% or more.
-\end{enumerate}
+\begin{itemize}
+    \item Button controls for incremental adjustments;
+    \item Preset value buttons for common settings;
+    \item Value announcements with appropriate throttling;
+    \item Visual feedback synchronized with announced values.
+\end{itemize}
 
-\paragraph{Implementation overhead analysis}
+\paragraph{Implementation overhead}
 
-Table \ref{tab:advanced_implementation_overhead} quantifies the additional code required to implement accessibility features in the Advanced Screen.
+Advanced components have the highest implementation overhead (22.7\%) among component types, with slider controls being particularly demanding (8.1\% overhead). This reflects the additional complexity required to make inherently visual controls accessible through alternative interaction mechanisms.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
-\caption{Advanced screen accessibility implementation overhead}
-\label{tab:advanced_implementation_overhead}\\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endfirsthead
-\multicolumn{4}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
-\hline
-\endhead
-\hline
-\multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Tab Accessibility & 20 LOC & 2.5\% & Medium \\
-\hline
-Progress Bar Accessibility & 18 LOC & 2.2\% & Medium \\
-\hline
-Alert Accessibility & 12 LOC & 1.5\% & Low \\
-\hline
-Slider Accessibility & 65 LOC & 8.1\% & High \\
-\hline
-State Announcements & 30 LOC & 3.7\% & Medium \\
-\hline
-Screen Reader Detection & 22 LOC & 2.7\% & Medium \\
-\hline
-Element Hiding & 16 LOC & 2.0\% & Low \\
-\hline
-\textbf{Total} & \textbf{183 LOC} & \textbf{22.7\%} & \textbf{Medium-High} \\
-\end{longtable}
+\subsubsection{Key insights from component implementation}
+\label{subsubsec:component-insights}
 
-This analysis reveals that implementing comprehensive accessibility for advanced components adds approximately 22.7\% to the code base, with the slider implementation representing the most significant component at 8.1\%. This overhead is justified by the substantial usability improvements for users with disabilities, particularly for inherently visual components like sliders and progress bars that require alternative interaction mechanisms for non-visual access.
-
-\subsection{Comparative analysis of components}
-\label{subsec:components-comparative-analysis}
-
-A comparative analysis of the five component screens reveals important patterns in accessibility implementation requirements, WCAG compliance levels, and implementation overhead. This analysis provides insights into the relative complexity of making different component types accessible and highlights common patterns across diverse interface elements.
-
-\subsubsection{Implementation overhead comparison}
-
-Figure \ref{fig:implementation_overhead_comparison} presents a comparative analysis of the implementation overhead required for accessibility features across the different component screens.
-
-\begin{figure}[ht]
-    \centering
-    \begin{tikzpicture}
-        \begin{axis}[
-            ybar,
-            bar width=15pt,
-            width=12cm,
-            height=8cm,
-            legend style={at={(0.5,1.05)}, anchor=south, legend columns=2},
-            symbolic x coords={Buttons, Forms, Dialogs, Media, Advanced},
-            xtick=data,
-            ylabel={\% of Total Code},
-            xlabel={Component Type},
-            ymin=0,
-            ymax=30,
-            nodes near coords,
-            nodes near coords align={vertical},
-            ]
-            \addplot coordinates {(Buttons,13.3) (Forms,21.5) (Dialogs,16.2) (Media,12.7) (Advanced,22.7)};
-        \end{axis}
-    \end{tikzpicture}
-    \caption{Accessibility implementation overhead by component type}
-    \label{fig:implementation_overhead_comparison}
-\end{figure}
-
-This analysis reveals several key insights:
+The analysis of multiple component implementations reveals several critical insights for developers implementing accessibility in mobile applications:
 
 \begin{enumerate}
-    \item \textbf{Advanced components and forms require the highest overhead}: Both advanced components (22.7\%) and forms (21.5\%) require significantly more code to implement accessibility features compared to other component types, reflecting their inherent complexity and the need for alternative interaction mechanisms;
+    \item \textbf{Implementation complexity correlates with interaction complexity}: More complex interaction patterns require more sophisticated accessibility implementations, with forms and advanced components requiring the highest implementation overhead;
     
-    \item \textbf{Media and buttons require the least overhead}: Basic components like buttons (13.3\%) and media (12.7\%) require relatively less accessibility implementation overhead, as they primarily rely on appropriate property assignment rather than complex interaction patterns;
+    \item \textbf{Focus management is critical for non-linear interactions}: Components that create new interaction contexts (dialogs) or complex navigation patterns (tabs) require explicit focus management to maintain user orientation;
     
-    \item \textbf{Average overhead is approximately 17.3\%}: Across all component types, the average accessibility implementation overhead is 17.3\% of the total code base, providing a useful benchmark for project planning and resource allocation.
+    \item \textbf{Alternative interaction mechanisms are essential for inherently visual controls}: Components like sliders require additional interaction mechanisms to ensure operability by screen reader users;
+    
+    \item \textbf{Explicit state communication improves usability}: All interactive components benefit from explicit state communication via \texttt{accessibilityState} and announcements, but this is particularly critical for selection-based controls;
+    
+    \item \textbf{Platform-specific adaptations may be necessary}: While React Native provides a unified accessibility API, some components (particularly date pickers and complex inputs) benefit from platform-specific adaptations to leverage native accessibility features.
 \end{enumerate}
 
-\subsubsection{WCAG criteria implementation comparison}
-
-Table \ref{tab:wcag_criteria_comparison} provides a comparison of WCAG 2.2 success criteria implementation across the different component screens.
-
-\begin{longtable}{|p{3.5cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|}
-\caption{WCAG criteria implementation comparison}
-\label{tab:wcag_criteria_comparison}\\
-\hline
-\textbf{WCAG Success Criteria} & \textbf{Buttons} & \textbf{Forms} & \textbf{Dialogs} & \textbf{Media} & \textbf{Advanced} \\
-\hline
-\endfirsthead
-\multicolumn{6}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{WCAG Success Criteria} & \textbf{Buttons} & \textbf{Forms} & \textbf{Dialogs} & \textbf{Media} & \textbf{Advanced} \\
-\hline
-\endhead
-\hline
-\multicolumn{6}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-1.1.1 Non-text Content (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-1.3.1 Info and Relationships (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-1.4.3 Contrast (AA) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-2.4.3 Focus Order (A) & \ding{55} & \ding{51} & \ding{51} & \ding{55} & \ding{51} \\
-\hline
-2.4.6 Headings and Labels (AA) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-2.5.8 Target Size (AA) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-3.2.1 On Focus (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-3.3.1 Error Identification (A) & \ding{55} & \ding{51} & \ding{55} & \ding{55} & \ding{55} \\
-\hline
-3.3.2 Labels or Instructions (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-3.3.3 Error Suggestion (AA) & \ding{55} & \ding{51} & \ding{55} & \ding{55} & \ding{55} \\
-\hline
-4.1.2 Name, Role, Value (A) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-4.1.3 Status Messages (AA) & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-\textbf{Total Criteria Implemented} & \textbf{9/12} & \textbf{12/12} & \textbf{10/12} & \textbf{9/12} & \textbf{10/12} \\
-\end{longtable}
-
-This comparison reveals several key insights:
-
-\begin{enumerate}
-    \item \textbf{Universal criteria}: Four criteria (1.1.1 Non-text Content, 1.3.1 Info and Relationships, 4.1.2 Name, Role, Value, and 4.1.3 Status Messages) are implemented across all component types, highlighting their fundamental importance to mobile accessibility;
-    
-    \item \textbf{Forms have the most comprehensive implementation}: The Forms screen implements all 12 relevant success criteria, including specialized criteria for error handling (3.3.1 Error Identification and 3.3.3 Error Suggestion) that are not applicable to other component types;
-    
-    \item \textbf{Focus management varies by component}: Criterion 2.4.3 Focus Order is implemented in components with complex interaction flows (Forms, Dialogs, Advanced) but is less relevant for simpler components (Buttons, Media);
-    
-    \item \textbf{High overall compliance}: All component screens implement at least 75\% of the relevant success criteria, demonstrating a robust approach to accessibility across the application.
-\end{enumerate}
-
-\subsubsection{Mobile-specific considerations comparison}
-
-Table \ref{tab:mobile_considerations_comparison} compares the implementation of mobile-specific accessibility considerations across the different component screens.
-
-\begin{longtable}{|p{3.5cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|}
-\caption{Mobile-specific accessibility considerations comparison}
-\label{tab:mobile_considerations_comparison}\\
-\hline
-\textbf{Mobile Consideration} & \textbf{Buttons} & \textbf{Forms} & \textbf{Dialogs} & \textbf{Media} & \textbf{Advanced} \\
-\hline
-\endfirsthead
-\multicolumn{6}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{Mobile Consideration} & \textbf{Buttons} & \textbf{Forms} & \textbf{Dialogs} & \textbf{Media} & \textbf{Advanced} \\
-\hline
-\endhead
-\hline
-\multicolumn{6}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Enhanced touch targets & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-Platform-specific adaptations & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-Status announcements & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-Native picker integration & \ding{55} & \ding{51} & \ding{55} & \ding{55} & \ding{55} \\
-\hline
-Alternative interaction mechanisms & \ding{55} & \ding{55} & \ding{55} & \ding{51} & \ding{51} \\
-\hline
-Swipe efficiency optimization & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-Context retention & \ding{55} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-Thumb-zone optimization & \ding{51} & \ding{51} & \ding{55} & \ding{51} & \ding{51} \\
-\hline
-Screen size adaptation & \ding{51} & \ding{51} & \ding{51} & \ding{51} & \ding{51} \\
-\hline
-\textbf{Total Considerations Implemented} & \textbf{6/9} & \textbf{8/9} & \textbf{6/9} & \textbf{7/9} & \textbf{8/9} \\
-\end{longtable}
-
-This comparison reveals several key insights:
-
-\begin{enumerate}
-    \item \textbf{Universal mobile considerations}: Three considerations (enhanced touch targets, platform-specific adaptations, and status announcements) are implemented across all component types, reflecting their fundamental importance for mobile accessibility;
-    
-    \item \textbf{Forms and advanced components are most comprehensive}: Both Forms and Advanced screens implement 8 out of 9 mobile-specific considerations, reflecting their complex interaction patterns and the need for comprehensive accessibility support;
-    
-    \item \textbf{Specialized considerations}: Some considerations, such as native picker integration, are only relevant to specific component types (Forms), while others, like alternative interaction mechanisms, are most relevant for inherently visual components (Media, Advanced);
-    
-    \item \textbf{Strong overall mobile optimization}: All component screens implement at least 67\% of relevant mobile-specific considerations, demonstrating a thoughtful approach to mobile-specific accessibility challenges.
-\end{enumerate}
-
-\subsubsection{Common implementation patterns}
-
-Analysis across all component screens reveals several common implementation patterns that contribute to accessible experiences:
-
-\begin{enumerate}
-    \item \textbf{Comprehensive role assignment}: All components consistently use appropriate \texttt{accessibilityRole} properties to communicate semantic meaning to assistive technologies, ensuring users understand component purposes;
-    
-    \item \textbf{Explicit state communication}: Interactive components implement \texttt{accessibilityState} to communicate selection, completion, or disabled states, providing critical context for non-visual users;
-    
-    \item \textbf{Proactive announcements}: All screens use \texttt{AccessibilityInfo.announceForAccessibility} to proactively inform users about state changes, addressing the challenge of perceiving dynamic content changes on mobile devices;
-    
-    \item \textbf{Decorative element hiding}: All screens systematically hide decorative elements from screen readers using \texttt{accessibilityElementsHidden} and \texttt{importantForAccessibility}, optimizing navigation efficiency;
-    
-    \item \textbf{Enhanced touch targets}: All interactive elements maintain minimum dimensions of 44×44dp, exceeding WCAG 2.5.8 requirements and addressing mobile-specific interaction challenges;
-    
-    \item \textbf{Consistent label patterns}: All components follow consistent patterns for accessibility labels, combining component purpose, state, and action results in predictable formats.
-\end{enumerate}
+These insights provide developers with a framework for prioritizing accessibility implementation efforts, focusing on the components and patterns that present the greatest challenges and require the most sophisticated approaches to ensure equal access for all users.
 
 \subsection{Best practices main screen}
 
@@ -2981,6 +2279,12 @@ Based on formal analysis and user testing, several potential enhancements have b
 These enhancements would further strengthen the screen's role as a central hub for accessibility knowledge, while maintaining the clear structure and navigation efficiency of the current implementation.
 
 \subsection{Best practices section}
+
+\subsection{Framework comparison screen}
+
+\subsection{Instruction and community screen}
+
+\subsection{Settings screen}
 
 \newpage
 

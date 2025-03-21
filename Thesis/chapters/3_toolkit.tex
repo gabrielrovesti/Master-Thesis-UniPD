@@ -719,13 +719,13 @@ Table~\ref{tab:screen_reader_analysis} presents results from systematic testing 
 \caption{Home screen screen reader testing results}
 \label{tab:screen_reader_analysis}\\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
 \hline
 \endhead
 \hline
@@ -837,15 +837,23 @@ The Home Screen implementation addresses several mobile-specific accessibility c
     \item \textbf{One-handed operation}: The layout places primary interactive elements within reach of a thumb during one-handed use, a critical mobile accessibility consideration not explicitly covered by WCAG.
 \end{enumerate}
 
-\subsubsection{Future enhancements}
+\subsubsection{Beyond WCAG: metrics-driven accessibility guidelines}
 
-Based on the formal analysis, several potential enhancements have been identified for future versions:
+The Home Screen implementation highlights several accessibility principles that extend beyond standard WCAG requirements, specifically addressing quantitative accessibility evaluation in mobile applications:
+
 \begin{enumerate}
-    \item \textbf{Real-time metric updates}: Implementing dynamic updates to accessibility metrics as developers modify their applications, providing immediate feedback on compliance;
-    \item \textbf{Enhanced focus visualization}: Further improving focus indicators to ensure they meet the enhanced 3:1 contrast ratio recommended by WCAG~2.2 for user interface components;
-    \item \textbf{Voice command support}: Adding support for voice activation of primary functions, further enhancing accessibility for users with motor impairments;
-    \item \textbf{Automated testing integration}: Expanding the metrics calculation system to include results from automated testing tools.
+    \item \textbf{Comprehensive metrics visualization}: Accessibility compliance should be quantified and presented in a transparent, understandable format. The Home Screen implements this through dedicated metric cards with clear visual indicators of implementation status, moving beyond binary compliance to represent different degrees of accessibility achievement;
+    
+    \item \textbf{Multi-dimensional evaluation framework}: Accessibility assessment should consider multiple dimensions including component implementation (40\%), standards compliance (40\%), and empirical testing (20\%). This weighted approach, implemented in the metrics calculation system, recognizes that true accessibility extends beyond technical conformance to include real-world usability;
+    
+    \item \textbf{Transparency in methodology}: Applications should provide clear documentation of accessibility evaluation methodology including test devices, standards versions, and measurement approaches. The modal details system implements this principle by exposing the entire evaluation framework to users, creating accountability in accessibility claims;
+    
+    \item \textbf{Academic grounding principle}: Accessibility implementations benefit from explicit connection to peer-reviewed research and formal standards. The References tab implements this by connecting implementation practices to specific academic papers and standards documentation;
+    
+    \item \textbf{Progressive disclosure of complexity}: Technical accessibility details should be organized in layers of increasing complexity, allowing users to access the appropriate level of detail for their needs. The tabbed modal system implements this by separating overview information from detailed implementation specifics.
 \end{enumerate}
+
+These guidelines extend WCAG by formalizing the quantitative evaluation of accessibility status, providing developers with concrete metrics to track implementation progress rather than treating accessibility as a binary, achieved/not-achieved state.
 
 \subsection{Accessible components main screen}
 
@@ -1117,13 +1125,13 @@ Table~\ref{tab:components_screen_reader_analysis} presents results from systemat
 \caption{Components screen screen reader testing results}
 \label{tab:components_screen_reader_analysis}\\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
 \hline
 \endhead
 \hline
@@ -1281,21 +1289,23 @@ The breadcrumb implementation required careful consideration of several accessib
 
 This implementation represents a comprehensive accessibility solution that benefits all users while specifically addressing mobile navigation challenges unique to handheld touch devices.
 
-\subsubsection{Future enhancements}
+\subsubsection{Beyond WCAG: component categorization guidelines}
 
-Based on formal WCAG/MCAG gap analysis and systematic screen reader testing, several potential enhancements have been identified for future versions:
+The Components Screen defines several accessibility principles specifically focused on organizing and categorizing interface elements to promote systematic accessibility implementation:
 
 \begin{enumerate}
-    \item \textbf{Dynamic component exploration}: Implementing an advanced interactive exploration mode that allows developers to modify accessibility properties in real-time and immediately hear the screen reader output, thereby addressing WCAG 3.3.2 (Labels or Instructions) by providing context-specific guidance and immediate feedback;
+    \item \textbf{Component complexity signaling}: User interface components should be explicitly categorized by implementation complexity (Essential, Complex, Advanced, Beta), helping developers prioritize accessibility efforts according to their experience level and resource constraints. The Components Screen implements this through a consistent badge system across all component cards;
     
-    \item \textbf{Component accessibility metrics}: Developing a comprehensive quantitative scoring system for each component example that evaluates all applicable WCAG success criteria, similar to the Home Screen metrics, helping developers understand the precise accessibility compliance level of each implementation; this would support WCAG 3.3.5 (Help) by providing detailed performance metrics;
+    \item \textbf{Feature-oriented grouping}: Accessibility features should be grouped by functional similarity rather than WCAG criteria, creating more intuitive implementation pathways. The Components Screen implements this by organizing related controls together (e.g., "Buttons \& Touchables") regardless of which specific WCAG criteria they address;
     
-    \item \textbf{Semantic code presentation}: Enhancing the code sample presentation with structured semantic markup to ensure screen readers can properly navigate and read code snippets with appropriate context, ensuring accessibility for developers with visual impairments; this would address WCAG 1.3.1 (Info and Relationships) by improving the semantic structure of code presentations;
+    \item \textbf{Progressive implementation pathway}: Components should be organized in a sequence that builds accessibility knowledge progressively, beginning with fundamental elements before introducing more complex patterns. The Components Screen implements this through its hierarchical organization from basic elements (buttons) to complex patterns (dialogs, navigation);
     
-    \item \textbf{Multi-modal interaction patterns}: Implementing advanced gesture recognition alongside alternative interaction methods to allow filtering and navigating component types without requiring precise touch interaction; this would improve WCAG 2.5.1 (Pointer Gestures) compliance by providing multiple input modalities;
+    \item \textbf{Cross-cutting feature indication}: Key accessibility features that apply across multiple component types should be visually highlighted to reinforce their importance. The feature icons within each component card implement this by consistently identifying common accessibility considerations (e.g., touch target sizing, focus management);
     
-    \item \textbf{Accessibility implementation diff visualizer}: Adding a visual comparison tool that highlights the code differences between basic and accessible implementations of each component, helping developers understand the specific changes needed for accessibility compliance; this would address WCAG 3.2.4 (Consistent Identification) by demonstrating consistent patterns for accessible implementations.
+    \item \textbf{Transition announcement principle}: Navigation between component categories should be explicitly announced to assist screen reader users in maintaining context. The Components Screen implements this through the \texttt{announceForAccessibility} announcements during navigation.
 \end{enumerate}
+
+These guidelines extend WCAG by providing a structured framework for organizing component-level accessibility implementations, addressing a gap in the standards which focus on what features to implement but provide limited guidance on how to structure implementation across a complex application interface.
 
 \subsection{Accessible components section}
 \label{subsec:accessible-components}
@@ -1408,15 +1418,15 @@ Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text re
 \hline
 Demo Button & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Minimum touch target size\newline Haptic feedback & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Submit form"}\newline \texttt{accessibilityHint="Activates form submission"} \\
 \hline
-Code Snippet & text & 1.3.1 Info and Relationships (A) & Content structure preservation & \texttt{accessibilityRole="text"}\newline \texttt{accessibilityLabel="Button implementation code"} \\
+Code Snippet & text & 1.3.1 Info and Relationships (A) & Content structure preservation & \texttt{accessibilityRole="text"}\newline \texttt{accessibilityLabel= \ "Button implementation \ code"} \\
 \hline
 Copy Button & button & 1.4.3 Contrast (AA)\newline 4.1.3 Status Messages (AA) & Touch target size\newline Action feedback & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="\{copied ? "Code copied" : "Copy code example"\}"} \\
 \hline
-Success Modal & alertdialog & 4.1.3 Status Messages (AA) & Screen reader announcements & \texttt{accessibilityViewIsModal}\newline \texttt{accessibilityLiveRegion="polite"} \\
+Success Modal & alertdialog & 4.1.3 Status Messages (AA) & Screen reader announcements & \texttt{accessibilityViewIsModal}\newline \texttt{accessibilityLiveRegion \ ="polite"} \\
 \hline
 Feature Cards & none & 1.3.1 Info and Relationships (A) & Logical grouping & \texttt{accessibilityRole="text"} \\
 \hline
-Feature Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElementsHidden=true}\newline \texttt{importantForAccessibility="no-hide-descendants"} \\
+Feature Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantForAccessibility \ ="no-hide-descendants"} \\
 \end{longtable}
 
 \paragraph{Technical implementation analysis}
@@ -1592,7 +1602,7 @@ Each component type presents unique accessibility challenges requiring specializ
 Empirical testing with VoiceOver (iOS) and TalkBack (Android) reveals consistent patterns across component types:
 
 \begin{enumerate}
-    \item Both screen readers correctly identify components with properly assigned \texttt{accessibilityRole} values;
+    \item Both screen readers correctly identify components with properly assigned \\ \texttt{accessibilityRole} values;
     
     \item State changes communicated via \texttt{accessibilityState} are properly announced;
     
@@ -1638,7 +1648,7 @@ The Forms screen addresses several critical accessibility patterns beyond basic 
     
     \item \textbf{Error identification}: Proper error messaging with \texttt{accessibilityRole="alert"} for validation feedback;
     
-    \item \textbf{State communication}: Selection state for radio buttons and checkboxes with \texttt{accessibilityState=\{\{checked: selected\}\}};
+    \item \textbf{State communication}: Selection state for radio buttons and checkboxes with \\ \texttt{accessibilityState=\{\{checked: selected\}\}};
     
     \item \textbf{Native picker integration}: Leveraging platform-native date pickers for optimal accessibility.
 \end{enumerate}
@@ -1940,6 +1950,8 @@ The Best Practices Screen serves as a comprehensive educational resource within 
 
 Table~\ref{tab:best_practices_screen_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
 
+\pagebreak
+
 \begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
 \caption{Best practices screen component-criteria mapping}
 \label{tab:best_practices_screen_mapping}\\
@@ -1968,7 +1980,7 @@ Badges (Documentation, Interactive Guide, etc.) & text & 1.4.3 Contrast (AA)\new
 \hline
 Feature Items (with checkmark icons) & text & 1.3.1 Info and Relationships (A) & Grouping related information & Parent element contains all related information \\
 \hline
-Chevron Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility="no-hide-descendants"} \\
+Chevron Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility= \ "no-hide-descendants"} \\
 \hline
 Screen Announcements & status & 4.1.3 Status Messages (AA) & Context retention\newline Screen transitions & \texttt{AccessibilityInfo. \ announceFor \ Accessibility} \\
 \end{longtable}
@@ -2092,13 +2104,13 @@ Table~\ref{tab:best_practices_screen_reader_analysis} presents results from syst
 \caption{Best practices screen screen reader testing results}
 \label{tab:best_practices_screen_reader_analysis}\\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
 \hline
 \endhead
 \hline
@@ -2260,31 +2272,2714 @@ The Best Practices Screen implementation addresses several mobile-specific acces
     \item \textbf{Minimal nesting depth}: The screen maintains a shallow information hierarchy with all main categories accessible from a single scrollable view, reducing the navigation depth required to access content—a crucial consideration for mobile interfaces where deeper navigation can lead to disorientation.
 \end{enumerate}
 
-\subsubsection{Future enhancements}
+\subsubsection{Beyond WCAG: pedagogical accessibility guidelines}
 
-Based on formal analysis and user testing, several potential enhancements have been identified for future versions:
+The Best Practices Screen defines several educational principles that extend beyond standard WCAG requirements, addressing how accessibility knowledge should be structured and presented to developers:
 
 \begin{enumerate}
-    \item \textbf{Navigation breadcrumb integration}: Implementing a breadcrumb navigation system in the header would enhance orientation, particularly for sighted users, addressing WCAG 2.4.8 Location (Level AAA) by providing explicit path information throughout the navigation flow;
+    \item \textbf{Multi-modal learning principle}: Accessibility education should combine different learning modalities (documentation, code examples, interactive guides) to accommodate diverse learning styles. The Best Practices screen implements this through explicit categorization of each practice with appropriate badges (Documentation, Code Examples, Interactive Guide) that indicate the learning approach;
     
-    \item \textbf{Enhanced subcategory previews}: Expanding the feature items section to provide more detailed previews of subcategories would help users make more informed decisions before navigating, improving compliance with WCAG 2.4.4 Link Purpose (In Context);
+    \item \textbf{Conceptual categorization}: Accessibility practices should be organized by conceptual domain (guidelines, structure, gestures, screen readers, navigation) rather than by technical implementation details. This organization recognizes that developers approach accessibility from different conceptual entry points based on their specific challenges and interests;
     
-    \item \textbf{Filter mechanism}: Adding the ability to filter or search practice categories would enhance access for users with cognitive limitations who may benefit from a more focused view of the available resources;
+    \item \textbf{Visual encoding of content types}: Different types of accessibility guidance should be visually differentiated through consistent color coding and iconography. The Best Practices screen implements this through a formal color system that assigns specific colors to each practice category, reinforcing the conceptual boundaries between different accessibility domains;
     
-    \item \textbf{Related practice linking}: Implementing a system to suggest related practices across categories would create a more interconnected knowledge structure, helping developers understand relationships between different accessibility concepts;
+    \item \textbf{Feature-level accessibility indication}: Each practice area should explicitly indicate the specific accessibility features it addresses. The implementation of feature lists with focused icons and labels ensures developers can quickly identify relevant guidelines for particular accessibility challenges;
     
-    \item \textbf{Progress tracking}: Adding a mechanism to track which practice guides have been viewed would help users maintain context across sessions, particularly beneficial for developers systematically working through accessibility implementation in their applications.
+    \item \textbf{Platform-specific guidance principle}: Accessibility education should explicitly acknowledge platform differences where relevant (e.g., for screen readers). The Screen Reader Support practice category explicitly indicates its platform-specific nature, recognizing that some accessibility implementations must adapt to platform constraints.
 \end{enumerate}
 
-These enhancements would further strengthen the screen's role as a central hub for accessibility knowledge, while maintaining the clear structure and navigation efficiency of the current implementation.
+These guidelines extend WCAG by addressing the educational aspects of accessibility implementation—how knowledge about accessibility should be structured, presented, and consumed by developers. While WCAG specifies what should be implemented, these guidelines address how accessibility knowledge should be organized to maximize learning effectiveness and practical application.
 
 \subsection{Best practices section}
+\label{subsec:best-practices-section}
 
-\subsection{Framework comparison screen}
+This section provides a formal analysis of the screens within the Best Practices section of \textit{AccessibleHub}. The Best Practices screens serve as educational resources for developers, presenting key accessibility principles, guidelines, and practical implementation techniques. Unlike the Components section which focuses on specific UI elements, the Best Practices section emphasizes overarching principles and approaches to creating accessible mobile experiences.
+
+\subsubsection{Analysis methodology}
+\label{subsubsec:bp-methodology}
+
+To systematically evaluate the accessibility implementation across multiple Best Practices screens, we employ a consistent analytical framework that examines:
+
+\begin{enumerate}
+    \item \textbf{Component inventory}: Identification and classification of UI elements with mapping to their semantic roles and accessibility properties;
+    
+    \item \textbf{WCAG/MCAG criteria mapping}: Formal mapping between components and relevant accessibility guidelines;
+    
+    \item \textbf{Implementation analysis}: Evaluation of code patterns and accessibility properties;
+    
+    \item \textbf{Screen reader compatibility}: Empirical testing with VoiceOver (iOS) and TalkBack (Android);
+    
+    \item \textbf{Implementation overhead}: Quantification of code additions required for accessibility features.
+\end{enumerate}
+
+Each Best Practices screen follows a consistent educational structure that scaffolds learning through:
+
+\begin{itemize}
+    \item Clear explanations of accessibility principles and guidelines;
+    \item Practical implementation techniques with code examples;
+    \item Visual demonstrations of concepts;
+    \item Platform-specific considerations where applicable.
+\end{itemize}
+
+Rather than examining each screen with identical analytical depth, we'll focus on representative examples that highlight key accessibility patterns, commonalities, and unique considerations across the different educational screens.
+
+\subsubsection{WCAG guidelines screen}
+\label{subsubsec:guidelines-screen}
+
+The WCAG Guidelines screen serves as a foundational educational resource, introducing the four core principles of the Web Content Accessibility Guidelines: Perceivable, Operable, Understandable, and Robust. This screen provides developers with a clear overview of accessibility fundamentals upon which all implementation practices are built. Figure~\ref{fig:guidelines_screens_sidebyside} shows the main interface of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the WCAG Guidelines Screen}]{img/guidelines1.jpg}
+        \caption{Guidelines screen - Part 1}
+        \label{fig:guidelines-left}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the WCAG Guidelines Screen}]{img/guidelines2.jpg}
+        \caption{Guidelines screen - Part 2}
+        \label{fig:guidelines-right}
+    \end{subfigure}
+    \caption{Side-by-side view of the WCAG Guidelines screen sections}
+    \label{fig:guidelines_screens_sidebyside}
+\end{figure}
+
+\paragraph{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:guidelines_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Guidelines screen component-criteria mapping}
+\label{tab:guidelines_component_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Principle Cards & none & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA) & Grouping related information & Parent container with proper structural context \\
+\hline
+Principle Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility="no-hide-descendants"} \\
+\hline
+Principle Title & text & 2.4.6 Headings and Labels (AA) & Clear section identification & Text styling with semantic meaning \\
+\hline
+Principle Description & text & 1.3.1 Info and Relationships (A) & Descriptive content & Proper text styling with semantic connection to title \\
+\hline
+Checklist Items & text & 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A) & Logical grouping & Parent element contains all related information \\
+\hline
+Checkmark Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility="no-hide-descendants"} \\
+\end{longtable}
+
+\paragraph{Technical implementation analysis}
+
+The code sample in Listing~\ref{lst:guidelines-screen-accessibility} demonstrates the key accessibility properties implemented in the WCAG Guidelines Screen.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Annotated code sample demonstrating Guidelines Screen accessibility properties},
+  label={lst:guidelines-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+{/* 1. Guideline card with accessibility considerations */}
+<View key={index} style={themedStyles.guidelineCard}>
+  {/* 2. Card header with icon properly hidden from screen readers */}
+  <View style={themedStyles.cardHeader}>
+    <View style={themedStyles.iconContainer}>
+      <Ionicons
+        name={guideline.icon}
+        size={28}
+        color="#0055CC"
+        accessibilityElementsHidden={true}
+        importantForAccessibility="no-hide-descendants"
+      />
+    </View>
+    <Text style={themedStyles.cardTitle}>{guideline.title}</Text>
+  </View>
+
+  {/* 3. Description text with proper semantic connection to title */}
+  <Text style={themedStyles.cardDescription}>
+    {guideline.description}
+  </Text>
+
+  {/* 4. Checklist items with proper grouping and hidden decorative icons */}
+  <View style={themedStyles.checkList}>
+    {guideline.checkItems.map((item, itemIndex) => (
+      <View key={itemIndex} style={themedStyles.checkItemRow}>
+        <Ionicons
+          name="checkmark-circle"
+          size={20}
+          color="#28A745"
+          style={themedStyles.checkIcon}
+          accessibilityElementsHidden={true}
+          importantForAccessibility="no-hide-descendants"
+        />
+        <Text style={themedStyles.checkItemText}>{item}</Text>
+      </View>
+    ))}
+  </View>
+</View>
+\end{lstlisting}
+
+The implementation of the Guidelines Screen addresses several important accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Proper hiding of decorative elements}: All decorative icons (principle icons, checkmarks) are properly hidden from screen readers using both \texttt{accessibilityElementsHidden=true} and \\\texttt{importantForAccessibility="no-hide-descendants"}, eliminating unnecessary swipes;
+    
+    \item \textbf{Semantic structure}: The implementation creates a clear hierarchical structure with the title at the top, followed by descriptions and related checklist items, ensuring proper comprehension of content relationships;
+    
+    \item \textbf{Grouped related content}: Each principle card groups related information together, associating the title, description, and checklist items as a single conceptual unit;
+    
+    \item \textbf{Color contrast implementation}: Text elements maintain proper contrast ratios against their backgrounds, with semantic meaning reinforced through visual styling.
+\end{enumerate}
+
+\paragraph{Screen reader support analysis}
+
+Table~\ref{tab:guidelines_screen_reader_analysis} presents results from systematic testing of the Guidelines Screen with screen readers on both iOS and Android platforms.
+
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Guidelines screen screen reader testing results}
+\label{tab:guidelines_screen_reader_analysis}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & \ding{51} Announces ``WCAG 2.2 Guidelines, heading'' & \ding{51} Announces ``WCAG 2.2 Guidelines, heading'' & 1.3.1 Info and Relationships (A), 2.4.6 Headings and Labels (AA) \\
+\hline
+Principle Title & \ding{51} Announces principle title & \ding{51} Announces principle title & 1.3.1 Info and Relationships (A), 2.4.6 Headings and Labels (AA) \\
+\hline
+Principle Description & \ding{51} Announces full description & \ding{51} Announces full description & 1.3.1 Info and Relationships (A) \\
+\hline
+Checklist Items & \ding{51} Announces each item individually & \ding{51} Announces each item individually & 1.3.1 Info and Relationships (A), 1.3.2 Meaningful Sequence (A) \\
+\hline
+Decorative Icons & \ding{51} Not announced or focused & \ding{51} Not announced or focused & 1.1.1 Non-text Content (A), 2.4.1 Bypass Blocks (A) \\
+\hline
+Navigation Between Principles & \ding{51} Clear sequential navigation & \ding{51} Clear sequential navigation & 2.4.3 Focus Order (A) \\
+\end{longtable}
+
+\paragraph{Implementation overhead analysis}
+
+Table~\ref{tab:guidelines_implementation_overhead} quantifies the additional code required to implement accessibility features in the Guidelines Screen.
+
+\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\caption{Guidelines screen accessibility implementation overhead}
+\label{tab:guidelines_implementation_overhead}\\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Semantic Roles & 4 LOC & 0.7\% & Low \\
+\hline
+Element Hiding & 28 LOC & 5.1\% & Low \\
+\hline
+Focus Management & 2 LOC & 0.4\% & Low \\
+\hline
+Contrast Handling & 14 LOC & 2.5\% & Medium \\
+\hline
+\textbf{Total} & \textbf{48 LOC} & \textbf{8.7\%} & \textbf{Low} \\
+\end{longtable}
+
+This analysis reveals that implementing accessibility for the Guidelines Screen adds approximately 8.7\% to the code base, which is notably lower than other screens. This is primarily because the Guidelines Screen is largely informational and makes extensive use of static text elements with minimal interactive components. The largest contributor to accessibility overhead is the element hiding implementation to prevent screen readers from announcing decorative elements.
+
+\paragraph{Mobile-specific considerations}
+
+The Guidelines Screen implementation addresses several mobile-specific considerations beyond standard WCAG requirements:
+
+\begin{enumerate}
+    \item \textbf{Efficient vertical information architecture}: The card-based layout presents information in a vertically stacked format that works well with the limited width of mobile screens, enabling clear presentation without requiring horizontal scrolling;
+    
+    \item \textbf{Touch-friendly card elevation}: Each principle card utilizes elevation effects (shadows) and appropriate spacing to create a clear visual hierarchy and delineation between content sections, improving touch accuracy and visual clarity;
+    
+    \item \textbf{Swipe efficiency optimization}: The implementation carefully eliminates "garbage interactions" by hiding decorative elements from screen readers, reducing the number of swipes required to navigate through the content—a critical consideration for mobile screen reader users;
+    
+    \item \textbf{Consistent visual language}: The use of consistent iconography and color coding across principles creates a clear visual language that helps users quickly identify different sections, particularly valuable for users with cognitive disabilities navigating on smaller screens.
+\end{enumerate}
+
+\subsubsection{Gestures tutorial screen}
+\label{subsubsec:gestures-tutorial}
+
+The Gestures Tutorial screen provides an interactive educational experience for learning about essential touch gestures and how they translate to screen reader interactions. It enables developers to understand and test the difference between standard touch interactions and screen reader gestures. Figure~\ref{fig:gestures_screens_sidebyside} shows the main interface of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the Gestures Tutorial Screen}]{img/gestures1.jpg}
+        \caption{Gestures tutorial screen - Part 1}
+        \label{fig:gestures-left}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the Gestures Tutorial Screen}]{img/gestures2.jpg}
+        \caption{Gestures tutorial screen - Part 2}
+        \label{fig:gestures-right}
+    \end{subfigure}
+    \caption{Side-by-side view of the Gestures Tutorial screen sections}
+    \label{fig:gestures_screens_sidebyside}
+\end{figure}
+
+\paragraph{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:gestures_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\pagebreak 
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Gestures tutorial screen component-criteria mapping}
+\label{tab:gestures_component_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Practice Cards & none & 1.3.1 Info and Relationships (A) & Logical grouping of related gesture content & Container with clear visual boundaries \\
+\hline
+Practice Title & text & 2.4.6 Headings and Labels (AA) & Clear gesture type identification & Text styling with appropriate weight and size \\
+\hline
+Practice Buttons & button & 2.5.1 Pointer Gestures (A)\newline 2.5.2 Pointer Cancellation (A)\newline 4.1.2 Name, Role, Value (A) & Alternative activation methods\newline Touch target size\newline Gesture guidance & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint}\newline \texttt{accessibilityActions} \\
+\hline
+Success Feedback & text & 4.1.3 Status Messages (AA) & Non-visual feedback for actions & \texttt{accessibilityLiveRegion \ ="polite"} \\
+\hline
+Info Text & text & 3.3.2 Labels or Instructions (A) & Platform-specific gesture guidance & Descriptive text with context-aware content \\
+\end{longtable}
+
+\paragraph{Technical implementation analysis}
+
+What makes the Gestures Tutorial screen particularly notable is its sophisticated handling of both standard touch interactions and screen reader interactions. The implementation detects when a screen reader is enabled and adapts the gesture behavior accordingly. Listing~\ref{lst:gestures-screen-accessibility} highlights the key implementation aspects.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Key implementation for accessible gesture detection with screen reader adaptation},
+  label={lst:gestures-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+// Check if a screen reader is enabled
+const [screenReaderEnabled, setScreenReaderEnabled] = useState(false);
+useEffect(() => {
+  AccessibilityInfo.isScreenReaderEnabled().then((enabled) => {
+    setScreenReaderEnabled(enabled);
+  });
+  const listener = AccessibilityInfo.addEventListener('change', (enabled) => {
+    setScreenReaderEnabled(enabled);
+  });
+  return () => listener.remove();
+}, []);
+
+// Double tap handler with screen reader adaptation
+const handleDoubleTap = () => {
+  if (screenReaderEnabled) {
+    // If screen reader is active, show success immediately
+    setShowDoubleTapSuccess(true);
+    AccessibilityInfo.announceForAccessibility(
+      'Double tap gesture completed successfully with screen reader'
+    );
+    setTimeout(() => setShowDoubleTapSuccess(false), 1500);
+    return;
+  }
+
+  // Standard double tap detection for users without screen readers
+  const now = Date.now();
+  if (lastTap && now - lastTap < DOUBLE_TAP_DELAY) {
+    setShowDoubleTapSuccess(true);
+    AccessibilityInfo.announceForAccessibility(
+      'Double tap gesture completed successfully'
+    );
+    setTimeout(() => setShowDoubleTapSuccess(false), 1500);
+    setLastTap(0); // reset
+  } else {
+    setLastTap(now);
+  }
+};
+\end{lstlisting}
+
+Another key aspect of the implementation is the addition of accessibility actions that enable screen reader users to simulate gestures that would otherwise be difficult to perform with a screen reader enabled:
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Implementation of accessibility actions for gesture simulation},
+  label={lst:gestures-actions-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+<TouchableOpacity
+  style={themedStyles.practiceButton}
+  onLongPress={handleLongPress}
+  accessibilityRole="button"
+  accessibilityLabel="Practice long press"
+  accessibilityHint="Press and hold to activate"
+  accessibilityActions={[
+    { name: 'activate', label: 'Activate long press' },
+    { name: 'longpress', label: 'Simulate long press' }
+  ]}
+  onAccessibilityAction={(event) => {
+    if (event.nativeEvent.actionName === 'activate' ||
+        event.nativeEvent.actionName === 'longpress') {
+      handleLongPress();
+    }
+  }}
+  accessibilityState={{
+    disabled: false,
+    busy: showLongPressSuccess
+  }}
+>
+  <Text style={themedStyles.practiceButtonText}>Long Press me!</Text>
+</TouchableOpacity>
+\end{lstlisting}
+
+The implementation addresses several critical accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Screen reader detection and adaptation}: The code actively detects when a screen reader is enabled and modifies its behavior to accommodate screen reader users, providing an equivalent experience through alternative interaction methods;
+    
+    \item \textbf{Accessibility actions for gesture simulation}: Custom accessibility actions are provided to allow screen reader users to simulate gestures that would otherwise be difficult to perform while using a screen reader;
+    
+    \item \textbf{Context-sensitive instructions}: The information text dynamically changes based on whether a screen reader is enabled, providing relevant guidance based on the user's current assistive technology setup;
+    
+    \item \textbf{Status announcements}: All gesture completions are explicitly announced via \texttt{AccessibilityInfo.announceForAccessibility}, ensuring non-visual feedback;
+    
+    \item \textbf{Visual feedback with accessibility considerations}: Success messages are displayed visually but also properly marked with \texttt{accessibilityLiveRegion="polite"} to ensure screen readers announce them appropriately.
+\end{enumerate}
+
+\paragraph{Screen reader support analysis}
+
+Table~\ref{tab:gestures_screen_reader_analysis} presents results from systematic testing of the Gestures Tutorial Screen with screen readers on both iOS and Android platforms.
+
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Gestures tutorial screen screen reader testing results}
+\label{tab:gestures_screen_reader_analysis}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Single Tap Button & \ding{51} Announces label and hint & \ding{51} Announces label and hint & 4.1.2 Name, Role, Value (A) \\
+\hline
+Double Tap Button with SR & \ding{51} Simulates double tap with single activation & \ding{51} Simulates double tap with single activation & 2.5.1 Pointer Gestures (A) \\
+\hline
+Long Press Button with SR & \ding{51} Provides custom action for long press & \ding{51} Provides custom action for long press & 2.5.1 Pointer Gestures (A) \\
+\hline
+Success Feedback & \ding{51} Announces success messages & \ding{51} Announces success messages & 4.1.3 Status Messages (AA) \\
+\hline
+Context-Sensitive Instructions & \ding{51} Provides SR-specific instructions & \ding{51} Provides SR-specific instructions & 3.3.2 Labels or Instructions (A) \\
+\end{longtable}
+
+\paragraph{Implementation overhead analysis}
+
+Table~\ref{tab:gestures_implementation_overhead} quantifies the additional code required to implement accessibility features in the Gestures Tutorial Screen.
+
+\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\caption{Gestures tutorial screen accessibility implementation overhead}
+\label{tab:gestures_implementation_overhead}\\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Screen Reader Detection & 12 LOC & 2.8\% & Medium \\
+\hline
+Semantic Roles & 6 LOC & 1.4\% & Low \\
+\hline
+Accessibility Actions & 22 LOC & 5.2\% & High \\
+\hline
+Descriptive Labels & 12 LOC & 2.8\% & Low \\
+\hline
+Status Announcements & 18 LOC & 4.2\% & Medium \\
+\hline
+Adaptive Logic & 34 LOC & 8.0\% & High \\
+\hline
+\textbf{Total} & \textbf{104 LOC} & \textbf{24.4\%} & \textbf{Medium-High} \\
+\end{longtable}
+
+This analysis reveals that implementing comprehensive accessibility for the Gestures Tutorial Screen adds approximately 24.4\% to the code base, which is relatively high compared to other screens. This reflects the complex nature of making gesture interactions accessible, particularly the need for adaptive behavior based on screen reader status and the addition of alternative interaction mechanisms.
+
+\paragraph{Mobile-specific considerations}
+
+The Gestures Tutorial Screen addresses several critical mobile-specific accessibility considerations that are particularly relevant to touch-based platforms:
+
+\begin{enumerate}
+    \item \textbf{Alternative input methods}: The implementation provides multiple ways to perform each gesture, accommodating different user capabilities and assistive technologies—a core requirement for mobile accessibility where touch is the primary input method;
+    
+    \item \textbf{Educational comparison}: By explicitly showing the difference between standard gestures and screen reader gestures, the screen serves an important educational function, helping developers understand the distinction between these interaction models;
+    
+    \item \textbf{Device adaptation}: The implementation detects the current device state (screen reader enabled/disabled) and adapts its behavior and instructions accordingly, implementing a key mobile accessibility best practice of responding to the device environment;
+    
+    \item \textbf{Custom actions for complex gestures}: The addition of custom accessibility actions enables screen reader users to simulate complex gestures that might otherwise be difficult or impossible to perform—a technique especially valuable on mobile platforms where gesture interactions are more prevalent than on desktop platforms.
+\end{enumerate}
+
+\subsubsection{Logical navigation screen}
+\label{subsubsec:logical-navigation}
+
+The Logical Navigation screen demonstrates techniques for implementing accessible navigation patterns, particularly the "Skip to Main Content" pattern that allows users to bypass repetitive navigation elements. This pattern is particularly important for screen reader users on mobile devices, where navigating through repetitive content can be especially time-consuming. Figure~\ref{fig:logical_screens_sidebyside} shows the main interface of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the Logical Navigation Screen}]{img/logical1.jpg}
+        \caption{Logical navigation screen - Part 1}
+        \label{fig:logical-left}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the Logical Navigation Screen}]{img/logical2.jpg}
+        \caption{Logical navigation screen - Part 2}
+        \label{fig:logical-right}
+    \end{subfigure}
+    \caption{Side-by-side view of the Logical Navigation screen sections}
+    \label{fig:logical_screens_sidebyside}
+\end{figure}
+
+\paragraph{Technical implementation analysis}
+
+The most significant accessibility feature in this screen is the implementation of the "Skip to Main Content" pattern. This pattern allows users, particularly those using screen readers, to bypass repetitive content and navigate directly to the main content area. Listing~\ref{lst:logical-screen-accessibility} highlights the key implementation aspects.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Implementation of Skip to Main Content pattern},
+  label={lst:logical-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+// References for focus management
+const scrollViewRef = useRef<ScrollView>(null);
+const mainContentRef = useRef<View>(null);
+const [mainContentY, setMainContentY] = useState(0);
+
+// Capture the y-offset of the main content after layout
+const handleMainContentLayout = (e: NativeSyntheticEvent<LayoutChangeEvent>) => {
+  const { y } = e.nativeEvent.layout;
+  setMainContentY(y);
+};
+
+// "Skip to main content" logic
+const skipToMainContent = () => {
+  // 1. Scroll to the main content
+  scrollViewRef.current?.scrollTo({
+    y: mainContentY,
+    animated: true,
+  });
+
+  // 2. After a short delay, set accessibility focus to the main content container
+  setTimeout(() => {
+    if (mainContentRef.current && Platform.OS !== 'web') {
+      const reactTag = findNodeHandle(mainContentRef.current);
+      if (reactTag) {
+        AccessibilityInfo.setAccessibilityFocus(reactTag);
+      }
+    }
+  }, 500);
+};
+\end{lstlisting}
+
+The implementation involves several key steps:
+
+\begin{enumerate}
+    \item \textbf{Tracking content position}: The code tracks the vertical position of the main content area using the \texttt{onLayout} event;
+    
+    \item \textbf{Programmatic scrolling}: When the skip link is activated, the screen scrolls programmatically to the main content area;
+    
+    \item \textbf{Focus management}: After scrolling, the code explicitly sets the accessibility focus to the main content area using \texttt{AccessibilityInfo.setAccessibilityFocus}, ensuring screen reader users are properly positioned after skipping;
+    
+    \item \textbf{Platform adaptation}: The implementation accounts for platform differences, ensuring the pattern works on both iOS and Android devices.
+\end{enumerate}
+
+\paragraph{Screen reader support analysis}
+
+Table~\ref{tab:logical_screen_reader_analysis} presents results from systematic testing of the Logical Navigation Screen with screen readers on both iOS and Android platforms.
+
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Logical navigation screen screen reader testing results}
+\label{tab:logical_screen_reader_analysis}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Skip Link Activation & \ding{51} Properly moves focus to main content & \ding{51} Properly moves focus to main content & 2.4.1 Bypass Blocks (A) \\
+\hline
+Focus Order & \ding{51} Sequential logical order & \ding{51} Sequential logical order & 2.4.3 Focus Order (A) \\
+\hline
+Input Field Focus & \ding{51} Properly focuses and announces label & \ding{51} Properly focuses and announces label & 3.3.2 Labels or Instructions (A) \\
+\hline
+Button Focus & \ding{51} Properly focuses with clear label & \ding{51} Properly focuses with clear label & 4.1.2 Name, Role, Value (A) \\
+\hline
+Main Content Container & \ding{51} Proper role announcement & \ding{51} Proper role announcement & 1.3.1 Info and Relationships (A) \\
+\end{longtable}
+
+\paragraph{Mobile-specific considerations}
+
+The Logical Navigation Screen addresses several mobile-specific accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Limited viewport management}: Mobile screens have limited viewport space, making it more critical to provide efficient navigation mechanisms that reduce scrolling and swiping—the skip link directly addresses this constraint;
+    
+    \item \textbf{Touch-optimized implementation}: The skip link is implemented with adequate touch target size and clear visual feedback, making it usable for touch users with various motor capabilities;
+    
+    \item \textbf{Platform-specific focus management}: The implementation accounts for differences in how iOS and Android handle accessibility focus, ensuring consistent behavior across platforms;
+    
+    \item \textbf{Smooth scrolling with focus synchronization}: The implementation coordinates visual scrolling with accessibility focus changes, maintaining a consistent experience that doesn't disorient users.
+\end{enumerate}
+
+\subsubsection{Screen reader support screen}
+\label{subsubsec:screen-reader-support}
+
+The Screen Reader Support screen provides platform-specific guidance for optimizing applications for VoiceOver (iOS) and TalkBack (Android). It offers developers insight into how screen readers work on mobile platforms and specific gestures users employ to navigate content. Figure~\ref{fig:screen_reader_screens_sidebyside} shows the main interface of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the Screen Reader Support Screen}]{img/screenreader1.jpg}
+        \caption{Screen reader support screen - Part 1}
+        \label{fig:screen-reader-left}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the Screen Reader Support Screen}]{img/screenreader2.jpg}
+        \caption{Screen reader support screen - Part 2}
+        \label{fig:screen-reader-right}
+    \end{subfigure}
+    \caption{Side-by-side view of the Screen Reader Support screen sections}
+    \label{fig:screen_reader_screens_sidebyside}
+\end{figure}
+
+\paragraph{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:screen_reader_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Screen reader support screen component-criteria mapping}
+\label{tab:screen_reader_component_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Platform Toggle Buttons & button & 4.1.2 Name, Role, Value (A)\newline 2.5.8 Target Size (AA) & Touch target size\newline Platform selection & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityState \ =\{\{selected: ...\}\}} \\
+\hline
+Platform Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility \ ="no-hide-descendants"} \\
+\hline
+Gesture Items & text & 1.3.1 Info and Relationships (A) & Gesture description & \texttt{accessibilityRole \ ="text"}\newline \texttt{accessibilityLabel \ =\`\${item.gesture}: \${item.action}\`} \\
+\hline
+Implementation Guide Cards & none & 1.3.1 Info and Relationships (A) & Logical grouping & Container with proper visual boundaries \\
+\hline
+Guide Title & text & 2.4.6 Headings and Labels (AA) & Content section identification & Semantic text styling with proper hierarchy \\
+\hline
+Checklist Items & text & 1.3.1 Info and Relationships (A) & Grouped related information & Parent container with contextual organization \\
+\end{longtable}
+
+\paragraph{Technical implementation analysis}
+
+A distinguishing feature of this screen is the implementation of platform-specific content that dynamically changes based on the selected platform (iOS or Android). Listing~\ref{lst:screen-reader-screen-accessibility} highlights the key implementation aspects.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Platform toggle implementation with accessibility state},
+  label={lst:screen-reader-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+{/* Platform toggle buttons with accessibility state */}
+<View style={themedStyles.platformToggles}>
+  <TouchableOpacity
+    style={[
+      themedStyles.platformButton,
+      activeSection === 'ios' && themedStyles.platformButtonActive,
+    ]}
+    onPress={() => setActiveSection('ios')}
+    accessibilityRole="button"
+    accessibilityState={{ selected: activeSection === 'ios' }}
+    accessibilityLabel="VoiceOver iOS guide"
+  >
+    <Ionicons
+      name="logo-apple"
+      size={24}
+      color={activeSection === 'ios' ? colors.background : colors.text}
+      style={themedStyles.platformIcon}
+      accessibilityElementsHidden={true}
+      importantForAccessibility="no-hide-descendants"
+    />
+    <Text
+      style={[
+        themedStyles.platformLabel,
+        activeSection === 'ios' && themedStyles.platformLabelActive,
+      ]}
+    >
+      VoiceOver (iOS)
+    </Text>
+  </TouchableOpacity>
+  
+  {/* Similar implementation for Android toggle */}
+  
+  {/* Conditional content display */}
+  {activeSection && (
+    <View style={themedStyles.gestureGuideContainer}>
+      <Text style={themedStyles.gestureTitle}>Essential Gestures</Text>
+      {platformSpecificGuides[activeSection].map((item, index) => (
+        <View
+          key={index}
+          style={themedStyles.gestureItem}
+          accessibilityRole="text"
+          accessibilityLabel={`${item.gesture}: ${item.action}`}
+        >
+          {/* Gesture item content */}
+        </View>
+      ))}
+    </View>
+  )}
+</View>
+\end{lstlisting}
+
+The implementation addresses several important accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Selection state communication}: The platform toggle buttons properly communicate their selection state using \texttt{accessibilityState=\{\{selected: activeSection === 'platform'\}\}}, ensuring screen reader users understand which platform is currently active;
+    
+    \item \textbf{Comprehensive accessibility labels}: Gesture items combine the gesture name and action into a single accessibility label (\texttt{accessibilityLabel=`\${item.gesture}: \${item.action}`}), providing complete context in a single focus stop;
+    
+    \item \textbf{Hiding decorative icons}: All decorative icons are properly hidden from screen readers while maintaining their visual presence;
+    
+    \item \textbf{Semantic grouping}: Related information is grouped semantically, ensuring screen reader users understand the relationships between different pieces of content.
+\end{enumerate}
+
+\paragraph{Mobile-specific considerations}
+
+The Screen Reader Support Screen addresses several mobile-specific accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Platform-specific guidance}: By explicitly separating iOS and Android guidance, the screen acknowledges the significant differences between VoiceOver and TalkBack, providing developers with platform-specific implementation advice;
+    
+    \item \textbf{Gesture documentation}: The screen catalogs the specific gestures used by screen reader users on mobile platforms, information that is particularly valuable for mobile developers who need to account for these interaction patterns;
+    
+    \item \textbf{Implementation context}: By providing both gesture information and implementation guidance on the same screen, developers can directly connect user interaction patterns with the code required to support them;
+    
+    \item \textbf{Touch-friendly interface}: The implementation maintains a touch-friendly interface with adequate target sizes and clear visual feedback, ensuring the screen itself is accessible.
+\end{enumerate}
+
+\subsubsection{Semantic structure screen}
+\label{subsubsec:semantic-structure}
+
+The Semantic Structure screen provides guidance on creating meaningful content hierarchies, appropriate heading levels, and landmark roles. This is particularly important for ensuring screen reader users can efficiently navigate and understand content organization. Figure~\ref{fig:semantics_screens_sidebyside} shows the main interface of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the Semantic Structure Screen}]{img/semantics1.jpg}
+        \caption{Semantic structure screen - Part 1}
+        \label{fig:semantics-left}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the Semantic Structure Screen}]{img/semantics2.jpg}
+        \caption{Semantic structure screen - Part 2}
+        \label{fig:semantics-right}
+    \end{subfigure}
+    \caption{Side-by-side view of the Semantic Structure screen sections}
+    \label{fig:semantics_screens_sidebyside}
+\end{figure}
+
+\paragraph{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:semantics_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\pagebreak
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Semantic structure screen component-criteria mapping}
+\label{tab:semantics_component_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Information Cards & none & 1.3.1 Info and Relationships (A) & Logical grouping of content sections & Container with proper visual boundaries \\
+\hline
+Card Title & text & 2.4.6 Headings and Labels (AA) & Information category identification & Semantic text styling with proper hierarchy \\
+\hline
+Card Description & text & 1.3.1 Info and Relationships (A) & Content description & Proper text styling with semantic connection to title \\
+\hline
+Code Examples & text & 1.3.1 Info and Relationships (A) & Semantic structure in code & \texttt{accessibilityRole \ ="text"}\newline \texttt{accessibilityLabel \ ="Source code of..."} \\
+\hline
+Bullet List Items & text & 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A) & Grouped related information & Parent container with proper visual structure \\
+\hline
+Icon Decorations & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility \ ="no-hide-descendants"} \\
+\end{longtable}
+
+\paragraph{Technical implementation analysis}
+
+A key aspect of the Semantic Structure screen is its handling of code examples. The implementation makes the code examples accessible to screen reader users while maintaining their visual presentation. Listing~\ref{lst:semantics-screen-accessibility} highlights this implementation.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Accessible code example implementation},
+  label={lst:semantics-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+{/* Example of accessible code block */}
+<View
+  style={themedStyles.codeExample}
+  accessible
+  accessibilityRole="text"
+  accessibilityLabel="Source code of example of multiple heading levels"
+>
+  <Text
+    style={themedStyles.codeText}
+    accessibilityElementsHidden
+    importantForAccessibility="no-hide-descendants"
+  >
+{`// Example of multiple heading levels
+<View accessibilityRole="header">
+  <Text accessibilityRole="heading" /* Level 1 equivalent */>
+    Main Title (H1)
+  </Text>
+</View>
+
+<View accessibilityRole="main">
+  <Text accessibilityRole="heading" /* Level 2 equivalent */>
+    Section Title (H2)
+  </Text>
+  <Text>
+    Some descriptive content here...
+  </Text>
+</View>`}
+  </Text>
+</View>
+\end{lstlisting}
+
+The implementation addresses several important accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Accessible code blocks}: Code examples are wrapped in accessible containers with descriptive labels, allowing screen reader users to access the code content without getting lost in the syntax details;
+    
+    \item \textbf{Simplified screen reader experience}: The implementation hides the inner text element from individual accessibility focus, providing the entire code block as a single accessible unit with a meaningful label;
+    
+    \item \textbf{Educational structure}: The screen progressively builds understanding through a logical sequence of concepts, from basic heading structure to more complex landmark roles;
+    
+    \item \textbf{Practical examples}: Each concept is illustrated with concrete code examples that developers can adapt for their own implementations.
+\end{enumerate}
+
+\paragraph{Mobile-specific considerations}
+
+The Semantic Structure Screen addresses several mobile-specific accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Adapting web concepts to mobile}: The screen translates traditional web accessibility concepts (headings, landmarks) to the mobile context, helping developers understand how to implement these patterns in React Native;
+    
+    \item \textbf{Limited screen navigation adaptation}: The guidance accounts for the more limited navigation options available to screen reader users on mobile platforms, where jumping between landmarks and headings is more challenging than on the web;
+    
+    \item \textbf{Mobile-optimized content hierarchy}: The implementation demonstrates how to create a clear content hierarchy that works well on smaller mobile screens while maintaining accessibility;
+    
+    \item \textbf{Touch-friendly code examples}: The code blocks are implemented in a touch-friendly manner, allowing developers to easily view and interact with the examples on a mobile device.
+\end{enumerate}
+
+\subsubsection{Best practices implementation insights}
+\label{subsubsec:best-practices-insights}
+
+The analysis of the Best Practices screens reveals several key insights for developers implementing accessibility in mobile applications:
+
+\begin{enumerate}
+    \item \textbf{Framework enables education through implementation}: The Best Practices screens not only explain accessibility concepts but demonstrate them through their own implementation, providing a meta-level educational experience;
+    
+    \item \textbf{Platform-specific adaptation is essential}: Several screens explicitly address platform differences between iOS and Android, acknowledging that effective mobile accessibility requires platform-specific knowledge and adaptation;
+    
+    \item \textbf{Implementation complexity varies by concept}: Some accessibility features (like hiding decorative icons) require minimal code additions, while others (like gesture adaptation for screen readers) involve more complex logic and state management;
+    
+    \item \textbf{Educational progression}: The screens collectively implement a progressive educational structure, starting with fundamental principles (WCAG Guidelines) and building toward more complex implementations (Skip Navigation, Screen Reader Gestures);
+    
+    \item \textbf{Mobile-specific considerations go beyond WCAG}: Many of the implemented patterns address mobile-specific concerns that extend beyond traditional WCAG criteria, demonstrating the need for mobile-specific accessibility guidance.
+\end{enumerate}
+
+\paragraph{Implementation overhead comparison}
+
+Table~\ref{tab:best_practices_comparative_overhead} compares the implementation overhead across Best Practices screens.
+
+\begin{table}[ht]
+\caption{Accessibility implementation overhead by best practices screen}
+\label{tab:best_practices_comparative_overhead}
+\centering
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{Best Practices Screen} & \textbf{Lines of Code} & \textbf{Percentage Overhead} & \textbf{Complexity Impact} & \textbf{Primary Contributors} \\
+\hline
+Guidelines & 48 & 8.7\% & Low & Element Hiding \\
+\hline
+Gestures Tutorial & 104 & 24.4\% & Medium-High & Adaptive Logic, Accessibility Actions \\
+\hline
+Logical Navigation & 72 & 18.3\% & Medium & Focus Management, Skip Link \\
+\hline
+Screen Reader Support & 68 & 12.4\% & Medium & State Communication, Element Hiding \\
+\hline
+Semantic Structure & 58 & 10.8\% & Low-Medium & Accessible Code Blocks, Element Hiding \\
+\hline
+\end{tabular}
+\end{table}
+
+This comparison reveals that screens focusing on interactive behaviors (Gestures, Navigation) require significantly more accessibility code than primarily informational screens (Guidelines, Semantic Structure). This pattern aligns with findings from the Components analysis and suggests that developers should allocate more implementation resources to complex interactive features when planning accessibility work.
+
+\paragraph{Key implementation patterns across best practices screens}
+
+Several implementation patterns are consistently applied across all Best Practices screens:
+
+\begin{enumerate}
+    \item \textbf{Proper element hiding}: All screens consistently implement proper hiding of decorative elements using both \texttt{accessibilityElementsHidden=true} and \\\texttt{importantForAccessibility="no-hide-descendants"}, demonstrating the importance of reducing "garbage interactions" for screen reader users;
+    
+    \item \textbf{Semantic grouping}: Related information is consistently grouped together both visually and semantically, creating clear content relationships for all users;
+    
+    \item \textbf{Educational structure}: Each screen implements a clear pedagogical structure that progressively builds understanding, starting with fundamental concepts and moving toward more complex implementations;
+    
+    \item \textbf{Platform adaptation}: The screens account for differences between iOS and Android accessibility implementations, often with platform-specific code paths or content.
+\end{enumerate}
+
+\paragraph{Future enhancements}
+
+Based on formal analysis and user testing, several potential enhancements have been identified for future versions of the Best Practices screens:
+
+\begin{enumerate}
+    \item \textbf{Interactive assessment tools}: Adding interactive tools for developers to test their knowledge and evaluate their implementations against accessibility criteria;
+    
+    \item \textbf{Custom screen reader simulation}: Implementing a simplified screen reader simulation to help developers understand how their applications would be perceived by screen reader users;
+    
+    \item \textbf{Comparative framework implementations}: Expanding the platform-specific guidance to include side-by-side comparisons of how accessibility patterns are implemented in React Native versus Flutter;
+    
+    \item \textbf{User-generated examples}: Adding the ability for developers to contribute their own accessibility implementation examples to create a community resource.
+\end{enumerate}
+
+These enhancements would further strengthen the educational value of the Best Practices section, helping developers build more accessible mobile applications across platforms and frameworks.
+
+\subsection{Accessibility tools screen}
+\label{subsec:tools-screen}
+
+The Accessibility Tools screen serves as a comprehensive resource guide for developers, cataloging essential tools and resources for testing and improving mobile application accessibility. It provides practical, structured information about screen readers, development tools, and testing utilities that developers can leverage throughout their accessibility implementation workflows. Figure~\ref{fig:tools_screens_sidebyside} shows the main interface of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the Tools Screen}]{img/tools1.jpg}
+        \caption{Tools screen - Part 1}
+        \label{fig:tools-left}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the Tools Screen}]{img/tools2.jpg}
+        \caption{Tools screen - Part 2}
+        \label{fig:tools-right}
+    \end{subfigure}
+    \caption{Side-by-side view of the Tools screen sections}
+    \label{fig:tools_screens_sidebyside}
+\end{figure}
+
+\subsubsection{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:tools_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Tools screen component-criteria mapping}
+\label{tab:tools_component_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Card & text & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Content introduction & \texttt{accessibilityRole \ ="text"} \\
+\hline
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Clear section identification & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Section Headers & heading & 2.4.6 Headings (AA)\newline 1.3.1 Info and Relationships (A) & Logical section organization & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Tool Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Content expandability & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint} \\
+\hline
+Card Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements\-Hidden=true}\newline \texttt{importantFor\-Accessibility=\"no-hide-descendants"} \\
+\hline
+Expandable Content & text & 1.3.1 Info and Relationships (A)\newline 4.1.2 Name, Role, Value (A) & Hierarchical content structure & \texttt{role="list"}\newline \texttt{role="listitem"} \\
+\hline
+Documentation Links & link & 2.4.4 Link Purpose (A)\newline 4.1.2 Name, Role, Value (A) & External resource navigation & \texttt{accessibilityRole="link"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint="Opens browser"} \\
+\end{longtable}
+
+\subsubsection{Technical implementation analysis}
+
+The Tools screen implements a comprehensive catalog of accessibility resources with expandable cards, providing both overview information and detailed usage guidance. The implementation follows a consistent pattern of expansion/collapse functionality with full accessibility support. Listing~\ref{lst:tools-screen-accessibility} highlights the key accessibility implementation aspects.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Tool card implementation with accessibility properties},
+  label={lst:tools-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+<TouchableOpacity 
+  onPress={() => toggleExpand(tool.id)} 
+  style={styles.cardHeader}
+  accessibilityRole="button"
+  accessibilityLabel={`${tool.title}. Double tap to ${
+    isOpen ? 'collapse' : 'expand'} details.`}
+>
+  <Ionicons
+    name={isOpen ? 'chevron-up' : 'chevron-down'}
+    size={20}
+    color={colors.textSecondary}
+    style={{ marginLeft: 'auto' }}
+    accessibilityElementsHidden
+    importantForAccessibility="no-hide-descendants"
+  />
+</TouchableOpacity>
+
+{isOpen && (
+  <View style={styles.cardBody}>
+    <Text style={styles.toolDescription}>{tool.description}</Text>
+    <View role="list">
+      {tool.features.map((feature, idx) => (
+        <Text 
+          key={idx} 
+          style={styles.featureItem} 
+          role="listitem"
+        >
+          {feature}
+        </Text>
+      ))}
+    </View>
+    <View style={styles.practicalSection}>
+      <Text style={styles.practicalHeader}>
+        Practical Usage:
+      </Text>
+      <Text style={styles.practicalUsage}>
+        {tool.practicalUsage}
+      </Text>
+    </View>
+    {/* Documentation link */}
+  </View>
+)}
+\end{lstlisting}
+
+The implementation addresses several critical accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{Clear expandable card pattern}: Each tool card implements a consistent expandable pattern with appropriate \texttt{accessibilityRole} and state communication, ensuring screen reader users understand the interactive nature of each card;
+    
+    \item \textbf{Proper element hiding}: Decorative icons are systematically hidden from screen readers using both \texttt{accessibilityElementsHidden} and \texttt{importantForAccessibility="no-hide-descendants"}, eliminating unnecessary focus stops;
+    
+    \item \textbf{Semantic list structure}: Features are properly structured as lists with correct \texttt{role="list"} and \texttt{role="listitem"} attributes, creating a meaningful hierarchy for screen reader navigation;
+    
+    \item \textbf{Practical usage section}: Each tool includes a dedicated "Practical Usage" section that provides context-specific guidance on real-world application of the tool, going beyond mere feature listings.
+\end{enumerate}
+
+\subsubsection{Screen reader support analysis}
+
+Table~\ref{tab:tools_screen_reader_analysis} presents results from systematic testing of the Tools screen with screen readers on both iOS and Android platforms.
+
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Tools screen screen reader testing results}
+\label{tab:tools_screen_reader_analysis}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & \ding{51} Announces ``Mobile Accessibility Tools, heading'' & \ding{51} Announces ``Mobile Accessibility Tools, heading'' & 1.3.1 Info and Relationships (A), 2.4.6 Headings and Labels (AA) \\
+\hline
+Section Headers & \ding{51} Announces section titles as headings & \ding{51} Announces section titles as headings & 1.3.1 Info and Relationships (A), 2.4.6 Headings and Labels (AA) \\
+\hline
+Tool Card (Collapsed) & \ding{51} Announces title and expansion hint & \ding{51} Announces title and expansion hint & 4.1.2 Name, Role, Value (A) \\
+\hline
+Tool Card (Expanded) & \ding{51} Announces features as list items & \ding{51} Announces features as list items & 1.3.1 Info and Relationships (A) \\
+\hline
+Badge Elements & \ding{51} Not individually announced & \ding{51} Not individually announced & 1.1.1 Non-text Content (A) \\
+\hline
+Documentation Links & \ding{51} Announces as link with destination & \ding{51} Announces as link with destination & 2.4.4 Link Purpose (A) \\
+\end{longtable}
+
+\subsubsection{Mobile-specific considerations}
+
+The Tools screen implementation addresses several mobile-specific accessibility considerations that extend beyond standard WCAG criteria:
+
+\begin{enumerate}
+    \item \textbf{Progressive disclosure pattern}: The expandable card implementation creates a clean, digestible mobile interface that allows users to focus on one tool at a time, reducing cognitive overload on smaller screens;
+    
+    \item \textbf{Touch-optimized interaction zones}: Cards maintain larger touch targets (especially the header section), improving usability for users with motor impairments on touch devices;
+    
+    \item \textbf{Platform-specific tool documentation}: The screen explicitly separates tools by platform (iOS vs. Android), addressing the critical mobile consideration that accessibility implementation differs substantially between platforms;
+    
+    \item \textbf{Practical guidance emphasis}: Each tool includes specific practical usage instructions, recognizing the mobile-specific challenge of implementing accessibility in constrained mobile interfaces;
+    
+    \item \textbf{External link handling}: Documentation links implement proper accessibility hints that they open external browsers, preparing users for context switches that are particularly disruptive on mobile devices.
+\end{enumerate}
+
+\subsubsection{Implementation overhead analysis}
+
+Table~\ref{tab:tools_implementation_overhead} quantifies the additional code required to implement accessibility features in the Tools screen.
+
+\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\caption{Tools screen accessibility implementation overhead}
+\label{tab:tools_implementation_overhead}\\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Semantic Roles & 16 LOC & 2.7\% & Low \\
+\hline
+Descriptive Labels & 24 LOC & 4.1\% & Medium \\
+\hline
+Element Hiding & 32 LOC & 5.5\% & Low \\
+\hline
+List Semantics & 10 LOC & 1.7\% & Low \\
+\hline
+Link Announcements & 12 LOC & 2.1\% & Low \\
+\hline
+Expansion State Management & 18 LOC & 3.1\% & Medium \\
+\hline
+\textbf{Total} & \textbf{112 LOC} & \textbf{19.2\%} & \textbf{Medium} \\
+\end{longtable}
+
+This analysis reveals that implementing comprehensive accessibility for the Tools screen adds approximately 19.2\% to the code base. The largest contributors are element hiding (5.5\%) and descriptive labels (4.1\%), reflecting the information-rich nature of this screen and the need to create a streamlined experience for screen reader users.
+
+\subsubsection{Tool categorization analysis}
+
+The Tools screen implements a carefully structured categorization system that organizes accessibility tools into meaningful groups. Table~\ref{tab:tools_categorization} analyzes this structure from an accessibility perspective.
+
+\begin{longtable}{|p{2.5cm}|p{3.8cm}|p{4.6cm}|p{3.2cm}|}
+\caption{Tools screen categorization analysis}
+\label{tab:tools_categorization}\\
+\hline
+\textbf{Category} & \textbf{Tools Included} & \textbf{Accessibility Benefit} & \textbf{WCAG Criteria Supported} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Category} & \textbf{Tools Included} & \textbf{Accessibility Benefit} & \textbf{WCAG Criteria Supported} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Screen Readers & TalkBack (Android), VoiceOver (iOS) & Provides direct access to the primary tools used by people with visual impairments & 1.3.1 Info and Relationships (A), 2.1.1 Keyboard (A), 2.4.3 Focus Order (A) \\
+\hline
+Development Tools & Accessibility Inspector, Contrast Analyzer, Accessibility Linter & Offers tools for early-stage accessibility integration during development & 1.4.3 Contrast (AA), 1.3.1 Info and Relationships (A), 4.1.2 Name, Role, Value (A) \\
+\hline
+Testing Checklist & Automated Testing, Accessibility Scanner & Supports systematic verification of accessibility implementation & 3.3.3 Error Suggestion (AA), 3.3.4 Error Prevention (AA) \\
+\end{longtable}
+
+This careful categorization creates a progressive learning path for developers, starting with the tools users employ (screen readers), moving to development-time tools, and concluding with testing utilities. This structure reinforces the full accessibility lifecycle and encourages developers to consider accessibility from multiple perspectives.
+
+\subsubsection{Beyond WCAG: development-focused accessibility guidelines}
+
+While WCAG provides a solid foundation for accessibility requirements, our analysis of the Tools screen highlights several additional guidelines specifically relevant to mobile development workflows:
+
+\begin{enumerate}
+    \item \textbf{Tool integration guideline}: Accessibility tools should be presented with clear integration paths into existing development workflows, not as standalone solutions. The Tools screen implements this by including explicit "Practical Usage" sections that explain integration;
+    
+    \item \textbf{Platform-specific guidance principle}: Due to the substantial differences between platform accessibility implementations, tools and guidance should be explicitly organized by platform when platform-specific considerations apply. The Tools screen implements this by separating iOS and Android tools;
+    
+    \item \textbf{Development stage appropriateness}: Accessibility tools should be categorized by the development stage in which they are most effective (design, development, testing). This helps developers integrate accessibility throughout the development lifecycle rather than treating it as a single checkbox activity;
+    
+    \item \textbf{Tool complexity indicator}: Accessibility tools vary significantly in complexity and learning curve. Providing clear indicators of tool complexity (like the "Built-in" badge) helps developers choose appropriate tools based on their experience level;
+    
+    \item \textbf{Contextual documentation principle}: Links to external resources should be contextually relevant and provide appropriate expectations about content (e.g., official documentation vs. community resources). This reduces the cognitive load of finding appropriate resources for specific accessibility challenges.
+\end{enumerate}
+
+These guidelines extend WCAG principles to address the specific needs of developers implementing accessibility features, focusing on workflow integration and practical application of accessibility knowledge.
 
 \subsection{Instruction and community screen}
+\label{subsec:instruction-community-screen}
+
+The Instruction and Community screen serves as a collaborative learning hub that extends beyond technical implementation details. It provides developers with opportunities to engage with the broader accessibility community, learn from practical examples, and discover resources for deeper learning. By combining educational content with community connections, this screen fosters a sense of shared responsibility for accessibility. Figure~\ref{fig:instruction_screens_sidebyside} shows the main interfaces of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of the Instruction and Community Screen}]{img/instruction1.jpg}
+        \caption{Instruction screen - Part 1}
+        \label{fig:instruction-left}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of the Instruction and Community Screen}]{img/instruction2.jpg}
+        \caption{Instruction screen - Part 2}
+        \label{fig:instruction-right}
+    \end{subfigure}
+    \caption{Side-by-side view of the Instruction and Community screen sections}
+    \label{fig:instruction_screens_sidebyside}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Third part of the Instruction and Community Screen}]{img/instruction3.jpg}
+        \caption{Instruction screen - Part 3}
+        \label{fig:instruction-left2}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Fourth part of the Instruction and Community Screen}]{img/instruction4.jpg}
+        \caption{Instruction screen - Part 4}
+        \label{fig:instruction-right2}
+    \end{subfigure}
+    \caption{Side-by-side view of additional Instruction and Community screen sections}
+    \label{fig:instruction_screens_sidebyside2}
+\end{figure}
+
+\subsubsection{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:instruction_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Instruction screen component-criteria mapping}
+\label{tab:instruction_component_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Card & none & 1.4.3 Contrast (AA) & Introduction content & Container with visual boundaries \\
+\hline
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Screen identification & \texttt{accessibilityRole \ ="header"} \\
+\hline
+CTA Button & button & 2.4.4 Link Purpose (A)\newline 2.5.8 Target Size (AA) & Call to action & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel} \\
+\hline
+Project Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Project information\newline Touch targets & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel} \\
+\hline
+Project Icons & none & 1.1.1 Non-text Content (A) & Decorative elements & \texttt{accessibilityElements\-Hidden=true} \\
+\hline
+Tag Pills & none & 1.3.1 Info and Relationships (A) & Content categorization & Part of parent's \texttt{accessibilityLabel} \\
+\hline
+Collapsible Preview & button & 4.1.2 Name, Role, Value (A)\newline 2.4.3 Focus Order (A) & Content expansion & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel} \\
+\hline
+Code Snippet & text & 1.3.1 Info and Relationships (A) & Code presentation & Proper line formatting and font styling \\
+\hline
+Community Channel Cards & button & 2.4.4 Link Purpose (A)\newline 4.1.2 Name, Role, Value (A) & Community resources & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel} \\
+\hline
+Toolkit Cards & button & 2.4.4 Link Purpose (A)\newline 4.1.2 Name, Role, Value (A) & Resource links & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel} \\
+\end{longtable}
+
+\subsubsection{Technical implementation analysis}
+
+The Instruction and Community screen implements several innovative accessibility patterns, particularly in its handling of expandable content and code snippets. Listing~\ref{lst:instruction-screen-accessibility} highlights the implementation of collapsible previews with proper accessibility announcements.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Collapsible preview implementation with accessibility announcements},
+  label={lst:instruction-screen-accessibility},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+// Toggle expansion with proper announcements
+const handleToggleExpansion = () => {
+  setExpandedStoryId(isExpanded ? null : story.id);
+  AccessibilityInfo.announceForAccessibility(
+    isExpanded 
+      ? `${story.title} collapsed` 
+      : `${story.title} expanded`
+  );
+};
+
+// CollapsiblePreview component
+<TouchableOpacity
+  onPress={handleToggleExpansion}
+  accessibilityRole="button"
+  accessibilityLabel={`${title}. ${excerpt}`}
+  style={{ marginBottom: 16 }}
+>
+  <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+    <Text style={titleStyle}>{title}</Text>
+    <Ionicons
+      name={isExpanded ? 'chevron-up' : 'chevron-down'}
+      size={18}
+      color={colors.primary}
+      accessibilityElementsHidden={true}
+    />
+  </View>
+  <Text style={excerptStyle}>{excerpt}</Text>
+
+  {isExpanded && snippet && (
+    <View style={codeContainerStyle}>
+      {snippet.split('\n').map((line, idx) => (
+        <Text key={idx} style={codeTextStyle}>
+          {line || ' '}
+        </Text>
+      ))}
+    </View>
+  )}
+</TouchableOpacity>
+\end{lstlisting}
+
+The implementation addresses several key accessibility requirements:
+
+\begin{enumerate}
+    \item \textbf{Expansion state announcements}: The code explicitly announces changes in the expansion state of collapsible sections using \texttt{AccessibilityInfo.announceForAccessibility}, ensuring screen reader users are aware when content expands or collapses;
+    
+    \item \textbf{Comprehensive accessibility labels}: Collapsible previews combine the title and excerpt in their \texttt{accessibilityLabel}, ensuring screen reader users receive full context about the content before deciding to expand it;
+    
+    \item \textbf{Accessible code snippets}: Code snippets maintain proper line formatting with monospace fonts and adequate contrast, making them readable for all users including those with low vision;
+    
+    \item \textbf{Visual state indicators}: Expansion state is visually indicated through both icon changes and layout modifications, providing redundant cues that benefit users with different accessibility needs.
+\end{enumerate}
+
+\subsubsection{Project cards implementation}
+
+A significant aspect of the Instruction and Community screen is its showcasing of accessibility-focused open source projects. Listing~\ref{lst:project-card-implementation} demonstrates the accessibility implementation of project cards.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Project card implementation with accessibility properties},
+  label={lst:project-card-implementation},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+<TouchableOpacity
+  style={cardStyle}
+  onPress={onPress}
+  accessibilityRole="button"
+  accessibilityLabel={`${project.name}. ${project.description}`}
+>
+  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+    <View style={iconContainerStyle}>
+      <Ionicons 
+        name={project.icon} 
+        size={24} 
+        color={colors.primary}
+        accessibilityElementsHidden={true}
+      />
+    </View>
+    <View style={{ flex: 1 }}>
+      <Text style={titleStyle}>{project.name}</Text>
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Ionicons 
+          name="people-outline" 
+          size={14} 
+          color={colors.textSecondary}
+          accessibilityElementsHidden={true}
+        />
+        <Text style={metadataStyle}>
+          {project.contributors} contributors
+        </Text>
+        <Ionicons 
+          name="git-branch-outline" 
+          size={14} 
+          color={colors.textSecondary}
+          accessibilityElementsHidden={true}
+        />
+        <Text style={metadataStyle}>
+          {project.issuesCount} open issues
+        </Text>
+      </View>
+    </View>
+  </View>
+  
+  <Text style={descriptionStyle}>{project.description}</Text>
+  
+  {/* Tags rendering */}
+  {/* Contribute button */}
+</TouchableOpacity>
+\end{lstlisting}
+
+The project card implementation demonstrates several effective accessibility patterns:
+
+\begin{enumerate}
+    \item \textbf{Comprehensive card labeling}: Each project card combines the project name and description in its \texttt{accessibilityLabel}, providing full context for screen reader users;
+    
+    \item \textbf{Semantic grouping}: Related information (contributor counts, issue counts) is visually grouped and flows logically when read by screen readers;
+    
+    \item \textbf{Touch-optimized card design}: The entire card serves as a touchable area, creating a generous touch target that exceeds minimum size requirements and benefits users with motor impairments;
+    
+    \item \textbf{Visual hierarchy through consistent styling}: The card implements a clear visual hierarchy with title prominence, supporting users with cognitive disabilities in quickly understanding the content structure.
+\end{enumerate}
+
+\subsubsection{Screen reader support analysis}
+
+Table~\ref{tab:instruction_screen_reader_analysis} presents results from systematic testing of the Instruction and Community Screen with screen readers on both iOS and Android platforms.
+
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Instruction screen screen reader testing results}
+\label{tab:instruction_screen_reader_analysis}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & \ding{51} Announces ``Join the A11y Community, heading'' & \ding{51} Announces ``Join the A11y Community, heading'' & 1.3.1 Info and Relationships (A), 2.4.6 Headings and Labels (AA) \\
+\hline
+CTA Button & \ding{51} Announces label and action & \ding{51} Announces label and action & 2.4.4 Link Purpose (A), 4.1.2 Name, Role, Value (A) \\
+\hline
+Project Cards & \ding{51} Announces project name and description & \ding{51} Announces project name and description & 2.4.4 Link Purpose (A), 4.1.2 Name, Role, Value (A) \\
+\hline
+Tags & \ding{51} Not individually focused & \ding{51} Not individually focused & 1.3.1 Info and Relationships (A) \\
+\hline
+Collapsible Content & \ding{51} Announces expanded/collapsed state & \ding{51} Announces expanded/collapsed state & 4.1.2 Name, Role, Value (A) \\
+\hline
+Code Snippets & \ding{51} Reads code as text & \ding{51} Reads code as text & 1.3.1 Info and Relationships (A) \\
+\hline
+External Links & \ding{51} Announces purpose and opens browser & \ding{51} Announces purpose and opens browser & 2.4.4 Link Purpose (A), 3.2.5 Change on Request (AAA) \\
+\end{longtable}
+
+\subsubsection{Implementation overhead analysis}
+
+Table~\ref{tab:instruction_implementation_overhead} quantifies the additional code required to implement accessibility features in the Instruction and Community Screen.
+
+\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\caption{Instruction screen accessibility implementation overhead}
+\label{tab:instruction_implementation_overhead}\\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Semantic Roles & 24 LOC & 3.1\% & Low \\
+\hline
+Descriptive Labels & 32 LOC & 4.2\% & Medium \\
+\hline
+Element Hiding & 18 LOC & 2.3\% & Low \\
+\hline
+Status Announcements & 16 LOC & 2.1\% & Medium \\
+\hline
+Link Handling & 14 LOC & 1.8\% & Low \\
+\hline
+Collapsible Content Management & 28 LOC & 3.6\% & High \\
+\hline
+Code Snippet Presentation & 24 LOC & 3.1\% & Medium \\
+\hline
+\textbf{Total} & \textbf{156 LOC} & \textbf{20.2\%} & \textbf{Medium} \\
+\end{longtable}
+
+This analysis reveals that implementing comprehensive accessibility for the Instruction and Community screen adds approximately 20.2\% to the code base. The most significant contributors are descriptive labels (4.2\%) and collapsible content management (3.6\%), reflecting the information-rich and interactive nature of this screen.
+
+\subsubsection{Community resources analysis}
+
+A distinguishing feature of this screen is its presentation of community resources that extend learning beyond the application itself. Table~\ref{tab:community_resources_analysis} evaluates these resources from an accessibility perspective.
+
+\begin{longtable}{|p{2.8cm}|p{4.2cm}|p{4.2cm}|p{3.2cm}|}
+\caption{Community resources accessibility analysis}
+\label{tab:community_resources_analysis}\\
+\hline
+\textbf{Resource Type} & \textbf{Examples} & \textbf{Accessibility Value} & \textbf{WCAG/MCAG Relevance} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Resource Type} & \textbf{Examples} & \textbf{Accessibility Value} & \textbf{WCAG/MCAG Relevance} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Open Source Projects & ESLint A11y Plugin, React Native Testing Library & Provides tools that automate accessibility checking during development & 3.3.1 Error Identification (A), 4.1.2 Name, Role, Value (A) \\
+\hline
+Success Stories & Netflix Implementation, Complex UI Focus Management & Demonstrates practical application of accessibility principles in real-world scenarios & 1.3.1 Info and Relationships (A), 2.4.3 Focus Order (A) \\
+\hline
+Community Channels & A11y Stack Exchange, Twitter Community & Creates ongoing learning opportunities and support networks & Beyond WCAG: Community practice and knowledge sharing \\
+\hline
+Official Documentation & Apple/Google Guidelines, React Native Docs & Provides authoritative platform-specific guidance & 1.3.1 Info and Relationships (A), 4.1.2 Name, Role, Value (A) \\
+\end{longtable}
+
+This diverse resource collection creates a comprehensive learning ecosystem that extends beyond the application itself, addressing the reality that accessibility implementation is an ongoing learning process that benefits from community knowledge sharing.
+
+\subsubsection{Beyond WCAG: community-centered accessibility guidelines}
+
+The Instruction and Community screen highlights several guidelines that extend beyond WCAG standards to address the social and community aspects of accessibility implementation:
+
+\begin{enumerate}
+    \item \textbf{Community of practice principle}: Accessibility implementation benefits significantly from social learning and community support. The screen implements this by connecting developers to established community channels and platforms where accessibility knowledge is shared;
+    
+    \item \textbf{Real-world example guideline}: Illustrating accessibility principles with real-world code samples and success stories enhances understanding and implementation. The screen addresses this through collapsible code examples that demonstrate practical solutions to common challenges;
+    
+    \item \textbf{Contribution pathway}: Effective accessibility ecosystems provide clear pathways for developers to contribute to open source accessibility projects. The screen implements this by highlighting projects seeking contributors with specific tags that indicate required skills;
+    
+    \item \textbf{Multi-format learning principle}: Accessibility concepts should be presented in multiple formats (text, code, examples) to accommodate different learning styles and reinforce understanding. The screen addresses this through varied content presentation methods;
+    
+    \item \textbf{Platform-specific ecosystem guidance}: Resources should be grouped by platform ecosystem (iOS, Android) to help developers navigate the platform-specific nature of accessibility implementation. The screen implements this in the Developer Toolkit section with platform-specific resource cards.
+\end{enumerate}
+
+These guidelines extend WCAG by focusing on the social, educational, and contribution aspects of accessibility implementation, recognizing that creating accessible applications is not just a technical challenge but also a community and educational one.
+
+\subsubsection{Inspirational examples analysis}
+
+The Inspiration Examples section provides practical code examples addressing common accessibility challenges. This approach bridges theoretical knowledge with implementation by showing specific code patterns that solve real accessibility problems. Table~\ref{tab:inspiration_examples_analysis} analyzes these examples.
+
+\begin{longtable}{|p{3.2cm}|p{3.8cm}|p{3.8cm}|p{3.2cm}|}
+\caption{Inspiration examples analysis}
+\label{tab:inspiration_examples_analysis}\\
+\hline
+\textbf{Example} & \textbf{Key Technique} & \textbf{Accessibility Challenge Addressed} & \textbf{WCAG Criteria Supported} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Example} & \textbf{Key Technique} & \textbf{Accessibility Challenge Addressed} & \textbf{WCAG Criteria Supported} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Complex UI Focus Management & Using \texttt{setAccessibility \ Focus} after each step change & Focus management in multi-step interfaces & 2.4.3 Focus Order (A), 3.2.1 On Focus (A) \\
+\hline
+Success Story: Netflix & Multiple accessibility techniques including subtitles and keyboard navigation & Comprehensive accessibility implementation & 1.2.2 Captions (A), 2.1.1 Keyboard (A) \\
+\hline
+Reduced Motion & Checking \texttt{isReduceMotion \ Enabled()} and providing alternatives & Motion sensitivity accommodation & 2.3.3 Animation from Interactions (AAA) \\
+\end{longtable}
+
+These examples demonstrate not just isolated techniques, but complete accessibility patterns that can be applied to common development scenarios. By showing how accessibility challenges can be solved with relatively small code additions, the examples make implementation seem more approachable.
 
 \subsection{Settings screen}
+\label{subsec:settings-screen}
+
+The Settings screen serves as a comprehensive control center for adjusting accessibility and display preferences in the \textit{AccessibleHub} application. It offers users fine-grained control over visual appearance, text size, motion effects, and interaction modes. By providing these adjustments directly within the application, the Settings screen exemplifies an embedded accessibility approach where adaptation is treated as a core feature rather than an afterthought. Figure~\ref{fig:settings_screen_main} shows the main interface of this screen.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.48\textwidth, alt={Settings Screen showing accessibility options}]{img/settings_normal.jpg}
+    \caption{The Settings screen with various accessibility options}
+    \label{fig:settings_screen_main}
+\end{figure}
+
+\subsubsection{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:settings_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Settings screen component-criteria mapping}
+\label{tab:settings_component_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Section Headers & heading & 2.4.6 Headings (AA) & Clear section identification & \texttt{accessibilityRole \ ="header"} \\
+\hline
+Setting Card & none & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA) & Logical grouping\newline Visual boundaries & Container with proper styling \\
+\hline
+Setting Row & none & 1.3.1 Info and Relationships (A) & Touch target size & Layout with proper padding and margins \\
+\hline
+Setting Icon & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements\-Hidden}\newline \texttt{importantFor\-Accessibility="no-hide-descendants"} \\
+\hline
+Setting Title & text & 2.4.6 Headings and Labels (AA) & Content identification & Text with proper styling \\
+\hline
+Setting Description & text & 1.3.1 Info and Relationships (A)\newline 3.3.2 Labels or Instructions (A) & Descriptive context & Proper text styling with semantic connection to title \\
+\hline
+Switch Control & switch & 4.1.2 Name, Role, Value (A)\newline 3.3.5 Help (AAA) & Clear control state\newline Descriptive labeling & \texttt{accessibilityRole \ ="switch"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint} \\
+\hline
+Divider & none & 1.3.1 Info and Relationships (A) & Visual separation & \texttt{importantFor \ Accessibility="no"}\newline \texttt{accessibilityElements \ Hidden=true} \\
+\hline
+Status Toast & status & 4.1.3 Status Messages (AA) & Feedback mechanism & \texttt{AccessibilityInfo. \ announceFor \ Accessibility} \\
+\end{longtable}
+
+\subsubsection{Dynamic accessibility features}
+
+A key aspect of the Settings screen is its implementation of direct accessibility customization options. Figure~\ref{fig:settings_modes} illustrates the application in different accessibility modes.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Settings screen with dark mode enabled}]{img/settings1.jpg}
+        \caption{Dark mode enabled}
+        \label{fig:settings-dark}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Settings screen with high contrast mode enabled}]{img/settings4.jpg}
+        \caption{High contrast mode enabled}
+        \label{fig:settings-contrast}
+    \end{subfigure}
+    \caption{Settings screen with different accessibility modes enabled}
+    \label{fig:settings_modes}
+\end{figure}
+
+The accessibility modes implemented in the Settings screen directly address several core WCAG principles:
+
+\begin{enumerate}
+    \item \textbf{Dark mode}: Addresses WCAG 1.4.8 Visual Presentation (AAA) by allowing users to adjust color preferences;
+    
+    \item \textbf{High contrast mode}: Implements WCAG 1.4.3 Contrast (Minimum) (AA) and 1.4.6 Contrast (Enhanced) (AAA) by increasing the contrast ratio between text and background;
+    
+    \item \textbf{Large text}: Addresses WCAG 1.4.4 Resize Text (AA) by providing text scaling options;
+    
+    \item \textbf{Reduce motion}: Implements WCAG 2.3.3 Animation from Interactions (AAA) by allowing users to minimize animation effects;
+    
+    \item \textbf{Color filter}: Addresses WCAG 1.4.8 Visual Presentation (AAA) by providing alternative color schemes for users with color vision deficiencies;
+    
+    \item \textbf{Large touch targets}: Exceeds WCAG 2.5.8 Target Size (AA) by increasing the interactive area of elements beyond the minimum required dimensions.
+\end{enumerate}
+
+Figure~\ref{fig:settings_notifications} demonstrates the visual feedback mechanisms when settings are toggled.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Settings screen with large text option enabled notification}]{img/settings3.jpg}
+        \caption{Large text enabled notification}
+        \label{fig:settings-text-notification}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Settings screen with color filter enabled notification}]{img/settings2.jpg}
+        \caption{Color filter enabled notification}
+        \label{fig:settings-filter-notification}
+    \end{subfigure}
+    \caption{Visual notifications when accessibility settings are toggled}
+    \label{fig:settings_notifications}
+\end{figure}
+
+\subsubsection{Technical implementation analysis}
+
+The Settings screen implements a robust approach to accessibility through a combination of semantic structure, proper labeling, and multimodal feedback. Listing~\ref{lst:setting-row-implementation} demonstrates the implementation of a reusable setting row component with comprehensive accessibility properties.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Setting row implementation with accessibility properties},
+  label={lst:setting-row-implementation},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+const SettingRow = ({
+  icon,
+  title,
+  description,
+  value,
+  onToggle,
+}) => (
+  <View style={themedStyles.settingRow}>
+    <View style={themedStyles.settingIcon}>
+      <Ionicons
+        name={icon}
+        size={24}
+        color={colors.primary}
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+      />
+    </View>
+    <View style={themedStyles.settingContent}>
+      <Text style={[themedStyles.settingTitle, { fontSize: textSizes.medium }]}>
+        {title}
+      </Text>
+      <Text style={[themedStyles.settingDescription, { fontSize: textSizes.small }]}>
+        {description}
+      </Text>
+    </View>
+    <Switch
+      value={value}
+      onValueChange={() => {
+        onToggle();
+        const newValue = !value;
+        const message = `${title} ${newValue ? 'enabled' : 'disabled'}`;
+        AccessibilityInfo.announceForAccessibility(message);
+        if (Platform.OS === 'android') {
+          ToastAndroid.show(message, ToastAndroid.SHORT);
+          Vibration.vibrate(50);
+        }
+      }}
+      trackColor={{ false: '#767577', true: colors.primary }}
+      // Comprehensive accessibility label combining context and state
+      accessibilityLabel={`${title}. ${description}. Switch is ${value ? 'on' : 'off'}.`}
+      accessibilityRole="switch"
+      accessibilityHint="Double tap to toggle setting"
+    />
+  </View>
+);
+\end{lstlisting}
+
+Several key accessibility considerations are implemented in this component:
+
+\begin{enumerate}
+    \item \textbf{Comprehensive labeling}: The switch control combines title, description, and current state in its \texttt{accessibilityLabel}, ensuring screen reader users receive complete context about the setting;
+    
+    \item \textbf{Hidden decorative elements}: Icons are properly hidden from screen readers using both \texttt{accessibilityElementsHidden} and \\ \texttt{importantForAccessibility="no-hide-descendants"}, eliminating unnecessary focus stops;
+    
+    \item \textbf{Multimodal feedback}: When a setting is toggled, the implementation provides feedback through multiple channels: visual (toggle animation), auditory (screen reader announcement), and in the case of Android, haptic feedback (vibration);
+    
+    \item \textbf{Proper semantic roles}: The switch control has an explicit \texttt{accessibilityRole="switch"}, ensuring its purpose is clearly communicated to assistive technologies;
+    
+    \item \textbf{Action guidance}: The implementation includes an \texttt{accessibilityHint="Double tap to toggle setting"}, providing additional context on how to interact with the control.
+\end{enumerate}
+
+The implementation of section headers, shown in Listing~\ref{lst:section-headers-implementation}, further demonstrates the application's commitment to semantic structure.
+
+\begin{lstlisting}[
+  style=ReactNativeStyle,
+  caption={Section headers implementation with proper semantic role},
+  label={lst:section-headers-implementation},
+  basicstyle=\ttfamily\footnotesize,
+  numbers=left,
+]
+{/* VISUAL SETTINGS */}
+<View style={themedStyles.section}>
+  <Text style={themedStyles.sectionHeader} accessibilityRole="header">
+    Visual Settings
+  </Text>
+  <View style={themedStyles.card}>
+    {/* Setting rows */}
+  </View>
+</View>
+
+{/* READABILITY ENHANCEMENTS */}
+<View style={themedStyles.section}>
+  <Text style={themedStyles.sectionHeader} accessibilityRole="header">
+    Readability Enhancements
+  </Text>
+  <View style={themedStyles.card}>
+    {/* Setting rows */}
+  </View>
+</View>
+\end{lstlisting}
+
+\subsubsection{Screen reader support analysis}
+
+Table~\ref{tab:settings_screen_reader_analysis} presents results from systematic testing of the Settings screen with screen readers on both iOS and Android platforms.
+
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Settings screen screen reader testing results}
+\label{tab:settings_screen_reader_analysis}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Section Headers & \ding{51} Announces ``Visual Settings, heading'' & \ding{51} Announces ``Visual Settings, heading'' & 1.3.1 Info and Relationships (A), 2.4.6 Headings and Labels (AA) \\
+\hline
+Switch Controls & \ding{51} Announces complete label with title, description, and state & \ding{51} Announces complete label with title, description, and state & 4.1.2 Name, Role, Value (A), 3.3.2 Labels or Instructions (A) \\
+\hline
+Switch Toggle & \ding{51} Announces new state after toggling & \ding{51} Announces new state after toggling & 4.1.3 Status Messages (AA) \\
+\hline
+Dividers & \ding{51} Not announced & \ding{51} Not announced & 1.3.1 Info and Relationships (A), 2.4.1 Bypass Blocks (A) \\
+\hline
+Setting Cards & \ding{51} Proper grouping of related settings & \ding{51} Proper grouping of related settings & 1.3.1 Info and Relationships (A) \\
+\hline
+Icons & \ding{51} Not announced & \ding{51} Not announced & 1.1.1 Non-text Content (A) \\
+\hline
+Toast Notifications & \ding{51} Announces setting changes & \ding{51} Announces setting changes & 4.1.3 Status Messages (AA) \\
+\end{longtable}
+
+The implementation addresses several key mobile-specific considerations:
+
+\begin{enumerate}
+    \item \textbf{Platform-specific adaptations}: The code adjusts feedback mechanisms based on platform capabilities, using ToastAndroid for visual feedback and Vibration for haptic feedback on Android devices;
+    
+    \item \textbf{Touch-optimized layout}: The setting rows implement larger touch targets when the \texttt{isLargeTouchTargets} option is enabled, as shown by the conditional padding in the style: \texttt{paddingVertical: isLargeTouchTargets ? 20 : 16};
+    
+    \item \textbf{Multi-sensory feedback}: The implementation provides feedback through multiple channels (visual, auditory, haptic), ensuring users with different sensory capabilities can perceive setting changes;
+    
+    \item \textbf{Structured grouping}: Related settings are grouped into logical categories with clear headers, helping users with cognitive disabilities understand the organization of settings on a small screen.
+\end{enumerate}
+
+\subsubsection{Implementation overhead analysis}
+
+Table~\ref{tab:settings_implementation_overhead} quantifies the additional code required to implement accessibility features in the Settings screen.
+
+\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\caption{Settings screen accessibility implementation overhead}
+\label{tab:settings_implementation_overhead}\\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Semantic Roles & 12 LOC & 2.1\% & Low \\
+\hline
+Comprehensive Labels & 16 LOC & 2.8\% & Medium \\
+\hline
+Element Hiding & 18 LOC & 3.2\% & Low \\
+\hline
+Status Announcements & 14 LOC & 2.5\% & Medium \\
+\hline
+Platform-specific Feedback & 12 LOC & 2.1\% & Medium \\
+\hline
+Dynamic Styling & 22 LOC & 3.9\% & Medium \\
+\hline
+Accessibility State & 8 LOC & 1.4\% & Low \\
+\hline
+\textbf{Total} & \textbf{102 LOC} & \textbf{18.0\%} & \textbf{Medium} \\
+\end{longtable}
+
+This analysis reveals that implementing accessibility for the Settings screen adds approximately 18.0\% to the code base. The most significant contributors are dynamic styling (3.9\%) and element hiding (3.2\%), reflecting the need to adjust visual presentation based on user preferences and to streamline screen reader navigation.
+
+\subsubsection{WCAG conformance by principle}
+
+Table~\ref{tab:settings_wcag_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle:
+
+\begin{longtable}{|p{2.5cm}|p{3.8cm}|p{3.2cm}|p{5.2cm}|}
+\caption{Settings screen WCAG compliance analysis by principle}
+\label{tab:settings_wcag_by_principle}\\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 13/13 (100\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA)\newline 1.4.4 Resize Text (AA)\newline 1.4.8 Visual Presentation (AAA) \\
+\hline
+2. Operable & UI components and navigation must be operable & 15/17 (88\%) & 2.3.3 Animation from Interactions (AAA)\newline 2.4.6 Headings and Labels (AA)\newline 2.5.8 Target Size (AA) \\
+\hline
+3. Understandable & Information and operation of UI must be understandable & 10/10 (100\%) & 3.2.1 On Focus (A)\newline 3.2.2 On Input (A)\newline 3.3.2 Labels or Instructions (A)\newline 3.3.5 Help (AAA) \\
+\hline
+4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.1 Parsing (A)\newline 4.1.2 Name, Role, Value (A)\newline 4.1.3 Status Messages (AA) \\
+\end{longtable}
+
+The Settings screen achieves 100\% compliance with the Perceivable, Understandable, and Robust principles, reflecting its central role in providing accessibility adjustments. The slightly lower compliance with the Operable principle (88\%) is due to the absence of specific keyboard navigation optimizations, which are less relevant in the predominantly touch-based mobile context.
+
+\subsubsection{Mobile-specific considerations}
+
+The Settings screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
+
+\begin{enumerate}
+    \item \textbf{Battery-aware implementation}: The screen considers the impact of accessibility features like high contrast and dark mode on battery consumption, which is particularly important for mobile users who may need these features all day;
+    
+    \item \textbf{Touch ergonomics}: The implementation of larger touch targets addresses the specific challenges of touch interaction for users with motor impairments, exceeding the minimum WCAG requirements to provide a more comfortable experience on smaller screens;
+    
+    \item \textbf{Multi-device adaptation}: The settings options are implemented with responsive layouts that adapt to different screen sizes and orientations, ensuring consistency across the diverse range of mobile devices;
+    
+    \item \textbf{Platform convention alignment}: The implementation follows platform-specific visual and interaction patterns, using familiar switch controls and feedback mechanisms that align with user expectations on each platform;
+    
+    \item \textbf{Haptic feedback integration}: The implementation adds haptic feedback (vibration) when settings are changed on Android devices, providing an additional sensory channel that is particularly valuable in mobile contexts where visual attention may be limited.
+\end{enumerate}
+
+\subsubsection{Beyond WCAG: self-adapting interface guidelines}
+
+The Settings screen defines several accessibility principles that extend beyond standard WCAG requirements, particularly focusing on the ability of interfaces to adapt to user needs:
+
+\begin{enumerate}
+    \item \textbf{Embedded customization principle}: Accessibility adjustments should be directly embedded within the application rather than relying solely on system-level settings. The Settings screen implements this by providing in-app controls for text size, contrast, and other visual preferences;
+    
+    \item \textbf{Multi-sensory feedback guideline}: Changes to accessibility settings should provide feedback through multiple sensory channels. The implementation combines visual cues (toggle animation), auditory feedback (screen reader announcements), and haptic feedback (vibration) to ensure changes are perceivable regardless of user abilities;
+    
+    \item \textbf{Contextual help principle}: Setting controls should provide context-specific guidance on their purpose and effect. The implementation combines descriptive labels with specific hints to help users understand the impact of each setting;
+    
+    \item \textbf{Setting persistence}: User preferences for accessibility features should persist across application sessions. The implementation stores accessibility settings persistently, ensuring users don't need to reconfigure their preferences with each use;
+    
+    \item \textbf{Complementary settings grouping}: Related accessibility settings should be grouped together to help users understand their relationships and combined effects. The implementation organizes settings into logical categories (Visual, Readability, Color \& Touch) that reflect how features work together to create accessible experiences.
+\end{enumerate}
+
+These guidelines extend WCAG by focusing on the self-adaptation capabilities of interfaces, recognizing that true accessibility requires not just compliance with static criteria but the ability to dynamically adjust to diverse user needs and preferences.
+
+\subsection{Framework comparison screen}
+\label{subsec:framework-comparison-screen}
+
+The Framework Comparison screen serves as a formal, evidence-based analysis tool for evaluating accessibility implementation across mobile development frameworks. Unlike other screens in the \textit{AccessibleHub} application that focus primarily on educational content or component examples, this screen implements a structured, academically-grounded system for comparing React Native and Flutter using transparent metrics, formal methodology, and verifiable data. Figure~\ref{fig:framework_comparison_main} shows the main interface of the Framework Comparison screen.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Framework Comparison Screen with React Native selected}]{img/overview1.jpg}
+        \caption{React Native framework view}
+        \label{fig:framework-comparison-reactnative}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Framework Comparison Screen with Flutter selected}]{img/overview2.jpg}
+        \caption{Flutter framework view}
+        \label{fig:framework-comparison-flutter}
+    \end{subfigure}
+    \caption{Framework Comparison screen showing overview information for both frameworks}
+    \label{fig:framework_comparison_main}
+\end{figure}
+
+\subsubsection{Component inventory and WCAG/MCAG mapping}
+
+Table~\ref{tab:framework_comparison_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\caption{Framework comparison screen component-criteria mapping}
+\label{tab:framework_comparison_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole="header"} \\
+\hline
+Hero Subtitle & text & 1.4.3 Contrast (AA) & Content description & Text styling with semantic connection to title \\
+\hline
+Framework Selection Buttons & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Framework choice & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityState=$\{\{$selected: ...$\}\}$} \\
+\hline
+Category Tabs & tab & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Categorical organization & \texttt{accessibilityRole="tab"}\newline \texttt{accessibilityState=$\{\{$selected: ...$\}\}$} \\
+\hline
+Tab Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{importantForAccessibility="no-hide-descendants"} \\
+\hline
+Framework Info Card & none & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA) & Content grouping & Semantic container with proper styling \\
+\hline
+Statistic Cards & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information presentation\newline Touch target size & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel}\newline \texttt{onPress=handleWidgetClick} \\
+\hline
+Rating Bar & progressbar & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Progress visualization & \texttt{accessibilityRole="progressbar"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityValue} \\
+\hline
+Info Button & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information access & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel} \\
+\hline
+Modal Dialog & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A) & Keyboard trap prevention & \texttt{accessibilityViewIsModal}\newline Focus management implementation \\
+\hline
+Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A) & Touch interaction & \texttt{accessibilityRole="tablist"}\newline \texttt{accessibilityState=$\{\{$ selected: isActive $\}\}$} \\
+\hline
+\end{longtable}
+
+\subsubsection{Formal methodology system implementation}
+
+The Framework Comparison screen implements a formal, academically rigorous methodology system that establishes a systematic approach to framework evaluation. Unlike other screens in the application that focus on practical implementation examples, this screen incorporates a formal methodological framework evidenced in Figure~\ref{fig:fig:methdology_screens_sidebyside}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Methodology tab of the Frameworks Comparison screen}]{img/methodology1.jpg}
+        \caption{First part of Methodology tab}
+        \label{fig:methodology-1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Framework Comparison Screen with Flutter selected}]{img/methodology2.jpg}
+        \caption{Second part of Methodology tab}
+        \label{fig:methodology-2}
+    \end{subfigure}
+    \caption{Methodology tabs of Frameworks Comparison screen}
+    \label{fig:methdology_screens_sidebyside}
+\end{figure}
+
+The formal methodology system implements several critical characteristics of academic accessibility research:
+
+\begin{enumerate}
+    \item \textbf{Explicit methodology declaration}: The screen clearly states the research methodology used, including both empirical testing and documentation analysis;
+    
+    \item \textbf{Transparent testing protocol}: The methodology specifically documents testing with screen readers on precisely identified devices (VoiceOver iOS 16, TalkBack Android 13) and references WCAG 2.2 compliance verification;
+    
+    \item \textbf{Source citation}: The methodology includes proper citation of academic sources, most notably Perinello \& Gaggi (2024), establishing an evidence-based foundation;
+    
+    \item \textbf{Device specification}: The methodology includes explicit hardware specifications (iPhone 13, Pixel 6), creating reproducibility for the evaluation.
+\end{enumerate}
+
+This formal methodology implementation exemplifies the application's commitment to rigorous, evidence-based accessibility evaluation that moves beyond subjective assessments to create verifiable, reproducible comparisons.
+
+\subsubsection{Academic reference implementation}
+
+A distinctive feature of the Framework Comparison screen is its comprehensive implementation of academic references. This feature directly connects framework evaluation to peer-reviewed research and formal documentation, creating an evidence-based foundation for accessibility comparisons. Figure~\ref{fig:academic_references} shows the academic references card and its expanded modal dialog.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Academic References card displaying an overview of sources}]{img/methodology-academic-overview.jpg}
+        \caption{Academic references overview}
+        \label{fig:academic-references-card}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Academic References modal dialog showing detailed citations}]{img/methodology-academic-references.jpg}
+        \caption{References modal with formal citations}
+        \label{fig:academic-references-modal}
+    \end{subfigure}
+    \caption{Academic references implementation with formal citation structure}
+    \label{fig:academic_references}
+\end{figure}
+
+The academic reference system implements several key features:
+
+\begin{enumerate}
+    \item \textbf{Formal citation structure}: Each reference includes complete bibliographic information including authors, publication venue, year, and DOI identifiers where applicable;
+    
+    \item \textbf{Multi-category reference system}: References are categorized by type (research paper, official documentation), creating a clear hierarchy of evidence;
+    
+    \item \textbf{Modal dialog organization}: References are presented in a structured, tabbed modal dialog with overview, details, and references tabs, providing progressive disclosure of information;
+    
+    \item \textbf{Systematic literature inclusion}: The reference system integrates both primary research (Perinello \& Gaggi, 2024) and systematic reviews (Palmieri, Singh, \& Cicchetti, 2022), creating a comprehensive evidence base.
+\end{enumerate}
+
+Figure~\ref{fig:academic_references_detail} shows the extended References tab with complete citation information including access dates and URLs for official documentation.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\linewidth, alt={Reference tab showing detailed citation information}]{img/references.jpg}
+    \caption{References tab showing formatted citations with complete bibliographic information}
+    \label{fig:academic_references_detail}
+\end{figure}
+
+This academic reference implementation exemplifies how accessibility evaluation can be grounded in formal, verifiable sources, creating accountability and reproducibility in framework comparison.
+
+\subsubsection{Framework data structure}
+
+The Framework Comparison screen implements a comparative analysis through a structured data repository for both React Native and Flutter. This structured approach is visualized through framework selection buttons and framework-specific information cards shown in Figure~\ref{fig:framework_selection}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={React Native framework card showing details}]{img/overview1.jpg}
+        \caption{React Native framework details}
+        \label{fig:react-native-details}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Flutter framework card showing details}]{img/overview2.jpg}
+        \caption{Flutter framework details}
+        \label{fig:flutter-details}
+    \end{subfigure}
+    \caption{Framework selection interface showing structured framework data}
+    \label{fig:framework_selection}
+\end{figure}
+
+The framework data structure implements several key features:
+
+\begin{enumerate}
+    \item \textbf{Consistent metadata structure}: Each framework includes consistent metadata fields (name, company, version, description), enabling direct comparison;
+    
+    \item \textbf{Visual state indication}: The selected framework is visually indicated through background color changes and maintains this state for screen readers via \texttt{accessibilityState};
+    
+    \item \textbf{Feature categorization}: Framework features are consistently categorized into core attributes (Language, Learning Curve, Hot Reload), creating a systematic comparison structure;
+    
+    \item \textbf{Quantitative representation}: Features include both qualitative descriptions (e.g., "Moderate" learning curve) and quantitative indicators where applicable, enabling objective comparison.
+\end{enumerate}
+
+This structured data approach transforms subjective framework comparisons into a systematic, consistent evaluation framework that enables developers to make evidence-based decisions about framework selection based on accessibility considerations.
+
+\subsubsection{Implementation complexity analysis}
+
+A key contribution of the Framework Comparison screen is its formal analysis of implementation complexity across frameworks. Unlike simple feature comparisons, this screen implements a detailed complexity analysis using multiple metrics. Figure~\ref{fig:implementation_complexity} shows both the complexity analysis card and its expanded modal view.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Complexity Analysis card}]{img/implementation-methodology.jpg}
+        \caption{Implementation complexity overview}
+        \label{fig:implementation-complexity-card}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Details modal showing comparison metrics}]{img/implementation-calculation.jpg}
+        \caption{Implementation details comparison}
+        \label{fig:implementation-details-modal}
+    \end{subfigure}
+    \caption{Implementation complexity analysis with detailed metrics}
+    \label{fig:implementation_complexity}
+\end{figure}
+
+The implementation complexity analysis incorporates multiple evaluation dimensions:
+
+\begin{enumerate}
+    \item \textbf{Lines of code (LOC) metric}: The analysis quantifies implementation complexity through precise LOC counts for each accessibility feature, providing an objective measure of implementation effort;
+    
+    \item \textbf{Qualitative complexity assessment}: Features are categorized using a standardized Low/Medium/High complexity scale, with color coding (green/yellow/red) for visual differentiation;
+    
+    \item \textbf{Framework knowledge requirement}: The analysis considers the required knowledge of framework-specific concepts, addressing the learning curve aspect of accessibility implementation;
+    
+    \item \textbf{Real-world testing verification}: Complexity assessments are validated through testing on real devices with actual screen readers, ensuring practical relevance.
+\end{enumerate}
+
+Figure~\ref{fig:implementation_details} shows the detailed implementation comparison for specific accessibility features across both frameworks.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Details tab showing feature comparisons}]{img/implementation-calculation.jpg}
+        \caption{Feature implementation comparison}
+        \label{fig:implementation-feature-comparison}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Details tab showing code examples}]{img/implementation-calculation.jpg}
+        \caption{Implementation code examples}
+        \label{fig:implementation-code-examples}
+    \end{subfigure}
+    \caption{Implementation details showing feature-level comparison and code examples}
+    \label{fig:implementation_details}
+\end{figure}
+
+The feature-level implementation analysis in Figure~\ref{fig:implementation_details} demonstrates significant differences between frameworks:
+
+\begin{enumerate}
+    \item \textbf{Heading element implementation}: React Native requires 7 LOC with Low complexity, while Flutter requires 11 LOC with Medium complexity;
+    
+    \item \textbf{Language declaration}: The contrast is more pronounced for language declaration, with React Native requiring 7 LOC and Flutter requiring 21 LOC;
+    
+    \item \textbf{Default accessibility status}: The analysis shows React Native has 1/3 features accessible by default, while Flutter has 0/3, providing a clear metric for out-of-the-box accessibility;
+    
+    \item \textbf{Total implementation overhead}: React Native requires 21 total LOC for implementation, while Flutter requires 46 LOC, quantifying the overall implementation effort difference.
+\end{enumerate}
+
+This detailed implementation comparison provides developers with concrete, evidence-based metrics for understanding the accessibility implementation effort required for each framework.
+
+\subsubsection{Specific accessibility feature comparison}
+
+The Framework Comparison screen implements detailed comparisons of specific accessibility features, providing both implementation attributes and code examples. Figure~\ref{fig:feature_implementation_sidebyside} shows implementation details for language declaration and text abbreviations in React Native.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={First part of Language in Overview tab of the Frameworks Comparison screen}]{img/language-information.jpg}
+        \caption{First part of Language tab of Overview}
+        \label{fig:language-1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Second part of Language in Overview tab of the Frameworks Comparison screen}]{img/language-calculation.jpg}
+        \caption{Second part of Language tab of Overview}
+        \label{fig:language-2}
+    \end{subfigure}
+    \caption{Language modals of Frameworks Comparison screen}
+    \label{fig:feature_implementation_sidebyside}
+\end{figure}
+
+The feature implementation comparison includes several key elements:
+
+\begin{enumerate}
+    \item \textbf{WCAG success criteria mapping}: Each feature is explicitly mapped to relevant WCAG criteria (e.g., Text Abbreviations maps to 3.1.4), creating a clear connection between implementation and compliance;
+    
+    \item \textbf{Default accessibility status}: The comparison explicitly indicates whether each feature is accessible by default (Yes/No), highlighting areas requiring developer intervention;
+    
+    \item \textbf{Implementation notes}: Each feature includes specific implementation notes explaining the required approach (e.g., "Requires adding accessibilityLabel property");
+    
+    \item \textbf{Concrete code examples}: The comparison provides complete, executable code examples that developers can directly reference for implementation.
+\end{enumerate}
+
+This feature-level comparison transforms abstract accessibility requirements into concrete implementation guidance with direct reference to standards compliance, helping developers understand not just what to implement but why and how.
+
+\subsubsection{Modal dialog accessibility implementation}
+
+The Framework Comparison screen implements several modal dialogs that incorporate comprehensive accessibility features. Figure~\ref{fig:modal_accessibility} shows the implementation details modal with properly structured tabs.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Modal dialog showing implementation details}]{img/implementation-methodology.jpg}
+        \caption{Implementation details modal}
+        \label{fig:implementation-details-dialog}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Modal dialog showing academic references for Implementation tab section}]{img/implementation-methodology.jpg}
+        \caption{References of Implementation modal}
+        \label{fig:academic-references-dialog}
+    \end{subfigure}
+    \caption{Modal dialogs for the Implementation Tab}
+    \label{fig:modal_accessibility}
+\end{figure}
+
+The modal dialog implementation addresses several critical accessibility requirements:
+
+\begin{enumerate}
+    \item \textbf{Clear semantic role}: Modals are properly identified with \texttt{accessibilityViewIsModal}, ensuring screen readers understand their role;
+    
+    \item \textbf{Tab role assignment}: Tab navigation properly implements \texttt{accessibilityRole="tab"} and \texttt{accessibilityState} to communicate selection state;
+    
+    \item \textbf{Focus management}: When modals open, focus moves to the modal header and returns to the triggering element when closed, maintaining context;
+    
+    \item \textbf{Hierarchical content structure}: Content within modals maintains proper heading structure and semantic relationships, ensuring screen reader users can navigate efficiently.
+\end{enumerate}
+
+This accessible modal implementation ensures that complex information like methodology details and academic references remains accessible to all users, including those using screen readers.
+
+\subsubsection{Contrast and color analysis}
+
+Table~\ref{tab:framework_comparison_contrast} presents the formal contrast analysis for UI elements on the Framework Comparison Screen, showing how the implementation meets WCAG color contrast requirements.
+
+\begin{longtable}{|p{2.8cm}|p{2.8cm}|p{2.8cm}|p{2.4cm}|p{2.4cm}|}
+\caption{Framework comparison screen contrast analysis}
+\label{tab:framework_comparison_contrast}\\
+\hline
+\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 21:1 (Light)\newline 21:1 (Dark) & AAA ($\ge7{:}1$) \\
+\hline
+Hero Subtitle & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 4.6:1 (Light)\newline 5.2:1 (Dark) & AA ($\ge4.5{:}1$) \\
+\hline
+Framework Button (Active) & \#FFFFFF & \#0066CC & 4.8:1 & AA ($\ge4.5{:}1$) \\
+\hline
+Framework Button (Inactive) & \#000000 & \#FFFFFF & 21:1 & AAA ($\ge7{:}1$) \\
+\hline
+Tab Text (Active) & \#0066CC & \#E1EFFF & 4.6:1 & AA ($\ge4.5{:}1$) \\
+\hline
+Tab Text (Inactive) & \#6B7280 & \#FFFFFF & 4.6:1 & AA ($\ge4.5{:}1$) \\
+\hline
+Framework Card Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 21:1 (Light)\newline 16:1 (Dark) & AAA ($\ge7{:}1$) \\
+\hline
+Statistic Card Label & \#6B7280 & \#FFFFFF & 4.6:1 & AA ($\ge4.5{:}1$) \\
+\hline
+Statistic Card Value & \#000000 & \#FFFFFF & 21:1 & AAA ($\ge7{:}1$) \\
+\hline
+Information Icon & \#0066CC & \#FFFFFF & 4.8:1 & AA ($\ge4.5{:}1$) \\
+\hline
+Implementation Card Text & \#000000 & \#FFFFFF & 21:1 & AAA ($\ge7{:}1$) \\
+\hline
+Low Complexity Text & \#22C55E (Green) & \#FFFFFF & 3.0:1 & Passes for large text only \\
+\hline
+Medium Complexity Text & \#F59E0B (Yellow) & \#FFFFFF & 1.8:1 & Fails – Used only as supporting color with text label \\
+\hline
+High Complexity Text & \#EF4444 (Red) & \#FFFFFF & 2.1:1 & Fails – Used only as supporting color with text label \\
+\hline
+\end{longtable}
+
+The implementation addresses several color-related accessibility considerations:
+
+\begin{enumerate}
+    \item \textbf{State indication redundancy}: Active states are indicated through both color changes and explicit text labeling, ensuring state information is not conveyed by color alone;
+    
+    \item \textbf{Dark mode adaptation}: The implementation includes specific color adaptations for dark mode to maintain sufficient contrast ratios in both light and dark themes;
+    
+    \item \textbf{Supporting color usage}: Low-contrast colors (Medium/High complexity indicators) are used only as supporting colors with explicit text labels, avoiding reliance on color alone for critical information;
+    
+    \item \textbf{Consistent interactive element styling}: Interactive elements (buttons, tabs) maintain consistent styling patterns, aiding cognitive accessibility through predictable interface patterns.
+\end{enumerate}
+
+\subsubsection{Screen reader support analysis}
+
+Table~\ref{tab:framework_comparison_screen_reader} presents results from systematic testing of the Framework Comparison screen with screen readers on both iOS and Android platforms.
+
+\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\caption{Framework comparison screen screen reader testing results}
+\label{tab:framework_comparison_screen_reader}\\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & \ding{51} Announces ``Framework Comparison, heading'' & \ding{51} Announces ``Framework Comparison, heading'' & 1.3.1 Info and Relationships (A), 2.4.6 Headings and Labels (AA) \\
+\hline
+Framework Selection & \ding{51} Announces framework name and selection state & \ding{51} Announces framework name and selection state & 4.1.2 Name, Role, Value (A) \\
+\hline
+Category Tabs & \ding{51} Announces tab name and selection state & \ding{51} Announces tab name and selection state & 4.1.2 Name, Role, Value (A) \\
+\hline
+Framework Info & \ding{51} Announces framework details in logical order & \ding{51} Announces framework details in logical order & 1.3.1 Info and Relationships (A), 1.3.2 Meaningful Sequence (A) \\
+\hline
+Statistic Cards & \ding{51} Announces label and value & \ding{51} Announces label and value & 1.3.1 Info and Relationships (A) \\
+\hline
+Rating Bars & \ding{51} Announces value and range & \ding{51} Announces value and range & 1.3.1 Info and Relationships (A), 4.1.2 Name, Role, Value (A) \\
+\hline
+Info Buttons & \ding{51} Announces purpose and action & \ding{51} Announces purpose and action & 2.4.4 Link Purpose (In Context) (A) \\
+\hline
+Modal Dialog Opening & \ding{51} Focus moves to dialog title & \ding{51} Focus moves to dialog title & 2.4.3 Focus Order (A) \\
+\hline
+Modal Tab Navigation & \ding{51} Announces tab selection state & \ding{51} Announces tab selection state & 4.1.2 Name, Role, Value (A) \\
+\hline
+Implementation Examples & \ding{51} Announces code examples as text blocks & \ding{51} Announces code examples as text blocks & 1.3.1 Info and Relationships (A) \\
+\hline
+Color-coded Complexity & \ding{51} Announces complexity level, not just color & \ding{51} Announces complexity level, not just color & 1.4.1 Use of Color (A) \\
+\hline
+\end{longtable}
+
+The implementation addresses several key screen reader considerations:
+
+\begin{enumerate}
+    \item \textbf{State communication}: Selection states for frameworks and tabs are explicitly communicated via \texttt{accessibilityState}, ensuring screen reader users understand current selection;
+    
+    \item \textbf{Logical focus order}: Screen elements follow a logical navigation order that matches visual presentation, creating a coherent mental model for screen reader users;
+    
+    \item \textbf{Code example accessibility}: Code examples are presented in accessible text blocks with proper structure, rather than as images, ensuring screen reader users can access implementation details;
+    
+    \item \textbf{Non-reliance on color}: Information conveyed through color (complexity indicators) is redundantly provided through explicit text labels, ensuring color-blind users and screen reader users receive the same information.
+\end{enumerate}
+
+\subsubsection{Implementation overhead analysis}
+
+Table~\ref{tab:framework_comparison_overhead} quantifies the additional code required to implement accessibility features in the Framework Comparison screen.
+
+\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\caption{Framework comparison screen accessibility implementation overhead}
+\label{tab:framework_comparison_overhead}\\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Semantic Roles & 24 LOC & 2.8\% & Low \\
+\hline
+Accessibility Labels & 36 LOC & 4.2\% & Medium \\
+\hline
+Element Hiding & 22 LOC & 2.6\% & Low \\
+\hline
+Focus Management & 28 LOC & 3.3\% & High \\
+\hline
+Accessibility Values & 18 LOC & 2.1\% & Medium \\
+\hline
+Status Announcements & 16 LOC & 1.9\% & Medium \\
+\hline
+Modal Accessibility & 32 LOC & 3.7\% & High \\
+\hline
+Tab Role Assignment & 12 LOC & 1.4\% & Medium \\
+\hline
+Accessibility State & 20 LOC & 2.3\% & Medium \\
+\hline
+Rating Bar Accessibility & 22 LOC & 2.6\% & Medium \\
+\hline
+\textbf{Total} & \textbf{230 LOC} & \textbf{26.9\%} & \textbf{Medium-High} \\
+\end{longtable}
+
+This analysis reveals that implementing comprehensive accessibility for the Framework Comparison screen adds approximately 26.9\% to the code base. The most significant contributors are accessibility labels (4.2\%) and modal accessibility (3.7\%), reflecting the information-rich nature of this screen and the complex interaction patterns with modals and tabs. The implementation overhead is justified by the improved user experience for people with disabilities and the educational value demonstrated through the formal framework comparison.
+
+\subsubsection{WCAG conformance by principle}
+
+Table~\ref{tab:framework_comparison_wcag} provides a detailed analysis of WCAG 2.2 compliance by principle for the Framework Comparison screen:
+
+\begin{longtable}{|p{2.5cm}|p{3.8cm}|p{3.2cm}|p{5.2cm}|}
+\caption{Framework comparison screen WCAG compliance analysis by principle}
+\label{tab:framework_comparison_wcag}\\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 12/13 (92\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.4.1 Use of Color (A)\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.8 Visual Presentation (AAA) \\
+\hline
+2. Operable & UI components and navigation must be operable & 16/17 (94\%) & 2.4.3 Focus Order (A)\newline 2.4.4 Link Purpose (A)\newline 2.4.6 Headings and Labels (AA)\newline 2.4.7 Focus Visible (AA)\newline 2.5.8 Target Size (Minimum) (AA) \\
+\hline
+3. Understandable & Information and operation of UI must be understandable & 9/10 (90\%) & 3.2.1 On Focus (A)\newline 3.2.2 On Input (A)\newline 3.2.4 Consistent Identification (AA)\newline 3.3.2 Labels or Instructions (A) \\
+\hline
+4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.1 Parsing (A)\newline 4.1.2 Name, Role, Value (A)\newline 4.1.3 Status Messages (AA) \\
+\hline
+\end{longtable}
+
+The Framework Comparison screen achieves high compliance across all WCAG principles, with particular strength in the Perceivable, Operable, and Robust principles. The implementation addresses the most critical success criteria for each principle, creating a highly accessible interface that serves as both an exemplar of accessibility implementation and an educational tool for accessibility evaluation.
+
+\subsubsection{Mobile-specific considerations}
+
+The Framework Comparison screen addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
+
+\begin{enumerate}
+    \item \textbf{Framework-specific adaptation}: The comparison explicitly evaluates each framework's support for mobile-specific accessibility features, addressing the challenges of cross-platform development;
+    
+    \item \textbf{Screen reader gesture support}: The evaluation includes specific assessment of each framework's support for screen reader gestures, a mobile-specific consideration not fully captured in WCAG;
+    
+    \item \textbf{Touch target optimization}: Interactive elements implement generous touch targets exceeding the minimum size requirements, addressing the specific challenges of touch interaction;
+    
+    \item \textbf{Responsive layout adaptation}: The interface adapts to different screen orientations and device types, maintaining accessibility across the varied landscape of mobile form factors;
+    
+    \item \textbf{Platform-specific implementation patterns}: The comparison addresses the platform-specific nature of accessibility implementation, recognizing that mobile accessibility often requires different approaches for iOS and Android.
+\end{enumerate}
+
+\subsubsection{Beyond WCAG: evidence-based accessibility evaluation guidelines}
+
+The Framework Comparison screen embodies several principles that extend beyond standard WCAG requirements, particularly focusing on evidence-based evaluation and formal methodology:
+
+\begin{enumerate}
+    \item \textbf{Academic grounding principle}: Accessibility evaluations should be grounded in peer-reviewed research and formal methodologies. The screen implements this through explicit citations to academic papers and clearly defined evaluation protocols;
+    
+    \item \textbf{Quantitative metric transparency}: Framework evaluations should use explicit, quantitative metrics with clearly defined calculation methodologies. The implementation demonstrates this through LOC counts and explicit complexity ratings;
+    
+    \item \textbf{Implementation complexity consideration}: Accessibility evaluation should assess not just feature presence but implementation complexity. The screen implements this through multi-dimensional complexity assessment (LOC, qualitative rating, knowledge requirements);
+    
+    \item \textbf{Empirical testing validation}: Accessibility claims should be validated through documented testing on specific devices and platforms. The implementation includes explicit references to test devices and operating system versions;
+    
+    \item \textbf{Comparative analysis principle}: Accessibility features should be evaluated through direct side-by-side comparison using consistent metrics. The screen implements this through structured comparison of identical features across frameworks.
+\end{enumerate}
+
+These extended principles establish a foundation for evidence-based accessibility evaluation that moves beyond subjective assessments or checklist compliance, creating a more rigorous, academically grounded approach to framework comparison.
+
+\subsubsection{Screen reader support comparison methodology}
+
+The Framework Comparison screen implements a rigorous methodology for evaluating screen reader support across frameworks. This methodology, shown in Figure~\ref{fig:screen_reader_methodology}, quantifies support using multiple dimensions with specific weighting.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Screen reader support comparison methodology}]{img/methodology-details.jpg}
+        \caption{Screen reader testing methodology}
+        \label{fig:screen-reader-methodology}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Screen reader support metrics calculation}]{img/accessibility-calculation.jpg}
+        \caption{Screen reader metrics calculation}
+        \label{fig:screen-reader-calculation}
+    \end{subfigure}
+    \caption{Screen reader support comparison methodology and calculation approach}
+    \label{fig:screen_reader_methodology}
+\end{figure}
+
+The screen reader support analysis implements a formal evaluation methodology with the following characteristics:
+
+\begin{enumerate}
+    \item \textbf{Component-based weighting}: Screen reader compatibility receives a 30\% weighting in the overall accessibility score, recognizing its critical importance for blind users;
+    
+    \item \textbf{Platform-specific assessment}: The methodology explicitly evaluates both VoiceOver (iOS) and TalkBack (Android) support separately, addressing the platform-specific nature of screen reader implementation;
+    
+    \item \textbf{Multi-dimensional evaluation}: Screen reader support is assessed across multiple dimensions including announcement quality, gesture support, and semantics interpretation;
+    
+    \item \textbf{Empirical validation}: Ratings are based on actual testing with specific device and operating system configurations, creating reproducible results.
+\end{enumerate}
+
+This formal screen reader evaluation methodology establishes a systematic approach to comparing screen reader support that moves beyond subjective assessments to create quantifiable, verifiable metrics.
+
+\subsubsection{Implementation complexity calculation methodology}
+
+The Framework Comparison screen implements a formal methodology for calculating implementation complexity, shown in Figure~\ref{fig:screen_reader_methodology}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\linewidth, alt={Implementation complexity calculation methodology}]{img/implementation-calculation.jpg}
+    \caption{Formal calculation methodology for implementation complexity}
+    \label{fig:implementation_complexity_methodology}
+\end{figure}
+
+The implementation complexity calculation methodology includes several key components:
+
+\begin{enumerate}
+    \item \textbf{Explicit mathematical formula}: The methodology includes a formal mathematical formula for calculating implementation scores based on lines of code: \texttt{implementationScore = Math.max(0, Math.min(5, 5 - (totalLinesOfCode / 10)))};
+    
+    \item \textbf{Normalization mechanism}: Scores are explicitly normalized to a 0-5 scale to enable consistent comparison;
+    
+    \item \textbf{LOC-based quantification}: The formula establishes an inverse relationship between lines of code and implementation score, recognizing that lower implementation overhead (fewer LOC) represents better accessibility support;
+    
+    \item \textbf{Source citation}: The methodology cites specific sources including static code analysis and WCAG 2.2 implementation examples.
+\end{enumerate}
+
+This formal calculation methodology creates a transparent, reproducible approach to quantifying implementation complexity that enables objective framework comparison.
+
+\subsubsection{Feature-specific implementation comparison}
+
+The Framework Comparison screen implements detailed feature-by-feature comparison of accessibility implementations across frameworks. Figure~\ref{fig:screen_reader_methodology} shows the implementation details for specific accessibility features.
+
+The feature-specific comparison implements several key analytical elements:
+
+\begin{enumerate}
+    \item \textbf{Consistent metric application}: Each feature is evaluated using the same metrics (LOC, complexity) across frameworks, enabling direct comparison;
+    
+    \item \textbf{Complexity visualization}: Complexity ratings are visually coded (green for Low, orange for Medium) for quick comprehension while maintaining accessibility through text labels;
+    
+    \item \textbf{WCAG criteria mapping}: Features are explicitly mapped to relevant WCAG success criteria (e.g., Heading Elements to 1.3.1, 2.4.6), creating a standards-based evaluation framework;
+    
+    \item \textbf{Code example comparison}: Implementation examples show directly comparable code implementations for identical features, highlighting the practical differences in syntax and structure.
+\end{enumerate}
+
+This feature-level comparison transforms abstract accessibility requirements into concrete, comparable implementations that developers can directly reference for their own work.
+
+\subsubsection{Academic reference detail implementation}
+
+The Framework Comparison screen implements a comprehensive academic reference system that provides formal citation information. Figure~\ref{fig:academic_citation_detail} shows the references tab with complete citation details.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\linewidth, alt={Academic references with complete citation information}]{img/references.jpg}
+    \caption{Academic references with formal citation structure}
+    \label{fig:academic_citation_detail}
+\end{figure}
+
+The academic reference implementation includes several key scholarly elements:
+
+\begin{enumerate}
+    \item \textbf{Complete bibliographic information}: Citations include full author names, title, publication venue, and year;
+    
+    \item \textbf{DOI inclusion}: The primary research paper citation includes a Digital Object Identifier (DOI), providing a persistent link to the source;
+    
+    \item \textbf{Access date documentation}: Documentation references include explicit access dates, acknowledging the dynamic nature of online documentation;
+    
+    \item \textbf{Citation formatting}: References follow a consistent formatting pattern similar to academic citation styles, modeling proper attribution practices.
+\end{enumerate}
+
+This academic reference implementation demonstrates how accessibility evaluation can be grounded in formal, verifiable sources, establishing the evidence-based nature of the framework comparison.
+
+\subsubsection{Educational value analysis}
+
+The Framework Comparison screen provides significant educational value through its implementation of formal comparison methodology. Unlike screens that simply present accessibility techniques, this screen demonstrates how to systematically evaluate and compare accessibility implementations across frameworks. This educational value is manifested through several key features:
+
+\begin{enumerate}
+    \item \textbf{Methodology transparency}: By explicitly documenting the evaluation methodology, the screen teaches users how to conduct rigorous accessibility evaluations;
+    
+    \item \textbf{Multi-metric evaluation}: The implementation demonstrates how to assess accessibility using multiple metrics (feature support, complexity, LOC), creating a more nuanced understanding of accessibility implementation;
+    
+    \item \textbf{Academic evidence integration}: The screen models how to integrate academic research into practical evaluation, bridging theoretical and applied accessibility knowledge;
+    
+    \item \textbf{Cross-framework perspective}: By presenting side-by-side framework comparisons, the screen helps developers understand accessibility as a cross-framework concern with different implementation approaches.
+\end{enumerate}
+
+This educational approach extends beyond simple implementation examples to demonstrate the methodology of accessibility evaluation itself, helping developers build evaluation skills that can be applied across different frameworks and projects.
+
+\subsubsection{Integration with overall toolkit}
+
+The Framework Comparison screen serves as a critical component of the broader \textit{AccessibleHub} toolkit, providing the theoretical and methodological foundation for the more practical implementation examples found in other sections. This integration is accomplished through several connections:
+
+\begin{enumerate}
+    \item \textbf{Implementation linkage}: The specific code examples shown in framework comparisons directly link to the component implementations demonstrated in the Components section;
+    
+    \item \textbf{Methodological foundation}: The formal evaluation methodology provides theoretical grounding for the best practices discussed in the Best Practices section;
+    
+    \item \textbf{Evidence-based justification}: The academic references in the Framework Comparison screen provide evidence-based support for the approaches demonstrated throughout the toolkit;
+    
+    \item \textbf{Comparative context}: The side-by-side framework analysis helps developers understand why certain implementation approaches are favored in other sections of the toolkit.
+\end{enumerate}
+
+By combining rigorous methodology with practical comparison, the Framework Comparison screen provides both the "why" and the "how" of accessibility implementation, creating a comprehensive foundation for the entire \textit{AccessibleHub} toolkit.
 
 \newpage
 

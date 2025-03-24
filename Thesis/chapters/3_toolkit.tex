@@ -376,7 +376,7 @@ Table~\ref{tab:component_criteria_mapping} provides a formal mapping between the
 \endlastfoot
 Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
 \hline
-Stats Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Non-essential information & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel="\$\{value\}\% \$\{type\}, tap for details"}\newline \texttt{accessibilityHint="Shows \$\{type\} details"} \\
+Stats Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Non-essential information & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel \ ="\$\{value\}\% \$\{type\}, tap for details"}\newline \texttt{accessibilityHint \ ="Shows \$\{type\} details"} \\
 \hline
 Decorative Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibility \ ElementsHidden \ =true}\newline \texttt{important \ ForAccessibility="no"} \\
 \hline
@@ -678,38 +678,6 @@ The code sample present in \ref{lst:home-screen-accessibility} the key accessibi
 </ScrollView>
 \end{lstlisting}
 
-\subsubsection{Contrast and color analysis}
-
-Table~\ref{tab:contrast_analysis} presents the formal contrast analysis for UI elements on the Home Screen. All elements meet at least WCAG Level~AA requirements (4.5:1 for normal text).
-
-\begin{longtable}{|p{2.8cm}|p{2.8cm}|p{2.8cm}|p{2.4cm}|p{2.4cm}|}
-\caption{Home screen contrast analysis}
-\label{tab:contrast_analysis}\\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Hero Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 21:1 (Light)\newline 21:1 (Dark) & AAA ($\ge7{:}1$) \\
-\hline
-Subtitle & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 4.6:1 (Light)\newline 5.2:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Stat Numbers & \#0066CC (Light)\newline \#3B82F6 (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 4.7:1 (Light)\newline 5.1:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Quick Start Button & \#FFFFFF & \#0066CC & 4.8:1 & AA ($\ge4.5{:}1$) \\
-\hline
-Feature Card Titles & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 21:1 (Light)\newline 16:1 (Dark) & AAA ($\ge7{:}1$) \\
-\end{longtable}
 
 \subsubsection{Screen reader support analysis}
 
@@ -993,7 +961,7 @@ The drawer navigation provides consistent access to main application sections wh
     
     \item \textbf{Proper touch target sizing}: All interactive elements maintain minimum dimensions of 44dp, making them easily targetable;
     
-    \item \textbf{Element hiding for decorative content}: Footer content is marked with \texttt{importantForAccessibility="no"} to prevent unnecessary screen reader interaction.
+    \item \textbf{Element hiding for decorative content}: Footer content is marked with \\\texttt{importantForAccessibility="no"} to prevent unnecessary screen reader interaction.
 \end{enumerate}
 
 \paragraph{Component cards}
@@ -1079,44 +1047,6 @@ The implementation of the Components Screen addresses several important accessib
     \item \textbf{Consistent structure}: Each component card follows the same pattern, creating a predictable interaction model.
 \end{enumerate}
 
-\subsubsection{Contrast and color analysis}
-
-Table~\ref{tab:components_contrast_analysis} presents the formal contrast analysis for UI elements on the Components Screen. All elements meet at least WCAG Level~AA requirements (4.5:1 for normal text).
-
-\begin{longtable}{|p{2.8cm}|p{2.8cm}|p{2.8cm}|p{2.4cm}|p{2.4cm}|}
-\caption{Components screen contrast analysis}
-\label{tab:components_contrast_analysis}\\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Hero Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 21:1 (Light)\newline 21:1 (Dark) & AAA ($\ge7{:}1$) \\
-\hline
-Hero Subtitle & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 4.6:1 (Light)\newline 5.2:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Card Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 21:1 (Light)\newline 16:1 (Dark) & AAA ($\ge7{:}1$) \\
-\hline
-Card Description & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 4.6:1 (Light)\newline 6.1:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Badge Text & \#0066CC (Light)\newline \#3B82F6 (Dark) & \#E1EFFF (Light)\newline \#1E293B (Dark) & 4.5:1 (Light)\newline 5.3:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Feature Text & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 4.6:1 (Light)\newline 6.1:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Breadcrumb Text & \#FFFFFF & \#0066CC & 4.8:1 & AA ($\ge4.5{:}1$) \\
-\hline
-\end{longtable}
-
 \subsubsection{Screen reader support analysis}
 
 Table~\ref{tab:components_screen_reader_analysis} presents results from systematic testing of the Components Screen with screen readers on both iOS and Android platforms.
@@ -1170,8 +1100,7 @@ The implementation addresses several key MCAG considerations specific to mobile 
 \subsubsection{Implementation overhead analysis}
 
 Table~\ref{tab:components_implementation_overhead} quantifies the additional code required to implement accessibility features in the Components Screen.
-
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{3.5cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Components screen accessibility implementation overhead}
 \label{tab:components_implementation_overhead}\\
 \hline
@@ -1348,13 +1277,13 @@ Across all component screens in this section, several foundational accessibility
 \begin{enumerate}
     \item \textbf{Semantic role assignment}: All components use appropriate \texttt{accessibilityRole} properties to identify their purpose to assistive technologies;
     
-    \item \textbf{Comprehensive labeling}: Components combine \texttt{accessibilityLabel} and \texttt{accessibilityHint} to provide both identification and action context;
+    \item \textbf{Comprehensive labeling}: Components combine \texttt{accessibilityLabel} and \\\texttt{accessibilityHint} to provide both identification and action context;
     
     \item \textbf{Explicit state communication}: Interactive components use \texttt{accessibilityState} to communicate selection, completion, or disabled states;
     
-    \item \textbf{Decorative element hiding}: Non-essential visual elements use \texttt{accessibilityElementsHidden} to streamline screen reader navigation;
+    \item \textbf{Decorative element hiding}: Non-essential visual elements use \\\texttt{accessibilityElementsHidden} to streamline screen reader navigation;
     
-    \item \textbf{Status announcements}: State changes are explicitly announced via \texttt{AccessibilityInfo.announceForAccessibility};
+    \item \textbf{Status announcements}: State changes are explicitly announced via \\\texttt{AccessibilityInfo.announceForAccessibility};
     
     \item \textbf{Enhanced touch targets}: All interactive elements maintain minimum dimensions of 44×44dp, exceeding WCAG 2.5.8 requirements.
 \end{enumerate}
@@ -1414,13 +1343,13 @@ Table~\ref{tab:buttons_component_mapping} provides a formal mapping between the 
 \endfoot
 \hline
 \endlastfoot
-Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole="header"} \\
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
 \hline
-Demo Button & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Minimum touch target size\newline Haptic feedback & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="Submit form"}\newline \texttt{accessibilityHint="Activates form submission"} \\
+Demo Button & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Minimum touch target size\newline Haptic feedback & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel \ ="Submit form"}\newline \texttt{accessibilityHint \ ="Activates form submission"} \\
 \hline
 Code Snippet & text & 1.3.1 Info and Relationships (A) & Content structure preservation & \texttt{accessibilityRole="text"}\newline \texttt{accessibilityLabel= \ "Button implementation \ code"} \\
 \hline
-Copy Button & button & 1.4.3 Contrast (AA)\newline 4.1.3 Status Messages (AA) & Touch target size\newline Action feedback & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel="\{copied ? "Code copied" : "Copy code example"\}"} \\
+Copy Button & button & 1.4.3 Contrast (AA)\newline 4.1.3 Status Messages (AA) & Touch target size\newline Action feedback & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel \ ="\{copied ? "Code copied" : "Copy code example"\}"} \\
 \hline
 Success Modal & alertdialog & 4.1.3 Status Messages (AA) & Screen reader announcements & \texttt{accessibilityViewIsModal}\newline \texttt{accessibilityLiveRegion \ ="polite"} \\
 \hline
@@ -1477,7 +1406,7 @@ Several key accessibility considerations are implemented in this example:
 
 Table~\ref{tab:buttons_implementation_overhead} quantifies the additional code required to implement accessibility features in the Buttons and Touchables Screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Buttons screen accessibility implementation overhead}
 \label{tab:buttons_implementation_overhead}\\
 \hline
@@ -1564,7 +1493,7 @@ Table~\ref{tab:comparative_overhead} compares the implementation overhead across
 \caption{Accessibility implementation overhead by component type}
 \label{tab:comparative_overhead}
 \centering
-\begin{tabular}{|p{2cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{3cm}|p{2.5cm}|}
 \hline
 \textbf{Component Type} & \textbf{Lines of Code} & \textbf{Percentage Overhead} & \textbf{Complexity Impact} & \textbf{Primary Contributors} \\
 \hline
@@ -1588,7 +1517,7 @@ This comparison reveals a direct correlation between interaction complexity and 
 Each component type presents unique accessibility challenges requiring specialized implementation approaches:
 
 \begin{enumerate}
-    \item \textbf{Forms}: Require explicit error identification and validation feedback using \texttt{accessibilityRole="alert"} to ensure compliance with WCAG 3.3.1 (Error Identification). They also implement complex state communication for selection controls like radio buttons and checkboxes via \\ \texttt{accessibilityState=\{\{checked: selected\}\}};
+    \item \textbf{Forms}: Require explicit error identification and validation feedback using \\ \texttt{accessibilityRole="alert"} to ensure compliance with WCAG 3.3.1 (Error Identification). They also implement complex state communication for selection controls like radio buttons and checkboxes via \texttt{accessibilityState=\{\{checked: selected\}\}};
     
     \item \textbf{Dialogs}: Focus management represents the critical accessibility challenge, requiring explicit tracking of focus position and restoration when the dialog closes to comply with WCAG 2.4.3 (Focus Order);
     
@@ -1950,9 +1879,7 @@ The Best Practices Screen serves as a comprehensive educational resource within 
 
 Table~\ref{tab:best_practices_screen_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
 
-\pagebreak
-
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.3cm}|}
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{3.2cm}|p{4.3cm}|}
 \caption{Best practices screen component-criteria mapping}
 \label{tab:best_practices_screen_mapping}\\
 \hline
@@ -2038,14 +1965,6 @@ The code sample in Listing~\ref{lst:best-practices-screen-accessibility} demonst
         </View>
       </View>
     </View>
-
-    {/* 4. Chevron icon hidden from screen readers */}
-    <Ionicons
-      name="chevron-forward"
-      size={20}
-      accessibilityElementsHidden
-      importantForAccessibility="no-hide-descendants"
-    />
   </TouchableOpacity>
 \end{lstlisting}
 
@@ -2061,46 +1980,11 @@ The implementation of the Best Practices Screen addresses several important acce
     \item \textbf{Touch target optimization}: All interactive elements maintain sufficient touch target sizes to accommodate various user needs, with cards providing ample tapping area.
 \end{enumerate}
 
-\subsubsection{Contrast and color analysis}
-
-Table~\ref{tab:best_practices_contrast_analysis} presents the formal contrast analysis for UI elements on the Best Practices Screen. All elements meet at least WCAG Level~AA requirements (4.5:1 for normal text).
-
-\begin{longtable}{|p{2.8cm}|p{2.8cm}|p{2.8cm}|p{2.4cm}|p{2.4cm}|}
-\caption{Best practices screen contrast analysis}
-\label{tab:best_practices_contrast_analysis}\\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Hero Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 21:1 (Light)\newline 21:1 (Dark) & AAA ($\ge7{:}1$) \\
-\hline
-Hero Subtitle & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 4.6:1 (Light)\newline 5.2:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Card Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 21:1 (Light)\newline 16:1 (Dark) & AAA ($\ge7{:}1$) \\
-\hline
-Card Description & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 4.6:1 (Light)\newline 6.1:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Badge Text & Various: \#0055CC (WCAG)\newline \#0070F3 (Semantic)\newline \#FF8C00 (Gesture)\newline \#0066CC (Screen Reader)\newline \#28A745 (Navigation) & Badge background (varies by category) & 4.5:1 to 5.3:1 (all combinations) & AA ($\ge4.5{:}1$) \\
-\hline
-Feature Text & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 4.6:1 (Light)\newline 6.1:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\end{longtable}
-
 \subsubsection{Screen reader support analysis}
 
 Table~\ref{tab:best_practices_screen_reader_analysis} presents results from systematic testing of the Best Practices Screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Best practices screen screen reader testing results}
 \label{tab:best_practices_screen_reader_analysis}\\
 \hline
@@ -2148,7 +2032,7 @@ The implementation addresses several key MCAG considerations specific to mobile 
 
 Table~\ref{tab:best_practices_implementation_overhead} quantifies the additional code required to implement accessibility features in the Best Practices Screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Best practices screen accessibility implementation overhead}
 \label{tab:best_practices_implementation_overhead}\\
 \hline
@@ -2328,6 +2212,8 @@ Rather than examining each screen with identical analytical depth, we'll focus o
 
 The WCAG Guidelines screen serves as a foundational educational resource, introducing the four core principles of the Web Content Accessibility Guidelines: Perceivable, Operable, Understandable, and Robust. This screen provides developers with a clear overview of accessibility fundamentals upon which all implementation practices are built. Figure~\ref{fig:guidelines_screens_sidebyside} shows the main interface of this screen.
 
+\pagebreak
+
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
@@ -2351,7 +2237,7 @@ The WCAG Guidelines screen serves as a foundational educational resource, introd
 
 Table~\ref{tab:guidelines_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\begin{longtable}[c]{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
 \caption{Guidelines screen component-criteria mapping}
 \label{tab:guidelines_component_mapping}\\
 \hline
@@ -2373,7 +2259,7 @@ Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text re
 \hline
 Principle Cards & none & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA) & Grouping related information & Parent container with proper structural context \\
 \hline
-Principle Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility="no-hide-descendants"} \\
+Principle Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility= \ "no-hide-descendants"} \\
 \hline
 Principle Title & text & 2.4.6 Headings and Labels (AA) & Clear section identification & Text styling with semantic meaning \\
 \hline
@@ -2381,7 +2267,7 @@ Principle Description & text & 1.3.1 Info and Relationships (A) & Descriptive co
 \hline
 Checklist Items & text & 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A) & Logical grouping & Parent element contains all related information \\
 \hline
-Checkmark Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility="no-hide-descendants"} \\
+Checkmark Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility= \ "no-hide-descendants"} \\
 \end{longtable}
 
 \paragraph{Technical implementation analysis}
@@ -2438,7 +2324,7 @@ The code sample in Listing~\ref{lst:guidelines-screen-accessibility} demonstrate
 The implementation of the Guidelines Screen addresses several important accessibility considerations:
 
 \begin{enumerate}
-    \item \textbf{Proper hiding of decorative elements}: All decorative icons (principle icons, checkmarks) are properly hidden from screen readers using both \texttt{accessibilityElementsHidden=true} and \\\texttt{importantForAccessibility="no-hide-descendants"}, eliminating unnecessary swipes;
+    \item \textbf{Proper hiding of decorative elements}: All decorative icons (principle icons, checkmarks) are properly hidden from screen readers using both \texttt{accessibilityElementsHidden=true} and \texttt{importantForAccessibility="no-hide-descendants"}, \\ eliminating unnecessary swipes;
     
     \item \textbf{Semantic structure}: The implementation creates a clear hierarchical structure with the title at the top, followed by descriptions and related checklist items, ensuring proper comprehension of content relationships;
     
@@ -2451,7 +2337,7 @@ The implementation of the Guidelines Screen addresses several important accessib
 
 Table~\ref{tab:guidelines_screen_reader_analysis} presents results from systematic testing of the Guidelines Screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Guidelines screen screen reader testing results}
 \label{tab:guidelines_screen_reader_analysis}\\
 \hline
@@ -2486,7 +2372,7 @@ Navigation Between Principles & \ding{51} Clear sequential navigation & \ding{51
 
 Table~\ref{tab:guidelines_implementation_overhead} quantifies the additional code required to implement accessibility features in the Guidelines Screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Guidelines screen accessibility implementation overhead}
 \label{tab:guidelines_implementation_overhead}\\
 \hline
@@ -2559,8 +2445,6 @@ The Gestures Tutorial screen provides an interactive educational experience for 
 
 Table~\ref{tab:gestures_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\pagebreak 
-
 \begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
 \caption{Gestures tutorial screen component-criteria mapping}
 \label{tab:gestures_component_mapping}\\
@@ -2585,9 +2469,9 @@ Practice Cards & none & 1.3.1 Info and Relationships (A) & Logical grouping of r
 \hline
 Practice Title & text & 2.4.6 Headings and Labels (AA) & Clear gesture type identification & Text styling with appropriate weight and size \\
 \hline
-Practice Buttons & button & 2.5.1 Pointer Gestures (A)\newline 2.5.2 Pointer Cancellation (A)\newline 4.1.2 Name, Role, Value (A) & Alternative activation methods\newline Touch target size\newline Gesture guidance & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint}\newline \texttt{accessibilityActions} \\
+Practice Buttons & button & 2.5.1 Pointer Gestures (A)\newline 2.5.2 Pointer Cancellation (A)\newline 4.1.2 Name, Role, Value (A) & Alternative activation methods\newline Touch target size\newline Gesture guidance & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint}\newline \texttt{accessibilityActions} \\
 \hline
-Success Feedback & text & 4.1.3 Status Messages (AA) & Non-visual feedback for actions & \texttt{accessibilityLiveRegion \ ="polite"} \\
+Success Feedback & text & 4.1.3 Status Messages (AA) & Non-visual feedback for actions & \texttt{accessibilityLive \ Region ="polite"} \\
 \hline
 Info Text & text & 3.3.2 Labels or Instructions (A) & Platform-specific gesture guidance & Descriptive text with context-aware content \\
 \end{longtable}
@@ -2685,7 +2569,7 @@ The implementation addresses several critical accessibility considerations:
     
     \item \textbf{Context-sensitive instructions}: The information text dynamically changes based on whether a screen reader is enabled, providing relevant guidance based on the user's current assistive technology setup;
     
-    \item \textbf{Status announcements}: All gesture completions are explicitly announced via \texttt{AccessibilityInfo.announceForAccessibility}, ensuring non-visual feedback;
+    \item \textbf{Status announcements}: All gesture completions are explicitly announced via \\\texttt{AccessibilityInfo.announceForAccessibility}, ensuring non-visual feedback;
     
     \item \textbf{Visual feedback with accessibility considerations}: Success messages are displayed visually but also properly marked with \texttt{accessibilityLiveRegion="polite"} to ensure screen readers announce them appropriately.
 \end{enumerate}
@@ -2694,7 +2578,7 @@ The implementation addresses several critical accessibility considerations:
 
 Table~\ref{tab:gestures_screen_reader_analysis} presents results from systematic testing of the Gestures Tutorial Screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Gestures tutorial screen screen reader testing results}
 \label{tab:gestures_screen_reader_analysis}\\
 \hline
@@ -2727,7 +2611,7 @@ Context-Sensitive Instructions & \ding{51} Provides SR-specific instructions & \
 
 Table~\ref{tab:gestures_implementation_overhead} quantifies the additional code required to implement accessibility features in the Gestures Tutorial Screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Gestures tutorial screen accessibility implementation overhead}
 \label{tab:gestures_implementation_overhead}\\
 \hline
@@ -2842,7 +2726,7 @@ const skipToMainContent = () => {
 };
 \end{lstlisting}
 
-The implementation involves several key steps:
+This involves several key steps:
 
 \begin{enumerate}
     \item \textbf{Tracking content position}: The code tracks the vertical position of the main content area using the \texttt{onLayout} event;
@@ -2854,11 +2738,13 @@ The implementation involves several key steps:
     \item \textbf{Platform adaptation}: The implementation accounts for platform differences, ensuring the pattern works on both iOS and Android devices.
 \end{enumerate}
 
+\pagebreak
+
 \paragraph{Screen reader support analysis}
 
 Table~\ref{tab:logical_screen_reader_analysis} presents results from systematic testing of the Logical Navigation Screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Logical navigation screen screen reader testing results}
 \label{tab:logical_screen_reader_analysis}\\
 \hline
@@ -2929,7 +2815,7 @@ The Screen Reader Support screen provides platform-specific guidance for optimiz
 
 Table~\ref{tab:screen_reader_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\begin{longtable}{|p{3cm}|p{2cm}|p{2.8cm}|p{3.2cm}|p{4.5cm}|}
 \caption{Screen reader support screen component-criteria mapping}
 \label{tab:screen_reader_component_mapping}\\
 \hline
@@ -3074,13 +2960,13 @@ The Semantic Structure screen provides guidance on creating meaningful content h
     \label{fig:semantics_screens_sidebyside}
 \end{figure}
 
+\pagebreak
+
 \paragraph{Component inventory and WCAG/MCAG mapping}
 
 Table~\ref{tab:semantics_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\pagebreak
-
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\begin{longtable}[c]{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
 \caption{Semantic structure screen component-criteria mapping}
 \label{tab:semantics_component_mapping}\\
 \hline
@@ -3283,7 +3169,7 @@ The Accessibility Tools screen serves as a comprehensive resource guide for deve
 
 Table~\ref{tab:tools_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.5cm}|}
 \caption{Tools screen component-criteria mapping}
 \label{tab:tools_component_mapping}\\
 \hline
@@ -3307,13 +3193,13 @@ Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Clear s
 \hline
 Section Headers & heading & 2.4.6 Headings (AA)\newline 1.3.1 Info and Relationships (A) & Logical section organization & \texttt{accessibilityRole \ ="header"} \\
 \hline
-Tool Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Content expandability & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint} \\
+Tool Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Content expandability & \texttt{accessibilityRole \ ="button"},\newline \texttt{accessibilityLabel},\newline \texttt{accessibilityHint} \\
 \hline
-Card Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements\-Hidden=true}\newline \texttt{importantFor\-Accessibility=\"no-hide-descendants"} \\
+Card Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements\-Hidden=true}\newline \texttt{importantFor\-Accessibility="no\-hide-descendants"} \\
 \hline
 Expandable Content & text & 1.3.1 Info and Relationships (A)\newline 4.1.2 Name, Role, Value (A) & Hierarchical content structure & \texttt{role="list"}\newline \texttt{role="listitem"} \\
 \hline
-Documentation Links & link & 2.4.4 Link Purpose (A)\newline 4.1.2 Name, Role, Value (A) & External resource navigation & \texttt{accessibilityRole="link"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint="Opens browser"} \\
+Documentation Links & link & 2.4.4 Link Purpose (A)\newline 4.1.2 Name, Role, Value (A) & External resource navigation & \texttt{accessibilityRole= \ "link"},\newline \texttt{accessibilityLabel},\newline \texttt{accessibilityHint= \ "Opens browser"} \\
 \end{longtable}
 
 \subsubsection{Technical implementation analysis}
@@ -3376,7 +3262,7 @@ The implementation addresses several critical accessibility considerations:
 \begin{enumerate}
     \item \textbf{Clear expandable card pattern}: Each tool card implements a consistent expandable pattern with appropriate \texttt{accessibilityRole} and state communication, ensuring screen reader users understand the interactive nature of each card;
     
-    \item \textbf{Proper element hiding}: Decorative icons are systematically hidden from screen readers using both \texttt{accessibilityElementsHidden} and \texttt{importantForAccessibility="no-hide-descendants"}, eliminating unnecessary focus stops;
+    \item \textbf{Proper element hiding}: Decorative icons are systematically hidden from screen readers using both \texttt{accessibilityElementsHidden} and \\\texttt{importantForAccessibility="no-hide-descendants"}, eliminating unnecessary focus stops;
     
     \item \textbf{Semantic list structure}: Features are properly structured as lists with correct \texttt{role="list"} and \texttt{role="listitem"} attributes, creating a meaningful hierarchy for screen reader navigation;
     
@@ -3387,7 +3273,7 @@ The implementation addresses several critical accessibility considerations:
 
 Table~\ref{tab:tools_screen_reader_analysis} presents results from systematic testing of the Tools screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Tools screen screen reader testing results}
 \label{tab:tools_screen_reader_analysis}\\
 \hline
@@ -3438,7 +3324,7 @@ The Tools screen implementation addresses several mobile-specific accessibility 
 
 Table~\ref{tab:tools_implementation_overhead} quantifies the additional code required to implement accessibility features in the Tools screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Tools screen accessibility implementation overhead}
 \label{tab:tools_implementation_overhead}\\
 \hline
@@ -3477,7 +3363,7 @@ This analysis reveals that implementing comprehensive accessibility for the Tool
 
 The Tools screen implements a carefully structured categorization system that organizes accessibility tools into meaningful groups. Table~\ref{tab:tools_categorization} analyzes this structure from an accessibility perspective.
 
-\begin{longtable}{|p{2.5cm}|p{3.8cm}|p{4.6cm}|p{3.2cm}|}
+\begin{longtable}[c]{|p{2.5cm}|p{3.8cm}|p{4.6cm}|p{3.2cm}|}
 \caption{Tools screen categorization analysis}
 \label{tab:tools_categorization}\\
 \hline
@@ -3564,6 +3450,8 @@ The Instruction and Community screen serves as a collaborative learning hub that
     \caption{Side-by-side view of additional Instruction and Community screen sections}
     \label{fig:instruction_screens_sidebyside2}
 \end{figure}
+
+\pagebreak
 
 \subsubsection{Component inventory and WCAG/MCAG mapping}
 
@@ -3745,7 +3633,7 @@ The project card implementation demonstrates several effective accessibility pat
 
 Table~\ref{tab:instruction_screen_reader_analysis} presents results from systematic testing of the Instruction and Community Screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Instruction screen screen reader testing results}
 \label{tab:instruction_screen_reader_analysis}\\
 \hline
@@ -3782,7 +3670,7 @@ External Links & \ding{51} Announces purpose and opens browser & \ding{51} Annou
 
 Table~\ref{tab:instruction_implementation_overhead} quantifies the additional code required to implement accessibility features in the Instruction and Community Screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Instruction screen accessibility implementation overhead}
 \label{tab:instruction_implementation_overhead}\\
 \hline
@@ -3874,7 +3762,7 @@ These guidelines extend WCAG by focusing on the social, educational, and contrib
 
 The Inspiration Examples section provides practical code examples addressing common accessibility challenges. This approach bridges theoretical knowledge with implementation by showing specific code patterns that solve real accessibility problems. Table~\ref{tab:inspiration_examples_analysis} analyzes these examples.
 
-\begin{longtable}{|p{3.2cm}|p{3.8cm}|p{3.8cm}|p{3.2cm}|}
+\begin{longtable}[c]{|p{3.2cm}|p{3.8cm}|p{3.8cm}|p{3.2cm}|}
 \caption{Inspiration examples analysis}
 \label{tab:inspiration_examples_analysis}\\
 \hline
@@ -3917,7 +3805,7 @@ The Settings screen serves as a comprehensive control center for adjusting acces
 
 Table~\ref{tab:settings_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.2cm}|}
+\begin{longtable}{|p{2.5cm}|p{2cm}|p{2.8cm}|p{2.8cm}|p{4.5cm}|}
 \caption{Settings screen component-criteria mapping}
 \label{tab:settings_component_mapping}\\
 \hline
@@ -3941,7 +3829,7 @@ Setting Card & none & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (A
 \hline
 Setting Row & none & 1.3.1 Info and Relationships (A) & Touch target size & Layout with proper padding and margins \\
 \hline
-Setting Icon & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements\-Hidden}\newline \texttt{importantFor\-Accessibility="no-hide-descendants"} \\
+Setting Icon & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements\-Hidden}\newline \texttt{importantFor\-Accessibility=\"no-hide-descendants"} \\
 \hline
 Setting Title & text & 2.4.6 Headings and Labels (AA) & Content identification & Text with proper styling \\
 \hline
@@ -4120,7 +4008,7 @@ The implementation of section headers, shown in Listing~\ref{lst:section-headers
 
 Table~\ref{tab:settings_screen_reader_analysis} presents results from systematic testing of the Settings screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Settings screen screen reader testing results}
 \label{tab:settings_screen_reader_analysis}\\
 \hline
@@ -4169,7 +4057,7 @@ The implementation addresses several key mobile-specific considerations:
 
 Table~\ref{tab:settings_implementation_overhead} quantifies the additional code required to implement accessibility features in the Settings screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Settings screen accessibility implementation overhead}
 \label{tab:settings_implementation_overhead}\\
 \hline
@@ -4210,7 +4098,7 @@ This analysis reveals that implementing accessibility for the Settings screen ad
 
 Table~\ref{tab:settings_wcag_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle:
 
-\begin{longtable}{|p{2.5cm}|p{3.8cm}|p{3.2cm}|p{5.2cm}|}
+\begin{longtable}[c]{|p{2.5cm}|p{3.8cm}|p{3.2cm}|p{5.2cm}|}
 \caption{Settings screen WCAG compliance analysis by principle}
 \label{tab:settings_wcag_by_principle}\\
 \hline
@@ -4319,27 +4207,27 @@ Table~\ref{tab:framework_comparison_mapping} provides a formal mapping between t
 \endfoot
 \hline
 \endlastfoot
-Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole="header"} \\
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibilityRole \ ="header"} \\
 \hline
 Hero Subtitle & text & 1.4.3 Contrast (AA) & Content description & Text styling with semantic connection to title \\
 \hline
-Framework Selection Buttons & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Framework choice & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityState=$\{\{$selected: ...$\}\}$} \\
+Framework Selection Buttons & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Framework choice & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityState= \ $\{\{$selected: ...$\}\}$} \\
 \hline
-Category Tabs & tab & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Categorical organization & \texttt{accessibilityRole="tab"}\newline \texttt{accessibilityState=$\{\{$selected: ...$\}\}$} \\
+Category Tabs & tab & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Categorical organization & \texttt{accessibilityRole= \ "tab"}\newline \texttt{accessibilityState=$\{\{$selected: ...$\}\}$} \\
 \hline
-Tab Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{importantForAccessibility="no-hide-descendants"} \\
+Tab Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{importantFor \ Accessibility = \ "no-hide-descendants"} \\
 \hline
 Framework Info Card & none & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA) & Content grouping & Semantic container with proper styling \\
 \hline
-Statistic Cards & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information presentation\newline Touch target size & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel}\newline \texttt{onPress=handleWidgetClick} \\
+Statistic Cards & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information presentation\newline Touch target size & \texttt{accessibilityRole \ ="button"},\newline \texttt{accessibilityLabel},\newline \texttt{onPress=handleWidget \ Click} \\
 \hline
-Rating Bar & progressbar & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Progress visualization & \texttt{accessibilityRole="progressbar"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityValue} \\
+Rating Bar & progressbar & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Progress visualization & \texttt{accessibilityRole \ ="progressbar"},\newline \texttt{accessibilityLabel},\newline \texttt{accessibilityValue} \\
 \hline
-Info Button & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information access & \texttt{accessibilityRole="button"}\newline \texttt{accessibilityLabel} \\
+Info Button & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information access & \texttt{accessibilityRole \ ="button"},\newline \texttt{accessibilityLabel} \\
 \hline
-Modal Dialog & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A) & Keyboard trap prevention & \texttt{accessibilityViewIsModal}\newline Focus management implementation \\
+Modal Dialog & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A) & Keyboard trap prevention & \texttt{accessibilityView \ IsModal}\newline Focus management implementation \\
 \hline
-Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A) & Touch interaction & \texttt{accessibilityRole="tablist"}\newline \texttt{accessibilityState=$\{\{$ selected: isActive $\}\}$} \\
+Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A) & Touch interaction & \texttt{accessibilityRole \ ="tablist"},\newline \texttt{accessibilityState=$\{\{$ selected: isActive $\}\}$} \\
 \hline
 \end{longtable}
 
@@ -4607,75 +4495,11 @@ The modal dialog implementation addresses several critical accessibility require
 
 This accessible modal implementation ensures that complex information like methodology details and academic references remains accessible to all users, including those using screen readers.
 
-\subsubsection{Contrast and color analysis}
-
-Table~\ref{tab:framework_comparison_contrast} presents the formal contrast analysis for UI elements on the Framework Comparison Screen, showing how the implementation meets WCAG color contrast requirements.
-
-\begin{longtable}{|p{2.8cm}|p{2.8cm}|p{2.8cm}|p{2.4cm}|p{2.4cm}|}
-\caption{Framework comparison screen contrast analysis}
-\label{tab:framework_comparison_contrast}\\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endfirsthead
-\multicolumn{5}{c}%
-{{\bfseries Table \thetable\ -- continued from previous page}} \\
-\hline
-\textbf{UI Element} & \textbf{Foreground Color} & \textbf{Background Color} & \textbf{Contrast Ratio} & \textbf{WCAG Compliance} \\
-\hline
-\endhead
-\hline
-\multicolumn{5}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-Hero Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 21:1 (Light)\newline 21:1 (Dark) & AAA ($\ge7{:}1$) \\
-\hline
-Hero Subtitle & \#6B7280 (Light)\newline \#A0AEC0 (Dark) & \#FFFFFF (Light)\newline \#121212 (Dark) & 4.6:1 (Light)\newline 5.2:1 (Dark) & AA ($\ge4.5{:}1$) \\
-\hline
-Framework Button (Active) & \#FFFFFF & \#0066CC & 4.8:1 & AA ($\ge4.5{:}1$) \\
-\hline
-Framework Button (Inactive) & \#000000 & \#FFFFFF & 21:1 & AAA ($\ge7{:}1$) \\
-\hline
-Tab Text (Active) & \#0066CC & \#E1EFFF & 4.6:1 & AA ($\ge4.5{:}1$) \\
-\hline
-Tab Text (Inactive) & \#6B7280 & \#FFFFFF & 4.6:1 & AA ($\ge4.5{:}1$) \\
-\hline
-Framework Card Title & \#000000 (Light)\newline \#FFFFFF (Dark) & \#FFFFFF (Light)\newline \#1E293B (Dark) & 21:1 (Light)\newline 16:1 (Dark) & AAA ($\ge7{:}1$) \\
-\hline
-Statistic Card Label & \#6B7280 & \#FFFFFF & 4.6:1 & AA ($\ge4.5{:}1$) \\
-\hline
-Statistic Card Value & \#000000 & \#FFFFFF & 21:1 & AAA ($\ge7{:}1$) \\
-\hline
-Information Icon & \#0066CC & \#FFFFFF & 4.8:1 & AA ($\ge4.5{:}1$) \\
-\hline
-Implementation Card Text & \#000000 & \#FFFFFF & 21:1 & AAA ($\ge7{:}1$) \\
-\hline
-Low Complexity Text & \#22C55E (Green) & \#FFFFFF & 3.0:1 & Passes for large text only \\
-\hline
-Medium Complexity Text & \#F59E0B (Yellow) & \#FFFFFF & 1.8:1 & Fails – Used only as supporting color with text label \\
-\hline
-High Complexity Text & \#EF4444 (Red) & \#FFFFFF & 2.1:1 & Fails – Used only as supporting color with text label \\
-\hline
-\end{longtable}
-
-The implementation addresses several color-related accessibility considerations:
-
-\begin{enumerate}
-    \item \textbf{State indication redundancy}: Active states are indicated through both color changes and explicit text labeling, ensuring state information is not conveyed by color alone;
-    
-    \item \textbf{Dark mode adaptation}: The implementation includes specific color adaptations for dark mode to maintain sufficient contrast ratios in both light and dark themes;
-    
-    \item \textbf{Supporting color usage}: Low-contrast colors (Medium/High complexity indicators) are used only as supporting colors with explicit text labels, avoiding reliance on color alone for critical information;
-    
-    \item \textbf{Consistent interactive element styling}: Interactive elements (buttons, tabs) maintain consistent styling patterns, aiding cognitive accessibility through predictable interface patterns.
-\end{enumerate}
-
 \subsubsection{Screen reader support analysis}
 
 Table~\ref{tab:framework_comparison_screen_reader} presents results from systematic testing of the Framework Comparison screen with screen readers on both iOS and Android platforms.
 
-\begin{longtable}{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
+\begin{longtable}[c]{|p{2.8cm}|p{3.5cm}|p{3.5cm}|p{4cm}|}
 \caption{Framework comparison screen screen reader testing results}
 \label{tab:framework_comparison_screen_reader}\\
 \hline
@@ -4733,7 +4557,7 @@ The implementation addresses several key screen reader considerations:
 
 Table~\ref{tab:framework_comparison_overhead} quantifies the additional code required to implement accessibility features in the Framework Comparison screen.
 
-\begin{longtable}{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
+\begin{longtable}[c]{|p{3.8cm}|p{2.3cm}|p{2.8cm}|p{2.8cm}|}
 \caption{Framework comparison screen accessibility implementation overhead}
 \label{tab:framework_comparison_overhead}\\
 \hline
@@ -4978,8 +4802,6 @@ The Framework Comparison screen serves as a critical component of the broader \t
     
     \item \textbf{Comparative context}: The side-by-side framework analysis helps developers understand why certain implementation approaches are favored in other sections of the toolkit.
 \end{enumerate}
-
-By combining rigorous methodology with practical comparison, the Framework Comparison screen provides both the "why" and the "how" of accessibility implementation, creating a comprehensive foundation for the entire \textit{AccessibleHub} toolkit.
 
 \newpage
 

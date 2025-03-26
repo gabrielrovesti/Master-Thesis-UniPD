@@ -221,3 +221,39 @@
   captionpos=b,
   float=htbp
 }
+
+\lstdefinelanguage{Dart}{
+  keywords={
+    import, export, part, library, class, extends, implements, mixin, with, 
+    static, final, const, var, void, dynamic, if, else, for, while, do, switch, 
+    case, break, continue, return, try, catch, finally, throw, assert, 
+    this, super, new, async, await, yield, true, false, null
+  },
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  morestring=[b]'''
+}
+
+\lstdefinestyle{DartStyle}{
+  language=Dart,
+  basicstyle=\ttfamily\footnotesize,
+  backgroundcolor=\color{codeBackground},
+  commentstyle=\color{codeComment},
+  keywordstyle=\color{codeKeyword}\bfseries,
+  stringstyle=\color{codeString},
+  numbers=left,
+  numberstyle=\tiny\color{codeComment},
+  numbersep=10pt,
+  frame=single,
+  framesep=2mm,
+  xleftmargin=25pt,
+  breaklines=true,
+  breakatwhitespace=true,
+  showstringspaces=false,
+  tabsize=2,
+  captionpos=b,
+  float=htbp
+}

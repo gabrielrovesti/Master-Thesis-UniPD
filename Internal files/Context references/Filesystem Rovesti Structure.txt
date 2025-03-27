@@ -1,0 +1,70 @@
+PS C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app> cd app
+PS C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app\app> tree /f
+Elenco del percorso delle cartelle per il volume Acer
+Numero di serie del volume: 3893-F422
+C:.
+│   accessibility-instruction.tsx
+│   components.tsx
+│   frameworks-comparison.tsx
+│   index.tsx
+│   practices.tsx
+│   settings.tsx
+│   tools.tsx
+│   _layout.tsx
+│   
+├───accessible-components
+│       accessible-advanced.tsx
+│       accessible-button.tsx
+│       accessible-dialog.tsx
+│       accessible-form.tsx
+│       accessible-media.tsx
+│       _layout.tsx
+│
+└───practices-screens
+        gestures.tsx
+        guidelines.tsx
+        navigation.tsx
+        screen-reader.tsx
+        semantics.tsx
+        _layout.tsx
+
+PS C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app\app> cd ..
+PS C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app> dir
+
+
+    Directory: C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        25/11/2024     08:23                .expo
+d-----        16/03/2025     16:03                app                                                                                                                                                    
+d-----        23/11/2024     17:27                assets
+d-----        23/11/2024     17:27                components
+d-----        23/11/2024     17:27                constants
+d-----        17/02/2025     08:54                context
+d-----        23/11/2024     17:27                hooks                                                                                                                                                  
+d-----        17/02/2025     09:07                node_modules
+d-----        23/11/2024     17:27                scripts
+-a----        26/10/1985     10:15            402 .gitignore                                                                                                                                             
+-a----        16/02/2025     17:04           1398 app.json
+-a----        04/12/2024     10:13            177 babel.config.js
+-a----        22/03/2025     17:50       76228512 build-1742662222704.apk
+-a----        16/02/2025     16:52            474 eas.json
+-a----        22/03/2025     17:04            110 expo-env.d.ts
+-a----        17/02/2025     09:07         570566 package-lock.json
+-a----        17/02/2025     09:07           1772 package.json
+-a----        26/10/1985     10:15           1742 README.md                                                                                                                                              
+-a----        26/10/1985     10:15            242 tsconfig.json
+
+
+PS C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app> cd context
+PS C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app\context> tree /f
+Elenco del percorso delle cartelle per il volume Acer
+Numero di serie del volume: 3893-F422
+C:.
+    ThemeContext.tsx
+
+Non esistono sottocartelle
+
+PS C:\Users\roves\OneDrive\Documenti\GitHub\AccessibleHub\my-app\context>

@@ -1,0 +1,43 @@
+PS C:\Users\roves\Downloads\Matteo_Budai\flaccess\lib> dir
+
+
+    Directory: C:\Users\roves\Downloads\Matteo_Budai\flaccess\lib
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        27/03/2025     13:30                documentation
+d-----        27/03/2025     13:30                Form
+d-----        27/03/2025     13:30                Gestures
+d-----        27/03/2025     13:30                homepage
+d-----        27/03/2025     13:30                page3
+-a----        27/03/2025     13:30           6663 main.dart
+
+
+PS C:\Users\roves\Downloads\Matteo_Budai\flaccess\lib> tree /f
+Elenco del percorso delle cartelle per il volume Acer
+Numero di serie del volume: 3893-F422
+C:.
+│   main.dart
+│
+├───documentation
+│       Element2.dart
+│
+├───Form
+│       Element4.dart
+│
+├───Gestures
+│       Element5.dart
+│
+├───homepage
+│       answer.dart
+│       question.dart
+│       quiz.dart
+│       result.dart
+│
+└───page3
+        DetailsElement.dart
+        Element3.dart
+        ingredientsandsteps.dart
+
+PS C:\Users\roves\Downloads\Matteo_Budai\flaccess\lib> 

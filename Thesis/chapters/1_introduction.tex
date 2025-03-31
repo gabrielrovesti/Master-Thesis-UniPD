@@ -95,7 +95,7 @@ It's useful to analyze such commands since the focus would be describing how to 
         \end{itemize}
 \end{itemize}
 
-In the thesis, apart from considering the degree of importance of each kind of interactions, the implementation of accessibility support between two of the most popular mobile development frameworks will be given. The implementation of accessibility support varies significantly between Flutter and React Native, particularly in how they interact with these native features. Flutter creates an accessibility tree that maps to native accessibility APIs, while React Native provides direct bindings to platform-specific accessibility features. This fundamental difference affects how developers must approach accessibility implementation in their applications and it will be explored. 
+This thesis examines the implementation of accessibility support in two leading mobile development frameworks—Flutter and React Native—with particular attention to their integration with native accessibility features. The architectural approaches differ significantly: Flutter creates a structured accessibility tree that maps to native accessibility APIs, while React Native establishes direct bindings to platform-specific accessibility features. This fundamental difference profoundly influences how developers must conceptualize and implement accessibility within their applications, a distinction that will be thoroughly explored throughout this work.
 
 \section{Thesis structure}
 \label{chap:intro-structure} 
@@ -103,16 +103,16 @@ In the thesis, apart from considering the degree of importance of each kind of i
 In this subsection, a brief description of the rest of the thesis is given:
 
 \begin{description}
-    \item[{\hyperref[chap:accessibility]{The second chapter}}] employs a literature overview on the themes regarding mobile accessibility and goes in better depth discussing about accessibility guidelines specific to mobile applications, including WCAG mobile adaptations, platform-specific requirements for iOS and Android, legal framework regulations, implementation considerations and testing methodologies;
+    \item[{\hyperref[chap:accessibility]{The second chapter}}] presents a comprehensive literature review of mobile accessibility, examining specific guidelines for mobile applications including WCAG adaptations, platform-specific requirements for iOS and Android, regulatory frameworks, implementation considerations, and testing methodologies. This chapter establishes the theoretical foundation for understanding the current accessibility landscape;
     
-    \item[{\hyperref[chap:accessibility-toolkit]{The third chapter}}] gives a broad overview of the AccessibleHub project: a React Native application serving as an end-to-end guide on how to use accessibility features in mobile development frameworks effectively. It discusses the architectural design, implementation patterns, and education framework of this new approach toward mobile accessibility, introducing an interactive toolkit that methodically overcomes the challenges faced by developers when translating WCAG into practical mobile app implementations. The study extends previous work in accessibility testing to provide a pragmatic, developer-centric tool that comparably analyzes how React Native and Flutter handle accessibility through hands-on examples, component-level guidance, and actionable insights to help developers transform accessibility from an afterthought of compliance into a core design principle;
+    \item[{\hyperref[chap:accessibility-toolkit]{The third chapter}}] introduces the \textit{AccessibleHub} project—a React Native application serving as an interactive guide for implementing accessibility features in mobile applications. This chapter details the architectural design, implementation patterns, and educational framework underpinning this novel approach to mobile accessibility. \textit{AccessibleHub} methodically addresses the challenges developers face when translating abstract WCAG guidelines into practical implementations, extending previous research to provide a developer-centric toolkit that analyzes how React Native and Flutter handle accessibility through interactive examples and component-level guidance;
     
-    \item[{\hyperref[chap:implementation]{The fourth chapter}}] describes precisely the implementation of the WCAG guidelines, providing implementation complexity, performance implications, developer experience, testing approaches, while discussing best practices and finding limitations;
+    \item[{\hyperref[chap:accessibility-implementation]{The fourth chapter}}] provides a detailed analysis of WCAG guideline implementation across frameworks, examining implementation complexity, performance implications, developer experience, and testing methodologies. This chapter offers comparative insights into accessibility implementation between React Native and Flutter, identifying best practices, common pitfalls, and optimization strategies;
     
-    \item[{\hyperref[chap:conclusions]{The last chapter}}] summarizes finding and provides recommendations, best practices for accessible development and future research directions.
+    \item[{\hyperref[chap:conclusions]{The final chapter}}] synthesizes key findings, presents actionable recommendations for accessible mobile development, highlights best practices derived from the research, and outlines promising directions for future investigation in this rapidly evolving field.
 \end{description}
 
-Regarding the text composition, the following typographical conventions have been adopted for this document:
+To enhance readability and ensure clarity, this thesis adopts the following typographical conventions:
 \begin{itemize}
     \item Acronyms, abbreviations, and technical terms are defined in the glossary;
     \item First occurrences of glossary terms use the format: \gls{uig};

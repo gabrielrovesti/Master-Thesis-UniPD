@@ -1,0 +1,25 @@
+LaTeX:
+- https://github.com/FIUP/Thesis-template
+- https://github.com/giovannifil-64/unipd-thesis-template
+- https://github.com/lusergit/thesis-template
+
+Beamer:
+- https://github.com/codatomrc/PadovaThesis
+- https://www.math.unipd.it/~burattin/other/tema-latex-beamer-padova/
+- https://github.com/lusergit/presentation-slides
+
+Markdown:
+
+Typst:
+- https://github.com/eliapasquali/typst-thesis-template
+- https://github.com/BIRSAx2/unipd-thesis-typst
+
+Some thesis examples:
+- https://github.com/lusergit/master-thesis
+- https://github.com/DrBurraco/Cybersecurity-MsC-Unipd
+- https://github.com/Kekkodf/Master-Thesis
+- https://github.com/Gheeroppa/UnipdMasterThesis
+- https://github.com/FilippoFantinato/model-checking-and-synthesis-of-best-effort-strategies-for-safety-and-co-safety-ltl
+
+Everything:
+- https://github.com/gabrielrovesti/UniPD-Swiss-Knife-Notes-Slides

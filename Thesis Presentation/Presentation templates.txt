@@ -1,0 +1,11 @@
+Typst:
+
+- https://github.com/SkiFire13/typst-slides-unipd
+
+PowerPoint:
+
+- https://github.com/cipz/unipd_slide_tempate
+
+Beamer:
+
+- https://www.math.unipd.it/~burattin/other/tema-latex-beamer-padova/

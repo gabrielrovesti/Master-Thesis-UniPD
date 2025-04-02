@@ -14,7 +14,7 @@ The importance of mobile app accessibility extends beyond mere compliance with l
 Despite the clear benefits and moral imperatives of mobile app accessibility, many developers still struggle to effectively implement accessibility guidelines in their projects. The \acrshort{wcagacr}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility. However, translating these guidelines into practical implementation can be a challenging task, particularly starting from pure formal guidelines into everyday code. \\
 
 One of the primary challenges lies in the complexity of the guidelines themselves. WCAG encompasses a wide range of \textit{success criteria}, organized under four main general \textit{principles}: perceivable, operable, understandable, and robust. Each principle contains multiple guidelines, and each guideline has several success criteria at different levels of \textit{conformance} (A, AA, AAA). Navigating this intricate web of requirements and understanding how to apply them to specific mobile app components can be overwhelming for developers, especially those new to accessibility. 
-Moreover, the practical implementation of accessibility guidelines often varies across different platforms and frameworks. \textit{iOS} and \textit{Android}, the two dominant mobile operating systems, have their own unique accessibility \textit{API}s, tools, and best practices. Cross-platform frameworks like React Native and Flutter add another layer of complexity, as developers must ensure that their accessibility implementations are compatible with the underlying platform-specific mechanisms. \\ 
+Moreover, the practical implementation of accessibility guidelines often varies across different platforms and frameworks. \textit{iOS} and \textit{Android}, the two dominant mobile operating systems, have their own unique accessibility \gls{apig}s, tools, and best practices. Cross-platform frameworks like React Native and Flutter add another layer of complexity, as developers must ensure that their accessibility implementations are compatible with the underlying platform-specific mechanisms. \\ 
 
 Furthermore, there is often a lack of clear, practical examples and guidance on how to implement accessibility features in real-world mobile app projects. While the \textit{WCAG} provides a solid foundation, it is primarily focused on web content and may not always directly address the unique challenges and interaction patterns of mobile apps. Developers often struggle to bridge the gap between the theoretical guidelines and the specific implementation details required for their projects.
 
@@ -87,12 +87,12 @@ The following sections will detail the development of \textit{AccessibleHub}, an
 \section{React Native Overview}
 \label{sec:reactnative-overview}
 
-\gls{reactnative} is an open-source framework developed by Meta that enables developers to build mobile applications using JavaScript and the React paradigm (\cite{site:reactnative}). It employs a declarative, component-based approach through the use of \textit{JSX}, which is an XML-like syntax that allows developers to intermix JavaScript logic with markup. This combination not only improves code readability but also enhances modularity and facilitates code reuse.
+\gls{reactnative} is an open-source framework developed by Meta that enables developers to build mobile applications using \textit{JavaScript} and the \textit{React} paradigm (\cite{site:reactnative}). It employs a declarative, component-based approach through the use of \textit{JSX}, which is an XML-like syntax that allows developers to intermix \textit{JavaScript} logic with markup. This combination not only improves code readability but also enhances modularity and facilitates code reuse.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.4\textwidth, alt={React Native Logo}]{img/react-native-logo.png}
-    \caption{React Native Logo}
+    \includegraphics[width=0.4\textwidth, alt={React Native logo}]{img/react-native-logo.png}
+    \caption{React Native logo}
 \label{fig:reactnative-logo}
 \end{figure}
 
@@ -105,7 +105,7 @@ The following sections will detail the development of \textit{AccessibleHub}, an
     Developers write the \acrshort{ui} using \textit{JSX}, a syntax extension similar to \textit{HTML}. This blending of code and layout simplifies the development process and enables a more intuitive understanding of the component structure;
     
     \item \textit{Bridging mechanism:}  
-    React Native’s bridge enables asynchronous communication between the JavaScript layer and native modules. This means that while the application is written in JavaScript, performance-critical tasks can be executed using native code (e.g., Objective-C, Swift, or Java), ensuring a native look and feel without sacrificing performance;
+    React Native’s bridge enables asynchronous communication between the \textit{JavaScript} layer and native modules. This means that while the application is written in \textit{JavaScript}, performance-critical tasks can be executed using native code (e.g., \textit{Objective-C, Swift}, or \textit{Java}), ensuring a native look and feel without sacrificing performance;
     
     \item \textit{Hot reloading:}  
     One of the standout features present in this framework, which allows developers to see changes in real time without restarting the entire application. This accelerates the development cycle and aids in rapid prototyping;
@@ -176,6 +176,7 @@ In summary, React Native offers a modern, efficient, and developer-friendly envi
 \label{sec:accessiblehub}
 
 \subsection{Core architecture and design principles}
+\label{sec:accessiblehub-architecture-design}
 
 \textit{AccessibleHub} is a React Native application designed to serve as an interactive manual for implementing accessibility features in mobile development. Unlike traditional documentation or testing frameworks, the application provides developers with hands-on examples and implementation patterns that can be directly applied to their projects.
 
@@ -206,6 +207,7 @@ The \textit{design} philosophy of \textit{AccessibleHub} is founded on principle
 Through these principles, \textit{AccessibleHub} aims to transform accessibility from an afterthought into an \textit{accessibility-by-design}. The application serves not just as a reference implementation, but as an educational tool that guides developers through the process of building truly accessible applications. This approach recognizes that effective accessibility implementation requires both theoretical understanding and practical experience, providing developers with the tools they need to create more inclusive mobile applications.
 
 \subsection{Educational framework design}
+\label{sec:accessiblehub-educational-framework}
 
 \textit{AccessibleHub}'s educational framework is designed to provide a structured, incremental learning experience that progressively builds accessibility knowledge and skills. The content is organized into different \textit{learning modules}, each focusing on a key aspect of mobile accessibility. This is structured incrementally, so to help a developer gather a general idea on what needs to be implemented following a practical roadmap of steps: this allows to focus on different aspects of mobile accessibility, selecting each time the most relevant ones.
 
@@ -216,8 +218,8 @@ The core of the application is divided into different main screens, following:
 
     \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.4\linewidth, alt={Screenshot of the Home Screen of AccessibleHub}]{img/homescreen.jpg}
-    \caption{The Home Screen of \textit{AccessibleHub}}\label{fig:homescreen}
+    \includegraphics[width=0.4\linewidth, alt={Screenshot of the Home screen of AccessibleHub}]{img/homescreen.jpg}
+    \caption{The Home screen of \textit{AccessibleHub}}\label{fig:homescreen}
     \end{figure}
 
 \pagebreak
@@ -240,8 +242,8 @@ Throughout the Components section, code implementations are shared as examples, 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth, alt={Screenshot of the Components Screen of AccessibleHub}]{img/components.jpg}
-\caption{The Components Screen of \textit{AccessibleHub}}\label{fig:components}
+\includegraphics[width=0.4\linewidth, alt={Screenshot of the Components screen of AccessibleHub}]{img/components.jpg}
+\caption{The Components screen of \textit{AccessibleHub}}\label{fig:components}
 \end{figure}
 
 \pagebreak
@@ -262,8 +264,8 @@ Throughout the Components section, code implementations are shared as examples, 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth, alt={Screenshot of the Best Practices Screen of AccessibleHub}]{img/best-practices.jpg}
-\caption{The Best Practices Screen of \textit{AccessibleHub}}\label{fig:best-practices}
+\includegraphics[width=0.4\linewidth, alt={Screenshot of the Best Practices screen of AccessibleHub}]{img/best-practices.jpg}
+\caption{The Best Practices screen of \textit{AccessibleHub}}\label{fig:best-practices}
 \end{figure}
 
 \pagebreak
@@ -272,8 +274,8 @@ Throughout the Components section, code implementations are shared as examples, 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth, alt={Screenshot of the Frameworks Comparison Screen of AccessibleHub}]{img/frameworks-comparison.jpg}
-\caption{The Frameworks Comparison Screen of \textit{AccessibleHub}}\label{fig:frameworks-comparison}
+\includegraphics[width=0.4\linewidth, alt={Screenshot of the Framework comparison screen of AccessibleHub}]{img/frameworks-comparison.jpg}
+\caption{The Framework comparison screen of \textit{AccessibleHub}}\label{fig:frameworks-comparison}
 \end{figure}
 
 \pagebreak
@@ -282,8 +284,8 @@ Throughout the Components section, code implementations are shared as examples, 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth, alt={Screenshot of the Tools Screen of AccessibleHub}]{img/tools.jpg}
-\caption{The Tools Screen of \textit{AccessibleHub}}\label{fig:tools}
+\includegraphics[width=0.4\linewidth, alt={Screenshot of the Tools screen of AccessibleHub}]{img/tools.jpg}
+\caption{The Tools screen of \textit{AccessibleHub}}\label{fig:tools}
 \end{figure}
 
 \pagebreak
@@ -292,18 +294,18 @@ Throughout the Components section, code implementations are shared as examples, 
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth, alt={Screenshot of the Settings Screen of AccessibleHub}]{img/settings.jpg}
-\caption{The Settings Screen of \textit{AccessibleHub}}\label{fig:settings}
+\includegraphics[width=0.4\linewidth, alt={Screenshot of the Settings screen of AccessibleHub}]{img/settings.jpg}
+\caption{The Settings screen of \textit{AccessibleHub}}\label{fig:settings}
 \end{figure}
 
 \pagebreak
 
-\item \textbf{Instruction and Community} - It provides a collaborative learning environment that extends beyond technical implementation (\ref{fig:instruction-community}). This section offers developers an opportunity to dive deeper into accessibility knowledge through curated resources and community engagement allowing for easier exploration towards other online resources. This provides an overview of currently open projects in the field of accessibility, provides advices on specific plugins and offers community examples of interest for a developers to be motivated into the creation of other accessible projects. By providing a platform for continuous learning and collaboration, this screen reinforces the importance of accessibility as a collective effort and a fundamental aspect of modern mobile application development.
+\item \textbf{Instruction and community} - It provides a collaborative learning environment that extends beyond technical implementation (\ref{fig:instruction-community}). This section offers developers an opportunity to dive deeper into accessibility knowledge through curated resources and community engagement allowing for easier exploration towards other online resources. This provides an overview of currently open projects in the field of accessibility, provides advices on specific plugins and offers community examples of interest for a developers to be motivated into the creation of other accessible projects. By providing a platform for continuous learning and collaboration, this screen reinforces the importance of accessibility as a collective effort and a fundamental aspect of modern mobile application development.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.4\linewidth, alt={Screenshot of the Instruction and Community Screen of AccessibleHub}]{img/instruction-community.jpg}
-\caption{The Instruction and Community Screen of \textit{AccessibleHub}}\label{fig:instruction-community}
+\includegraphics[width=0.4\linewidth, alt={Screenshot of the Instruction and community screen of AccessibleHub}]{img/instruction-community.jpg}
+\caption{The Instruction and community screen of \textit{AccessibleHub}}\label{fig:instruction-community}
 \end{figure}
     
 \end{enumerate}
@@ -311,6 +313,7 @@ Throughout the Components section, code implementations are shared as examples, 
 \pagebreak
 
 \subsection{From guidelines to implementation: a screen-based methodology}
+\label{sec:accessiblehub-screen-methodology}
 
 Accessibility guidelines and standards - most notably the \acrshort{wcagacr}  and related mobile-specific considerations—establish the formal foundation for inclusive digital design, as discussed in \ref{sec:accessibility-guidelines}. These criteria are essential but inherently abstract and can be challenging to implement directly in code. Building on Perinello and Gaggi's approach focusing solely on post-implementation testing, the methodology presented embeds accessibility into the development process. We do this by analyzing each screen of the application through a structured framework that connects theoretical requirements with practical implementation strategies. The approach to be considered is built following these layers:
 
@@ -327,24 +330,24 @@ To illustrate this methodology in practice, we first map the \textit{UI} element
 \section{Accessibility implementation guidelines}
 \label{sec:implementation-guidelines}
 
-Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Gaggi and Perinello's approach \cite{budai2024mobile} analazying Budai's Flutter code - following guidelines and then giving advice into introducing new ones.
+Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Gaggi and Perinello's approach \cite{budai2024mobile} analazying Budai's Flutter code - following guidelines and then giving advice into introducing new ones. These screens follow the structure presented in Section~\ref{sec:accessiblehub-educational-framework}, analyzed both as main screens and sections.
 
 \subsection{Home screen}
 
-The Home Screen serves as the primary entry point of the \textit{AccessibleHub} application. It provides key metrics on accessibility compliance (e.g., number of accessible components, \acrshort{wcagacr} conformance level) and direct navigation to core sections: \textit{Accessible Components} (Quick Start), \textit{Best Practices}, \textit{Testing Tools}, and the \textit{Framework Comparison}. An example of the interface is shown in Figure~\ref{fig:home_screens_sidebyside}.
+The Home screen serves as the primary entry point of the \textit{AccessibleHub} application. It provides key metrics on accessibility compliance (e.g., number of accessible components, \acrshort{wcagacr} conformance level) and direct navigation to core sections: \textit{Accessible Components} (Quick Start), \textit{Best Practices}, \textit{Testing Tools}, and the \textit{Framework Comparison}. An example of the interface is shown in Figure~\ref{fig:home_screens_sidebyside}.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Home Screen}]{img/home1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Home screen}]{img/home1.png}
         \caption{Home screen - Part 1}
         \label{fig:home-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Home Screen}]{img/home2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Home screen}]{img/home2.png}
         \caption{Home screen - Part 2}
         \label{fig:home-right}
     \end{subfigure}
@@ -393,7 +396,7 @@ Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value 
 
 \subsubsection{Formal metrics calculation methodology}
 
-The Home Screen displays three key metrics that provide quantitative measurements of the application's accessibility. These metrics are not arbitrary but are calculated using a formal methodology defined in the \texttt{calculateAccessibilityScore} function within \texttt{index.tsx}. 
+The Home screen displays three key metrics that provide quantitative measurements of the application's accessibility. These metrics are not arbitrary but are calculated using a formal methodology defined in the \texttt{calculateAccessibilityScore} function within \texttt{index.tsx}. 
 
 \begin{figure}[ht]
     \centering
@@ -471,7 +474,7 @@ The Home Screen displays three key metrics that provide quantitative measurement
     \label{fig:methodology_references}
 \end{figure}
 
-\paragraph{Component accessibility score}
+\paragraph{Component Accessibility Score}
 
 The Component Accessibility Score is calculated using the following formula:
 \begin{equation}
@@ -510,7 +513,7 @@ const accessibleComponents = Object.values(componentsRegistry)
 const componentScore = Math.round((accessibleComponents / componentsTotal) * 100);
 \end{lstlisting}
 
-\paragraph{WCAG compliance score}
+\paragraph{WCAG Compliance Score}
 
 The WCAG Compliance Score represents the percentage of implemented WCAG 2.2 success criteria across four principles:
 
@@ -555,7 +558,7 @@ const wcagCompliance = Math.round(
 );
 \end{lstlisting}
 
-\paragraph{Screen reader testing score}
+\paragraph{Screen Reader Testing Score}
 
 The Screen Reader Testing Score represents empirical testing with VoiceOver (iOS) and TalkBack (Android):
 
@@ -607,9 +610,9 @@ const talkBackAvg = talkBackScores.reduce((sum, score) =>
 const testingScore = Math.round(((voiceOverAvg + talkBackAvg) / 2) * 20);
 \end{lstlisting}
 
-\paragraph{Overall accessibility score}
+\paragraph{Overall Accessibility Score}
 
-The overall accessibility score is calculated using weighted components:
+The overall Accessibility Score is calculated using weighted components:
 \begin{equation}
 \text{OverallScore} 
 = (\text{ComponentScore} \times 0.4) 
@@ -621,11 +624,11 @@ This weighting system gives equal importance to component implementation and sta
 
 \subsubsection{Technical implementation analysis}
 
-The code sample present in \ref{lst:home-screen-accessibility} the key accessibility properties implemented in the Home Screen.
+The code sample present in \ref{lst:home-screen-accessibility} the key accessibility properties implemented in the Home screen.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
-  caption={Annotated code sample demonstrating Home Screen accessibility properties},
+  caption={Annotated code sample demonstrating Home screen accessibility properties},
   label={lst:home-screen-accessibility},
   basicstyle=\ttfamily\footnotesize,
   numbers=left,
@@ -633,7 +636,7 @@ The code sample present in \ref{lst:home-screen-accessibility} the key accessibi
 // 1. ScrollView container with proper role and label
 <ScrollView
   accessibilityRole="scrollview"
-  accessibilityLabel="AccessibleHub Home Screen"
+  accessibilityLabel="AccessibleHub Home screen"
 >
   {/* 2. Hero section with semantic heading */}
   <View style={themedStyles.heroCard}>
@@ -684,7 +687,7 @@ The code sample present in \ref{lst:home-screen-accessibility} the key accessibi
 
 \subsubsection{Screen reader support analysis}
 
-Table~\ref{tab:screen_reader_analysis} presents results from systematic testing of the Home Screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:screen_reader_analysis} presents results from systematic testing of the Home screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Home screen screen reader testing results}
@@ -728,7 +731,7 @@ The implementation addresses several key MCAG considerations:
 
 \subsubsection{Implementation overhead analysis}
 
-Table~\ref{tab:implementation_overhead} quantifies the additional code required to implement accessibility features in the Home Screen.
+Table~\ref{tab:implementation_overhead} quantifies the additional code required to implement accessibility features in the Home screen.
 
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Accessibility implementation overhead}
@@ -763,7 +766,7 @@ Metrics Calculation & 78 LOC & 14.1\% & High \\
 \textbf{Total} & \textbf{156 LOC} & \textbf{28.0\%} & \textbf{Medium-High} \\
 \end{longtable}
 
-This analysis reveals that implementing comprehensive accessibility adds approximately 28\% to the code base of the Home Screen, with the metrics calculation system representing the most significant component. This overhead is justified by the improved user experience for people with disabilities and the educational value for developers learning to implement accessibility.
+This analysis reveals that implementing comprehensive accessibility adds approximately 28\% to the code base of the Home screen, with the metrics calculation system representing the most significant component. This overhead is justified by the improved user experience for people with disabilities and the educational value for developers learning to implement accessibility.
 
 \subsubsection{WCAG conformance by principle}
 
@@ -798,7 +801,7 @@ Table~\ref{tab:wcag_by_principle} provides a detailed analysis of WCAG 2.2 compl
 
 \subsubsection{Mobile-specific considerations}
 
-The Home Screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
+The Home screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
 
 \begin{enumerate}
     \item \textbf{Touch target sizing}: All interactive elements maintain minimum dimensions of 48$\times$48dp, exceeding the WCAG 2.5.8 requirement of 24$\times$24px and addressing the mobile-specific need for larger touch targets;
@@ -810,10 +813,10 @@ The Home Screen implementation addresses several mobile-specific accessibility c
 
 \subsubsection{Beyond WCAG: metrics-driven accessibility guidelines}
 
-The Home Screen implementation highlights several accessibility principles that extend beyond standard WCAG requirements, specifically addressing quantitative accessibility evaluation in mobile applications:
+The Home screen implementation highlights several accessibility principles that extend beyond standard WCAG requirements, specifically addressing quantitative accessibility evaluation in mobile applications:
 
 \begin{enumerate}
-    \item \textbf{Comprehensive metrics visualization}: Accessibility compliance should be quantified and presented in a transparent, understandable format. The Home Screen implements this through dedicated metric cards with clear visual indicators of implementation status, moving beyond binary compliance to represent different degrees of accessibility achievement;
+    \item \textbf{Comprehensive metrics visualization}: Accessibility compliance should be quantified and presented in a transparent, understandable format. The Home screen implements this through dedicated metric cards with clear visual indicators of implementation status, moving beyond binary compliance to represent different degrees of accessibility achievement;
     
     \item \textbf{Multi-dimensional evaluation framework}: Accessibility assessment should consider multiple dimensions including component implementation (40\%), standards compliance (40\%), and empirical testing (20\%). This weighted approach, implemented in the metrics calculation system, recognizes that true accessibility extends beyond technical conformance to include real-world usability;
     
@@ -828,24 +831,24 @@ These guidelines extend WCAG by formalizing the quantitative evaluation of acces
 
 \subsection{Accessible components main screen}
 
-The Accessible Components Screen serves as a catalog of reusable accessibility patterns organized by component type. It provides developers with access to implementations of common UI elements with accessibility features properly integrated. Each component category includes implementation examples, best practices, and copy-ready code samples. The screen functions as an educational index, directing developers to detailed implementations of specific accessible components. Figure~\ref{fig:components_screens_sidebyside} shows the Components Screen interface.
+The Accessible components screen serves as a catalog of reusable accessibility patterns organized by component type. It provides developers with access to implementations of common UI elements with accessibility features properly integrated. Each component category includes implementation examples, best practices, and copy-ready code samples. The screen functions as an educational index, directing developers to detailed implementations of specific accessible components. Figure~\ref{fig:components_screens_sidebyside} shows the Components screen interface.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Components Screen}]{img/components1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Components screen}]{img/components1.png}
         \caption{Components screen - Top section}
         \label{fig:components-top}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Components Screen}]{img/components2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Components screen}]{img/components2.png}
         \caption{Components screen - Bottom section}
         \label{fig:components-bottom}
     \end{subfigure}
-    \caption{Side-by-side view of the Components Screen sections, showing component categories}
+    \caption{Side-by-side view of the Components screen sections, showing component categories}
     \label{fig:components_screens_sidebyside}
 \end{figure}
 
@@ -890,7 +893,7 @@ Drawer Menu Items & menuitem & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role
 
 \subsubsection{Navigation and orientation analysis}
 
-The Components Screen implements a comprehensive navigation structure that addresses both WCAG 2.4 (Navigable) and MCAG considerations for mobile devices. This structure includes three key elements that work together to provide clear orientation for all users:
+The Components screen implements a comprehensive navigation structure that addresses both WCAG 2.4 (Navigable) and MCAG considerations for mobile devices. This structure includes three key elements that work together to provide clear orientation for all users:
 
 \paragraph{Breadcrumb implementation}
 
@@ -987,11 +990,11 @@ This multi-layered navigation approach creates a coherent mental model for all u
 
 \subsubsection{Technical implementation analysis}
 
-The code sample present in \ref{lst:components-screen-accessibility} demonstrates the key accessibility properties implemented in the Components Screen.
+The code sample present in \ref{lst:components-screen-accessibility} demonstrates the key accessibility properties implemented in the Components screen.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
-  caption={Annotated code sample demonstrating Components Screen accessibility properties},
+  caption={Annotated code sample demonstrating Components screen accessibility properties},
   label={lst:components-screen-accessibility},
   basicstyle=\ttfamily\footnotesize,
   numbers=left,
@@ -1041,7 +1044,7 @@ The code sample present in \ref{lst:components-screen-accessibility} demonstrate
 </TouchableOpacity>
 \end{lstlisting}
 
-The implementation of the Components Screen addresses several important accessibility considerations:
+The implementation of the Components screen addresses several important accessibility considerations:
 
 \begin{enumerate}
     \item \textbf{Reduction of "garbage interactions"}: Decorative elements (icons, chevrons) are now properly hidden from screen readers using \\ \texttt{accessibilityElementsHidden} to reduce unnecessary swipes;
@@ -1055,7 +1058,7 @@ The implementation of the Components Screen addresses several important accessib
 
 \subsubsection{Screen reader support analysis}
 
-Table~\ref{tab:components_screen_reader_analysis} presents results from systematic testing of the Components Screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:components_screen_reader_analysis} presents results from systematic testing of the Components screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Components screen screen reader testing results}
@@ -1105,7 +1108,7 @@ The implementation addresses several key MCAG considerations specific to mobile 
 
 \subsubsection{Implementation overhead analysis}
 
-Table~\ref{tab:components_implementation_overhead} quantifies the additional code required to implement accessibility features in the Components Screen.
+Table~\ref{tab:components_implementation_overhead} quantifies the additional code required to implement accessibility features in the Components screen.
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Components screen accessibility implementation overhead}
 \label{tab:components_implementation_overhead}\\
@@ -1143,7 +1146,7 @@ Drawer Accessibility & 35 LOC & 6.2\% & High \\
 \textbf{Total} & \textbf{186 LOC} & \textbf{32.8\%} & \textbf{Medium-High} \\
 \end{longtable}
 
-This analysis reveals that implementing comprehensive accessibility adds approximately 32.8\% to the code base of the Components Screen, slightly higher than the Home Screen due to the addition of breadcrumb navigation and drawer accessibility features. 
+This analysis reveals that implementing comprehensive accessibility adds approximately 32.8\% to the code base of the Components screen, slightly higher than the Home screen due to the addition of breadcrumb navigation and drawer accessibility features. 
 
 \subsubsection{WCAG conformance by principle}
 
@@ -1178,7 +1181,7 @@ Table~\ref{tab:components_wcag_by_principle} provides a detailed analysis of WCA
 
 \subsubsection{Mobile-specific considerations}
 
-The Components Screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
+The Components screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
 
 \begin{enumerate}
     \item \textbf{Touch target sizing}: All interactive elements maintain minimum dimensions of 44dp × 44dp, exceeding the WCAG 2.5.8 requirement of 24 × 24px and addressing the mobile-specific need for larger touch targets;
@@ -1194,9 +1197,7 @@ The Components Screen implementation addresses several mobile-specific accessibi
 
 \subsubsection{Breadcrumb implementation analysis}
 
-A formal analysis of the breadcrumb feature's accessibility impact reveals significant benefits for users with diverse accessibility needs:
-
-\paragraph{Breadcrumb accessibility benefits}
+A formal analysis of the breadcrumb feature's accessibility impact reveals significant benefits for users with diverse accessibility needs.
 
 \begin{enumerate}
     \item \textbf{Structural navigation}: Breadcrumbs provide an explicit representation of the application's hierarchical structure, helping users with cognitive disabilities understand their location within the application;
@@ -1226,18 +1227,18 @@ This implementation represents a comprehensive accessibility solution that benef
 
 \subsubsection{Beyond WCAG: component categorization guidelines}
 
-The Components Screen defines several accessibility principles specifically focused on organizing and categorizing interface elements to promote systematic accessibility implementation:
+The Components screen defines several accessibility principles specifically focused on organizing and categorizing interface elements to promote systematic accessibility implementation:
 
 \begin{enumerate}
-    \item \textbf{Component complexity signaling}: User interface components should be explicitly categorized by implementation complexity (Essential, Complex, Advanced, Beta), helping developers prioritize accessibility efforts according to their experience level and resource constraints. The Components Screen implements this through a consistent badge system across all component cards;
+    \item \textbf{Component complexity signaling}: User interface components should be explicitly categorized by implementation complexity (Essential, Complex, Advanced, Beta), helping developers prioritize accessibility efforts according to their experience level and resource constraints. The Components screen implements this through a consistent badge system across all component cards;
     
-    \item \textbf{Feature-oriented grouping}: Accessibility features should be grouped by functional similarity rather than WCAG criteria, creating more intuitive implementation pathways. The Components Screen implements this by organizing related controls together (e.g., "Buttons \& Touchables") regardless of which specific WCAG criteria they address;
+    \item \textbf{Feature-oriented grouping}: Accessibility features should be grouped by functional similarity rather than WCAG criteria, creating more intuitive implementation pathways. The Components screen implements this by organizing related controls together (e.g., "Buttons \& Touchables") regardless of which specific WCAG criteria they address;
     
-    \item \textbf{Progressive implementation pathway}: Components should be organized in a sequence that builds accessibility knowledge progressively, beginning with fundamental elements before introducing more complex patterns. The Components Screen implements this through its hierarchical organization from basic elements (buttons) to complex patterns (dialogs, navigation);
+    \item \textbf{Progressive implementation pathway}: Components should be organized in a sequence that builds accessibility knowledge progressively, beginning with fundamental elements before introducing more complex patterns. The Components screen implements this through its hierarchical organization from basic elements (buttons) to complex patterns (dialogs, navigation);
     
     \item \textbf{Cross-cutting feature indication}: Key accessibility features that apply across multiple component types should be visually highlighted to reinforce their importance. The feature icons within each component card implement this by consistently identifying common accessibility considerations (e.g., touch target sizing, focus management);
     
-    \item \textbf{Transition announcement principle}: Navigation between component categories should be explicitly announced to assist screen reader users in maintaining context. The Components Screen implements this through the \texttt{announceForAccessibility} announcements during navigation.
+    \item \textbf{Transition announcement principle}: Navigation between component categories should be explicitly announced to assist screen reader users in maintaining context. The Components screen implements this through the \texttt{announceForAccessibility} announcements during navigation.
 \end{enumerate}
 
 These guidelines extend WCAG by providing a structured framework for organizing component-level accessibility implementations, addressing a gap in the standards which focus on what features to implement but provide limited guidance on how to structure implementation across a complex application interface.
@@ -1312,22 +1313,20 @@ The Buttons and Touchables screen demonstrates fundamental accessibility impleme
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Buttons and Touchables Screen}]{img/button1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Buttons and touchables screen}]{img/button1.png}
         \caption{Button screen - Part 1}
         \label{fig:button-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Buttons and Touchables Screen}]{img/button2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Buttons and touchables screen}]{img/button2.png}
         \caption{Button screen - Part 2}
         \label{fig:button-right}
     \end{subfigure}
     \caption{Side-by-side view of the two Button and Touchables screen parts}
     \label{fig:button_screens_sidebyside}
 \end{figure}
-
-\pagebreak
 
 \paragraph{Component inventory and WCAG/MCAG mapping}
 
@@ -1412,7 +1411,7 @@ Several key accessibility considerations are implemented in this example:
 
 \paragraph{Implementation overhead analysis}
 
-Table~\ref{tab:buttons_implementation_overhead} quantifies the additional code required to implement accessibility features in the Buttons and Touchables Screen.
+Table~\ref{tab:buttons_implementation_overhead} quantifies the additional code required to implement accessibility features in the Buttons and touchables screen.
 
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Buttons screen accessibility implementation overhead}
@@ -1552,23 +1551,23 @@ Empirical testing with VoiceOver (iOS) and TalkBack (Android) reveals consistent
 
 These findings confirm that the accessibility implementation patterns used throughout the component screens provide consistent and reliable behavior across both major mobile platforms when proper accessibility properties are applied.
 
-\subsubsection{Forms screen}
+\subsubsection{Form screen}
 \label{subsubsec:forms-screen}
 
-The Forms screen demonstrates complex accessibility patterns for capturing user input. Unlike the simpler Buttons screen, Forms present additional challenges related to input association, validation feedback, and state communication. Figure~\ref{fig:form_screens_sidebyside} shows the main interface of this screen.
+The Form screen demonstrates complex accessibility patterns for capturing user input. Unlike the simpler Buttons screen, form elements present additional challenges related to input association, validation feedback, and state communication. Figure~\ref{fig:form_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Form Screen}]{img/form1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Form creen}]{img/form1.png}
         \caption{Form screen - Part 1}
         \label{fig:form-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Form Screen}]{img/form2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Form screen}]{img/form2.png}
         \caption{Form screen - Part 2}
         \label{fig:form-right}
     \end{subfigure}
@@ -1578,7 +1577,7 @@ The Forms screen demonstrates complex accessibility patterns for capturing user 
 
 \paragraph{Key accessibility considerations}
 
-The Forms screen addresses several critical accessibility patterns beyond basic labeling:
+The Form screen addresses several critical accessibility patterns beyond basic labeling:
 
 \begin{enumerate}
     \item \textbf{Input association}: Clear association between labels and input fields using semantic grouping;
@@ -1628,27 +1627,27 @@ Listing~\ref{lst:form_implementation} demonstrates the implementation of accessi
 
 Forms have the highest accessibility implementation overhead (21.5\%) among component types, reflecting the complexity of making multi-part input systems fully accessible. The primary contributors to this overhead are state communication mechanisms and validation feedback systems.
 
-\subsubsection{Dialogs screen}
+\subsubsection{Dialog screen}
 \label{subsubsec:dialogs-screen}
 
-The Dialogs screen addresses one of the most challenging accessibility patterns in mobile applications: modal content that must trap and manage focus while providing clear context and exit mechanisms. Figure~\ref{fig:dialog_screens_sidebyside} shows the main interface of this screen.
+The Dialog screen addresses one of the most challenging accessibility patterns in mobile applications: modal content that must trap and manage focus while providing clear context and exit mechanisms. Figure~\ref{fig:dialog_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Dialog Screen}]{img/dialog1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Dialog screen}]{img/dialog1.png}
         \caption{Dialog screen - Part 1}
         \label{fig:dialog-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Dialog Screen}]{img/dialog2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Dialog screen}]{img/dialog2.png}
         \caption{Dialog screen - Part 2}
         \label{fig:dialog-right}
     \end{subfigure}
-    \caption{Side-by-side view of the two Form screen parts}
+    \caption{Side-by-side view of the two Dialog screen parts}
     \label{fig:dialog_screens_sidebyside}
 \end{figure}
 
@@ -1708,24 +1707,24 @@ Dialog implementation on mobile platforms presents unique accessibility challeng
     \item \textbf{Platform convention alignment}: Following platform-specific dialog patterns for consistent user experience.
 \end{itemize}
 
-\subsubsection{Media content screen}
+\subsubsection{Media screen}
 \label{subsubsec:media-screen}
 
-The Media screen demonstrates accessibility techniques for non-text content—one of the most fundamental aspects of digital accessibility.
+The Media screen demonstrates accessibility techniques for non-text content—one of the most fundamental aspects of digital accessibility, employing some placeholder images free of license as examples.
 Figure~\ref{fig:media_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Media Screen}]{img/dialog1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Media screen}]{img/media1.png}
         \caption{Media screen - Part 1}
         \label{fig:media-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Media Screen}]{img/media2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Media screen}]{img/media2.png}
         \caption{Media screen - Part 2}
         \label{fig:media-right}
     \end{subfigure}
@@ -1770,20 +1769,20 @@ Media components have the lowest accessibility implementation overhead (12.7\%) 
 \subsubsection{Advanced components screen}
 \label{subsubsec:advanced-screen}
 
-The Advanced Components screen demonstrates accessibility implementations for more complex UI patterns including tabs, progress indicators, alerts, and sliders. Figure~\ref{fig:advanced_screens_sidebyside1} and ~\ref{fig:advanced_screens_sidebyside2}  shows the two parts of the main interface of this screen.
+The Advanced components screen demonstrates accessibility implementations for more complex UI patterns including tabs, progress indicators, alerts, and sliders. Figure~\ref{fig:advanced_screens_sidebyside1} and ~\ref{fig:advanced_screens_sidebyside2}  shows the two parts of the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Advanced Screen}]{img/advanced1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Advanced screen}]{img/advanced1.png}
         \caption{Advanced screen - Part 1}
         \label{fig:advanced-left1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Advanced Screen}]{img/advanced2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Advanced screen}]{img/advanced2.png}
         \caption{Advanced screen - Part 2}
         \label{fig:advanced-right1}
     \end{subfigure}
@@ -1795,14 +1794,14 @@ The Advanced Components screen demonstrates accessibility implementations for mo
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Third part of the Advanced Screen}]{img/advanced3.png}
+        \includegraphics[width=\linewidth, alt={Third part of the Advanced screen}]{img/advanced3.png}
         \caption{Advanced screen - Part 3}
         \label{fig:advanced-left2}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Fourth part of the Dialog Screen}]{img/advanced4.png}
+        \includegraphics[width=\linewidth, alt={Fourth part of the Advanced screen}]{img/advanced4.png}
         \caption{Advanced screen - Part 4}
         \label{fig:advanced-right2}
     \end{subfigure}
@@ -1860,24 +1859,24 @@ These insights provide developers with a framework for prioritizing accessibilit
 
 \subsection{Best practices main screen}
 
-The Best Practices Screen serves as a comprehensive educational resource within the \textit{AccessibleHub} application. It provides developers with access to essential guidelines, patterns, and interactive resources for implementing accessibility in mobile applications. The screen organizes accessibility knowledge into five key categories: \textit{WCAG Guidelines, Semantic Structure, Gesture Tutorial, Screen Reader Support, and Logical Focus Order}. An example of the interface is shown in Figure~\ref{fig:best_practices_screens_sidebyside}.
+The Best practices screen serves as a comprehensive educational resource within the \textit{AccessibleHub} application. It provides developers with access to essential guidelines, patterns, and interactive resources for implementing accessibility in mobile applications. The screen organizes accessibility knowledge into five key categories: \textit{WCAG Guidelines, Semantic Structure, Gesture Tutorial, Screen Reader Support, and Logical Focus Order}. An example of the interface is shown in Figure~\ref{fig:best_practices_screens_sidebyside}.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Best Practices Screen}]{img/practices1.png}
+        \includegraphics[width=\linewidth, alt={First part of the Best practices screen}]{img/practices1.png}
         \caption{Best practices screen - Top section}
         \label{fig:best-practices-top}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Best Practices Screen}]{img/practices2.png}
+        \includegraphics[width=\linewidth, alt={Second part of the Best practices screen}]{img/practices2.png}
         \caption{Best practices screen - Bottom section}
         \label{fig:best-practices-bottom}
     \end{subfigure}
-    \caption{Side-by-side view of the Best Practices Screen sections, showing accessibility guideline categories}
+    \caption{Side-by-side view of the Best practices screen sections, showing accessibility guideline categories}
     \label{fig:best_practices_screens_sidebyside}
 \end{figure}
 
@@ -1915,18 +1914,18 @@ Badges (Documentation, Interactive Guide, etc.) & text & 1.4.3 Contrast (AA)\new
 \hline
 Feature Items (with checkmark icons) & text & 1.3.1 Info and Relationships (A) & Grouping related information & Parent element contains all related information \\
 \hline
-Chevron Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true}\newline \texttt{importantFor \ Accessibility= \ "no-hide-descendants"} \\
+Chevron Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibilityElements \ Hidden=true},\newline \texttt{importantFor \ Accessibility= \ "no-hide-descendants"} \\
 \hline
 Screen Announcements & status & 4.1.3 Status Messages (AA) & Context retention\newline Screen transitions & \texttt{AccessibilityInfo. \ announceFor \ Accessibility} \\
 \end{longtable}
 
 \subsubsection{Technical implementation analysis}
 
-The code sample in Listing~\ref{lst:best-practices-screen-accessibility} demonstrates the key accessibility properties implemented in the Best Practices Screen.
+The code sample in Listing~\ref{lst:best-practices-screen-accessibility} demonstrates the key accessibility properties implemented in the Best practices screen.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
-  caption={Annotated code sample demonstrating Best Practices Screen accessibility properties},
+  caption={Annotated code sample demonstrating Best practices screen accessibility properties},
   label={lst:best-practices-screen-accessibility},
   basicstyle=\ttfamily\footnotesize,
   numbers=left,
@@ -1976,7 +1975,7 @@ The code sample in Listing~\ref{lst:best-practices-screen-accessibility} demonst
   </TouchableOpacity>
 \end{lstlisting}
 
-The implementation of the Best Practices Screen addresses several important accessibility considerations:
+The implementation of the Best practices screen addresses several important accessibility considerations:
 
 \begin{enumerate}
     \item \textbf{Elimination of garbage interactions}: Decorative elements (icons, chevrons) are properly hidden from screen readers using both \texttt{accessibilityElementsHidden} and \\ \texttt{importantForAccessibility="no-hide-descendants"} to eliminate unnecessary swipes, which directly addresses feedback received during accessibility testing;
@@ -1990,7 +1989,7 @@ The implementation of the Best Practices Screen addresses several important acce
 
 \subsubsection{Screen reader support analysis}
 
-Table~\ref{tab:best_practices_screen_reader_analysis} presents results from systematic testing of the Best Practices Screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:best_practices_screen_reader_analysis} presents results from systematic testing of the Best practices screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Best practices screen screen reader testing results}
@@ -2038,7 +2037,7 @@ The implementation addresses several key MCAG considerations specific to mobile 
 
 \subsubsection{Implementation overhead analysis}
 
-Table~\ref{tab:best_practices_implementation_overhead} quantifies the additional code required to implement accessibility features in the Best Practices Screen.
+Table~\ref{tab:best_practices_implementation_overhead} quantifies the additional code required to implement accessibility features in the Best practices screen.
 
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Best practices screen accessibility implementation overhead}
@@ -2075,7 +2074,7 @@ Touch Target Sizing & 20 LOC & 3.6\% & Medium \\
 \textbf{Total} & \textbf{134 LOC} & \textbf{24.1\%} & \textbf{Medium} \\
 \end{longtable}
 
-This analysis reveals that implementing comprehensive accessibility adds approximately 24.1\% to the code base of the Best Practices Screen. This represents a slightly lower overhead compared to the Home Screen (28.0\%) and Components Screen (32.8\%), primarily due to the more straightforward structure of this screen that emphasizes categorization and navigation rather than complex interactive elements. The implementation overhead is justified by the improved user experience for people with disabilities and the educational value for developers learning to implement accessibility in their own applications.
+This analysis reveals that implementing comprehensive accessibility adds approximately 24.1\% to the code base of the Best practices screen. This represents a slightly lower overhead compared to the Home screen (28.0\%) and Components screen (32.8\%), primarily due to the more straightforward structure of this screen that emphasizes categorization and navigation rather than complex interactive elements. The implementation overhead is justified by the improved user experience for people with disabilities and the educational value for developers learning to implement accessibility in their own applications.
 
 \subsubsection{WCAG conformance by principle}
 
@@ -2110,7 +2109,7 @@ Table~\ref{tab:best_practices_wcag_by_principle} provides a detailed analysis of
 
 \subsubsection{Category-specific accessibility analysis}
 
-Each category card within the Best Practices Screen implements specific accessibility considerations relevant to its content domain:
+Each category card within the Best practices screen implements specific accessibility considerations relevant to its content domain:
 
 \paragraph{WCAG guidelines card}
 
@@ -2138,7 +2137,7 @@ The Gesture Tutorial card implements specific considerations for educational int
 
 \paragraph{Screen reader support card}
 
-The Screen Reader Support card serves as a gateway to platform-specific accessibility guidance:
+The Screen reader support card serves as a gateway to platform-specific accessibility guidance:
 
 \begin{enumerate}
     \item \textbf{Platform-specific indication}: The card includes feature items that indicate platform-specific guidance will be provided, setting appropriate user expectations;
@@ -2150,7 +2149,7 @@ The Screen Reader Support card serves as a gateway to platform-specific accessib
 
 \subsubsection{Mobile-specific considerations}
 
-The Best Practices Screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
+The Best practices screen implementation addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
 
 \begin{enumerate}
     \item \textbf{Card-based information architecture}: The implementation uses a card-based design pattern that maintains clear boundaries between content categories—this addresses the mobile-specific challenge of limited screen space by creating visually and semantically distinct content blocks that are easier to perceive on smaller screens;
@@ -2166,14 +2165,14 @@ The Best Practices Screen implementation addresses several mobile-specific acces
 
 \subsubsection{Beyond WCAG: pedagogical accessibility guidelines}
 
-The Best Practices Screen defines several educational principles that extend beyond standard WCAG requirements, addressing how accessibility knowledge should be structured and presented to developers:
+The Best practices screen defines several educational principles that extend beyond standard WCAG requirements, addressing how accessibility knowledge should be structured and presented to developers:
 
 \begin{enumerate}
-    \item \textbf{Multi-modal learning principle}: Accessibility education should combine different learning modalities (documentation, code examples, interactive guides) to accommodate diverse learning styles. The Best Practices screen implements this through explicit categorization of each practice with appropriate badges (Documentation, Code Examples, Interactive Guide) that indicate the learning approach;
+    \item \textbf{Multi-modal learning principle}: Accessibility education should combine different learning modalities (documentation, code examples, interactive guides) to accommodate diverse learning styles. The Best practices screen implements this through explicit categorization of each practice with appropriate badges (Documentation, Code Examples, Interactive Guide) that indicate the learning approach;
     
     \item \textbf{Conceptual categorization}: Accessibility practices should be organized by conceptual domain (guidelines, structure, gestures, screen readers, navigation) rather than by technical implementation details. This organization recognizes that developers approach accessibility from different conceptual entry points based on their specific challenges and interests;
     
-    \item \textbf{Visual encoding of content types}: Different types of accessibility guidance should be visually differentiated through consistent color coding and iconography. The Best Practices screen implements this through a formal color system that assigns specific colors to each practice category, reinforcing the conceptual boundaries between different accessibility domains;
+    \item \textbf{Visual encoding of content types}: Different types of accessibility guidance should be visually differentiated through consistent color coding and iconography. The Best practices screen implements this through a formal color system that assigns specific colors to each practice category, reinforcing the conceptual boundaries between different accessibility domains;
     
     \item \textbf{Feature-level accessibility indication}: Each practice area should explicitly indicate the specific accessibility features it addresses. The implementation of feature lists with focused icons and labels ensures developers can quickly identify relevant guidelines for particular accessibility challenges;
     
@@ -2226,14 +2225,14 @@ The WCAG Guidelines screen serves as a foundational educational resource, introd
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the WCAG Guidelines Screen}]{img/guidelines1.jpg}
+        \includegraphics[width=\linewidth, alt={First part of the WCAG guidelines screen}]{img/guidelines1.jpg}
         \caption{Guidelines screen - Part 1}
         \label{fig:guidelines-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the WCAG Guidelines Screen}]{img/guidelines2.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of the WCAG guidelines screen}]{img/guidelines2.jpg}
         \caption{Guidelines screen - Part 2}
         \label{fig:guidelines-right}
     \end{subfigure}
@@ -2280,11 +2279,11 @@ Checkmark Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary f
 
 \paragraph{Technical implementation analysis}
 
-The code sample in Listing~\ref{lst:guidelines-screen-accessibility} demonstrates the key accessibility properties implemented in the WCAG Guidelines Screen.
+The code sample in Listing~\ref{lst:guidelines-screen-accessibility} demonstrates the key accessibility properties implemented in the WCAG guidelines screen.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
-  caption={Annotated code sample demonstrating Guidelines Screen accessibility properties},
+  caption={Annotated code sample demonstrating guidelines screen accessibility properties},
   label={lst:guidelines-screen-accessibility},
   basicstyle=\ttfamily\footnotesize,
   numbers=left,
@@ -2329,10 +2328,10 @@ The code sample in Listing~\ref{lst:guidelines-screen-accessibility} demonstrate
 </View>
 \end{lstlisting}
 
-The implementation of the Guidelines Screen addresses several important accessibility considerations:
+The implementation of the Guidelines screen addresses several important accessibility considerations:
 
 \begin{enumerate}
-    \item \textbf{Proper hiding of decorative elements}: All decorative icons (principle icons, checkmarks) are properly hidden from screen readers using both \texttt{accessibilityElementsHidden=true} and \texttt{importantForAccessibility="no-hide-descendants"}, \\ eliminating unnecessary swipes;
+    \item \textbf{Proper hiding of decorative elements}: All decorative icons (principle icons, checkmarks) are properly hidden from screen readers using both \\ \texttt{accessibilityElementsHidden=true} and \\ \texttt{importantForAccessibility="no-hide-descendants"}, \\ eliminating unnecessary swipes;
     
     \item \textbf{Semantic structure}: The implementation creates a clear hierarchical structure with the title at the top, followed by descriptions and related checklist items, ensuring proper comprehension of content relationships;
     
@@ -2343,7 +2342,7 @@ The implementation of the Guidelines Screen addresses several important accessib
 
 \paragraph{Screen reader support analysis}
 
-Table~\ref{tab:guidelines_screen_reader_analysis} presents results from systematic testing of the Guidelines Screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:guidelines_screen_reader_analysis} presents results from systematic testing of the Guidelines screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Guidelines screen screen reader testing results}
@@ -2378,7 +2377,7 @@ Navigation Between Principles & \ding{51} Clear sequential navigation & \ding{51
 
 \paragraph{Implementation overhead analysis}
 
-Table~\ref{tab:guidelines_implementation_overhead} quantifies the additional code required to implement accessibility features in the Guidelines Screen.
+Table~\ref{tab:guidelines_implementation_overhead} quantifies the additional code required to implement accessibility features in the Guidelines screen.
 
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Guidelines screen accessibility implementation overhead}
@@ -2409,11 +2408,11 @@ Contrast Handling & 14 LOC & 2.5\% & Medium \\
 \textbf{Total} & \textbf{48 LOC} & \textbf{8.7\%} & \textbf{Low} \\
 \end{longtable}
 
-This analysis reveals that implementing accessibility for the Guidelines Screen adds approximately 8.7\% to the code base, which is notably lower than other screens. This is primarily because the Guidelines Screen is largely informational and makes extensive use of static text elements with minimal interactive components. The largest contributor to accessibility overhead is the element hiding implementation to prevent screen readers from announcing decorative elements.
+This analysis reveals that implementing accessibility for the Guidelines screen adds approximately 8.7\% to the code base, which is notably lower than other screens. This is primarily because the Guidelines screen is largely informational and makes extensive use of static text elements with minimal interactive components. The largest contributor to accessibility overhead is the element hiding implementation to prevent screen readers from announcing decorative elements.
 
 \paragraph{Mobile-specific considerations}
 
-The Guidelines Screen implementation addresses several mobile-specific considerations beyond standard WCAG requirements:
+The Guidelines screen implementation addresses several mobile-specific considerations beyond standard WCAG requirements:
 
 \begin{enumerate}
     \item \textbf{Efficient vertical information architecture}: The card-based layout presents information in a vertically stacked format that works well with the limited width of mobile screens, enabling clear presentation without requiring horizontal scrolling;
@@ -2434,14 +2433,14 @@ The Gestures tutorial screen provides an interactive educational experience for 
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Gestures Tutorial Screen}]{img/gestures1.jpg}
+        \includegraphics[width=\linewidth, alt={First part of the Gestures tutorial screen}]{img/gestures1.jpg}
         \caption{Gestures tutorial screen - Part 1}
         \label{fig:gestures-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Gestures Tutorial Screen}]{img/gestures2.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of the Gestures tutorial screen}]{img/gestures2.jpg}
         \caption{Gestures tutorial screen - Part 2}
         \label{fig:gestures-right}
     \end{subfigure}
@@ -2479,7 +2478,7 @@ Practice Cards & none & 1.3.1 Info and Relationships (A) & Logical grouping of r
 \hline
 Practice Title & text & 2.4.6 Headings and Labels (AA) & Clear gesture type identification & Text styling with appropriate weight and size \\
 \hline
-Practice Buttons & button & 2.5.1 Pointer Gestures (A)\newline 2.5.2 Pointer Cancellation (A)\newline 4.1.2 Name, Role, Value (A) & Alternative activation methods\newline Touch target size\newline Gesture guidance & \texttt{accessibilityRole \ ="button"}\newline \texttt{accessibilityLabel}\newline \texttt{accessibilityHint}\newline \texttt{accessibilityActions} \\
+Practice Buttons & button & 2.5.1 Pointer Gestures (A)\newline 2.5.2 Pointer Cancellation (A)\newline 4.1.2 Name, Role, Value (A) & Alternative activation methods\newline Touch target size\newline Gesture guidance & \texttt{accessibilityRole \ ="button"},\newline \texttt{accessibilityLabel},\newline \texttt{accessibilityHint},\newline \texttt{accessibilityActions} \\
 \hline
 Success Feedback & text & 4.1.3 Status Messages (AA) & Non-visual feedback for actions & \texttt{accessibilityLive \ Region ="polite"} \\
 \hline
@@ -2586,7 +2585,7 @@ The implementation addresses several critical accessibility considerations:
 
 \paragraph{Screen reader support analysis}
 
-Table~\ref{tab:gestures_screen_reader_analysis} presents results from systematic testing of the Gestures Tutorial Screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:gestures_screen_reader_analysis} presents results from systematic testing of the Gestures tutorial screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Gestures tutorial screen screen reader testing results}
@@ -2619,7 +2618,7 @@ Context-Sensitive Instructions & \ding{51} Provides SR-specific instructions & \
 
 \paragraph{Implementation overhead analysis}
 
-Table~\ref{tab:gestures_implementation_overhead} quantifies the additional code required to implement accessibility features in the Gestures Tutorial Screen.
+Table~\ref{tab:gestures_implementation_overhead} quantifies the additional code required to implement accessibility features in the Gestures tutorial screen.
 
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Gestures tutorial screen accessibility implementation overhead}
@@ -2654,11 +2653,11 @@ Adaptive Logic & 34 LOC & 8.0\% & High \\
 \textbf{Total} & \textbf{104 LOC} & \textbf{24.4\%} & \textbf{Medium-High} \\
 \end{longtable}
 
-This analysis reveals that implementing comprehensive accessibility for the Gestures Tutorial Screen adds approximately 24.4\% to the code base, which is relatively high compared to other screens. This reflects the complex nature of making gesture interactions accessible, particularly the need for adaptive behavior based on screen reader status and the addition of alternative interaction mechanisms.
+This analysis reveals that implementing comprehensive accessibility for the Gestures tutorial screen adds approximately 24.4\% to the code base, which is relatively high compared to other screens. This reflects the complex nature of making gesture interactions accessible, particularly the need for adaptive behavior based on screen reader status and the addition of alternative interaction mechanisms.
 
 \paragraph{Mobile-specific considerations}
 
-The Gestures Tutorial Screen addresses several critical mobile-specific accessibility considerations that are particularly relevant to touch-based platforms:
+The Gestures tutorial screen addresses several critical mobile-specific accessibility considerations that are particularly relevant to touch-based platforms:
 
 \begin{enumerate}
     \item \textbf{Alternative input methods}: The implementation provides multiple ways to perform each gesture, accommodating different user capabilities and assistive technologies—a core requirement for mobile accessibility where touch is the primary input method;
@@ -2679,18 +2678,18 @@ The Logical navigation screen demonstrates techniques for implementing accessibl
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Logical Navigation Screen}]{img/logical1.jpg}
+        \includegraphics[width=\linewidth, alt={First part of the Logical navigation screen}]{img/logical1.jpg}
         \caption{Logical navigation screen - Part 1}
         \label{fig:logical-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Logical Navigation Screen}]{img/logical2.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of the Logical navigation screen}]{img/logical2.jpg}
         \caption{Logical navigation screen - Part 2}
         \label{fig:logical-right}
     \end{subfigure}
-    \caption{Side-by-side view of the Logical Navigation screen sections}
+    \caption{Side-by-side view of the Logical navigation screen sections}
     \label{fig:logical_screens_sidebyside}
 \end{figure}
 
@@ -2752,7 +2751,7 @@ This involves several key steps:
 
 \paragraph{Screen reader support analysis}
 
-Table~\ref{tab:logical_screen_reader_analysis} presents results from systematic testing of the Logical Navigation Screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:logical_screen_reader_analysis} presents results from systematic testing of the Logical navigation screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Logical navigation screen screen reader testing results}
@@ -2785,7 +2784,7 @@ Main Content Container & \ding{51} Proper role announcement & \ding{51} Proper r
 
 \paragraph{Mobile-specific considerations}
 
-The Logical Navigation Screen addresses several mobile-specific accessibility considerations:
+The Logical navigation screen addresses several mobile-specific accessibility considerations:
 
 \begin{enumerate}
     \item \textbf{Limited viewport management}: Mobile screens have limited viewport space, making it more critical to provide efficient navigation mechanisms that reduce scrolling and swiping—the skip link directly addresses this constraint;
@@ -2800,24 +2799,24 @@ The Logical Navigation Screen addresses several mobile-specific accessibility co
 \subsubsection{Screen reader support screen}
 \label{subsubsec:screen-reader-support}
 
-The Screen Reader Support screen provides platform-specific guidance for optimizing applications for VoiceOver (iOS) and TalkBack (Android). It offers developers insight into how screen readers work on mobile platforms and specific gestures users employ to navigate content. Figure~\ref{fig:screen_reader_screens_sidebyside} shows the main interface of this screen.
+The Screen reader support screen provides platform-specific guidance for optimizing applications for VoiceOver (iOS) and TalkBack (Android). It offers developers insight into how screen readers work on mobile platforms and specific gestures users employ to navigate content. Figure~\ref{fig:screen_reader_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Screen Reader Support Screen}]{img/screenreader1.jpg}
+        \includegraphics[width=\linewidth, alt={First part of the Screen reader support screen}]{img/screenreader1.jpg}
         \caption{Screen reader support screen - Part 1}
         \label{fig:screen-reader-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Screen Reader Support Screen}]{img/screenreader2.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of the Screen reader support screen}]{img/screenreader2.jpg}
         \caption{Screen reader support screen - Part 2}
         \label{fig:screen-reader-right}
     \end{subfigure}
-    \caption{Side-by-side view of the Screen Reader Support screen sections}
+    \caption{Side-by-side view of the Screen reader support screen sections}
     \label{fig:screen_reader_screens_sidebyside}
 \end{figure}
 
@@ -2936,7 +2935,7 @@ The implementation addresses several important accessibility considerations:
 
 \paragraph{Mobile-specific considerations}
 
-The Screen Reader Support Screen addresses several mobile-specific accessibility considerations:
+The Screen reader support screen addresses several mobile-specific accessibility considerations:
 
 \begin{enumerate}
     \item \textbf{Platform-specific guidance}: By explicitly separating iOS and Android guidance, the screen acknowledges the significant differences between VoiceOver and TalkBack, providing developers with platform-specific implementation advice;
@@ -2957,14 +2956,14 @@ The Semantic Structure screen provides guidance on creating meaningful content h
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Semantic Structure Screen}]{img/semantics1.jpg}
+        \includegraphics[width=\linewidth, alt={First part of the Semantic structure screen}]{img/semantics1.jpg}
         \caption{Semantic structure screen - Part 1}
         \label{fig:semantics-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Semantic Structure Screen}]{img/semantics2.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of the Semantic structure screen}]{img/semantics2.jpg}
         \caption{Semantic structure screen - Part 2}
         \label{fig:semantics-right}
     \end{subfigure}
@@ -3004,7 +3003,7 @@ Card Title & text & 2.4.6 Headings and Labels (AA) & Information category identi
 \hline
 Card Description & text & 1.3.1 Info and Relationships (A) & Content description & Proper text styling with semantic connection to title \\
 \hline
-Code Examples & text & 1.3.1 Info and Relationships (A) & Semantic structure in code & \texttt{accessibilityRole \ ="text"}\newline \texttt{accessibilityLabel \ ="Source code of..."} \\
+Code Examples & text & 1.3.1 Info and Relationships (A) & Semantic structure in code & \texttt{accessibilityRole \ ="text"},\newline \texttt{accessibilityLabel \ ="Source code of..."} \\
 \hline
 Bullet List Items & text & 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A) & Grouped related information & Parent container with proper visual structure \\
 \hline
@@ -3067,7 +3066,7 @@ The implementation addresses several important accessibility considerations:
 
 \paragraph{Mobile-specific considerations}
 
-The Semantic Structure Screen addresses several mobile-specific accessibility considerations:
+The Semantic structure screen addresses several mobile-specific accessibility considerations:
 
 \begin{enumerate}
     \item \textbf{Adapting web concepts to mobile}: The screen translates traditional web accessibility concepts (headings, landmarks) to the mobile context, helping developers understand how to implement these patterns in React Native;
@@ -3156,20 +3155,20 @@ These enhancements would further strengthen the educational value of the Best Pr
 \subsection{Accessibility tools screen}
 \label{subsec:tools-screen}
 
-The Accessibility Tools screen serves as a comprehensive resource guide for developers, cataloging essential tools and resources for testing and improving mobile application accessibility. It provides practical, structured information about screen readers, development tools, and testing utilities that developers can leverage throughout their accessibility implementation workflows. Figure~\ref{fig:tools_screens_sidebyside} shows the main interface of this screen.
+The Accessibility tools screen serves as a comprehensive resource guide for developers, cataloging essential tools and resources for testing and improving mobile application accessibility. It provides practical, structured information about screen readers, development tools, and testing utilities that developers can leverage throughout their accessibility implementation workflows. Figure~\ref{fig:tools_screens_sidebyside} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Tools Screen}]{img/tools1.jpg}
+        \includegraphics[width=\linewidth, alt={First part of the Tools screen}]{img/tools1.jpg}
         \caption{Tools screen - Part 1}
         \label{fig:tools-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Tools Screen}]{img/tools2.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of the Tools screen}]{img/tools2.jpg}
         \caption{Tools screen - Part 2}
         \label{fig:tools-right}
     \end{subfigure}
@@ -3183,7 +3182,7 @@ The Accessibility Tools screen serves as a comprehensive resource guide for deve
 
 Table~\ref{tab:tools_component_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\begin{longtable}[c]{|P{2.8cm}|P{2cm}|P{2.8cm}|P{2.8cm}|P{4.5cm}|}
+\begin{longtable}[c]{|P{2.8cm}|P{2cm}|P{2.8cm}|P{2.8cm}|P{4.8cm}|}
 \caption{Tools screen component-criteria mapping}
 \label{tab:tools_component_mapping}\\
 \hline
@@ -3425,24 +3424,24 @@ These guidelines extend WCAG principles to address the specific needs of develop
 \subsection{Instruction and community screen}
 \label{subsec:instruction-community-screen}
 
-The Instruction and Community screen serves as a collaborative learning hub that extends beyond technical implementation details. It provides developers with opportunities to engage with the broader accessibility community, learn from practical examples, and discover resources for deeper learning. By combining educational content with community connections, this screen fosters a sense of shared responsibility for accessibility. Figure~\ref{fig:instruction_screens_sidebyside} and \ref{fig:instruction_screens_sidebyside2} show the main interfaces of this screen.
+The Instruction and community screen serves as a collaborative learning hub that extends beyond technical implementation details. It provides developers with opportunities to engage with the broader accessibility community, learn from practical examples, and discover resources for deeper learning. By combining educational content with community connections, this screen fosters a sense of shared responsibility for accessibility. Figure~\ref{fig:instruction_screens_sidebyside} and \ref{fig:instruction_screens_sidebyside2} show the main interfaces of this screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of the Instruction and Community Screen}]{img/instruction1.jpg}
+        \includegraphics[width=\linewidth, alt={First part of the Instruction and community screen}]{img/instruction1.jpg}
         \caption{Instruction screen - Part 1}
         \label{fig:instruction-left}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of the Instruction and Community Screen}]{img/instruction2.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of the Instruction and community screen}]{img/instruction2.jpg}
         \caption{Instruction screen - Part 2}
         \label{fig:instruction-right}
     \end{subfigure}
-    \caption{Side-by-side view of the Instruction and Community screen sections}
+    \caption{Side-by-side view of the Instruction and vommunity screen sections}
     \label{fig:instruction_screens_sidebyside}
 \end{figure}
 
@@ -3450,18 +3449,18 @@ The Instruction and Community screen serves as a collaborative learning hub that
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Third part of the Instruction and Community Screen}]{img/instruction3.jpg}
+        \includegraphics[width=\linewidth, alt={Third part of the Instruction and community screen}]{img/instruction3.jpg}
         \caption{Instruction screen - Part 3}
         \label{fig:instruction-left2}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Fourth part of the Instruction and Community Screen}]{img/instruction4.jpg}
+        \includegraphics[width=\linewidth, alt={Fourth part of the Instruction and community screen}]{img/instruction4.jpg}
         \caption{Instruction screen - Part 4}
         \label{fig:instruction-right2}
     \end{subfigure}
-    \caption{Side-by-side view of additional Instruction and Community screen sections}
+    \caption{Side-by-side view of additional Instruction and community screen sections}
     \label{fig:instruction_screens_sidebyside2}
 \end{figure}
 
@@ -3512,7 +3511,7 @@ Toolkit Cards & button & 2.4.4 Link Purpose (A)\newline 4.1.2 Name, Role, Value 
 
 \subsubsection{Technical implementation analysis}
 
-The Instruction and Community screen implements several innovative accessibility patterns, particularly in its handling of expandable content and code snippets. Listing~\ref{lst:instruction-screen-accessibility} highlights the implementation of collapsible previews with proper accessibility announcements.
+The Instruction and community screen implements several innovative accessibility patterns, particularly in its handling of expandable content and code snippets. Listing~\ref{lst:instruction-screen-accessibility} highlights the implementation of collapsible previews with proper accessibility announcements.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
@@ -3577,7 +3576,7 @@ The implementation addresses several key accessibility requirements:
 
 \subsubsection{Project cards implementation}
 
-A significant aspect of the Instruction and Community screen is its showcasing of accessibility-focused open source projects. Listing~\ref{lst:project-card-implementation} demonstrates the accessibility implementation of project cards.
+A significant aspect of the Instruction and community screen is its showcasing of accessibility-focused open source projects. Listing~\ref{lst:project-card-implementation} demonstrates the accessibility implementation of project cards.
 
 \begin{lstlisting}[
   style=ReactNativeStyle,
@@ -3647,7 +3646,7 @@ The project card implementation demonstrates several effective accessibility pat
 
 \subsubsection{Screen reader support analysis}
 
-Table~\ref{tab:instruction_screen_reader_analysis} presents results from systematic testing of the Instruction and Community Screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:instruction_screen_reader_analysis} presents results from systematic testing of the Instruction and community screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Instruction screen screen reader testing results}
@@ -3684,7 +3683,7 @@ External Links & \ding{51} Announces purpose and opens browser & \ding{51} Annou
 
 \subsubsection{Implementation overhead analysis}
 
-Table~\ref{tab:instruction_implementation_overhead} quantifies the additional code required to implement accessibility features in the Instruction and Community Screen.
+Table~\ref{tab:instruction_implementation_overhead} quantifies the additional code required to implement accessibility features in the Instruction and community screen.
 
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Instruction screen accessibility implementation overhead}
@@ -3721,7 +3720,7 @@ Code Snippet Presentation & 24 LOC & 3.1\% & Medium \\
 \textbf{Total} & \textbf{156 LOC} & \textbf{20.2\%} & \textbf{Medium} \\
 \end{longtable}
 
-This analysis reveals that implementing comprehensive accessibility for the Instruction and Community screen adds approximately 20.2\% to the code base. The most significant contributors are descriptive labels (4.2\%) and collapsible content management (3.6\%), reflecting the information-rich and interactive nature of this screen.
+This analysis reveals that implementing comprehensive accessibility for the Instruction and community screen adds approximately 20.2\% to the code base. The most significant contributors are descriptive labels (4.2\%) and collapsible content management (3.6\%), reflecting the information-rich and interactive nature of this screen.
 
 \subsubsection{Community resources analysis}
 
@@ -3758,7 +3757,7 @@ This diverse resource collection creates a comprehensive learning ecosystem that
 
 \subsubsection{Beyond WCAG: community-centered accessibility guidelines}
 
-The Instruction and Community screen highlights several guidelines that extend beyond WCAG standards to address the social and community aspects of accessibility implementation:
+The Instruction and community screen highlights several guidelines that extend beyond WCAG standards to address the social and community aspects of accessibility implementation:
 
 \begin{enumerate}
     \item \textbf{Community of practice principle}: Accessibility implementation benefits significantly from social learning and community support. The screen implements this by connecting developers to established community channels and platforms where accessibility knowledge is shared;
@@ -3812,7 +3811,7 @@ The Settings screen serves as a comprehensive control center for adjusting acces
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.48\textwidth, alt={Settings Screen showing accessibility options}]{img/settings_normal.jpg}
+    \includegraphics[width=0.48\textwidth, alt={Settings screen showing accessibility options}]{img/settings_normal.jpg}
     \caption{The Settings screen with various accessibility options}
     \label{fig:settings_screen_main}
 \end{figure}
@@ -4184,24 +4183,24 @@ These guidelines extend WCAG by focusing on the self-adaptation capabilities of 
 \subsection{Framework comparison screen}
 \label{subsec:framework-comparison-screen}
 
-The Framework comparison screen serves as a formal, evidence-based analysis tool for evaluating accessibility implementation across mobile development frameworks. Unlike other screens in the \textit{AccessibleHub} application that focus primarily on educational content or component examples, this screen implements a structured, academically-grounded system for comparing React Native and Flutter using transparent metrics, formal methodology, and verifiable data. Figure~\ref{fig:framework_comparison_main} shows the main interface of the Framework Comparison screen.
+The Framework comparison screen serves as a formal, evidence-based analysis tool for evaluating accessibility implementation across mobile development frameworks. Unlike other screens in the \textit{AccessibleHub} application that focus primarily on educational content or component examples, this screen implements a structured, academically-grounded system for comparing React Native and Flutter using transparent metrics, formal methodology, and verifiable data. Figure~\ref{fig:framework_comparison_main} shows the main interface of the Framework comparison screen.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Framework Comparison Screen with React Native selected}]{img/overview1.jpg}
+        \includegraphics[width=\linewidth, alt={Framework comparison screen with React Native selected}]{img/overview1.jpg}
         \caption{React Native framework view}
         \label{fig:framework-comparison-reactnative}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Framework Comparison Screen with Flutter selected}]{img/overview2.jpg}
+        \includegraphics[width=\linewidth, alt={Framework comparison screen with Flutter selected}]{img/overview2.jpg}
         \caption{Flutter framework view}
         \label{fig:framework-comparison-flutter}
     \end{subfigure}
-    \caption{Framework Comparison screen showing overview information for both frameworks}
+    \caption{Framework comparison screen showing overview information for both frameworks}
     \label{fig:framework_comparison_main}
 \end{figure}
 
@@ -4253,24 +4252,24 @@ Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value 
 
 \subsubsection{Formal methodology system implementation}
 
-The Framework Comparison screen implements a formal, academically rigorous methodology system that establishes a systematic approach to framework evaluation. Unlike other screens in the application that focus on practical implementation examples, this screen incorporates a formal methodological framework evidenced in Figure~\ref{fig:fig:methdology_screens_sidebyside}.
+The Framework comparison screen implements a formal, academically rigorous methodology system that establishes a systematic approach to framework evaluation. Unlike other screens in the application that focus on practical implementation examples, this screen incorporates a formal methodological framework evidenced in Figure~\ref{fig:fig:methdology_screens_sidebyside}.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Methodology tab of the Frameworks Comparison screen}]{img/methodology1.jpg}
+        \includegraphics[width=\linewidth, alt={Methodology tab of the Framework Comparison screen}]{img/methodology1.jpg}
         \caption{First part of Methodology tab}
         \label{fig:methodology-1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Framework Comparison Screen with Flutter selected}]{img/methodology2.jpg}
+        \includegraphics[width=\linewidth, alt={Framework comparison screen with Flutter selected}]{img/methodology2.jpg}
         \caption{Second part of Methodology tab}
         \label{fig:methodology-2}
     \end{subfigure}
-    \caption{Methodology tabs of Frameworks Comparison screen}
+    \caption{Methodology tabs of Framework comparison screen}
     \label{fig:methodology_screens_sidebyside}
 \end{figure}
 
@@ -4290,7 +4289,7 @@ This formal methodology implementation exemplifies the application's commitment 
 
 \subsubsection{Academic reference implementation}
 
-A distinctive feature of the Framework Comparison screen is its comprehensive implementation of academic references. This feature directly connects framework evaluation to peer-reviewed research and formal documentation, creating an evidence-based foundation for accessibility comparisons. Figure~\ref{fig:academic_references} shows the academic references card and its expanded modal dialog.
+A distinctive feature of the Framework comparison screen is its comprehensive implementation of academic references. This feature directly connects framework evaluation to peer-reviewed research and formal documentation, creating an evidence-based foundation for accessibility comparisons. Figure~\ref{fig:academic_references} shows the academic references card and its expanded modal dialog.
 
 \begin{figure}[ht]
     \centering
@@ -4338,7 +4337,7 @@ This academic reference implementation exemplifies how accessibility evaluation 
 
 \subsubsection{Framework data structure}
 
-The Framework Comparison screen implements a comparative analysis through a structured data repository for both React Native and Flutter. This structured approach is visualized through framework selection buttons and framework-specific information cards shown in Figure~\ref{fig:framework_selection}.
+The Framework comparison screen implements a comparative analysis through a structured data repository for both React Native and Flutter. This structured approach is visualized through framework selection buttons and framework-specific information cards shown in Figure~\ref{fig:framework_selection}.
 
 \begin{figure}[ht]
     \centering
@@ -4375,7 +4374,7 @@ This structured data approach transforms subjective framework comparisons into a
 
 \subsubsection{Implementation complexity analysis}
 
-A key contribution of the Framework Comparison screen is its formal analysis of implementation complexity across frameworks. Unlike simple feature comparisons, this screen implements a detailed complexity analysis using multiple metrics. Figure~\ref{fig:implementation_complexity} shows both the complexity analysis card and its expanded modal view.
+A key contribution of the Framework comparison screen is its formal analysis of implementation complexity across frameworks. Unlike simple feature comparisons, this screen implements a detailed complexity analysis using multiple metrics. Figure~\ref{fig:implementation_complexity} shows both the complexity analysis card and its expanded modal view.
 
 \begin{figure}[ht]
     \centering
@@ -4445,24 +4444,24 @@ This detailed implementation comparison provides developers with concrete, evide
 
 \subsubsection{Specific accessibility feature comparison}
 
-The Framework Comparison screen implements detailed comparisons of specific accessibility features, providing both implementation attributes and code examples. Figure~\ref{fig:feature_implementation_sidebyside} shows implementation details for language declaration and text abbreviations in React Native.
+The Framework comparison screen implements detailed comparisons of specific accessibility features, providing both implementation attributes and code examples. Figure~\ref{fig:feature_implementation_sidebyside} shows implementation details for language declaration and text abbreviations in React Native.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={First part of Language in Overview tab of the Frameworks Comparison screen}]{img/language-information.jpg}
+        \includegraphics[width=\linewidth, alt={First part of Language in Overview tab of the Framework comparison screen}]{img/language-information.jpg}
         \caption{First part of Language tab of Overview}
         \label{fig:language-1}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Second part of Language in Overview tab of the Frameworks Comparison screen}]{img/language-calculation.jpg}
+        \includegraphics[width=\linewidth, alt={Second part of Language in Overview tab of the Framework comparison screen}]{img/language-calculation.jpg}
         \caption{Second part of Language tab of Overview}
         \label{fig:language-2}
     \end{subfigure}
-    \caption{Language modals of Frameworks Comparison screen}
+    \caption{Language modals of Framework comparison screen}
     \label{fig:feature_implementation_sidebyside}
 \end{figure}
 
@@ -4482,7 +4481,7 @@ This feature-level comparison transforms abstract accessibility requirements int
 
 \subsubsection{Modal dialog accessibility implementation}
 
-The Framework Comparison screen implements several modal dialogs that incorporate comprehensive accessibility features. Figure~\ref{fig:modal_accessibility} shows the implementation details modal with properly structured tabs.
+The Framework comparison screen implements several modal dialogs that incorporate comprehensive accessibility features. Figure~\ref{fig:modal_accessibility} shows the implementation details modal with properly structured tabs.
 
 \begin{figure}[ht]
     \centering
@@ -4519,7 +4518,7 @@ This accessible modal implementation ensures that complex information like metho
 
 \subsubsection{Screen reader support analysis}
 
-Table~\ref{tab:framework_comparison_screen_reader} presents results from systematic testing of the Framework Comparison screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:framework_comparison_screen_reader} presents results from systematic testing of the Framework comparison screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|P{2.8cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
 \caption{Framework comparison screen screen reader testing results}
@@ -4577,7 +4576,7 @@ The implementation addresses several key screen reader considerations:
 
 \subsubsection{Implementation overhead analysis}
 
-Table~\ref{tab:framework_comparison_overhead} quantifies the additional code required to implement accessibility features in the Framework Comparison screen.
+Table~\ref{tab:framework_comparison_overhead} quantifies the additional code required to implement accessibility features in the Framework comparison screen.
 
 \begin{longtable}[c]{|P{3.8cm}|P{2.3cm}|P{2.8cm}|P{2.8cm}|}
 \caption{Framework comparison screen accessibility implementation overhead}
@@ -4620,11 +4619,11 @@ Rating Bar Accessibility & 22 LOC & 2.6\% & Medium \\
 \textbf{Total} & \textbf{230 LOC} & \textbf{26.9\%} & \textbf{Medium-High} \\
 \end{longtable}
 
-This analysis reveals that implementing comprehensive accessibility for the Framework Comparison screen adds approximately 26.9\% to the code base. The most significant contributors are accessibility labels (4.2\%) and modal accessibility (3.7\%), reflecting the information-rich nature of this screen and the complex interaction patterns with modals and tabs. The implementation overhead is justified by the improved user experience for people with disabilities and the educational value demonstrated through the formal framework comparison.
+This analysis reveals that implementing comprehensive accessibility for the Framework comparison screen adds approximately 26.9\% to the code base. The most significant contributors are accessibility labels (4.2\%) and modal accessibility (3.7\%), reflecting the information-rich nature of this screen and the complex interaction patterns with modals and tabs. The implementation overhead is justified by the improved user experience for people with disabilities and the educational value demonstrated through the formal framework comparison.
 
 \subsubsection{WCAG conformance by principle}
 
-Table~\ref{tab:framework_comparison_wcag} provides a detailed analysis of WCAG 2.2 compliance by principle for the Framework Comparison screen:
+Table~\ref{tab:framework_comparison_wcag} provides a detailed analysis of WCAG 2.2 compliance by principle for the Framework comparison screen:
 
 \begin{longtable}[c]{|P{2.5cm}|P{3.8cm}|P{3.2cm}|P{5.2cm}|}
 \caption{Framework comparison screen WCAG compliance analysis by principle}
@@ -4654,11 +4653,11 @@ Table~\ref{tab:framework_comparison_wcag} provides a detailed analysis of WCAG 2
 \hline
 \end{longtable}
 
-The Framework Comparison screen achieves high compliance across all WCAG principles, with particular strength in the Perceivable, Operable, and Robust principles. The implementation addresses the most critical success criteria for each principle, creating a highly accessible interface that serves as both an exemplar of accessibility implementation and an educational tool for accessibility evaluation.
+The Framework comparison screen achieves high compliance across all WCAG principles, with particular strength in the Perceivable, Operable, and Robust principles. The implementation addresses the most critical success criteria for each principle, creating a highly accessible interface that serves as both an exemplar of accessibility implementation and an educational tool for accessibility evaluation.
 
 \subsubsection{Mobile-specific considerations}
 
-The Framework Comparison screen addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
+The Framework comparison screen addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
 
 \begin{enumerate}
     \item \textbf{Framework-specific adaptation}: The comparison explicitly evaluates each framework's support for mobile-specific accessibility features, addressing the challenges of cross-platform development;
@@ -4674,7 +4673,7 @@ The Framework Comparison screen addresses several mobile-specific accessibility 
 
 \subsubsection{Beyond WCAG: evidence-based accessibility evaluation guidelines}
 
-The Framework Comparison screen embodies several principles that extend beyond standard WCAG requirements, particularly focusing on evidence-based evaluation and formal methodology:
+The Framework comparison screen embodies several principles that extend beyond standard WCAG requirements, particularly focusing on evidence-based evaluation and formal methodology:
 
 \begin{enumerate}
     \item \textbf{Academic grounding principle}: Accessibility evaluations should be grounded in peer-reviewed research and formal methodologies. The screen implements this through explicit citations to academic papers and clearly defined evaluation protocols;
@@ -4692,7 +4691,7 @@ These extended principles establish a foundation for evidence-based accessibilit
 
 \subsubsection{Screen reader support comparison methodology}
 
-The Framework Comparison screen implements a rigorous methodology for evaluating screen reader support across frameworks. This methodology, shown in Figure~\ref{fig:screen_reader_methodology}, quantifies support using multiple dimensions with specific weighting.
+The Framework comparison screen implements a rigorous methodology for evaluating screen reader support across frameworks. This methodology, shown in Figure~\ref{fig:screen_reader_methodology}, quantifies support using multiple dimensions with specific weighting.
 
 \begin{figure}[ht]
     \centering
@@ -4729,7 +4728,7 @@ This formal screen reader evaluation methodology establishes a systematic approa
 
 \subsubsection{Implementation complexity calculation methodology}
 
-The Framework Comparison screen implements a formal methodology for calculating implementation complexity, shown in Figure~\ref{fig:screen_reader_methodology}.
+The Framework comparison screen implements a formal methodology for calculating implementation complexity, shown in Figure~\ref{fig:screen_reader_methodology}.
 
 \begin{figure}[ht]
     \centering
@@ -4754,7 +4753,7 @@ This formal calculation methodology creates a transparent, reproducible approach
 
 \subsubsection{Feature-specific implementation comparison}
 
-The Framework Comparison screen implements detailed feature-by-feature comparison of accessibility implementations across frameworks. Figure~\ref{fig:screen_reader_methodology} shows the implementation details for specific accessibility features.
+The Framework comparison screen implements detailed feature-by-feature comparison of accessibility implementations across frameworks. Figure~\ref{fig:screen_reader_methodology} shows the implementation details for specific accessibility features.
 
 The feature-specific comparison implements several key analytical elements:
 
@@ -4772,7 +4771,7 @@ This feature-level comparison transforms abstract accessibility requirements int
 
 \subsubsection{Academic reference detail implementation}
 
-The Framework Comparison screen implements a comprehensive academic reference system that provides formal citation information. Figure~\ref{fig:academic_citation_detail} shows the references tab with complete citation details.
+The Framework comparison screen implements a comprehensive academic reference system that provides formal citation information. Figure~\ref{fig:academic_citation_detail} shows the references tab with complete citation details.
 
 \begin{figure}[ht]
     \centering
@@ -4797,7 +4796,7 @@ This academic reference implementation demonstrates how accessibility evaluation
 
 \subsubsection{Educational value analysis}
 
-The Framework Comparison screen provides significant educational value through its implementation of formal comparison methodology. Unlike screens that simply present accessibility techniques, this screen demonstrates how to systematically evaluate and compare accessibility implementations across frameworks. This educational value is manifested through several key features:
+The Framework comparison screen provides significant educational value through its implementation of formal comparison methodology. Unlike screens that simply present accessibility techniques, this screen demonstrates how to systematically evaluate and compare accessibility implementations across frameworks. This educational value is manifested through several key features:
 
 \begin{enumerate}
     \item \textbf{Methodology transparency}: By explicitly documenting the evaluation methodology, the screen teaches users how to conduct rigorous accessibility evaluations;

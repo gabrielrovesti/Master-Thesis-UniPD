@@ -39,8 +39,8 @@ The comparative testing approach builds upon the formal evaluation methodology e
     
     \item \textbf{Assistive technology testing}: All implementations are tested with:
     \begin{itemize}
-        \item iOS VoiceOver on iPhone 14 with iOS 16;
-        \item Android TalkBack on Google Pixel 7, running Android 15 (tests were conducted also on Android 13 and 14 on same device).
+        \item iOS \gls{voiceover} on iPhone 14 with iOS 16;
+        \item Android \gls{talkback} on Google Pixel 7, running Android 15 (tests were conducted also on Android 13 and 14 on same device).
     \end{itemize}
 \end{enumerate}
 
@@ -80,7 +80,7 @@ These metrics are calculated using the same methodology established in Chapter~\
 
 To ensure rigor and reproducibility, each metric employed in our comparative analysis follows a formalized methodology. These methodologies build upon the approaches established in Chapter~\ref{chap:accessibility-toolkit} while incorporating analytical frameworks specific to cross-platform comparison.
 
-\subsubsection{Component accessibility score methodology}
+\subsubsection{Component Accessibility Score methodology}
 \label{subsubsec:cas-methodology}
 
 The Component Accessibility Score (CAS) quantifies the percentage of components that are accessible by default without requiring additional developer intervention. The methodology for calculating CAS follows a systematic process:
@@ -108,7 +108,7 @@ The Component Accessibility Score (CAS) quantifies the percentage of components 
 
 This methodology was applied to 30 common components across both frameworks, ensuring a statistically significant sample size while maintaining focus on components essential to typical mobile applications.
 
-\subsubsection{Implementation overhead methodology}
+\subsubsection{Implementation Overhead methodology}
 \label{subsubsec:io-methodology}
 
 Implementation Overhead (IO) measures the additional code required to implement accessibility features. The methodology follows these steps:
@@ -125,7 +125,7 @@ Implementation Overhead (IO) measures the additional code required to implement 
         \item Support code specifically added for accessibility (e.g., handlers for accessibility actions).
     \end{itemize}
     
-    \item \textbf{Quantification}: Implementation overhead is measured in absolute lines of code (LOC) and as a percentage increase over the baseline:
+    \item \textbf{Quantification}: Implementation overhead is measured in absolute lines of code (\acrshort{loc}) and as a percentage increase over the baseline:
     \begin{equation}
     IO\% = \frac{\text{Accessibility LOC}}{\text{Baseline LOC}} \times 100\%
     \end{equation}
@@ -135,7 +135,7 @@ Implementation Overhead (IO) measures the additional code required to implement 
 
 This methodology focuses on production-quality implementations, excluding comments and development scaffolding, to accurately reflect real-world implementation costs.
 
-\subsubsection{Complexity impact factor methodology}
+\subsubsection{Complexity Impact Factor methodology}
 \label{subsubsec:cif-methodology}
 
 The Complexity Impact Factor (CIF) provides a weighted measure of implementation complexity beyond simple line counts. The methodology involves:
@@ -173,7 +173,7 @@ The Complexity Impact Factor (CIF) provides a weighted measure of implementation
 
 This weighted approach ensures that complexity assessment considers not just code volume but structural complexity factors that impact maintainability and comprehension.
 
-\subsubsection{Screen reader support score methodology}
+\subsubsection{Screen Reader Support Score methodology}
 \label{subsubsec:srss-methodology}
 
 The Screen Reader Support Score (SRSS) quantifies the effectiveness of screen reader interaction using a standardized 5-point scale. Following the methodology established in Section~\ref{subsec:tools-screen}, SRSS evaluation involves:
@@ -210,7 +210,7 @@ The Screen Reader Support Score (SRSS) quantifies the effectiveness of screen re
 
 Category scores represent the mean of component scores within each category, with weighting based on component usage frequency in typical mobile applications.
 
-\subsubsection{WCAG compliance ratio methodology}
+\subsubsection{WCAG Compliance Ratio methodology}
 \label{subsubsec:wcr-methodology}
 
 The WCAG Compliance Ratio (WCR) measures conformance to Web Content Accessibility Guidelines 2.2. The methodology follows these steps:
@@ -232,7 +232,7 @@ The WCAG Compliance Ratio (WCR) measures conformance to Web Content Accessibilit
 
 This methodology allows for identification of not just overall compliance differences but specific areas where frameworks excel or struggle with particular accessibility principles.
 
-\subsubsection{Developer time estimation methodology}
+\subsubsection{Developer Time Estimation methodology}
 \label{subsubsec:dte-methodology}
 
 Developer Time Estimation (DTE) quantifies the time required to implement accessibility features. The methodology involves:
@@ -365,15 +365,15 @@ Flutter, developed by Google and released in 2018, is an open-source UI software
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.4\textwidth, alt={Flutter Logo}]{img/flutter-logo.jpg}
-    \caption{Flutter Logo}
+    \includegraphics[width=0.4\textwidth, alt={Flutter logo}]{img/flutter-logo.jpg}
+    \caption{Flutter logo}
 \label{fig:flutter-logo}
 \end{figure}
 
 Flutter's architecture consists of several key layers:
 \begin{itemize}
-    \item \textbf{Framework layer}: Written in Dart, contains the widget system, rendering, animation, and gestures;
-    \item \textbf{Engine layer}: A C++ implementation that provides low-level rendering using Skia graphics library;
+    \item \textbf{Framework layer}: Written in \textit{Dart}, contains the widget system, rendering, animation, and gestures;
+    \item \textbf{Engine layer}: A C++ implementation that provides low-level rendering using \textit{Skia} graphics library;
     \item \textbf{Embedder layer}: Platform-specific code that integrates Flutter with each target platform.
 \end{itemize}
 
@@ -664,7 +664,7 @@ Semantics(
 )
 \end{lstlisting}
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=AccessibleHub's React Native implementation of headers, label=lst:accessiblehub-heading]
+\begin{lstlisting}[style=ReactNativeStyle, caption=\textit{AccessibleHub}'s React Native implementation of headers, label=lst:accessiblehub-heading]
 <Text 
   style={[themedStyles.sectionTitle, { color: colors.text }]} 
   accessibilityRole="header"
@@ -717,7 +717,7 @@ As evidenced in Table~\ref{tab:implementation_overhead_analysis}, the implementa
 
 In \textit{AccessibleHub}'s implementation (Listing~\ref{lst:accessiblehub-language}), language management is handled through a consistent property-based approach, allowing for straightforward language control:
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=Language handling in AccessibleHub, label=lst:accessiblehub-language]
+\begin{lstlisting}[style=ReactNativeStyle, caption=Language handling in \textit{AccessibleHub}, label=lst:accessiblehub-language]
 <Text 
   accessibilityLanguage={userLanguage} 
   style={themedStyles.heroSubtitle}
@@ -744,7 +744,7 @@ In React Native, abbreviation accessibility is implemented using the \texttt{acc
 </Text>
 \end{lstlisting}
 
-Flutter implements abbreviation handling through the \texttt{semanticsLabel} property within the \texttt{Text} widget, as demonstrated in Listing~\ref{lst:flutter-abbreviation}.
+Flutter implements abbreviation handling through the \texttt{semanticsLabel} property within the \texttt{Text} widget, as demonstrated in Listing~\ref{lst:flutter-abbreviation}:
 
 \begin{lstlisting}[style=DartStyle, caption=Abbreviation handling in Flutter, label=lst:flutter-abbreviation]
 Text(
@@ -755,7 +755,7 @@ Text(
 
 \textit{AccessibleHub} extends this pattern to multiple instances where abbreviations might appear, as shown in Listing~\ref{lst:accessiblehub-abbreviation}:
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=Enhanced abbreviation handling in AccessibleHub, label=lst:accessiblehub-abbreviation]
+\begin{lstlisting}[style=ReactNativeStyle, caption=Enhanced abbreviation handling in \textit{AccessibleHub}, label=lst:accessiblehub-abbreviation]
 <Text
   style={styles.criteriaValue}
   accessibilityLabel={`WCAG criteria ${criterion.wcag}. ${criterion.level}`}
@@ -837,7 +837,7 @@ ListTile(
 )
 \end{lstlisting}
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=AccessibleHub's React Native implementation of accessible buttons, label=lst:accessiblehub-button]
+\begin{lstlisting}[style=ReactNativeStyle, caption=\textit{AccessibleHub}'s React Native implementation of accessible buttons, label=lst:accessiblehub-button]
 <TouchableOpacity
   style={themedStyles.card}
   onPress={() => handleComponentPress(route, title)}
@@ -902,7 +902,7 @@ TextField(
 
 When examining the projects' implementations, \textit{AccessibleHub}'s React Native code offers a more comprehensive approach to form accessibility with integrated error handling, as shown in Listing~\ref{lst:accessiblehub-form}:
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=Form implementation in AccessibleHub's React Native code, label=lst:accessiblehub-form]
+\begin{lstlisting}[style=ReactNativeStyle, caption=Form implementation in \textit{AccessibleHub}'s React Native code, label=lst:accessiblehub-form]
 <TextInput
   style={[styles.input, { borderColor: colors.border }]}
   value={formData.name}
@@ -935,7 +935,7 @@ TextFormField(
 
 For radio buttons and checkboxes, \textit{AccessibleHub} implements a comprehensive approach that includes proper state management and accessibility annotations, as shown in Listing~\ref{lst:accessiblehub-selection-controls}:
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=Selection controls in AccessibleHub, label=lst:accessiblehub-selection-controls]
+\begin{lstlisting}[style=ReactNativeStyle, caption=Selection controls in \textit{AccessibleHub}, label=lst:accessiblehub-selection-controls]
 <TouchableOpacity
   style={styles.radioItem}
   onPress={() => setFormData((prev) => ({ 
@@ -981,7 +981,7 @@ Screen reader testing showed React Native's form controls provide more consisten
 
 Custom gesture handlers present significant accessibility challenges, as they must be properly mapped to standard interaction patterns for screen reader users. WCAG criterion 2.5.1 (Pointer Gestures) requires that all functionality operated through multipoint or path-based gestures can be operated with a single pointer.
 
-React Native implements accessible gesture handlers through the following pattern in Listing~\ref{lst:react-native-gesture}:
+React Native implements accessible gesture handlers through the following pattern in Listing~\ref{lst:react-native-gesture}.
 
 \begin{lstlisting}[style=ReactNativeStyle, caption=Accessible gesture handler in React Native, label=lst:react-native-gesture]
 <View
@@ -1002,7 +1002,7 @@ React Native implements accessible gesture handlers through the following patter
 </View>
 \end{lstlisting}
 
-Flutter's implementation requires a more complex approach using the \texttt{Semantics} widget with custom actions as shown in Listing~\ref{lst:flutter-gesture}:
+Flutter's implementation requires a more complex approach using the \texttt{Semantics} widget with custom actions as shown in Listing~\ref{lst:flutter-gesture}.
 
 \begin{lstlisting}[style=DartStyle, caption=Accessible gesture handler in Flutter, label=lst:flutter-gesture]
 Semantics(
@@ -1021,6 +1021,8 @@ Semantics(
   ),
 )
 \end{lstlisting}
+
+\pagebreak
 
 Comparing the implementations from both projects, we observe significant differences in handling gestures. Budai's Flutter implementation in Listing~\ref{lst:budai-gesture} relies on Flutter's \texttt{GestureDetector} with minimal accessibility enhancements:
 
@@ -1053,7 +1055,7 @@ Semantics(
 
 \textit{AccessibleHub}'s implementation takes a more explicit approach, as shown in Listing~\ref{lst:accessiblehub-gesture}, providing comprehensive accessibility properties and clear instructions for screen reader users.
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=Gesture handling in AccessibleHub's React Native implementation, label=lst:accessiblehub-gesture]
+\begin{lstlisting}[style=ReactNativeStyle, caption=Gesture handling in \textit{AccessibleHub}'s React Native implementation, label=lst:accessiblehub-gesture]
 <View style={styles.gestureContainer}>
   <Text style={styles.gestureHeader}>Single Tap</Text>
   <TouchableOpacity
@@ -1093,7 +1095,7 @@ Navigation components provide structure to applications and enable users to move
 
 Proper navigation hierarchy is essential for screen reader users to understand the application structure. WCAG criteria 2.4.1 (Bypass Blocks) and 2.4.8 (Location) address the need for clear navigation paths and location information.
 
-React Native implements navigation hierarchy through a combination of screen-level roles and appropriate labeling, as shown in Listing~\ref{lst:react-native-navigation}:
+React Native implements navigation hierarchy through a combination of screen-level roles and appropriate labeling, as shown in Listing~\ref{lst:react-native-navigation}.
 
 \begin{lstlisting}[style=ReactNativeStyle, caption=Navigation hierarchy in React Native, label=lst:react-native-navigation]
 <View accessibilityRole="main">
@@ -1149,8 +1151,6 @@ Scaffold(
 \end{lstlisting}
 
 The analysis reveals significant differences in implementation complexity, with React Native's property-based approach requiring approximately 40\% less code for equivalent navigation accessibility.
-
-\pagebreak
 
 \subsubsection{Focus management}
 \label{subsubsec:focus-management}
@@ -1297,7 +1297,8 @@ This data directly addresses RQ1 (Default accessibility support) and RQ2 (Implem
 \section{Framework-specific optimization patterns}
 \label{sec:optimization-patterns}
 
-Beyond the comparative analysis, our research identified framework-specific optimization patterns that developers can leverage to enhance accessibility implementation efficiency. These patterns represent best practices derived from both theoretical understanding and practical implementation experience.
+Beyond the comparative analysis, our research identified framework-specific optimization patterns that developers can leverage to enhance accessibility implementation efficiency. 
+These optimization approaches align with platform-specific accessibility guidelines provided by Apple \cite{apple-accessibility} and Google \cite{google-accessibility}. While these platform guidelines primarily target native development, their principles remain relevant for cross-platform implementations. Apple's Human Interface Guidelines emphasize the importance of clear accessibility labels and proper trait assignments, which aligns with React Native's property-based approach. Similarly, Google's Material Design Accessibility Guidelines stress the importance of touch target sizing and semantic hierarchies, concepts that map well to Flutter's widget-based approach.
 
 \subsection{React Native optimization techniques}
 \label{subsec:react-native-optimization}
@@ -1324,7 +1325,7 @@ return (
 );
     \end{lstlisting}
     
-    \item \textbf{Component abstraction}: Creating reusable accessible components significantly reduces implementation overhead, as shown in Listing~\ref{lst:react-native-component-abstraction}:
+    \item \textbf{Component abstraction}: Creating reusable accessible components significantly reduces implementation overhead, as shown in Listing~\ref{lst:react-native-component-abstraction}.
     
     \begin{lstlisting}[style=ReactNativeStyle, caption=Component abstraction in React Native, label=lst:react-native-component-abstraction]
 // Reusable accessible button component
@@ -1345,7 +1346,7 @@ const AccessibleButton = ({ label, onPress, children }) => (
 </AccessibleButton>
     \end{lstlisting}
     
-    \item \textbf{Context-based accessibility}: Using React context for theme-aware accessibility properties, as implemented throughout \textit{AccessibleHub} and shown in Listing~\ref{lst:react-native-context-accessibility}:
+    \item \textbf{Context-based accessibility}: Using React context for theme-aware accessibility properties, as implemented throughout \textit{AccessibleHub} and shown in Listing~\ref{lst:react-native-context-accessibility}.
     
     \begin{lstlisting}[style=ReactNativeStyle, caption=Context-based accessibility in React Native, label=lst:react-native-context-accessibility]
 // From AccessibleHub's implementation
@@ -1370,7 +1371,7 @@ const { colors, textSizes } = useTheme();
 
 These techniques leverage React Native's component model to create more maintainable and consistent accessibility implementations. \textit{AccessibleHub}'s implementation demonstrates these patterns extensively, particularly in the context-based approach used throughout the application as shown in the components screen in Listing~\ref{lst:accessiblehub-optimization}.
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=Optimized accessibility pattern in AccessibleHub, label=lst:accessiblehub-optimization]
+\begin{lstlisting}[style=ReactNativeStyle, caption=Optimized accessibility pattern in \textit{AccessibleHub}, label=lst:accessiblehub-optimization]
 function ComponentsScreen() {
   const router = useRouter();
   const { colors, textSizes, isDarkMode } = useTheme();
@@ -1460,8 +1461,6 @@ SemanticsService.announce(
   TextDirection.ltr,
 );
     \end{lstlisting}
-
-\pagebreak
     
     \item \textbf{Theme-based semantics}: Integrating semantic properties with Flutter's theming system, similar to Budai's approach, as shown in Listing~\ref{lst:flutter-theme-semantics}:
     

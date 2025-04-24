@@ -5,11 +5,11 @@
 }
 
 \section{Research methodology}
-This chapter builds upon the detailed screen-by-screen analysis of \textit{AccessibleHub} presented in Chapter~\ref{chap:accessibility-toolkit}, extending that evaluation framework to a comparative analysis of React Native and Flutter. The methodology applied here is grounded in the formal approach developed by Perinello and Gaggi \cite{perinello2024accessibility}, which establishes a systematic framework for evaluating accessibility implementation in cross-platform mobile frameworks.
+This chapter builds upon the detailed screen-by-screen analysis of \textit{AccessibleHub}, extending that evaluation framework to a comparative analysis of React Native and Flutter. 
 
 \subsection{Research questions and objectives}
 
-Building on the foundation established in Chapter~\ref{chap:accessibility-toolkit}, this comparative analysis addresses three fundamental research questions about accessibility implementation across React Native and Flutter:
+This comparative analysis addresses three fundamental research questions about accessibility implementation across React Native and Flutter:
 
 \begin{enumerate}
     \item \textbf{RQ1: Default accessibility support} - To what extent are components and widgets provided by each framework accessible by default, without requiring additional developer intervention? This analysis examines the baseline accessibility support provided by each framework and identifies areas where implementation gaps exist;
@@ -60,9 +60,9 @@ To provide rigorous quantitative comparison between frameworks, the formal metri
 \hline
 Component Accessibility Score (CAS) & Percentage of components accessible by default without modification \\
 \hline
-Implementation Overhead (IO) & Additional lines of code required to implement accessibility features \\
+Implementation Overhead (IMO) & Additional lines of code required to implement accessibility features \\
 \hline
-Complexity Impact Factor (CIF) & Calculated as: $CIF = \frac{IO}{TC} \times CF$ where TC is total component code and CF is a complexity factor based on nesting depth and property count \\
+Complexity Impact Factor (CIF) & Calculated as: $CIF = \frac{IMO}{TC} \times CF$ where TC is total component code and CF is a complexity factor based on nesting depth and property count \\
 \hline
 Screen Reader Support Score (SRSS) & Empirical score (1-5) based on VoiceOver and TalkBack compatibility testing \\
 \hline
@@ -78,7 +78,7 @@ These metrics are calculated using the same methodology established in Chapter~\
 \subsection{Metric calculation methodologies}
 \label{subsec:metric-methodologies}
 
-To ensure rigor and reproducibility, each metric employed in our comparative analysis follows a formalized methodology. These methodologies build upon the approaches established in Chapter~\ref{chap:accessibility-toolkit} while incorporating analytical frameworks specific to cross-platform comparison.
+To ensure rigor and reproducibility, each metric employed in our comparative analysis follows a formalized methodology. These methodologies build upon the approaches already established while incorporating analytical frameworks specific to cross-platform comparison.
 
 \subsubsection{Component Accessibility Score methodology}
 \label{subsubsec:cas-methodology}
@@ -111,7 +111,7 @@ This methodology was applied to 30 common components across both frameworks, ens
 \subsubsection{Implementation Overhead methodology}
 \label{subsubsec:io-methodology}
 
-Implementation Overhead (IO) measures the additional code required to implement accessibility features. The methodology follows these steps:
+Implementation Overhead (IMO) measures the additional code required to implement accessibility features. The methodology follows these steps:
 
 \begin{enumerate}
     \item \textbf{Baseline implementation}: For each component not accessible by default, a minimal functional implementation is created without accessibility features;
@@ -127,7 +127,7 @@ Implementation Overhead (IO) measures the additional code required to implement 
     
     \item \textbf{Quantification}: Implementation overhead is measured in absolute lines of code (\acrshort{loc}) and as a percentage increase over the baseline:
     \begin{equation}
-    IO\% = \frac{\text{Accessibility LOC}}{\text{Baseline LOC}} \times 100\%
+    IMO\% = \frac{\text{Accessibility LOC}}{\text{Baseline LOC}} \times 100\%
     \end{equation}
     
     \item \textbf{Verification}: The counting methodology is verified by multiple reviewers to ensure consistency.
@@ -156,8 +156,18 @@ The Complexity Impact Factor (CIF) provides a weighted measure of implementation
         \item $W_N$, $W_D$, $W_P$ = Respective weights (1.5, 1.0, 0.5 in the analysis).
     \end{itemize}
 
-    The weights ($W_N=1.5$, $W_D=1.0$, $W_P=0.5$) was determined empirically through practical experience, ranking the relative impact of each factor on implementation complexity. Nesting depth ($N$) received the highest weight (1.5) as it was consistently identified as the most significant contributor to code complexity and maintainability challenges. Dependency count ($D$) received a moderate weight (1.0) due to its impact on build complexity and potential version conflicts, while property count ($P$) received the lowest weight (0.5) as it generally has minimal impact on code readability and maintenance.
-    
+    The weights $(W_N=1.5, W_D=1.0, W_P=0.5$) were determined based on a qualitative assessment of each factor's impact on development complexity during our implementation process. \\
+
+    Through practical implementation of components across both frameworks, we observed that nesting depth (N) consistently created the most significant challenges for code readability, debugging, and maintenance. Each additional nesting level substantially increased cognitive load during development, warranting the highest weight ($1.5$). 
+
+    \begin{itemize}
+        \item Dependency count (D) demonstrated a moderate impact on implementation complexity. Additional dependencies created integration challenges and increased setup requirements, but these challenges were more manageable than deep nesting issues, justifying an intermediate weight ($1.0$);
+
+        \item Property count (P) had the least significant impact on overall implementation complexity. While additional properties increased code volume, they had minimal effect on structural complexity or cognitive load, leading to the lowest assigned weight ($0.5$);
+
+        \item This weighting system, while not derived from large-scale quantitative studies, reflects the practical difficulties observed during our hands-on implementation process and provides a reasonable heuristic for comparing relative complexity across frameworks.
+    \end{itemize}
+
     \item \textbf{CIF calculation}: The final CIF is calculated as:
     \begin{equation}
     CIF = \frac{IO}{TC} \times CF
@@ -176,26 +186,19 @@ This weighted approach ensures that complexity assessment considers not just cod
 \subsubsection{Screen Reader Support Score methodology}
 \label{subsubsec:srss-methodology}
 
-The Screen Reader Support Score (SRSS) quantifies the effectiveness of screen reader interaction using a standardized 5-point scale. Following the methodology established in Section~\ref{subsec:tools-screen}, SRSS evaluation involves:
+The Screen Reader Support Score (SRSS) quantifies the effectiveness of screen reader interaction using a standardized Likert scale. Following the methodology established in Section~\ref{subsec:tools-screen}, SRSS evaluation involves:
 
 \begin{enumerate}
-    \item \textbf{Test case definition}: Each component is evaluated across five criteria:
-    \begin{itemize}
-        \item Role announcement (correct semantic role identification);
-        \item Content reading (completeness and accuracy of text announcement);
-        \item Focus behavior (focus acquisition and boundary clarity);
-        \item State communication (accurate announcement of component states);
-        \item Interaction feedback (appropriate feedback during/after interaction).
-    \end{itemize}
+    \item \textbf{Test case definition}: Each component is evaluated across five criteria, involving role announcement, content reading and focus behavior;
     
-    \item \textbf{Rating scale}: Each criterion is rated on a 5-point scale:
-    \begin{itemize}
-        \item 1: Component inaccessible or critically misleading;
-        \item 2: Basic accessibility with significant usability barriers;
-        \item 3: Functional accessibility with minor information gaps;
-        \item 4: Comprehensive accessibility with minimal inconsistencies;
-        \item 5: Optimal accessibility with ideal interaction patterns.
-    \end{itemize}
+    \item \textbf{Rating scale}: Each criterion is rated on a 5-point scale aligned with WCAG conformance levels:
+        \begin{itemize}
+            \item 1: Fails Level A compliance - Component inaccessible or critically misleading;
+            \item 2: Partially meets Level A - Basic accessibility with significant usability barriers;
+            \item 3: Meets Level A - Functional accessibility with complete core requirements;
+            \item 4: Meets Level AA - Comprehensive accessibility with enhanced requirements met;
+            \item 5: Meets Level AAA - Optimal accessibility exceeding requirements with ideal patterns.
+        \end{itemize}
     
     \item \textbf{Testing environment}: All evaluations use:
     \begin{itemize}
@@ -244,7 +247,6 @@ Developer Time Estimation (DTE) quantifies the time required to implement access
     
     \item \textbf{Time measurement}: Implementation times are measured through:
     \begin{itemize}
-        \item Direct observation of implementation sessions with 10 developers (5 per framework);
         \item Time logging of subtasks (research, implementation, testing);
         \item Exclusion of debugging unrelated to accessibility features.
     \end{itemize}
@@ -290,7 +292,9 @@ Based on these criteria, components were selected from three categories that rep
     \item \textbf{Media and complex components}: Image rendering, data visualization, dynamic content.
 \end{enumerate}
 
-This systematic selection process ensures that the analysis covers a representative range of components while maintaining a focused approach that enables in-depth comparison.
+\pagebreak
+
+Table~\ref{tab:component_comparison} presents a comparative analysis of default component accessibility and the enhancements required to make them fully accessible. The "Default" columns indicate whether components are accessible without modification, while the "Enhanced" columns document the specific modifications required (additional properties and/or widgets) to achieve full accessibility compliance according to WCAG 2.2 criteria. For React Native, enhancement typically involves adding accessibility properties (P) to existing components, while Flutter often requires both additional wrapper widgets (W) and properties (P).
 
 \begin{table}[ht]
 \caption{Component accessibility comparison matrix}
@@ -317,6 +321,10 @@ Custom gesture & \ding{55} & \ding{51} (+3P) & \ding{55} & \ding{51} (+1W +2P) &
 \end{tabular}
 \end{table}
 
+Table~\ref{tab:implementation_overhead_comparison} quantifies the implementation effort required to make equivalent components accessible in both frameworks. The analysis reveals significant differences in code verbosity between React Native and Flutter implementations. Most notably, Flutter's semantics implementation for text language requires 21 lines of code compared to React Native's $7$ lines, representing a $200\%$ increase and resulting in "High" complexity impact. This substantial difference stems from Flutter's requirement for explicit \texttt{AttributedString} and \texttt{LocaleStringAttribute} declarations versus React Native's straightforward \texttt{accessibilityLanguage} property.
+
+The Complexity Impact classification is determined by combining both the absolute increase in LOC and the relative complexity introduced by the implementation pattern. Low complexity impacts (such as for Headings and Buttons) indicate that despite some additional code, the implementations remain straightforward and maintainable. Medium complexity impacts (Text abbreviation, Form field, Custom gesture) suggest that the additional code introduces moderate cognitive load for developers. High complexity impacts (Text language in Flutter) indicate implementations that significantly increase both code volume and structural complexity, potentially creating maintenance challenges and higher learning curves for development teams.
+
 \begin{table}[ht]
 \caption{Implementation overhead analysis}
 \label{tab:implementation_overhead_comparison}
@@ -339,6 +347,12 @@ Custom gesture & 22 & 28 & +6 (27\%) & Medium \\
 \hline
 \end{tabular}
 \end{table}
+
+Table~\ref{tab:wcag_compliance_comparison} presents the compliance percentages for each WCAG principle across both frameworks, derived from systematic testing with VoiceOver and TalkBack screen readers. These percentages represent the proportion of applicable success criteria that were successfully implemented in our reference components. The results reveal that while both frameworks can achieve strong accessibility compliance, there are notable differences in their default capabilities.
+
+React Native demonstrates superior compliance with Perceivable criteria ($92\%$ vs. Flutter's $85\%$), primarily due to its more straightforward handling of text alternatives and adaptable content. In the Operable principle, React Native achieves $100\%$ compliance compared to Flutter's $88\%$, with the difference largely attributable to Flutter's more complex implementation of keyboard accessibility and focus management. Both frameworks achieve identical compliance rates for Understandable ($80\%$) and Robust ($100\%$) principles, indicating similar capabilities in predictable operation and compatibility with assistive technologies.
+
+These differences highlight React Native's advantage in implementation simplicity while demonstrating that both frameworks can ultimately achieve full WCAG compliance with appropriate development effort.
 
 \begin{table}[ht]
 \caption{WCAG compliance by framework}
@@ -412,7 +426,6 @@ A basic example of applying semantics in Flutter is shown in Listing~\ref{lst:fl
 \begin{lstlisting}[style=DartStyle, caption=Basic Semantics implementation in Flutter, label=lst:flutter-semantics-basic]
 // Making a button accessible with semantics
 Semantics(
-  label: 'Save document',
   hint: 'Saves your current work to the cloud',
   button: true,
   onTap: () => saveDocument(),
@@ -462,47 +475,10 @@ Flutter applications integrate with native platform capabilities through several
 
 This section examines the architectural differences between React Native and Flutter, with particular focus on how these differences impact accessibility implementation patterns. Understanding the underlying architecture provides essential context for interpreting the quantitative comparisons presented later in this chapter and correlating them with Budai's implementation findings \cite{budai2024mobile}.
 
-\subsection{React Native accessibility model}
-React Native adopts a property-based accessibility approach that closely resembles the ARIA model used in web development. This familiarity can be beneficial for developers with web accessibility experience, but it also means the framework inherits some of the web's accessibility limitations.
-
-As detailed in Chapter~\ref{chap:accessibility-toolkit}, React Native exposes accessibility through a set of properties that can be applied directly to components:
-
-\begin{lstlisting}[style=ReactNativeStyle, caption=React Native accessibility property model, label=lst:react-native-accessibility]
-// Component with accessibility properties
-<View accessibilityRole="main">
-  <Text 
-    accessibilityRole="heading" 
-    accessibilityLabel="Section title">
-    My Heading
-  </Text>
-  
-  <TouchableOpacity
-    accessibilityRole="button"
-    accessibilityLabel="Submit form"
-    accessibilityHint="Sends your data to the server"
-    accessibilityState={{ disabled: isDisabled }}>
-    <Text>Submit</Text>
-  </TouchableOpacity>
-</View>
-\end{lstlisting}
-
-\pagebreak
-
-These properties are mapped to native accessibility APIs through React Native's bridge mechanism. When a screen reader is active, React Native converts these accessibility properties into platform-specific accessibility information that can be interpreted by VoiceOver on iOS or TalkBack on Android.
-
-The key characteristics of React Native's accessibility model include:
-
-\begin{itemize}
-    \item \textbf{Direct property attachment}: Accessibility information is directly attached to existing components;
-    \item \textbf{Implicit accessibility tree}: There is no explicit accessibility tree; instead, the component hierarchy determines the accessibility hierarchy;
-    \item \textbf{Bridge translation}: JavaScript accessibility properties are converted to native accessibility API calls through the JavaScript bridge;
-    \item \textbf{Harmony with component model}: The accessibility model follows React Native's component-based architecture.
-\end{itemize}
-
 \subsection{Flutter accessibility model}
-Flutter takes a fundamentally different approach to accessibility, using a widget-based semantic system rather than properties. As described by Budai \cite{budai2024mobile}, Flutter automatically creates a parallel accessibility tree alongside the widget tree, with each widget potentially contributing to the semantic structure.
+Flutter takes a fundamentally different approach to accessibility, using a widget-based semantic system rather than properties. It automatically creates a parallel accessibility tree alongside the widget tree, with each widget potentially contributing to the semantic structure.
 
-The core of Flutter's accessibility model is the \texttt{Semantics} widget, which wraps other widgets to provide accessibility information, as per Listing~\ref{lst:flutter-semantics}:
+The core of Flutter's accessibility model is the \texttt{Semantics} widget, which wraps other widgets to provide accessibility information, as Listing~\ref{lst:flutter-semantics}.
 
 \begin{lstlisting}[style=DartStyle, caption=Flutter Semantics widget system, label=lst:flutter-semantics]
 // Widget wrapped with Semantics for accessibility
@@ -545,21 +521,21 @@ The characteristics of Flutter's accessibility model include:
 \subsection{Architectural differences affecting implementation}
 \label{subsec:arch-differences}
 
-The architectural differences between React Native and Flutter fundamentally influence how developers implement accessibility features. These differences can be categorized into five key areas, which are consistently reflected in Budai's implementation \cite{budai2024mobile}.
+The architectural differences between React Native and Flutter fundamentally influence how developers implement accessibility features. These differences can be categorized into five key areas, which are consistently reflected in Budai's implementation.
 
 \subsubsection{Mental model and developer workflow}
 React Native encourages developers to think about accessibility as properties to be added to existing components, similar to adding styling properties. This approach integrates accessibility naturally into the component development process.
 
 Flutter, in contrast, requires developers to think about accessibility as a separate layer of widgets that wrap content widgets. This separation creates a clearer distinction between visual presentation and accessibility semantics, but it also requires developers to maintain two parallel structures.
 
-As highlighted by Perinello and Gaggi \cite{perinello2024accessibility}, these paradigms reflect fundamentally different strategies: one based on enhancing existing components through properties, the other on explicitly wrapping them to assign accessibility roles.
+These paradigms reflect fundamentally different strategies: one based on enhancing existing components through properties, the other on explicitly wrapping them to assign accessibility roles.
 
 \subsubsection{Code organization and implementation overhead}
 The property-based approach of React Native generally results in more concise and readable code, as accessibility information is integrated directly into component definitions. This can make the code easier to understand at a glance, particularly for simpler components.
 
 Flutter's widget-based approach tends to increase code verbosity and nesting depth, potentially making code more difficult to follow. However, this explicit structure can also make accessibility considerations more visible and harder to overlook.
 
-The quantitative analysis conducted by Perinello and Gaggi \cite{perinello2024accessibility} and supported by Budai's implementation \cite{budai2024mobile} reveals significant differences in implementation overhead. As shown in Table~\ref{tab:implementation_overhead_analysis}, Flutter implementations typically require more lines of code than equivalent React Native implementations, with differences ranging from 40\% to 200\% for common components.
+The quantitative analysis conducted reveals significant differences in implementation overhead. As shown in Table~\ref{tab:implementation_overhead_analysis}, Flutter implementations typically require more lines of code than equivalent React Native implementations, with differences ranging from 40\% to 200\% for common components.
 
 \begin{table}[ht]
 \caption{Implementation overhead analysis}
@@ -596,179 +572,432 @@ Flutter's separate semantic tree can be more challenging to debug, but the frame
 
 Component implementation patterns constitute the foundation upon which accessibility features are built within mobile frameworks. This section provides a systematic comparison of how React Native and Flutter implement accessibility at the component level, examining both architectural approaches and practical implementations. The analysis builds upon the framework-specific understanding established in Section~\ref{sec:framework-architecture} and directly addresses our research questions regarding default accessibility support, implementation feasibility, and development overhead.
 
-\subsection{Text and typography elements}
-\label{subsec:text-typography}
+\subsection{Accessibility implementation patterns}
+\label{subsec:implementation-patterns}
 
-Text elements form the fundamental building blocks of any user interface, particularly from an accessibility perspective. Screen readers primarily interact with textual content, making proper semantic structure and appropriate labeling essential. This section examines three critical text-related accessibility implementations: headings, language declarations, and text abbreviations, drawing direct comparisons between Budai's Flutter implementation~\cite{budai2024mobile} and \textit{AccessibleHub}'s React Native approach, discussed in depth in \ref{sec:implementation-guidelines}.
+Accessibility implementation in mobile frameworks reveals fundamental architectural differences that impact developer experience, code complexity, and ultimately, the accessibility of the final application. This section examines the core implementation patterns observed in React Native and Flutter, drawing from real-world examples in the \textit{AccessibleHub} and Budai's implementations. While Section~\ref{sec:framework-architecture} established the architectural foundations, this section analyzes the practical manifestations of these differences through concrete implementation patterns.
 
-\subsubsection{Headings implementation}
-\label{subsubsec:headings-implementation}
+\subsubsection{Property-based vs widget-based implementation patterns}
+\label{subsubsec:property-widget-patterns}
 
-Headings provide semantic structure to content, enabling screen reader users to navigate efficiently. WCAG success criterion 1.3.1 (Info and Relationships) requires that information, structure, and relationships conveyed through presentation can be programmatically determined. In the context of mobile applications, this necessitates proper heading structure. Table~\ref{tab:component_comparison} demonstrates that neither framework provides accessible heading elements by default (RQ1), with both frameworks requiring specific developer intervention.
+The most fundamental difference between React Native and Flutter's accessibility approaches is visible in their core implementation pattern: React Native follows a property-based model, while Flutter employs a widget-based approach. This distinction profoundly affects code structure, verbosity, and maintainability.
 
-As shown in Table~\ref{tab:wcag_criteria}, headings implementation is critical for satisfying WCAG criteria 1.3.1, 2.4.6, and 2.4.10. These criteria focus on the programmatic determination of structure, descriptive headings, and section headings respectively.
+In React Native, accessibility features are applied directly to components through properties, integrating seamlessly with the component definition as seen in Listing~\ref{lst:react-native-property-pattern}.
+
+\begin{lstlisting}[style=ReactNativeStyle, caption=Property-based accessibility pattern in React Native, label=lst:react-native-property-pattern]
+<TouchableOpacity
+  style={themedStyles.card}
+  onPress={() => handleComponentPress(route, title)}
+  accessibilityRole="button"
+  accessibilityLabel="Buttons and Touchables component"
+  accessibilityHint="Navigate to component details"
+>
+  <View style={themedStyles.cardHeader}>
+    <View style={themedStyles.iconWrapper}>
+      <Ionicons
+        name="radio-button-on-outline"
+        size={24}
+        color={colors.primary}
+        accessibilityElementsHidden
+      />
+    </View>
+    <Text style={themedStyles.cardTitle}>Buttons &amp; Touchables</Text>
+  </View>
+</TouchableOpacity>
+\end{lstlisting}
+
+\pagebreak
+
+In contrast, Flutter's widget-based approach requires wrapping existing widgets within specialized \texttt{Semantics} widgets to add accessibility information, creating additional nesting levels as demonstrated in Listing~\ref{lst:flutter-widget-pattern}.
+
+\begin{lstlisting}[style=DartStyle, caption=Widget-based accessibility pattern in Flutter, label=lst:flutter-widget-pattern]
+Semantics(
+  label: _gestureOneCompleted 
+      ? 'Gesture one completed' 
+      : 'Gesture one',
+  excludeSemantics: _gestureOneCompleted,
+  child: GestureDetector(
+    onTap: () {
+      setState(() {
+        _gestureOneCompleted = true;
+      });
+      _handleTap();
+    },
+    child: ScaleTransition(
+      scale: _animation1,
+      child: Container(
+        color: Colors.blue,
+        width: 100,
+        height: 100,
+      ),
+    ),
+  ),
+)
+\end{lstlisting}
+
+\pagebreak
+
+The property-based approach allows developers to integrate accessibility directly within the component definition, maintaining a flat structure. The widget-based approach requires additional wrapper widgets, increasing nesting depth and potentially complicating code readability.
+
+This fundamental architectural difference directly impacts implementation overhead measurements in Table~\ref{tab:implementation_overhead_analysis}, where Flutter implementations consistently require more code (typically 27\%-200\% more lines) for equivalent functionality compared to React Native.
 
 \begin{table}[ht]
-\caption{WCAG 2.2 criteria for text elements}
-\label{tab:wcag_criteria}
+\caption{Pattern implementation overhead comparison}
+\label{tab:pattern_implementation_comparison}
 \centering
-\begin{tabular}{|P{2.5cm}|P{9cm}|}
+\begin{tabular}{|P{4cm}|P{3.5cm}|P{3.5cm}|P{3cm}|}
 \hline
-\textbf{Element} & \textbf{WCAG criteria} \\
+\textbf{Pattern} & \textbf{React Native} & \textbf{Flutter} & \textbf{Impact on Verbosity} \\
 \hline
-Heading & 1.3.1 (Info and Relationships), 2.4.6 (Headings and Labels), 2.4.10 (Section Headings) \\
+Accessibility Role & accessibilityRole="button" & Semantics(button: true, child: Widget) & +75\% \\
 \hline
-Text language & 3.1.1 (Language of Page), 3.1.2 (Language of Parts) \\
+Label & accessibilityLabel="text" & Semantics(label: "text", child: Widget) & +100\% \\
 \hline
-Text abbreviation & 3.1.4 (Abbreviations) \\
+Hide from Screen Readers & accessibilityElementsHidden & Semantics(excludeSemantics: true, child: Widget) & +120\% \\
 \hline
 \end{tabular}
 \end{table}
 
 \pagebreak
 
-In React Native, heading implementation requires the addition of an accessibility property to the standard \texttt{Text} component, as shown in Listing~\ref{lst:react-native-heading}:
+As shown in Table~\ref{tab:pattern_implementation_comparison}, even the most basic accessibility patterns require significantly more code in Flutter compared to React Native. This increased verbosity can impact developer productivity and code maintainability in larger projects.
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=Heading implementation in React Native, label=lst:react-native-heading]
-<Text
-  accessibilityRole="header"
-  style={styles.heading}>
-  My Heading
-</Text>
+\subsubsection{State communication patterns}
+\label{subsubsec:state-communication-patterns}
+
+Communicating component states to assistive technologies represents a critical accessibility requirement. Both frameworks provide mechanisms for this, but with different implementation patterns.
+
+React Native's pattern uses the \texttt{accessibilityState} property to communicate states like "checked," "disabled," or "selected" as shown in Listing~\ref{lst:react-native-state-pattern}.
+
+\begin{lstlisting}[style=ReactNativeStyle, caption=State communication in React Native, label=lst:react-native-state-pattern]
+<Switch
+  value={value}
+  onValueChange={onToggle}
+  trackColor={{ false: '#767577', true: colors.primary }}
+  thumbColor={value ? '#fff' : '#f4f3f4'}
+  accessibilityLabel={`${title}. ${description}. ${value ? 'Enabled' : 'Disabled'}.`}
+  accessibilityRole="switch"
+  accessibilityState={{ checked: value }}
+/>
 \end{lstlisting}
 
-By contrast, Flutter requires the use of a \texttt{Semantics} widget wrapping the standard \texttt{Text} widget, as shown in Listing~\ref{lst:flutter-heading}:
+Flutter's approach relies on specific semantic properties for each state type, as demonstrated in Budai's form implementation in Listing~\ref{lst:flutter-state-pattern}.
 
-\begin{lstlisting}[style=DartStyle, caption=Heading implementation in Flutter, label=lst:flutter-heading]
+\begin{lstlisting}[style=DartStyle, caption=State communication in Flutter, label=lst:flutter-state-pattern]
+SwitchListTile(
+  title: Text('Accept Terms'),
+  value: _acceptTerms,
+  onChanged: (value) {
+    setState(() {
+      _acceptTerms = value;
+    });
+  },
+),
+\end{lstlisting}
+
+The Flutter approach appears simpler at first glance but lacks the explicit state communication seen in React Native's implementation. To achieve equivalent functionality in Flutter with explicit accessibility state announcement, Listing~\ref{lst:flutter-enhanced-state-pattern} implementation would require additional Semantics wrapping:
+
+\begin{lstlisting}[style=DartStyle, caption=Enhanced state communication in Flutter, label=lst:flutter-enhanced-state-pattern]
 Semantics(
-  header: true,
-  child: Text(
-    'My Heading',
-    style: TextStyle(
-      fontSize: 24,
-      fontWeight: FontWeight.bold,
+  toggled: _acceptTerms,
+  child: SwitchListTile(
+    title: Text('Accept Terms'),
+    value: _acceptTerms,
+    onChanged: (value) {
+      setState(() {
+        _acceptTerms = value;
+      });
+    },
+  ),
+)
+\end{lstlisting}
+
+This comparison highlights how React Native's property-based approach explicitly communicates state information to assistive technologies with minimal code, while Flutter often requires additional semantic wrappers to achieve the same level of state communication.
+
+Table~\ref{tab:state_implementation_comparison} provides an overview of the different state communication patterns and their implementation complexity across both frameworks.
+
+\begin{table}[ht]
+\caption{State communication pattern comparison}
+\label{tab:state_implementation_comparison}
+\centering
+\begin{tabular}{|P{3cm}|P{3.5cm}|P{3.5cm}|P{3cm}|}
+\hline
+\textbf{State Type} & \textbf{React Native} & \textbf{Flutter} & \textbf{Default Support} \\
+\hline
+Checked & \texttt{accessibility \ State=\{checked: true\}} & Semantics(toggled: true, child: Widget) & RN: \ding{51}, FL: \ding{55} \\
+\hline
+Disabled & \texttt{accessibility \ State=\{disabled: true\}} & Semantics(enabled: false, child: Widget) & RN: \ding{51}, FL: \ding{51} \\
+\hline
+Selected & \texttt{accessibility \ State=\{selected: true\}} & Semantics(selected: true, child: Widget) & RN: \ding{51}, FL: \ding{51} \\
+\hline
+\end{tabular}
+\end{table}
+
+\pagebreak
+
+As shown in Table~\ref{tab:state_implementation_comparison}, React Native provides default accessibility state communication for all common states through a unified property structure, while Flutter requires additional semantic wrappers for some state types.
+
+\subsubsection{Navigation order and focus management patterns}
+\label{subsubsec:navigation-focus-patterns}
+
+Screen reader navigation order significantly impacts the usability of applications for visually impaired users. The frameworks employ different strategies to control this critical aspect.
+
+React Native relies primarily on the natural DOM order supplemented by optional properties to influence navigation, as shown in \textit{AccessibleHub}'s implementation in Listing~\ref{lst:react-native-navigation-pattern}.
+
+\begin{lstlisting}[style=ReactNativeStyle, caption=Navigation order in React Native, label=lst:react-native-navigation-pattern]
+<ScrollView
+  contentContainerStyle={{ paddingBottom: 24 }}
+  accessibilityRole="scrollview"
+  accessibilityLabel="Mobile Accessibility Best Practices Screen"
+>
+  <View style={themedStyles.heroCard}>
+    <Text style={themedStyles.heroTitle} accessibilityRole="header">
+      Mobile Accessibility Best Practices
+    </Text>
+    <Text style={themedStyles.heroSubtitle}>
+      Essential guidelines for creating accessible React Native applications
+    </Text>
+  </View>
+  
+  <View style={themedStyles.section}>
+    {/* Navigation flows naturally through component hierarchy */}
+    <TouchableOpacity 
+      style={themedStyles.card}
+      accessibilityRole="button" 
+      accessibilityLabel="WCAG Guidelines"
+    >
+      {/* Component content */}
+    </TouchableOpacity>
+  </View>
+</ScrollView>
+\end{lstlisting}
+
+\pagebreak
+
+In contrast, Flutter provides more granular control through explicit \texttt{sortKey} values, which can override the natural widget order. Budai's implementation uses this approach extensively, as seen in Listing~\ref{lst:flutter-navigation-pattern}.
+
+\begin{lstlisting}[style=DartStyle, caption=Navigation order in Flutter, label=lst:flutter-navigation-pattern]
+Scaffold(
+  appBar: AppBar(
+    title: Semantics(
+      sortKey: OrdinalSortKey(2.0),  // Explicit order control
+      header: true,
+      child: Text(
+        'Gestures',
+        textAlign: TextAlign.center,
+      ),
+    ),
+    leading: Semantics(
+      sortKey: OrdinalSortKey(3.0),  // Explicit order control
+      child: IconButton(
+        icon: Icon(Icons.arrow_back, semanticLabel: 'Back to the HomePage'),
+        onPressed: () {
+          Navigator.pushNamedAndRemoveUntil(
+            context, '/', (route) => false,
+          );
+        },
+      ),
+    ),
+  ),
+  body: SingleChildScrollView(
+    child: Column(
+      children: [
+        Semantics(
+          sortKey: OrdinalSortKey(1.0),  // Explicit order control
+          label: _gestureOneCompleted ? 'Gesture one completed' : 'Gesture one',
+          excludeSemantics: _gestureOneCompleted,
+          child: GestureDetector(
+            // Implementation details
+          ),
+        ),
+      ],
     ),
   ),
 )
 \end{lstlisting}
 
-Examining the implementation from Budai's Flutter code in Listing~\ref{lst:budai-heading} versus \textit{AccessibleHub}'s React Native implementation in Listing~\ref{lst:accessiblehub-heading}, we observe significant differences in the approach to heading accessibility:
+\pagebreak
 
-\begin{lstlisting}[style=DartStyle, caption=Budai's Flutter implementation of headers, label=lst:budai-heading]
+The Flutter approach offers more precise control but requires developers to explicitly manage the navigation order through \texttt{sortKey} values. This creates a maintenance burden and potential for errors if sort keys are not kept consistent throughout the application. React Native's approach is more implicit, relying on the natural component hierarchy with occasional interventions when needed.
+
+An interesting observation is that while Flutter's approach requires more developer effort, it can provide more consistent cross-platform navigation behavior in complex interfaces. React Native's approach is simpler but may require platform-specific adjustments for complex navigation patterns.
+
+Table~\ref{tab:navigation_pattern_comparison} summarizes the key differences in navigation control between the frameworks.
+
+\begin{table}[ht]
+\caption{Navigation order pattern comparison}
+\label{tab:navigation_pattern_comparison}
+\centering
+\begin{tabular}{|P{3.5cm}|P{3.5cm}|P{3.5cm}|P{3.5cm}|}
+\hline
+\textbf{Framework} & \textbf{Order Control} & \textbf{Implementation Approach} & \textbf{Developer Overhead} \\
+\hline
+React Native & Implicit, component-based & Natural DOM flow with optional overrides & Low \\
+\hline
+Flutter & Explicit, developer-defined & Semantics sortKey with explicit values & High \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Dynamic content announcement patterns}
+\label{subsubsec:dynamic-announcement-patterns}
+
+Communicating dynamic content changes to screen reader users is essential for accessible applications. Both frameworks provide mechanisms for this, but with different APIs and integration patterns.
+
+React Native uses the \texttt{AccessibilityInfo} API with the \texttt{announceForAccessibility} method, which integrates well with React's event-driven model, as shown in Listing~\ref{lst:react-native-dynamic-pattern}.
+
+\begin{lstlisting}[style=ReactNativeStyle, caption=Dynamic content announcement in React Native, label=lst:react-native-dynamic-pattern]
+const handleComponentPress = (route: string, title: string) => {
+  router.push(route);
+  AccessibilityInfo.announceForAccessibility(
+    `Opening ${title} component details`
+  );
+};
+
+return (
+  <TouchableOpacity
+    style={themedStyles.card}
+    onPress={() => handleComponentPress('/practices-screens/guidelines', 'WCAG Guidelines')}
+    accessibilityRole="button"
+    accessibilityLabel="WCAG Guidelines. Understanding and implementing WCAG 2.2 guidelines in mobile apps"
+  >
+    {/* Component content */}
+  </TouchableOpacity>
+);
+\end{lstlisting}
+
+\pagebreak
+
+In the Flutter implementation, the equivalent functionality is achieved through the \texttt{SemanticsService} API, although Budai's code does not explicitly show this pattern. A typical Flutter implementation would resemble Listing~\ref{lst:flutter-dynamic-pattern}.
+
+\begin{lstlisting}[style=DartStyle, caption=Dynamic content announcement in Flutter, label=lst:flutter-dynamic-pattern]
+void _handleButtonPress(String route, String title) {
+  Navigator.pushNamed(context, route);
+  SemanticsService.announce(
+    'Opening $title screen',
+    TextDirection.ltr
+  );
+}
+
+// Within build method:
+GestureDetector(
+  onTap: () => _handleButtonPress('/screen-element2', 'Documentation MCAG'),
+  child: Semantics(
+    button: true,
+    child: Text(
+      'Documentation MCAG',
+    ),
+  ),
+)
+\end{lstlisting}
+
+\pagebreak
+
+For live regions that automatically announce changes, React Native provides the \\ \texttt{accessibilityLiveRegion} property, while Flutter offers the \texttt{liveRegion} property on Semantics widgets. The React Native implementation of this pattern is shown in Listing~\ref{lst:react-native-live-region}.
+
+\begin{lstlisting}[style=ReactNativeStyle, caption=Live region announcement in React Native, label=lst:react-native-live-region]
+{singleTapComplete && (
+  <View 
+    style={styles.successMessage} 
+    accessibilityLiveRegion="polite"
+  >
+    <Text style={styles.successText}>
+      Tap gesture completed successfully!
+    </Text>
+  </View>
+)}
+\end{lstlisting}
+
+\pagebreak
+
+The equivalent Flutter implementation would use a Semantics widget with the \texttt{liveRegion} property set to true, as shown in a hypothetical example in Listing~\ref{lst:flutter-live-region}.
+
+\begin{lstlisting}[style=DartStyle, caption=Live region announcement in Flutter, label=lst:flutter-live-region]
+if (_gestureOneCompleted) {
+  return Semantics(
+    liveRegion: true,
+    child: Container(
+      color: Colors.green,
+      child: Text('Gesture completed successfully!'),
+    ),
+  );
+}
+\end{lstlisting}
+
+These patterns highlight a common theme: React Native's implementation is typically more concise and directly integrated with the component model, while Flutter's approach requires more explicit structures but offers fine-grained control.
+
+Table~\ref{tab:announcement_pattern_comparison} compares the dynamic announcement patterns between frameworks.
+
+\begin{table}[ht]
+\caption{Dynamic announcement pattern comparison}
+\label{tab:announcement_pattern_comparison}
+\centering
+\begin{tabular}{|P{3cm}|P{3.5cm}|P{3.5cm}|P{4cm}|}
+\hline
+\textbf{Announcement Type} & \textbf{React Native} & \textbf{Flutter} & \textbf{Integration Pattern} \\
+\hline
+Event-triggered & \texttt{Accessibility \ Info.announceFor \ Accessibility()} & \texttt{SemanticsService. \ announce()} & RN: Event handling; FL: Imperative calls \\
+\hline
+Automatic (Live Region) & \texttt{accessibility \ LiveRegion= \ "polite"} & \texttt{Semantics \ (liveRegion: \ true, child: Widget)} & RN: Property-based; FL: Widget-based \\
+\hline
+\end{tabular}
+\end{table}
+
+\pagebreak
+
+\subsubsection{Hiding elements from accessibility tree}
+\label{subsubsec:hiding-elements-patterns}
+
+Both frameworks provide mechanisms to hide visual elements from assistive technologies when they serve decorative purposes only, but their approaches differ significantly.
+
+React Native uses the \texttt{accessibilityElementsHidden} or \texttt{importantForAccessibility} properties to control this aspect, as shown in \textit{AccessibleHub}'s implementation in Listing~\ref{lst:react-native-hiding-pattern}.
+
+\begin{lstlisting}[style=ReactNativeStyle, caption=Hiding elements in React Native, label=lst:react-native-hiding-pattern]
+<Ionicons
+  name="radio-button-on-outline"
+  size={24}
+  color={colors.primary}
+  accessibilityElementsHidden
+  importantForAccessibility="no-hide-descendants"
+/>
+\end{lstlisting}
+
+Flutter achieves the same goal using the \texttt{excludeSemantics} property on the Semantics widget, as demonstrated in Budai's implementation in Listing~\ref{lst:flutter-hiding-pattern}.
+
+\begin{lstlisting}[style=DartStyle, caption=Hiding elements in Flutter, label=lst:flutter-hiding-pattern]
 Semantics(
-  header: true,
-  child: Text(
-    'Steps',
-    style: Theme.of(context).textTheme.headlineMedium,
-  ),
+  label: _gestureOneCompleted 
+      ? 'Gesture one completed' 
+      : 'Gesture one',
+  excludeSemantics: _gestureOneCompleted,
+  child: GestureDetector(
+    // Implementation details
+  )
 )
 \end{lstlisting}
 
-\begin{lstlisting}[style=ReactNativeStyle, caption=\textit{AccessibleHub}'s React Native implementation of headers, label=lst:accessiblehub-heading]
-<Text 
-  style={[themedStyles.sectionTitle, { color: colors.text }]} 
-  accessibilityRole="header"
->
-  Accessibility Features
-</Text>
-\end{lstlisting}
+The React Native approach offers a more direct property to exclude elements from the accessibility tree. Flutter's approach requires the use of a Semantics wrapper, even when the goal is to exclude elements from the semantic tree, which can add unnecessary complexity.
 
 \pagebreak
 
-The analysis in Table~\ref{tab:component_comparison} reveals that neither framework provides accessible heading elements by default, as identified in Perinello and Gaggi's research~\cite{perinello2024accessibility}. Both require developer intervention to indicate heading semantics. The implementation overhead for Flutter (1 widget wrapper + 1 property) exceeds that of React Native (1 property), resulting in approximately 40\% more code required for equivalent functionality, which aligns with the quantitative findings presented in Table~\ref{tab:implementation_overhead_analysis}.
+Table~\ref{tab:hiding_pattern_comparison} summarizes the implementation patterns for hiding elements from screen readers.
 
-When testing with screen readers, both implementations correctly announce the heading role, but the additional complexity in Flutter's approach introduces a slightly higher learning curve for developers. This finding aligns with the Complexity Impact Factor methodology detailed in Section~\ref{subsubsec:cif-methodology}.
+\begin{table}[ht]
+\caption{Element hiding pattern comparison}
+\label{tab:hiding_pattern_comparison}
+\centering
+\begin{tabular}{|P{3.5cm}|P{4cm}|P{3.5cm}|P{3cm}|}
+\hline
+\textbf{Hiding Scope} & \textbf{React Native} & \textbf{Flutter} & \textbf{Code Verbosity} \\
+\hline
+Single element & \textt{accessibility\ ElementsHidden} & \texttt{Semantics \ (excludeSemantics: \ true, child: Widget)} & RN: Low; FL: Medium \\
+\hline
+Element and descendants & \texttt{important \ ForAccessibility \ ="no-hide- \ descendants"} & \texttt{ExcludeSemantics \ (child: Widget)} & RN: Low; FL: Low \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsubsection{Language declaration}
-\label{subsubsec:language-declaration}
-
-Language declarations are essential for screen readers to use appropriate pronunciation rules. WCAG criteria 3.1.1 (Language of Page) and 3.1.2 (Language of Parts) require that the human language of the page and parts can be programmatically determined, as shown in Table~\ref{tab:wcag_criteria}.
-
-React Native provides built-in support for language declaration through the \\\texttt{accessibilityLanguage} property, as shown in Listing~\ref{lst:react-native-language}:
-
-\begin{lstlisting}[style=ReactNativeStyle, caption=Language declaration in React Native, label=lst:react-native-language]
-<Text
-  accessibilityLanguage="es">
-  Buenos dias
-</Text>
-\end{lstlisting}
-
-In contrast, Flutter requires a significantly more complex implementation using the \texttt{Semantics} widget with \texttt{attributedLabel} and locale attributes, as documented in Listing~\ref{lst:budai-language}:
-
-\begin{lstlisting}[style=DartStyle, caption=Language implementation in Budai's code, label=lst:budai-language]
-Semantics(
-  attributedLabel: AttributedString(
-    widget.title,
-    attributes: [
-      LocaleStringAttribute(
-        range: TextRange(start: 0, end: widget.title.length),
-        locale: Locale("en"),
-      ),
-    ]
-  ),
-  header: true,
-  child: Text(
-    widget.title,
-  ),
-)
-\end{lstlisting}
-
-As evidenced in Table~\ref{tab:implementation_overhead_analysis}, the implementation complexity difference is substantial. React Native provides this functionality with a simple property requiring 7 lines of code, while Flutter requires 21 lines—a 200\% increase. This represents a ``High'' complexity impact according to the classification methodology detailed in Section~\ref{subsubsec:cif-methodology}.
-
-In \textit{AccessibleHub}'s implementation (Listing~\ref{lst:accessiblehub-language}), language management is handled through a consistent property-based approach, allowing for straightforward language control:
-
-\begin{lstlisting}[style=ReactNativeStyle, caption=Language handling in \textit{AccessibleHub}, label=lst:accessiblehub-language]
-<Text 
-  accessibilityLanguage={userLanguage} 
-  style={themedStyles.heroSubtitle}
->
-  A comprehensive guide for optimizing your app for VoiceOver and TalkBack
-</Text>
-\end{lstlisting}
-
-\pagebreak
-
-When tested with VoiceOver and TalkBack, the React Native implementation consistently produced correct language pronunciation, while the Flutter implementation occasionally exhibited inconsistencies on Android, requiring additional configuration for reliable results. This contributes to the lower Screen Reader Support Score for Flutter in this category, as indicated in Table~\ref{tab:wcag_compliance_comparison}.
-
-\subsubsection{Text abbreviations}
-\label{subsubsec:text-abbreviations}
-
-Abbreviations present accessibility challenges as screen readers may mispronounce them or fail to provide their full meaning. WCAG criterion 3.1.4 (Abbreviations) recommends that a mechanism for identifying the expanded form of abbreviations be available, as indicated in Table~\ref{tab:wcag_criteria}.
-
-In React Native, abbreviation accessibility is implemented using the \texttt{accessibilityLabel} property, as shown in Listing~\ref{lst:react-native-abbreviation}:
-
-\begin{lstlisting}[style=ReactNativeStyle, caption=Abbreviation handling in React Native, label=lst:react-native-abbreviation]
-<Text
-  accessibilityLabel="World Health Organization">
-  WHO
-</Text>
-\end{lstlisting}
-
-Flutter implements abbreviation handling through the \texttt{semanticsLabel} property within the \texttt{Text} widget, as demonstrated in Listing~\ref{lst:flutter-abbreviation}:
-
-\begin{lstlisting}[style=DartStyle, caption=Abbreviation handling in Flutter, label=lst:flutter-abbreviation]
-Text(
-  'WHO',
-  semanticsLabel: 'World Health Organization',
-)
-\end{lstlisting}
-
-\textit{AccessibleHub} extends this pattern to multiple instances where abbreviations might appear, as shown in Listing~\ref{lst:accessiblehub-abbreviation}:
-
-\begin{lstlisting}[style=ReactNativeStyle, caption=Enhanced abbreviation handling in \textit{AccessibleHub}, label=lst:accessiblehub-abbreviation]
-<Text
-  style={styles.criteriaValue}
-  accessibilityLabel={`WCAG criteria ${criterion.wcag}. ${criterion.level}`}
->
-  {criterion.wcag} ({criterion.level})
-</Text>
-\end{lstlisting}
-
-\pagebreak
-
-The implementation overhead analysis reveals that while both approaches require additional configuration, React Native's property pattern is more consistent with other accessibility implementations, reducing cognitive load for developers. As shown in Table~\ref{tab:implementation_overhead_analysis}, the Flutter implementation requires approximately 100\% more configuration complexity compared to React Native for equivalent functionality.
-
-Our empirical testing with screen readers demonstrated that both implementations correctly announce the expanded abbreviation, though React Native provided more consistent behavior across platforms, contributing to the WCAG compliance ratios presented in Table~\ref{tab:wcag_compliance_comparison}.
+These implementation patterns directly link to the architectural differences examined in Section~\ref{subsec:arch-differences} and impact the quantitative metrics presented in Section~\ref{sec:quantitative-comparison}. They demonstrate that while both frameworks can achieve equivalent accessibility outcomes, they impose different development experiences and overhead.
 
 \subsection{Interactive elements}
 \label{subsec:interactive-elements}
@@ -809,7 +1038,6 @@ For more complex scenarios, Flutter often requires the \texttt{Semantics} wrappe
 \begin{lstlisting}[style=DartStyle, caption=Enhanced button accessibility in Flutter, label=lst:flutter-enhanced-button]
 Semantics(
   label: 'Submit form',
-  hint: 'Activates form submission',
   button: true,
   onTap: handleSubmit,
   child: ElevatedButton(
@@ -987,7 +1215,6 @@ React Native implements accessible gesture handlers through the following patter
 <View
   accessibilityRole="button"
   accessibilityLabel="Swipe to delete"
-  accessibilityHint="Double tap and hold, then drag to delete"
   accessibilityActions={[
     { name: 'activate', label: 'Delete item' }
   ]}
@@ -1267,7 +1494,9 @@ The analysis reveals that Flutter implementations generally have higher complexi
 
 The most significant complexity differences appear in language declarations (classified as ``High'' complexity in Flutter vs. ``Low'' in React Native) and custom gesture handlers (classified as ``High'' in Flutter vs. ``Medium'' in React Native).
 
-These complexity factors directly impact the developer experience and learning curve, as demonstrated by the accessibility implementation patterns in both Budai's Flutter code and \textit{AccessibleHub}'s React Native implementation. Our Developer Time Estimation (DTE) measurements confirm that higher CIF values correlate with increased implementation time, with Flutter implementations requiring on average 35\% more development time for equivalent accessibility features.
+These complexity factors directly impact the developer experience and learning curve, as demonstrated by the accessibility implementation patterns in both Flutter code and \textit{AccessibleHub}'s React Native implementation. Our implementation experience suggests a correlation between higher CIF values and increased development effort, with Flutter implementations generally requiring more time to achieve equivalent accessibility features due to the additional structural complexity of the widget-based semantic system.
+
+While we have not conducted formal time-measurement studies with multiple developers, the consistent pattern of increased code volume and complexity in Flutter implementations points to potentially higher development overhead, particularly for developers new to accessibility implementation. This qualitative observation aligns with the quantitative CIF measurements and warrants further investigation through controlled studies with larger developer samples.
 
 \subsection{Screen reader compatibility metrics}
 \label{subsec:screen-reader-metrics}
@@ -1292,7 +1521,15 @@ The empirical testing revealed specific platform differences:
     \item Flutter required more platform-specific adaptations for equivalent TalkBack performance.
 \end{itemize}
 
-This data directly addresses RQ1 (Default accessibility support) and RQ2 (Implementation feasibility), demonstrating that while both frameworks can achieve high accessibility standards, React Native generally provides more consistent cross-platform behavior with less implementation overhead.
+This comprehensive analysis provides explicit answers to our research questions:
+
+\begin{itemize}
+    \item \textbf{RQ1 (Default accessibility support)}: Our evaluation demonstrates that neither framework provides comprehensive accessibility by default. As shown in Table~\ref{tab:component_comparison}, Flutter provides no components that are fully accessible without modification, while React Native offers only two components (Text language and Button) that are accessible by default. The majority of components in both frameworks require explicit developer intervention to meet WCAG criteria.
+
+    \item \textbf{RQ2 (Implementation feasibility)}: Our implementations confirm that it is technically feasible to enhance all tested components to meet accessibility standards in both frameworks. However, the approach and complexity differ significantly. React Native's property-based model allows for more straightforward enhancements, typically requiring only the addition of accessibility properties to existing components. Flutter's widget-based semantic system necessitates additional wrapper widgets and more complex configuration, particularly for advanced cases like language declaration.
+
+    \item \textbf{RQ3 (Development overhead)}: Quantitative analysis reveals significant differences in implementation overhead between frameworks. React Native implementations require 27\%-200\% less code than equivalent Flutter implementations, with an average reduction of 4\% across all component types. The Complexity Impact Factor analysis further demonstrates that Flutter's widget-based approach introduces higher structural complexity in addition to increased code volume, directly impacting development effort and maintainability.
+\end{itemize}
 
 \section{Framework-specific optimization patterns}
 \label{sec:optimization-patterns}
@@ -1412,7 +1649,7 @@ function ComponentsScreen() {
 \subsection{Flutter optimization techniques}
 \label{subsec:flutter-optimization}
 
-Flutter's widget-based accessibility model enables different optimization approaches, some of which are evident in Budai's implementation:
+Flutter's widget-based accessibility model enables different optimization approaches:
 
 \begin{enumerate}
     \item \textbf{Custom semantic widgets}: Creating wrapper widgets that encapsulate common semantic patterns, as shown in Listing~\ref{lst:flutter-custom-semantic}:
@@ -1462,7 +1699,7 @@ SemanticsService.announce(
 );
     \end{lstlisting}
     
-    \item \textbf{Theme-based semantics}: Integrating semantic properties with Flutter's theming system, similar to Budai's approach, as shown in Listing~\ref{lst:flutter-theme-semantics}:
+    \item \textbf{Theme-based semantics}: Integrating semantic properties with Flutter's theming system, as shown in Listing~\ref{lst:flutter-theme-semantics}:
     
     \begin{lstlisting}[style=DartStyle, caption=Theme-based semantics in Flutter, label=lst:flutter-theme-semantics]
 ThemeData theme = Theme.of(context);
@@ -1498,227 +1735,3 @@ The analysis of both frameworks, combined with Budai's Flutter implementation an
 \end{enumerate}
 
 These cross-framework practices help mitigate the implementation differences between React Native and Flutter, allowing teams to maintain consistent accessibility standards regardless of the chosen framework.
-
-\section{Results and discussion}
-\label{sec:results-discussion}
-
-This section synthesizes our findings into actionable insights for developers and project stakeholders, addressing our research questions and providing practical guidelines for framework selection and implementation strategies.
-
-Table~\ref{tab:consolidated_comparison} provides a comprehensive overview of the framework comparison across multiple dimensions, consolidating our findings on default accessibility, implementation costs, and screen reader support for each component type. This consolidated view clearly demonstrates the trade-offs between React Native's more concise implementation approach and Flutter's more explicit semantic model. While React Native consistently requires less code for equivalent accessibility implementations, Flutter offers advantages in certain areas such as focus management. The overall metrics confirm that React Native provides a 45\% reduction in implementation overhead on average, while maintaining higher screen reader compatibility scores across most component categories.
-
-\begin{table}[ht]
-\caption{Consolidated framework accessibility comparison}
-\label{tab:consolidated_comparison}
-\centering
-\begin{tabular}{|P{2.3cm}|P{1.7cm}|P{1.7cm}|P{2.3cm}|P{2.3cm}|P{2.3cm}|}
-\hline
-\textbf{Component} & \textbf{React Native Default} & \textbf{Flutter Default} & \textbf{React Native Implementation Cost} & \textbf{Flutter Implementation Cost} & \textbf{Screen Reader Support} \\
-\hline
-Headings & \ding{55} & \ding{55} & 7 LOC (baseline) & 11 LOC (+57\%) & RN: 4.3, Flutter: 4.0 \\
-\hline
-Text language & \ding{51} & \ding{55} & 7 LOC (baseline) & 21 LOC (+200\%) & RN: 4.2, Flutter: 3.7 \\
-\hline
-Text abbreviation & \ding{55} & \ding{55} & 7 LOC (baseline) & 14 LOC (+100\%) & RN: 4.5, Flutter: 4.3 \\
-\hline
-Button & \ding{51} & \ding{55} & 12 LOC (baseline) & 18 LOC (+50\%) & RN: 4.4, Flutter: 4.2 \\
-\hline
-Form field & \ding{55} & \ding{55} & 15 LOC (baseline) & 23 LOC (+53\%) & RN: 4.0, Flutter: 3.8 \\
-\hline
-Custom gesture & \ding{55} & \ding{55} & 22 LOC (baseline) & 28 LOC (+27\%) & RN: 3.8, Flutter: 3.2 \\
-\hline
-Navigation hierarchy & \ding{55} & \ding{55} & 18 LOC (baseline) & 26 LOC (+44\%) & RN: 4.3, Flutter: 3.9 \\
-\hline
-Focus management & \ding{55} & \ding{55} & 14 LOC (baseline) & 22 LOC (+57\%) & RN: 4.0, Flutter: 4.1 \\
-\hline
-\textbf{OVERALL} & 38\% & 32\% & \textbf{Baseline} & \textbf{+45\% overhead} & \textbf{RN: 4.2, FL: 3.8} \\
-\hline
-\end{tabular}
-\end{table}
-
-\subsection{Default accessibility comparison}
-\label{subsec:default-accessibility}
-
-Addressing RQ1 (Default accessibility support), our analysis reveals that both frameworks provide limited default accessibility, as quantified in Table~\ref{tab:component_comparison}.
-
-\begin{itemize}
-    \item React Native's basic components (\texttt{Text}, \texttt{TouchableOpacity}, \texttt{Button}) provide minimal accessibility information by default, primarily focusing on interactive elements;
-    
-    \item Flutter's material components (\texttt{Text}, \texttt{ElevatedButton}, \texttt{TextField}) similarly provide basic accessibility, with slightly better default support for form controls;
-    
-    \item Neither framework provides comprehensive default accessibility, with both requiring explicit developer intervention for full compliance.
-\end{itemize}
-
-The Component Accessibility Score (CAS) calculations reveal that React Native achieves a slightly higher default accessibility score (38\% vs. 32\%), though both frameworks fall well short of complete accessibility compliance without developer intervention.
-
-This finding underscores the importance of explicit accessibility implementation regardless of framework choice, as neither provides ``accessibility by default'' across the component spectrum.
-
-\subsection{Implementation feasibility analysis}
-\label{subsec:implementation-feasibility}
-
-Addressing RQ2 (Implementation feasibility), our analysis demonstrates that both frameworks provide comprehensive technical capabilities for implementing accessible components:
-
-\begin{itemize}
-    \item React Native's accessibility API covers all essential accessibility properties required by WCAG 2.2 AA standards;
-    
-    \item Flutter's \texttt{Semantics} system offers equivalent capabilities, though with different implementation patterns;
-    
-    \item Both frameworks can achieve high WCAG compliance as shown in Table~\ref{tab:wcag_compliance_comparison}, with appropriate implementation techniques.
-\end{itemize}
-
-The implementation feasibility differs not in capability but in approach:
-
-\begin{itemize}
-    \item React Native's property-based model presents a more straightforward learning curve for developers familiar with web accessibility patterns;
-    
-    \item Flutter's widget-based model offers more flexibility for complex cases but requires deeper understanding of the semantic tree concept;
-    
-    \item Both approaches present different mental models that impact developer productivity and code organization.
-\end{itemize}
-
-These findings indicate that implementation feasibility depends more on developer familiarity and team expertise than inherent framework limitations. Both frameworks provide the necessary tools for complete accessibility implementation, though with different conceptual approaches.
-
-\subsection{Development effort evaluation}
-\label{subsec:development-effort}
-
-Addressing RQ3 (Development overhead), our quantitative analysis reveals consistent differences in development effort requirements:
-
-\begin{itemize}
-    \item React Native implementations required on average 45\% less code than equivalent Flutter implementations, as demonstrated in Table~\ref{tab:implementation_overhead_analysis};
-    
-    \item Flutter implementations showed higher complexity factors, particularly for text components and custom gestures;
-    
-    \item Developer Time Estimation (DTE) measurements indicated approximately 35\% longer implementation times for Flutter across component categories.
-\end{itemize}
-
-These differences stem from fundamental architectural approaches:
-
-\begin{itemize}
-    \item React Native's property-based model allows for more concise accessibility implementations that align closely with web accessibility patterns;
-    
-    \item Flutter's widget-based model introduces additional structural complexity, particularly for components requiring complex semantic annotations;
-    
-    \item React Native's unified accessibility API provides more consistent patterns across different component types compared to Flutter's more fragmented approach.
-\end{itemize}
-
-\begin{table}[ht]
-\caption{Implementation overhead trade-offs overview}
-\label{tab:implementation_tradeoffs}
-\centering
-\begin{tabular}{|P{2.5cm}|P{5.5cm}|P{5.5cm}|}
-\hline
-\textbf{Factor} & \textbf{React Native} & \textbf{Flutter} \\
-\hline
-Initial Learning & Faster for developers with web experience; accessibility properties closely resemble ARIA concepts & Steeper learning curve; requires understanding semantic tree concepts and widget composition \\
-\hline
-Code Volume & Lower; properties directly applied to components & Higher; widget wrapping increases code verbosity \\
-\hline
-Scalability & Pattern consistency more challenging in large teams & Explicit semantics aids clarity in large codebases \\
-\hline
-Maintenance & Less code to maintain but implicit relationships & More explicit semantic structure but higher volume \\
-\hline
-\end{tabular}
-\end{table}
-
-As shown in Table~\ref{tab:implementation_tradeoffs}, the development effort evaluation directly impacts team productivity and project timelines, particularly for applications with extensive accessibility requirements. While React Native generally offers lower implementation overhead, Flutter's more explicit model may provide advantages for long-term maintenance and team scalability.
-
-\subsection{Mitigating implementation overhead}
-\label{subsec:mitigating-overhead}
-
-Our analysis revealed several practical strategies that developers can employ to reduce implementation overhead, with framework-specific considerations:
-
-\begin{enumerate}
-    \item \textbf{Component libraries}: Building reusable accessible component libraries significantly reduces implementation costs over time. In \textit{AccessibleHub}, we created a library of pre-configured accessible components that encapsulated common patterns, as shown by the code in Listings \ref{lst:react-native-component-abstraction} and \ref{lst:flutter-custom-semantic}.
-
-    These component libraries provide significant benefits:
-    \begin{itemize}
-        \item Reduction in implementation overhead metrics (IO, CIF) by up to 80\% for frequently used components;
-        \item Improved consistency in accessibility implementation across the application;
-        \item Simplified code reviews for accessibility compliance;
-        \item Reduced knowledge requirements for team members implementing accessibility features.
-    \end{itemize}
-    
-    \item \textbf{Accessibility testing automation}: Integrating automated accessibility testing into the development workflow can significantly reduce long-term implementation costs. The automated accessibility testing approach implemented in \textit{AccessibleHub} includes checks for required properties and appropriate roles.
-    
-    This approach yields practical benefits throughout the development lifecycle:
-    \begin{itemize}
-        \item Early detection of accessibility issues, reducing rework costs;
-        \item Automated verification of accessibility properties, reducing manual testing requirements;
-        \item Continuous monitoring of accessibility compliance during development;
-        \item Documentation of accessibility requirements through test cases.
-    \end{itemize}
-    
-    \item \textbf{Context-based accessibility patterns}: Using application context to manage accessibility properties can significantly reduce implementation overhead. In \textit{AccessibleHub}, we implemented a theme context that includes accessibility considerations, as shown in Listing~\ref{lst:react-native-context-accessibility}.
-    
-    This pattern provides practical benefits:
-    \begin{itemize}
-        \item Centralized management of accessibility settings;
-        \item Responsive adaptation to user preferences;
-        \item Reduced duplication of accessibility logic;
-        \item Simplified implementation of dynamic accessibility features.
-    \end{itemize}
-    
-    \item \textbf{Progressive enhancement approach}: Implementing accessibility features incrementally can help manage development overhead. In \textit{AccessibleHub}, we followed a prioritized implementation approach:
-    \begin{itemize}
-        \item Phase 1: Implement basic accessibility properties (roles, labels) on all components;
-        \item Phase 2: Add enhanced features (hints, states, actions) to critical interactive components;
-        \item Phase 3: Implement advanced features (custom actions, focus management) for complex interactions.
-    \end{itemize}
-    
-    This approach delivers practical benefits:
-    \begin{itemize}
-        \item Immediate improvements in baseline accessibility;
-        \item Prioritized allocation of development resources;
-        \item Gradual adoption of more complex accessibility patterns;
-        \item Opportunity for testing and feedback between implementation phases.
-    \end{itemize}
-\end{enumerate}
-
-These mitigation strategies can substantially reduce the implementation overhead gap between frameworks, making accessibility implementation more practical and cost-effective for development teams.
-
-\subsection{Practical guidelines for framework selection}
-\label{subsec:framework-selection}
-
-Based on our comprehensive analysis of both frameworks and implementation patterns evident in Budai's Flutter implementation and \textit{AccessibleHub}'s React Native code, we offer the following practical guidelines for framework selection with accessibility as a primary consideration:
-
-\begin{enumerate}
-    \item \textbf{Team expertise}: Teams with web accessibility experience will likely achieve faster implementation in React Native due to its property-based model that resembles ARIA patterns. Our Developer Time Estimation (DTE) metrics showed up to 40\% faster implementation times for web-experienced developers using React Native;
-    
-    \item \textbf{Project complexity}: For applications with complex custom UI components, Flutter's widget-based model may offer more flexibility despite higher implementation overhead. The Complexity Impact Factor (CIF) analysis showed that Flutter's semantic model scales better for highly customized interfaces where explicit accessibility control is beneficial;
-    
-    \item \textbf{Platform considerations}: React Native demonstrated more consistent cross-platform behavior for accessibility features in our Screen Reader Support Score (SRSS) testing, with an average score of 4.2/5 across platforms compared to Flutter's 3.8/5. This suggests React Native may require fewer platform-specific adaptations;
-    
-    \item \textbf{Development timeline}: Projects with tight timelines may benefit from React Native's lower accessibility implementation overhead. Our Implementation Overhead (IO) metrics showed an average reduction of 45\% in code volume across components;
-    
-    \item \textbf{Maintenance requirements}: Flutter's explicit semantic structure may offer advantages for long-term maintenance despite higher initial implementation costs. In our CIF analysis, Flutter's semantic tree approach showed better modularity and clarity for complex component hierarchies;
-    
-    \item \textbf{Team size and structure}: Larger teams may benefit from Flutter's more explicit semantic model, which enforces clearer separation of visual and accessibility concerns. Our analysis of development workflows found that Flutter's approach reduces accessibility regression issues in multi-developer environments by 35\% compared to React Native's more implicit model.
-\end{enumerate}
-
-
-Table~\ref{tab:framework_selection_matrix} provides a practical decision matrix to guide framework selection based on project priorities. This matrix synthesizes our research findings into actionable selection criteria for teams implementing accessible mobile applications.
-
-\begin{table}[ht]
-\caption{Framework selection decision matrix}
-\label{tab:framework_selection_matrix}
-\centering
-\begin{tabular}{|P{3cm}|P{2cm}|P{2cm}|P{6cm}|}
-\hline
-\textbf{Primary Concern} & \textbf{React Native} & \textbf{Flutter} & \textbf{Key Considerations} \\
-\hline
-Implementation Speed & \ding{51} & \ding{55} & React Native offers 45\% less code overhead \\
-\hline
-Web Development Background & \ding{51} & \ding{55} & React Native's property model resembles ARIA \\
-\hline
-Complex Custom UI & \ding{55} & \ding{51} & Flutter offers more granular semantic control \\
-\hline
-Large Development Team & \ding{55} & \ding{51} & Flutter's explicit semantics enhances clarity \\
-\hline
-Cross-Platform Consistency & \ding{51} & \ding{55} & React Native showed better TalkBack support \\
-\hline
-Long-term Maintenance & \ding{55} & \ding{51} & Flutter's semantic tree improves maintainability \\
-\hline
-Form-Heavy Applications & \ding{51} & \ding{51} & Both frameworks offer strong form accessibility \\
-\hline
-\end{tabular}
-\end{table}
-

@@ -10,7 +10,7 @@
 
 The journey towards digital accessibility has been shaped by both legislative frameworks and technological advancements, alongside the evolution of devices and how they integrate into daily life. These developments reflect not just a response to legal requirements, but a fundamental shift in how we approach digital design and development. The goal has evolved from simple compliance to embracing universal design principles - creating products and services that can be used by everyone, regardless of their abilities or circumstances \cite{article:universal-design}.
 
-Universal design in the digital world embodies the principle that technology should be inclusive by conception, since many times it's treated as an afterthought, while it must be considered from the earliest stages of development. This evolution has been particularly significant in the mobile ecosystem, where the constant need of connectivity and the multiple usages of these devices have opened multiple opportunities, but also challenges for both users and content creators. Connectivity, convenience and creativity are one of the main focus and purpose of the online world, where Internet and access to a mobile device has been recognized to be one of the fundamental rights for human beings in general. As evidenced by the multiple ways users interact with mobile platforms in \ref{chap:intro-background}, there are significant challenges in the current state of digital accessibility. These challenges stem from two main factors: the difficulty in addressing diverse user needs and the lack of clear implementation guidelines for developers. \\
+Universal design in the digital world embodies the principle that technology should be inclusive, since many times it's treated as an afterthought, while it must be considered from the earliest stages of development. This evolution has been particularly significant in the mobile ecosystem, where the constant need of connectivity and the multiple usages of these devices have opened multiple opportunities, but also challenges for both users and content creators. Connectivity, convenience and creativity are one of the main focus and purpose of the online world, where Internet and access to a mobile device has been recognized to be one of the fundamental rights for human beings in general. As evidenced by the multiple ways users interact with mobile platforms, as described in \ref{chap:intro-background}, there are significant challenges in the current state of digital accessibility. These challenges stem from two main factors: the difficulty in addressing user needs and the lack of clear implementation guidelines for developers. \\
 
 To understand the current state of mobile accessibility, it's crucial to examine the legislative landscape that has shaped its development. This progression of laws and regulations demonstrates how accessibility requirements have evolved from broad civil rights protections to specific technical standards for digital interfaces. Several key legislative milestones across different regions have shaped this evolution - we will see the main ones 
 
@@ -31,14 +31,14 @@ Accessibility guidelines and standards form the foundation upon which inclusive 
 
 \subsection{Web Content Accessibility Guidelines (WCAG)}
 
-The \gls{wcagg}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility (as per \cite{site:wcag}). Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
+The \gls{wcagg}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility (\cite{site:wcag}). Although originally designed for web content, the WCAG principles and guidelines are equally applicable to mobile app development. The WCAG is organized around four main principles:
 
 \begin{itemize}
-    \item \textit{Perceivable}: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, creating content that can be presented in different ways without losing meaning, and making it easier for users to see and hear content;
+    \item \textit{Perceivable}: Information and user interface components must be presentable to users in ways they can perceive. This includes providing text alternatives for non-text content, creating content that can be presented in different ways without losing meaning, and making it easier for users content;
     
-    \item \textit{Operable}: User interface components and navigation must be operable. This means that all functionality should be available from a keyboard, users should have enough time to read and use the content, and content should not cause seizures or physical reactions;
+    \item \textit{Operable}: User interface components and navigation must be operable. This means that all functionality should be available also from a keyboard, users should have enough time to read and use the content, and content should not cause seizures or physical reactions;
     
-    \item \textit{Understandable}: Information and the operation of the user interface must be understandable. This involves making text content readable and understandable, making content appear and operate in predictable ways, and helping users avoid and correct mistakes;
+    \item \textit{Understandable}: Information and the interactions provided by the user interface must be understandable. This involves making text content readable and understandable, making content appear and operate in predictable ways, and helping users avoid and correct mistakes;
     
     \item \textit{Robust}: Content must be robust enough that it can be interpreted by a wide variety of user agents, including assistive technologies. This requires maximizing compatibility with current and future user agents.
 \end{itemize}
@@ -47,7 +47,7 @@ Under each principle, the WCAG provides specific guidelines and success criteria
 
 \subsection{Mobile Content Accessibility Guidelines (MCAG)}
 
-While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms introduce additional complexities that may not be fully addressed by web-centric guidelines (as per \cite{site:mcag}). The \gls{mcagg} build upon the previous ones by focusing on the specific interaction patterns, form factors, and environmental contexts unique to mobile devices. For example, MCAG emphasizes:
+While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms introduce additional complexities that may not be fully addressed by web-centric guidelines. The \gls{mcagg} (\cite{site:mcag}) build upon the previous ones by focusing on the specific interaction patterns, form factors, and environmental contexts unique to mobile devices. For example, MCAG emphasizes:
 
 \begin{itemize}
     \item \textit{Touch interaction and gestures}: Ensuring that tap targets, swipe gestures, and multi-finger interactions are usable for individuals with varying motor skills;
@@ -60,7 +60,7 @@ While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms int
     
 \end{itemize}
 
-In practice, \acrshort{mcagacr} complements \acrshort{wcagacr} by providing more granular, mobile-oriented guidance considering specific factors. Developers who follow these guidelines in addition to \acrshort{wcagacr} are better equipped to deliver an inclusive experience that accounts for real-world mobile usage. As part of this work, AccessibleHub integrates both sets of guidelines to ensure comprehensive coverage of accessibility requirements across platforms.
+In practice, \acrshort{mcagacr} complements \acrshort{wcagacr} by providing more granular, mobile-oriented guidance considering specific factors. Developers who follow these guidelines in addition to \acrshort{wcagacr} are better equipped to deliver an inclusive experience that accounts for real-world mobile usage. 
 
 \subsection{Mobile-specific accessibility considerations}
 
@@ -128,8 +128,6 @@ While previous research has extensively documented accessibility challenges and 
 However, when it comes to accessibility-specific comparisons, the research landscape is more limited. 
 A research discussing and comparing the two frameworks addressing accessibility issues, which this thesis wants to base upon, is the research by Gaggi and Perinello \cite{perinello2024accessibility}, investigating three main questions: whether components are accessible by default, if non-accessible components can be made accessible, and the development cost in terms of additional code required. The study examines a set of UI elements against WCAG criteria and proposes solutions when official documentation is insufficient. \\
 
-This thesis wants to expand previous research conducted by Budai \cite{budai2024mobile} on Flutter's accessibility features, proposing mobile-specific guidelines when necessary, proposing connection and a deeper evaluation of both frameworks and proposing a more practical and developer-focused approach. The actual goal is to provide a practical resource that helps developers making informed decisions about accessibility implementation in their mobile apps, while analyzing and comparing in detail components and widgets between Flutter and React Native frameworks.
-
 \subsection{Accessibility tools and extensions}
 
 Accessibility tools and extensions development has been instrumental in bridging the gap between theory and practice. These tools have also allowed developers to efficiently include accessibility in their applications while meeting standards. For instance, Chen et al. \cite{chen2023automated} presented \textit{AccuBot}, a publicly available automated testing tool for mobile applications. The tool is integrated with continuous integration pipelines for the detection of WCAG 2.2 criteria violations, such as insufficient contrast ratios and missing \acrshort{aria} labels. In their evaluation of $500$ mobile apps, they reported that \textit{AccuBot} reduces manual testing efforts by $40$\% while sustaining high precision in identifying technical accessibility barriers.\\
@@ -138,6 +136,8 @@ Another contribution worth mentioning is the screen-reader simulation toolkit, \
 
 In the context of framework-specific support, Nguyen et al.\cite{nguyen2022flutter} implemented \textit{AccessiFlutter}, a plugin for Flutter guiding developers to implement widgets in an accessibility-friendly manner. It provides real-time feedback on component properties, such as using semantic labels for icons or the validation of touch target size. A comparative analysis showed that apps implemented with \textit{AccessiFlutter} attained $95$\% compliance with WCAG AA criteria, compared to manual implementation. Similarly, \cite{singh2023react} developed \textit{A11yReact}, a React Native library providing accessible pre-built components and automated auditing. Their study showed that the developers using \textit{A11yReact} needed $50$\% fewer code changes to achieve accessibility compared to regular React Native development processes.\\
 
-These tools highlight the critical role of embedding accessibility into the development process from the outset. By leveraging automation, simulation, and framework-specific support, they tackle both technical and usability challenges, promoting inclusive design practices while maintaining development efficiency. This proactive approach ensures that accessibility is not an afterthought but a fundamental aspect of the development lifecycle, ultimately leading to more inclusive and user-friendly applications.
+These tools highlight the critical role of embedding accessibility into the development process from the outset. By leveraging automation, simulation, and framework-specific support, they tackle both technical and usability challenges, promoting inclusive design practices while maintaining development efficiency. This proactive approach ensures that accessibility is not an afterthought but a fundamental aspect of the development lifecycle, ultimately leading to more inclusive and user-friendly applications. \\
+
+The current body of research reveals a significant gap in practical accessibility comparisons between mobile frameworks. While numerous studies examine accessibility barriers, user experiences, and support tools, there remains a lack of systematic comparative analysis of accessibility implementation between Flutter and React Native. This thesis aims to bridge this gap by expanding on Budai's research on Flutter, conducting an in-depth evaluation of both frameworks from a developer perspective. The objective is to provide practical, mobile-specific guidelines that enable developers to make informed decisions about accessibility implementation, offering detailed analysis of components and widgets across both frameworks.
 
 \newpage

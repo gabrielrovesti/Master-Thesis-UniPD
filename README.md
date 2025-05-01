@@ -136,11 +136,3 @@ This repository primarily serves as an **academic deliverable**. However, contri
 ---
 
 **Enjoy exploring the code and thesis content—thank you for your interest in **accessible mobile development**!**
-```
-
-Feel free to adapt repository URLs, references, or filenames to match your actual project structure. This README:
-
-- Summarizes the thesis content.
-- Gives a concise directory description.
-- Explains how to build the PDF.
-- Highlights the main metrics and references from the final document.

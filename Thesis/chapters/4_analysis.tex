@@ -623,10 +623,12 @@ The different architectural approaches also impact testing and debugging workflo
 
 Flutter's separate semantic tree can be more challenging to debug, but the framework provides specialized tools like the \texttt{SemanticsDebugger} widget that visualizes the accessibility tree, offering more comprehensive introspection capabilities.
 
-\section{Framework comparison screen: a detailed metric analysis}
-\label{sec:framework-comparison-screen}
+\section{Framework comparison screen: a detailed analysis}
+\label{subsec:implementation-framework-comparison-screen}
 
-The Framework comparison screen provides a systematic, comparative analysis of accessibility implementation in React Native and Flutter. Through empirical evaluation of equivalent components and detailed analysis of architectural approaches, this screen addresses three core research questions: the default accessibility of components, the implementation feasibility for non-accessible components, and the development effort required for these implementations. Combining quantitative metrics with qualitative assessments, this screen serves as an educational tool for understanding cross-framework accessibility patterns. Figure~\ref{fig:framework_comparison_main} shows the main interface of the Framework comparison screen.
+To provide a comprehensive, empirical foundation for comparing implementation patterns, the \textit{AccessibleHub} includes a dedicated Framework comparison screen that offers a formal, evidence-based analysis tool for evaluating accessibility implementation across mobile development frameworks. This screen transforms the theoretical architectural differences discussed above into quantifiable metrics and side-by-side comparisons.
+
+The Framework comparison screen's formal methodology aligns with the analysis provided in Section~\ref{sec:accessiblehub-screen-methodology}, but extends it through visual representation and interactive exploration of metrics. Unlike other screens in the \textit{AccessibleHub} application that focus primarily on educational content or component examples, this screen implements a structured, academically-grounded system for comparing React Native and Flutter using transparent metrics, formal methodology, and verifiable data. Figure~\ref{fig:framework_comparison_main} shows the main interface of the Framework comparison screen.
 
 \begin{figure}[ht]
     \centering
@@ -649,22 +651,55 @@ The Framework comparison screen provides a systematic, comparative analysis of a
 
 \FloatBarrier
 
+\subsubsection{Component inventory and WCAG/MCAG mapping}
 
+Table~\ref{tab:framework_comparison_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
 
-\subsection{Research methodology and objectives}
-\label{subsec:framework-comparison-methodology}
+\begin{longtable}[c]{|C{2.5cm}|C{2cm}|C{2.8cm}|C{2.8cm}|C{4.5cm}|}
+\caption{Framework comparison screen component-criteria mapping}
+\label{tab:framework_comparison_mapping}\\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\hline
+\endhead
+\hline
+\multicolumn{5}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes & \texttt{accessibility \ Role="header"} \\
+\hline
+Hero Subtitle & text & 1.4.3 Contrast (AA) & Content description & Text styling with semantic connection to title \\
+\hline
+Framework Selection Buttons & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target size\newline Framework choice & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label},\newline \texttt{accessibility \ State=\{\{selected: ...\}\}} \\
+\hline
+Category Tabs & tab & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Categorical organization & \texttt{accessibility \ Role="tab"},\newline \texttt{accessibility \ State=\{\{selected: ...\}\}} \\
+\hline
+Tab Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{importantFor \ Accessibility="no-hide \ descendants"} \\
+\hline
+Framework Info Card & none & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA) & Content grouping & Semantic container with proper styling \\
+\hline
+Statistic Cards & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information presentation\newline Touch target size & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label} \\
+\hline
+Rating Bar & progressbar & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Progress visualization & \texttt{accessibility \ Role="progressbar"},\newline \texttt{accessibilityLabel} \\
+\hline
+Info Button & button & 1.4.3 Contrast (AA)\newline 4.1.2 Name, Role, Value (A) & Information access & \texttt{accessibility \ Role="button"},\newline \texttt{accessibilityLabel} \\
+\hline
+Modal Dialog & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A) & Keyboard trap prevention & \texttt{accessibilityView \ IsModal},\newline Focus management implementation \\
+\hline
+Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A) & Touch interaction & \texttt{accessibility \ Role="tablist"},\newline \texttt{accessibility \ State=\{\{selected: isActive\}\}} \\
+\hline
+\end{longtable}
 
-The Framework comparison screen implements a formal analytical methodology that establishes a systematic approach to framework evaluation. This methodology addresses three fundamental research questions about accessibility implementation across React Native and Flutter:
+\subsubsection{Formal methodology system implementation}
 
-\begin{enumerate}
-    \item \textbf{Default accessibility support} - To what extent are components and widgets provided by each framework accessible by default, without requiring developer intervention? This analysis examines the baseline accessibility support provided by each framework;
-    
-    \item \textbf{Implementation feasibility} - When components are not accessible by default, what is the technical feasibility of enhancing them to meet accessibility standards? This includes analyzing the technical capabilities of each framework for achieving accessibility compliance;
-    
-    \item \textbf{Development overhead} - What is the quantifiable development overhead required to implement accessibility features when they are not provided by default? This includes measuring additional code requirements and analyzing complexity increases.
-\end{enumerate}
-
-The formal methodology implementation evidenced in Figure~\ref{fig:methodology_screens_sidebyside} includes key characteristics of academic accessibility research:
+The Framework comparison screen implements a formal, academically rigorous methodology system that establishes a systematic approach to framework evaluation. Unlike other screens in the application that focus on practical implementation examples, this screen incorporates a formal methodological framework evidenced in Figure~\ref{fig:methodology_screens_sidebyside}.
 
 \begin{figure}[ht]
     \centering
@@ -687,146 +722,182 @@ The formal methodology implementation evidenced in Figure~\ref{fig:methodology_s
 
 \FloatBarrier
 
+The formal methodology system implements several critical characteristics of academic accessibility research:
+
 \begin{enumerate}
     \item \textbf{Explicit methodology declaration}: The screen clearly states the research methodology used, including both empirical testing and documentation analysis;
     
-    \item \textbf{Transparent testing protocol}: The methodology specifically documents testing with screen readers on precisely identified devices (VoiceOver iOS 16, TalkBack Android 13-15) and references WCAG 2.2 compliance verification;
+    \item \textbf{Transparent testing protocol}: The methodology specifically documents testing with screen readers on precisely identified devices (VoiceOver iOS 16, TalkBack Android 13) and references WCAG 2.2 compliance verification;
     
     \item \textbf{Source citation}: The methodology includes proper citation of academic sources, establishing an evidence-based foundation;
     
     \item \textbf{Device specification}: The methodology includes explicit hardware specifications (iPhone 14, Pixel 7), creating reproducibility for the evaluation.
 \end{enumerate}
 
-\subsection{Testing approach and criteria}
+This formal methodology implementation exemplifies the application's commitment to rigorous, evidence-based accessibility evaluation that moves beyond subjective assessments to create verifiable, reproducible comparisons.
 
-The testing methodology for the Framework comparison screen consists of four key components:
+\subsubsection{Academic reference implementation}
 
-\begin{enumerate}
-    \item \textbf{Component equivalence mapping}: We establish functional equivalence between React Native components and Flutter widgets to ensure fair comparison. This mapping is based on the component's purpose and role rather than implementation details;
-    
-    \item \textbf{WCAG/MCAG criteria mapping}: Each component is evaluated against specific WCAG 2.2 criteria, ensuring consistent application of accessibility standards across frameworks;
-    
-    \item \textbf{Implementation testing}: For each component, we develop and test equivalent implementations in both frameworks, focusing on:
-    \begin{itemize}
-        \item Default accessibility support without modifications;
-        \item Implementation requirements to achieve full accessibility;
-        \item Code complexity and verbosity of accessible implementations.
-    \end{itemize}
-    
-    \item \textbf{Assistive technology testing}: All implementations are tested with:
-    \begin{itemize}
-        \item iOS \gls{voiceover} on iPhone 14 with iOS 16;
-        \item Android \gls{talkback} on Google Pixel 7, running Android 13-15.
-    \end{itemize}
-\end{enumerate}
-
-\subsection{Evaluation metrics and calculation methodologies}
-\label{subsec:framework-comp-evaluation-metrics}
-
-To provide rigorous quantitative comparison between frameworks, the screen implements formal metrics calculation methodologies, as demonstrated in Figure~\ref{fig:implementation_complexity_methodology}.
+A distinctive feature of the Framework comparison screen is its comprehensive implementation of academic references. This feature directly connects framework evaluation to peer-reviewed research and formal documentation, creating an evidence-based foundation for accessibility comparisons. Figure~\ref{fig:academic_references} shows the academic references card and its expanded modal dialog.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=0.48\linewidth, alt={Formal calculation methodology for implementation complexity}]{img/implementation-calculation.jpg}
-    \caption{Formal calculation methodology for implementation complexity}
-    \label{fig:implementation_complexity_methodology}
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Academic References card displaying an overview of sources}]{img/methodology-academic-overview.jpg}
+        \caption{Academic references overview}
+        \label{fig:academic-references-card}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Academic References modal dialog showing detailed citations}]{img/methodology-academic-references.jpg}
+        \caption{References modal with formal citations}
+        \label{fig:academic-references-modal}
+    \end{subfigure}
+    \caption{Academic references implementation with formal citation structure}
+    \label{fig:academic_references}
 \end{figure}
 
 \FloatBarrier
 
-The primary metrics employed in the analysis include:
+The academic reference system implements several key features:
 
 \begin{enumerate}
-    \item \textbf{Component Accessibility Score (CAS)}: Percentage of components accessible by default without modification, calculated as:
-    \begin{equation}
-    CAS = \frac{\text{Number of accessible components}}{\text{Total number of components tested}} \times 100\%
-    \end{equation}
+    \item \textbf{Formal citation structure}: Each reference includes complete bibliographic information including authors, publication venue, year, and DOI identifiers where applicable;
     
-    \item \textbf{Implementation Overhead (IMO)}: Additional lines of code required to implement accessibility features, calculated in absolute lines of code (LOC) and as a percentage increase:
-    \begin{equation}
-    IMO\% = \frac{\text{Accessibility LOC}}{\text{Baseline LOC}} \times 100\%
-    \end{equation}
+    \item \textbf{Multi-category reference system}: References are categorized by type (research paper, official documentation), creating a clear hierarchy of evidence;
     
-    \item \textbf{Complexity Impact Factor (CIF)}: Weighted measure of implementation complexity beyond simple line counts, calculated as:
-    \begin{equation}
-    CIF = \frac{IMO}{TC} \times CF
-    \end{equation}
+    \item \textbf{Modal dialog organization}: References are presented in a structured, tabbed modal dialog with overview, details, and references tabs, providing progressive disclosure of information;
     
-    Where:
-    \begin{itemize}
-        \item $TC$ = Total component code;
-        \item $CF$ = Complexity factor based on nesting depth, dependency count, and property count.
-    \end{itemize}
-    
-    \item \textbf{Screen Reader Support Score (SRSS)}: Empirical score (1-5) based on VoiceOver and TalkBack compatibility testing, calculated as:
-    \begin{equation}
-    \text{TestingScore} = \left(\frac{\text{VoiceOverAvg} + \text{TalkBackAvg}}{2}\right) \times 20
-    \end{equation}
-    
-    \item \textbf{WCAG Compliance Ratio (WCR)}: Percentage of applicable WCAG 2.2 success criteria satisfied, calculated as:
-    \begin{equation}
-    WCR = \frac{\text{Number of satisfied criteria}}{\text{Total number of applicable criteria}} \times 100\%
-    \end{equation}
+    \item \textbf{Systematic literature inclusion}: The reference system integrates both primary research by Gaggi and Perinello \cite{perinello2024accessibility} and systematic reviews by Palmieri \cite{palmieri2022accessibility}, creating a comprehensive evidence base.
 \end{enumerate}
 
-\subsection{Component selection methodology}
+Figure~\ref{fig:academic_references_detail} shows the extended References tab with complete citation information including access dates and URLs for official documentation.
 
-Components for analysis were selected based on the following criteria:
-
-\begin{enumerate}
-    \item \textbf{Functional equivalence}: Selected components have clear functional equivalents across both frameworks;
-    
-    \item \textbf{Accessibility relevance}: Components are essential to implementing accessible user interfaces;
-    
-    \item \textbf{Usage frequency}: Priority is given to components that appear frequently in mobile applications;
-    
-    \item \textbf{Interaction complexity}: Selection includes a range from simple (static text) to complex (multi-state interactive elements);
-    
-    \item \textbf{WCAG criteria coverage}: The component set collectively addresses all four WCAG principles.
-\end{enumerate}
-
-Based on these criteria, the screen implements analysis of components from three primary categories:
-
-\begin{enumerate}
-    \item \textbf{Text and typography components}: Headings, paragraphs, language declarations, and abbreviations;
-    
-    \item \textbf{Interactive components}: Buttons, form elements, custom gesture handlers;
-    
-    \item \textbf{Navigation components}: Navigation systems, tab controls, focus management systems.
-\end{enumerate}
-
-The implementation maintains a complete registry of all tested components and their accessibility status, enabling precise measurement of accessibility implementation across both frameworks.
-
-\subsection{Component accessibility comparison analysis}
-
-Table~\ref{tab:framework_component_comparison} presents the formal comparison of default component accessibility and the enhancements required to make them fully accessible. This data is displayed interactively in the Feature Comparison section of the Framework comparison screen, as shown in Figure~\ref{fig:feature_implementation_sidebyside}.
-
-\begin{table}[ht]
-\caption{Component accessibility comparison matrix}
-\label{tab:framework_component_comparison}
-\centering
-\begin{tabular}{|C{2.5cm}|C{2cm}|C{2cm}|C{2cm}|C{2cm}|C{3.5cm}|}
-\hline
-\textbf{Component} & \textbf{React Native Default} & \textbf{React Native Enhanced} & \textbf{Flutter Default} & \textbf{Flutter Enhanced} & \textbf{Implementation Difference (\%)} \\
-\hline
-Heading & \ding{55} & \ding{51} (+1P) & \ding{55} & \ding{51} (+1W +1P) & +40\% \\
-\hline
-Text language & \ding{51} & - & \ding{55} & \ding{51} (+1W +1P) & +200\% \\
-\hline
-Text abbreviation & \ding{55} & \ding{51} (+1P) & \ding{55} & \ding{51} (+1P) & +0\% \\
-\hline
-Button & \ding{51} & - & \ding{55} & \ding{51} (+1W) & +100\% \\
-\hline
-Form input & \ding{55} & \ding{51} (+2P) & \ding{55} & \ding{51} (+1W +1P) & +50\% \\
-\hline
-Custom gesture & \ding{55} & \ding{51} (+3P) & \ding{55} & \ding{51} (+1W +2P) & +33\% \\
-\hline
-\multicolumn{6}{|l|}{Legend: \ding{51}: accessible by default, \ding{55}: not accessible, P: property, W: widget} \\
-\hline
-\end{tabular}
-\end{table}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\linewidth, alt={Reference tab showing detailed citation information}]{img/references.jpg}
+    \caption{References tab showing formatted citations with complete bibliographic information}
+    \label{fig:academic_references_detail}
+\end{figure}
 
 \FloatBarrier
+
+This academic reference implementation exemplifies how accessibility evaluation can be grounded in formal, verifiable sources, creating accountability and reproducibility in framework comparison.
+
+\subsubsection{Framework data structure}
+
+The Framework comparison screen implements a comparative analysis through a structured data repository for both React Native and Flutter. This structured approach is visualized through framework selection buttons and framework-specific information cards shown in Figure~\ref{fig:framework_selection}.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={React Native framework card showing details}]{img/overview1.jpg}
+        \caption{React Native framework details}
+        \label{fig:react-native-details}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Flutter framework card showing details}]{img/overview2.jpg}
+        \caption{Flutter framework details}
+        \label{fig:flutter-details}
+    \end{subfigure}
+    \caption{Framework selection interface showing structured framework data}
+    \label{fig:framework_selection}
+\end{figure}
+
+The framework data structure implements several key features:
+
+\begin{enumerate}
+    \item \textbf{Consistent metadata structure}: Each framework includes consistent metadata fields (name, company, version, description), enabling direct comparison;
+    
+    \item \textbf{Visual state indication}: The selected framework is visually indicated through background color changes and maintains this state for screen readers via \texttt{accessibilityState};
+    
+    \item \textbf{Feature categorization}: Framework features are consistently categorized into core attributes (Language, Learning Curve, Hot Reload), creating a systematic comparison structure;
+    
+    \item \textbf{Quantitative representation}: Features include both qualitative descriptions (e.g., "Moderate" learning curve) and quantitative indicators where applicable, enabling objective comparison.
+\end{enumerate}
+
+This structured data approach transforms subjective framework comparisons into a systematic, consistent evaluation framework that enables developers to make evidence-based decisions about framework selection based on accessibility considerations.
+
+\subsubsection{Implementation complexity analysis}
+
+A key contribution of the Framework comparison screen is its formal analysis of implementation complexity across frameworks. Unlike simple feature comparisons, this screen implements a detailed complexity analysis using multiple metrics. Figure~\ref{fig:implementation_complexity} shows both the complexity analysis card and its expanded modal view.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Complexity Analysis card}]{img/implementation-methodology.jpg}
+        \caption{Implementation complexity overview}
+        \label{fig:implementation-complexity-card}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Details modal showing comparison metrics}]{img/implementation-calculation.jpg}
+        \caption{Implementation details comparison}
+        \label{fig:implementation-details-modal}
+    \end{subfigure}
+    \caption{Implementation complexity analysis with detailed metrics}
+    \label{fig:implementation_complexity}
+\end{figure}
+
+\FloatBarrier
+
+The implementation complexity analysis incorporates multiple evaluation dimensions:
+
+\begin{enumerate}
+    \item \textbf{Lines of code (LOC) metric}: The analysis quantifies implementation complexity through precise LOC counts for each accessibility feature, providing an objective measure of implementation effort;
+    
+    \item \textbf{Qualitative complexity assessment}: Features are categorized using a standardized Low/Medium/High complexity scale, with color coding (green/yellow/red) for visual differentiation;
+    
+    \item \textbf{Framework knowledge requirement}: The analysis considers the required knowledge of framework-specific concepts, addressing the learning curve aspect of accessibility implementation;
+    
+    \item \textbf{Real-world testing verification}: Complexity assessments are validated through testing on real devices with actual screen readers, ensuring practical relevance.
+\end{enumerate}
+
+Figure~\ref{fig:implementation_details} shows the detailed implementation comparison for specific accessibility features across both frameworks.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Details tab showing feature comparisons}]{img/implementation-methodology.jpg}
+        \caption{Feature implementation comparison}
+        \label{fig:implementation-feature-comparison}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Implementation Details tab showing code examples}]{img/implementation-calculation.jpg}
+        \caption{Implementation code examples}
+        \label{fig:implementation-code-examples}
+    \end{subfigure}
+    \caption{Implementation details showing feature-level comparison and code examples}
+    \label{fig:implementation_details}
+\end{figure}
+
+The feature-level implementation analysis in Figure~\ref{fig:implementation_details} demonstrates significant differences between frameworks:
+
+\begin{enumerate}
+    \item \textbf{Heading element implementation}: React Native requires 7 LOC with Low complexity, while Flutter requires 11 LOC with Medium complexity;
+    
+    \item \textbf{Language declaration}: The contrast is more pronounced for language declaration, with React Native requiring 7 LOC and Flutter requiring 21 LOC;
+    
+    \item \textbf{Default accessibility status}: The analysis shows React Native has 1/3 features accessible by default, while Flutter has 0/3, providing a clear metric for out-of-the-box accessibility;
+    
+    \item \textbf{Total implementation overhead}: React Native requires 21 total LOC for implementation, while Flutter requires 46 LOC, quantifying the overall implementation effort difference.
+\end{enumerate}
+
+This detailed implementation comparison provides developers with concrete, evidence-based metrics for understanding the accessibility implementation effort required for each framework.
+
+\subsubsection{Specific accessibility feature comparison}
+
+The Framework comparison screen implements detailed comparisons of specific accessibility features, providing both implementation attributes and code examples. Figure~\ref{fig:feature_implementation_sidebyside} shows implementation details for language declaration and text abbreviations in React Native.
 
 \begin{figure}[ht]
     \centering
@@ -849,106 +920,66 @@ Custom gesture & \ding{55} & \ding{51} (+3P) & \ding{55} & \ding{51} (+1W +2P) &
 
 \FloatBarrier
 
-The analysis reveals significant patterns in default accessibility support:
+The feature implementation comparison includes several key elements:
 
 \begin{enumerate}
-    \item React Native provides 2 components (Text language and Button) that are accessible by default, while Flutter provides none;
+    \item \textbf{WCAG success criteria mapping}: Each feature is explicitly mapped to relevant WCAG criteria (e.g., Text Abbreviations maps to 3.1.4), creating a clear connection between implementation and compliance;
     
-    \item Both frameworks require enhancements for most components to be fully accessible;
+    \item \textbf{Default accessibility status}: The comparison explicitly indicates whether each feature is accessible by default (Yes/No), highlighting areas requiring developer intervention;
     
-    \item React Native generally requires adding properties to existing components, while Flutter typically requires both wrapper widgets and properties;
+    \item \textbf{Implementation notes}: Each feature includes specific implementation notes explaining the required approach (e.g., "Requires adding accessibilityLabel property");
     
-    \item Flutter implementations require between 33\% and 200\% more code for equivalent functionality.
+    \item \textbf{Concrete code examples}: The comparison provides complete, executable code examples that developers can directly reference for implementation.
 \end{enumerate}
 
-\subsection{Implementation overhead analysis}
+This feature-level comparison transforms abstract accessibility requirements into concrete implementation guidance with direct reference to standards compliance, helping developers understand not just what to implement but why and how.
 
-Table~\ref{tab:frameworks_implementation_overhead_comparison} quantifies the implementation effort required to make equivalent components accessible in both frameworks. This data is displayed interactively in the Implementation Details section of the Framework comparison screen, as shown in Figure~\ref{fig:implementation_details}.
+\subsubsection{Modal dialog accessibility implementation}
 
-\begin{table}[ht]
-\caption{Implementation overhead analysis}
-\label{tab:frameworks_implementation_overhead_comparison}
-\centering
-\begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
-\hline
-\textbf{Component} & \textbf{React Native LOC} & \textbf{Flutter LOC} & \textbf{Difference (LOC)} & \textbf{Complexity Impact} \\
-\hline
-Heading & 7 & 11 & +4 (57\%) & Low \\
-\hline
-Text language & 7 & 21 & +14 (200\%) & High \\
-\hline
-Text abbreviation & 7 & 14 & +7 (100\%) & Medium \\
-\hline
-Button & 12 & 18 & +6 (50\%) & Low \\
-\hline
-Form field & 15 & 23 & +8 (53\%) & Medium \\
-\hline
-Custom gesture & 22 & 28 & +6 (27\%) & Medium \\
-\hline
-\end{tabular}
-\end{table}
-
-\FloatBarrier
+The Framework comparison screen implements several modal dialogs that incorporate comprehensive accessibility features. Figure~\ref{fig:modal_accessibility} shows the implementation details modal with properly structured tabs.
 
 \begin{figure}[ht]
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Feature implementation comparison}]{img/implementation-methodology.jpg}
-        \caption{Feature implementation comparison}
-        \label{fig:implementation-feature-comparison}
+        \includegraphics[width=\linewidth, alt={Modal dialog showing implementation details}]{img/implementation-methodology.jpg}
+        \caption{Implementation details modal}
+        \label{fig:implementation-details-dialog}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Implementation Details tab showing code examples}]{img/implementation-calculation.jpg}
-        \caption{Implementation code examples}
-        \label{fig:implementation-code-examples}
+        \includegraphics[width=\linewidth, alt={Modal dialog showing academic references for Implementation tab section}]{img/implementation-methodology.jpg}
+        \caption{References of Implementation modal}
+        \label{fig:academic-references-dialog}
     \end{subfigure}
-    \caption{Implementation details showing feature-level comparison and code examples}
-    \label{fig:implementation_details}
+    \caption{Modal dialogs for the Implementation Tab}
+    \label{fig:modal_accessibility}
 \end{figure}
 
 \FloatBarrier
 
-The analysis reveals significant differences in code verbosity between React Native and Flutter implementations. Most notably, Flutter's semantics implementation for text language requires 21 lines of code compared to React Native's 7 lines, representing a 200\% increase and resulting in "High" complexity impact. This substantial difference stems from Flutter's requirement for explicit \texttt{AttributedString} and \texttt{LocaleStringAttribute} declarations versus React Native's straightforward \texttt{accessibility \ Language} property.
+The modal dialog implementation addresses several critical accessibility requirements:
 
-The Complexity Impact classification is determined by combining both the absolute increase in LOC and the relative complexity introduced by the implementation pattern. Low complexity impacts (such as for Headings and Buttons) indicate that despite some additional code, the implementations remain straightforward and maintainable. Medium complexity impacts (Text abbreviation, Form field, Custom gesture) suggest that the additional code introduces moderate cognitive load for developers. High complexity impacts (Text language in Flutter) indicate implementations that significantly increase both code volume and structural complexity, potentially creating maintenance challenges.
+\begin{enumerate}
+    \item \textbf{Clear semantic role}: Modals are properly identified with \texttt{accessibilityViewIsModal}, ensuring screen readers understand their role;
+    
+    \item \textbf{Tab role assignment}: Tab navigation properly implements \texttt{accessibilityRole="tab"} and \texttt{accessibilityState} to communicate selection state;
+    
+    \item \textbf{Focus management}: When modals open, focus moves to the modal header and returns to the triggering element when closed, maintaining context;
+    
+    \item \textbf{Hierarchical content structure}: Content within modals maintains proper heading structure and semantic relationships, ensuring screen reader users can navigate efficiently.
+\end{enumerate}
 
-\subsection{WCAG compliance analysis}
+This accessible modal implementation ensures that complex information like methodology details and academic references remains accessible to all users, including those using screen readers.
 
-Table~\ref{tab:wcag_compliance_comparison} presents the compliance percentages for each WCAG principle across both frameworks, derived from systematic testing with VoiceOver and TalkBack screen readers.
+\subsubsection{Screen reader support analysis}
 
-\begin{table}[ht]
-\caption{WCAG compliance by framework}
-\label{tab:frameworks_wcag_compliance_comparison}
-\centering
-\begin{tabular}{|C{2.5cm}|C{5cm}|C{3cm}|C{3cm}|}
-\hline
-\textbf{WCAG Principle} & \textbf{Key Success Criteria} & \textbf{React Native} & \textbf{Flutter} \\
-\hline
-1. Perceivable & 1.1.1, 1.3.1, 1.4.3, 1.4.11 & 92\% & 85\% \\
-\hline
-2. Operable & 2.1.1, 2.4.3, 2.4.7, 2.5.1, 2.5.8 & 100\% & 88\% \\
-\hline
-3. Understandable & 3.2.1, 3.2.4, 3.3.1, 3.3.2 & 80\% & 80\% \\
-\hline
-4. Robust & 4.1.1, 4.1.2, 4.1.3 & 100\% & 100\% \\
-\hline
-\end{tabular}
-\end{table}
-
-\FloatBarrier
-
-These results reveal that while both frameworks can achieve strong accessibility compliance, there are notable differences in their default capabilities. React Native demonstrates superior compliance with Perceivable criteria (92\% vs. Flutter's 85\%), primarily due to its more straightforward handling of text alternatives and adaptable content. In the Operable principle, React Native achieves 100\% compliance compared to Flutter's 88\%, with the difference largely attributable to Flutter's more complex implementation of keyboard accessibility and focus management. Both frameworks achieve identical compliance rates for Understandable (80\%) and Robust (100\%) principles.
-
-\subsection{Screen reader support analysis}
-
-Table~\ref{tab:screen_reader_analysis} presents results from systematic testing of the Framework comparison screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:framework_comparison_screen_reader} presents results from systematic testing of the Framework comparison screen with screen readers on both iOS and Android platforms.
 
 \begin{longtable}[c]{|C{2.8cm}|C{3.5cm}|C{3.5cm}|C{4cm}|}
 \caption{Framework comparison screen screen reader testing results}
-\label{tab:screen_reader_analysis}\\
+\label{tab:framework_comparison_screen_reader}\\
 \hline
 \textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
 \hline
@@ -988,8 +1019,6 @@ Color-coded Complexity & \ding{51} Announces complexity level, not just color & 
 \hline
 \end{longtable}
 
-\FloatBarrier
-
 The implementation addresses several key screen reader considerations:
 
 \begin{enumerate}
@@ -999,71 +1028,16 @@ The implementation addresses several key screen reader considerations:
     
     \item \textbf{Code example accessibility}: Code examples are presented in accessible text blocks with proper structure, rather than as images, ensuring screen reader users can access implementation details;
     
-    \item \textbf{Non-reliance on color}: Information conveyed through color (complexity indicators) is redundantly provided through explicit text labels, ensuring color-blind users receive the same information.
+    \item \textbf{Non-reliance on color}: Information conveyed through color (complexity indicators) is redundantly provided through explicit text labels, ensuring color-blind users and screen reader users receive the same information.
 \end{enumerate}
 
+\subsubsection{Implementation overhead analysis}
 
-
-\subsection{Technical implementation and metrics calculation}
-
-The Framework comparison screen implements a formal metrics calculation system to provide objective, quantifiable comparisons between frameworks. The calculation methodologies are transparently documented in the Calculation tab, as shown in Figure~\ref{fig:implementation_complexity_methodology}, following the same transparent approach used in the Home screen metrics calculation.
-
-The implementation includes:
-
-\begin{lstlisting}[style=ReactNativeStyle, caption={Framework metrics calculation implementation}, label={lst:framework-metrics-calculation}, basicstyle=\ttfamily\footnotesize]
-// Accessibility Score calculation
-const a11y = framework.accessibility;
-const screenReaders = a11y.screenReaders?.rating ?? 0;
-const semantics = a11y.semantics?.rating ?? 0;
-const gestures = a11y.gestures?.rating ?? 0;
-const focus = a11y.focusManagement?.rating ?? 0;
-
-// Weighted calculation of overall accessibility score
-const accessibilityScore = Number(
-  (
-    screenReaders * 0.3 +  // Critical for screen reader users
-    semantics * 0.3 +      // Essential for AT compatibility
-    gestures * 0.2 +       // Important for touch-based interactions
-    focus * 0.2            // Crucial for keyboard/switch users
-  ).toFixed(1)
-);
-
-// Implementation Complexity Score
-const totalLinesOfCode = headingComplexity + 
-  languageComplexity + abbreviationComplexity;
-const implementationScore = Math.max(0, 
-  Math.min(5, 5 - (totalLinesOfCode / 10)));
-\end{lstlisting}
-
-\FloatBarrier
-
-This implementation demonstrates how the metrics are calculated based on empirical data, providing a transparent methodology that allows others to reproduce and validate the comparative analysis.
-
-\subsection{Beyond WCAG: evidence-based accessibility evaluation}
-
-The Framework comparison screen embodies principles that extend beyond standard WCAG requirements, focusing on evidence-based evaluation and formal methodology:
-
-\begin{enumerate}
-    \item \textbf{Academic grounding principle}: Accessibility evaluations should be grounded in peer-reviewed research and formal methodologies. The screen implements this through explicit citations to academic papers and clearly defined evaluation protocols;
-    
-    \item \textbf{Quantitative metric transparency}: Framework evaluations should use explicit, quantitative metrics with clearly defined calculation methodologies. The implementation demonstrates this through LOC counts and explicit complexity ratings;
-    
-    \item \textbf{Implementation complexity consideration}: Accessibility evaluation should assess not just feature presence but implementation complexity. The screen implements this through multi-dimensional complexity assessment;
-    
-    \item \textbf{Empirical testing validation}: Accessibility claims should be validated through documented testing on specific devices and platforms. The implementation includes explicit references to test devices and operating system versions;
-    
-    \item \textbf{Comparative analysis principle}: Accessibility features should be evaluated through direct side-by-side comparison using consistent metrics. The screen implements this through structured comparison of identical features across frameworks.
-\end{enumerate}
-
-These extended principles establish a foundation for evidence-based accessibility evaluation that moves beyond subjective assessments or checklist compliance, creating a rigorous, academically grounded approach to framework comparison.
-
-\subsection{Implementation overhead analysis}
-
-Table~\ref{tab:implementation_overhead} quantifies the additional code required to implement accessibility features in the Framework comparison screen itself.
+Table~\ref{tab:framework_comparison_overhead} quantifies the additional code required to implement accessibility features in the Framework comparison screen.
 
 \begin{longtable}[c]{|C{3.8cm}|C{2.3cm}|C{2.8cm}|C{2.8cm}|}
 \caption{Framework comparison screen accessibility implementation overhead}
-\label{tab:implementation_overhead}\\
+\label{tab:framework_comparison_overhead}\\
 \hline
 \textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total Code} & \textbf{Complexity Impact} \\
 \hline
@@ -1100,12 +1074,160 @@ Accessibility State & 20 LOC & 2.3\% & Medium \\
 Rating Bar Accessibility & 22 LOC & 2.6\% & Medium \\
 \hline
 \textbf{Total} & \textbf{230 LOC} & \textbf{26.9\%} & \textbf{Medium-High} \\
-\hline
 \end{longtable}
 
 \FloatBarrier
 
 This analysis reveals that implementing comprehensive accessibility for the Framework comparison screen adds approximately 26.9\% to the code base. The most significant contributors are accessibility labels (4.2\%) and modal accessibility (3.7\%), reflecting the information-rich nature of this screen and the complex interaction patterns with modals and tabs. The implementation overhead is justified by the improved user experience for people with disabilities and the educational value demonstrated through the formal framework comparison.
+
+\subsubsection{WCAG conformance by principle}
+
+Table~\ref{tab:framework_comparison_wcag} provides a detailed analysis of WCAG 2.2 compliance by principle for the Framework comparison screen:
+
+\begin{longtable}[c]{|C{2.5cm}|C{3.8cm}|C{3.2cm}|C{5.2cm}|}
+\caption{Framework comparison screen WCAG compliance analysis by principle}
+\label{tab:framework_comparison_wcag}\\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endfirsthead
+\multicolumn{4}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\hline
+\endhead
+\hline
+\multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 12/13 (92\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.4.1 Use of Color (A)\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.8 Visual Presentation (AAA) \\
+\hline
+2. Operable & UI components and navigation must be operable & 16/17 (94\%) & 2.4.3 Focus Order (A)\newline 2.4.4 Link Purpose (A)\newline 2.4.6 Headings and Labels (AA)\newline 2.4.7 Focus Visible (AA)\newline 2.5.8 Target Size (Minimum) (AA)\newline 2.4.8 Location (AAA)\newline 2.4.9 Link Purpose (Link Only) (AAA) \\
+\hline
+3. Understandable & Information and operation of UI must be understandable & 9/10 (90\%) & 3.2.1 On Focus (A)\newline 3.2.2 On Input (A)\newline 3.2.4 Consistent Identification (AA)\newline 3.3.2 Labels or Instructions (A)\newline 3.2.5 Change on Request (AAA) \\
+\hline
+4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.1 Parsing (A)\newline 4.1.2 Name, Role, Value (A)\newline 4.1.3 Status Messages (AA) \\
+\hline
+\end{longtable}
+
+The WCAG compliance analysis in Table~\ref{tab:framework_comparison_wcag} demonstrates exceptional conformance across all principles, with particular strength in the Robust principle (100\% compliance). The implementation of multiple AAA criteria, including 1.4.8 (Visual Presentation), 2.4.8 (Location), 2.4.9 (Link Purpose - Link Only), and 3.2.5 (Change on Request) exceeds standard requirements to create an enhanced user experience for people with disabilities. 
+The Framework comparison screen achieves high compliance across all WCAG principles, with particular strength in the Perceivable, Operable, and Robust principles.
+
+\subsubsection{Mobile-specific considerations}
+
+The Framework comparison screen addresses several mobile-specific accessibility considerations beyond standard WCAG requirements:
+
+\begin{enumerate}
+    \item \textbf{Framework-specific adaptation}: The comparison explicitly evaluates each framework's support for mobile-specific accessibility features, addressing the challenges of cross-platform development;
+    
+    \item \textbf{Screen reader gesture support}: The evaluation includes specific assessment of each framework's support for screen reader gestures, a mobile-specific consideration not fully captured in WCAG;
+    
+    \item \textbf{Touch target optimization}: Interactive elements implement generous touch targets exceeding the minimum size requirements, addressing the specific challenges of touch interaction;
+    
+    \item \textbf{Responsive layout adaptation}: The interface adapts to different screen orientations and device types, maintaining accessibility across the varied landscape of mobile form factors;
+    
+    \item \textbf{Platform-specific implementation patterns}: The comparison addresses the platform-specific nature of accessibility implementation, recognizing that mobile accessibility often requires different approaches for iOS and Android.
+\end{enumerate}
+
+\subsubsection{Beyond WCAG: evidence-based accessibility evaluation guidelines}
+
+The Framework comparison screen embodies several principles that extend beyond standard WCAG requirements, particularly focusing on evidence-based evaluation and formal methodology:
+
+\begin{enumerate}
+    \item \textbf{Academic grounding principle}: Accessibility evaluations are grounded in peer-reviewed research and formal methodologies. The screen implements this through explicit citations to academic papers and clearly defined evaluation protocols;
+    
+    \item \textbf{Quantitative metric transparency}: Framework evaluations use explicit, quantitative metrics with clearly defined calculation methodologies. The implementation demonstrates this through LOC counts and explicit complexity ratings;
+    
+    \item \textbf{Implementation complexity consideration}: Accessibility evaluation assess not just feature presence but implementation complexity. The screen implements this through multi-dimensional complexity assessment (LOC, qualitative rating, knowledge requirements);
+    
+    \item \textbf{Empirical testing validation}: Accessibility claims are validated through documented testing on specific devices and platforms. The implementation includes explicit references to test devices and operating system versions;
+    
+    \item \textbf{Comparative analysis principle}: Accessibility features are evaluated through direct side-by-side comparison using consistent metrics. The screen implements this through structured comparison of identical features across frameworks.
+\end{enumerate}
+
+These extended principles establish a foundation for evidence-based accessibility evaluation that moves beyond subjective assessments or checklist compliance, creating a more rigorous, academically grounded approach to framework comparison.
+
+\subsubsection{Screen reader support comparison methodology}
+
+The Framework comparison screen implements a rigorous methodology for evaluating screen reader support across frameworks. This methodology, shown in Figure~\ref{fig:screen_reader_methodology}, quantifies support using multiple dimensions with specific weighting.
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Screen reader support comparison methodology}]{img/methodology-details.jpg}
+        \caption{Screen reader testing methodology}
+        \label{fig:screen-reader-methodology}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth, alt={Screen reader support metrics calculation}]{img/accessibility-calculation.jpg}
+        \caption{Screen reader metrics calculation}
+        \label{fig:screen-reader-calculation}
+    \end{subfigure}
+    \caption{Screen reader support comparison methodology and calculation approach}
+    \label{fig:screen_reader_methodology}
+\end{figure}
+
+The screen reader support analysis implements a formal evaluation methodology with the following characteristics:
+
+\begin{enumerate}
+    \item \textbf{Component-based weighting}: Screen reader compatibility receives a 30\% weighting in the overall accessibility score, recognizing its critical importance for blind users;
+    
+    \item \textbf{Platform-specific assessment}: The methodology explicitly evaluates both VoiceOver (iOS) and TalkBack (Android) support separately, addressing the platform-specific nature of screen reader implementation;
+    
+    \item \textbf{Multi-dimensional evaluation}: Screen reader support is assessed across multiple dimensions including announcement quality, gesture support, and semantics interpretation;
+    
+    \item \textbf{Empirical validation}: Ratings are based on actual testing with specific device and operating system configurations, creating reproducible results.
+\end{enumerate}
+
+This formal screen reader evaluation methodology establishes a systematic approach to comparing screen reader support that moves beyond subjective assessments to create quantifiable, verifiable metrics.
+
+\subsubsection{Implementation complexity calculation methodology}
+
+The Framework comparison screen implements a formal methodology for calculating implementation complexity, shown in Figure~\ref{fig:screen_reader_methodology}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.4\linewidth, alt={Implementation complexity calculation methodology}]{img/implementation-calculation.jpg}
+    \caption{Formal calculation methodology for implementation complexity}
+    \label{fig:implementation_complexity_methodology}
+\end{figure}
+
+The implementation complexity calculation methodology includes several key components:
+
+\begin{enumerate}
+    \item \textbf{Explicit mathematical formula}: The methodology includes a formal mathematical formula for calculating implementation scores based on lines of code: \\\texttt{implementationScore = Math.max(0, Math.min(5, 5 - (totalLinesOfCode / 10)))};
+    
+    \item \textbf{Normalization mechanism}: Scores are explicitly normalized to a 0-5 scale to enable consistent comparison;
+    
+    \item \textbf{LOC-based quantification}: The formula establishes an inverse relationship between lines of code and implementation score, recognizing that lower implementation overhead (fewer LOC) represents better accessibility support;
+    
+    \item \textbf{Source citation}: The methodology cites specific sources including static code analysis and WCAG 2.2 implementation examples.
+\end{enumerate}
+
+This formal calculation methodology creates a transparent, reproducible approach to quantifying implementation complexity that enables objective framework comparison.
+
+\subsubsection{Feature-specific implementation comparison}
+
+The Framework comparison screen implements detailed feature-by-feature comparison of accessibility implementations across frameworks. Figure~\ref{fig:screen_reader_methodology} shows the implementation details for specific accessibility features.
+
+The feature-specific comparison implements several key analytical elements:
+
+\begin{enumerate}
+    \item \textbf{Consistent metric application}: Each feature is evaluated using the same metrics (LOC, complexity) across frameworks, enabling direct comparison;
+    
+    \item \textbf{Complexity visualization}: Complexity ratings are visually coded (green for Low, orange for Medium) for quick comprehension while maintaining accessibility through text labels;
+    
+    \item \textbf{WCAG criteria mapping}: Features are explicitly mapped to relevant WCAG success criteria (e.g., Heading Elements to 1.3.1, 2.4.6), creating a standards-based evaluation framework;
+    
+    \item \textbf{Code example comparison}: Implementation examples show directly comparable code implementations for identical features, highlighting the practical differences in syntax and structure.
+\end{enumerate}
+
+This feature-level comparison transforms abstract accessibility requirements into concrete, comparable implementations that developers can directly reference for their own work.
 
 \section{Accessibility implementation patterns}
 \label{subsec:implementation-patterns}
@@ -1529,7 +1651,7 @@ Table~\ref{tab:hiding_pattern_comparison} summarizes the implementation patterns
 \hline
 \textbf{Hiding Scope} & \textbf{React Native} & \textbf{Flutter} & \textbf{Code Verbosity} \\
 \hline
-Single element & \textt{accessibility \ ElementsHidden} & \texttt{Semantics \ (excludeSemantics: \ true, child: Widget)} & RN: Low; FL: Medium \\
+Single element & \texttt{accessibility \ ElementsHidden} & \texttt{Semantics \ (excludeSemantics: \ true, child: Widget)} & RN: Low; FL: Medium \\
 \hline
 Element and descendants & \texttt{important \ ForAccessibility \ ="no-hide- \ descendants"} & \texttt{ExcludeSemantics \ (child: Widget)} & RN: Low; FL: Low \\
 \hline

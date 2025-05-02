@@ -601,6 +601,11 @@ Accessibility guidelines and standards - most notably the \acrshort{wcagacr}  an
 
 To illustrate this methodology in practice, we first map the \textit{UI} elements of a representative screen to their corresponding semantic roles. Next, we link each component to the relevant \acrshort{wcagacr} and \acrshort{mcagacr} criteria presented in the previous subsections, noting both the minimum compliance requirements and potential enhancements. Finally, we describe the technical solution—specifically, how React Native accessibility code properties are applied to meet and exceed these standards. This structured approach not only bridges the gap between abstract guidelines and real-world coding tasks but also sets the stage for the more detailed, screen-by-screen analyses presented in the next section.
 
+\section{Accessibility implementation guidelines}
+\label{sec:implementation-guidelines}
+
+Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Gaggi and Perinello's approach \cite{budai2024mobile} analyzying Budai's Flutter code - following guidelines and then giving advice into introducing new ones. These screens follow the structure presented in Section~\ref{sec:accessiblehub-educational-framework}, analyzed both as main screens and sections.
+
 \subsection{Home screen}
 
 The Home screen serves as the primary entry point of the \textit{AccessibleHub} application. It provides key metrics on accessibility compliance (e.g., number of accessible components, WCAG conformance level) and navigation to sections: \textit{Accessible Components} (Quick Start), \textit{Best Practices}, \textit{Testing Tools}, and the \textit{Framework Comparison}. A screenshot of the interface is shown in Figure~\ref{fig:home_screens_sidebyside}.
@@ -1639,7 +1644,7 @@ The Components screen defines several accessibility principles specifically focu
 \subsection{Cross-screen accessibility implementation analysis}
 \label{subsec:cross-screen-analysis}
 
-This section provides a consolidated analysis of accessibility implementation across the various screens of \textit{AccessibleHub}, highlighting key patterns, implementation overhead, and compliance levels. For comprehensive, screen-by-screen analysis, readers are directed to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis}.
+This section provides a consolidated analysis of accessibility implementation across the various screens of \textit{AccessibleHub}, highlighting key patterns, implementation overhead, and compliance levels across all of the application. For comprehensive, screen-by-screen analysis, readers are directed to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis}. An operative summary of the screens present here are found within the next subsections in this document.
 
 \subsubsection{Implementation overhead comparison}
 
@@ -1865,9 +1870,9 @@ Implementation Approach & Property-based: Accessibility properties added to exis
 \hline
 Role Assignment & String-based: \texttt{accessibilityRole="button"} & Boolean flags: \texttt{Semantics(button: true)} \\
 \hline
-Focus Management & Direct API: \texttt{AccessibilityInfo.setAccessibilityFocus(reactTag)} & Widget-based: \texttt{Focus} widget with \texttt{FocusNode} \\
+Focus Management & Direct API: \texttt{AccessibilityInfo.\ setAccessibilityFocus \ (reactTag)} & Widget-based: \texttt{Focus} widget with \texttt{FocusNode} \\
 \hline
-Element Hiding & Multiple options: \texttt{accessibilityElementsHidden}, \texttt{importantForAccessibility} & Single widget: \texttt{ExcludeSemantics} \\
+Element Hiding & Multiple options: \texttt{accessibilityElements \ Hidden}, \texttt{importantForAccessibility} & Single widget: \texttt{ExcludeSemantics} \\
 \hline
 Code Organization & Properties integrated into component JSX & Explicit wrapper widgets creating deeper nesting \\
 \hline
@@ -1899,21 +1904,710 @@ Based on the comprehensive analysis of all screens, several key implementation i
     \item \textbf{Platform-specific adaptations remain necessary}: Despite cross-platform frameworks, some components (especially date pickers, custom inputs, and gesture handlers) benefit from platform-specific adaptations to leverage native accessibility features.
 \end{enumerate}
 
-These insights provide developers with a framework for prioritizing accessibility implementation efforts, focusing on the components and patterns that present the greatest challenges and require the most sophisticated approaches to ensure equal access for all users.
+For detailed screen-by-screen analysis, including comprehensive code samples, developers should refer to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis}. An operative summary is provided in
 
-For detailed screen-by-screen analysis, including comprehensive code samples, developers should refer to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis}.
+\subsection{Accessible components section summary}
+\label{subsec:accessible-components-summary}
 
-\subsection{Accessible components section}
+The Accessible Components section forms the core educational element of \textit{AccessibleHub}, providing practical implementations of accessibility patterns across five representative component categories: buttons and touchables, forms, dialogs, media content, and advanced components. Each screen demonstrates implementation techniques according to standard Web Content Accessibility Guidelines (WCAG) and Mobile Content Accessibility Guidelines (MCAG), providing both functional examples and educational code snippets. The detailed analysis of these implementations can be found in Appendix~\ref{subsec:accessible-components}, while this section summarizes key findings and insights.
 
-\subsection{Best practices main screen}
+\subsubsection{Implementation overhead analysis}
+\label{subsubsec:implementation-overhead-summary}
 
-\subsection{Best practices section}
+A primary concern for developers implementing accessibility is the additional code overhead required. Table~\ref{tab:buttons_implementation_overhead_summary} presents the quantitative analysis of the code overhead for the buttons screen, representing the most fundamental component type.
 
-\subsection{Accessibility tools screen}
+\begin{table}[ht]
+\caption{Buttons screen accessibility implementation overhead}
+\label{tab:buttons_implementation_overhead_summary}
+\centering
+\begin{tabular}[c]{|C{3.8cm}|C{2.5cm}|C{2.8cm}|C{2.8cm}|}
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+Semantic Roles & 10 LOC & 2.2\% & Low \\
+\hline
+Descriptive Labels & 14 LOC & 3.1\% & Low \\
+\hline
+Element Hiding & 12 LOC & 2.7\% & Low \\
+\hline
+Status Announcements & 8 LOC & 1.8\% & Low \\
+\hline
+Touch Target Sizing & 6 LOC & 1.3\% & Low \\
+\hline
+Modal Accessibility & 10 LOC & 2.2\% & Medium \\
+\hline
+\textbf{Total} & \textbf{60 LOC} & \textbf{13.3\%} & \textbf{Low} \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
 
-\subsection{Instruction and community screen}
+This analysis reveals that for basic components like buttons, implementing comprehensive accessibility features adds approximately 13.3\% to the codebase with minimal complexity impact. The primary contributors to this overhead are descriptive labels and semantic role assignments, which together account for over 5\% of the implementation.
 
-\subsection{Settings screen}
+\begin{table}[ht]
+\caption{WCAG criteria implementation by component type}
+\label{tab:comparative_wcag_implementation_summary}
+\centering
+\begin{tabular}[c]{|C{3.5cm}|c|c|c|c|c|}
+\hline
+\textbf{WCAG Success Criteria} & \textbf{Buttons} & \textbf{Forms} & \textbf{Dialogs} & \textbf{Media} & \textbf{Advanced} \\
+\hline
+1.1.1 Non-text Content (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+1.3.1 Info and Relationships (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+1.4.3 Contrast (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+2.4.3 Focus Order (A) & {\color{red}\ding{55}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{red}\ding{55}} & {\color{green}\ding{51}} \\
+\hline
+2.4.6 Headings (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+2.5.5 Target Size (Enhanced) (AAA) & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{55}} & {\color{purple}\ding{51}} \\
+\hline
+2.5.8 Target Size (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+3.2.5 Change on Request (AAA) & {\color{purple}\ding{55}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} \\
+\hline
+3.3.1 Error Identification (A) & {\color{red}\ding{55}} & {\color{green}\ding{51}} & {\color{red}\ding{55}} & {\color{red}\ding{55}} & {\color{red}\ding{55}} \\
+\hline
+3.3.5 Help (AAA) & {\color{purple}\ding{55}} & {\color{purple}\ding{51}} & {\color{purple}\ding{55}} & {\color{purple}\ding{55}} & {\color{purple}\ding{55}} \\
+\hline
+3.3.6 Error Prevention (AAA) & {\color{purple}\ding{55}} & {\color{purple}\ding{51}} & {\color{purple}\ding{55}} & {\color{purple}\ding{55}} & {\color{purple}\ding{55}} \\
+\hline
+4.1.2 Name, Role, Value (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+4.1.3 Status Messages (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+\textbf{Total A/AA Implementation} & \textbf{7/9} & \textbf{9/9} & \textbf{8/9} & \textbf{7/9} & \textbf{8/9} \\
+\hline
+\textbf{Total AAA Implementation} & \textbf{1/3} & \textbf{3/3} & \textbf{2/3} & \textbf{1/3} & \textbf{2/3} \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\begin{table}[ht]
+\caption{Legend for WCAG criteria implementation colors}
+\label{tab:wcag_legend}
+\centering
+\begin{tabular}{|C{3cm}|C{8cm}|}
+\hline
+\textbf{Color} & \textbf{Meaning} \\
+\hline
+{\color{green}\ding{51}} & A-level criteria implemented \\
+\hline
+{\color{blue}\ding{51}} & AA-level criteria implemented \\
+\hline
+{\color{purple}\ding{51}} & AAA-level criteria implemented \\
+\hline
+{\color{red}\ding{55}} & Criteria not implemented \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+\FloatBarrier
+
+Key patterns identified in this analysis include:
+
+\begin{enumerate}
+    \item Core A-level criteria (1.1.1 Non-text Content, 1.3.1 Info and Relationships, 4.1.2 Name, Role, Value) are implemented across all component types;
+    
+    \item AA-level compliance is consistently high, with most components implementing all applicable AA criteria;
+    
+    \item AAA-level implementation varies significantly, with forms achieving the highest level of AAA compliance (3/3 applicable criteria);
+    
+    \item Component-specific criteria like 3.3.1 Error Identification are implemented only where directly applicable.
+\end{enumerate}
+
+\subsubsection{Implementation overhead comparison}
+\label{subsubsec:overhead-comparison-summary}
+
+The overhead required for accessibility implementation varies significantly by component complexity. Table~\ref{tab:comparative_overhead_summary} presents this comparative analysis across the five component types.
+
+\begin{table}[ht]
+\caption{Accessibility implementation overhead by component type}
+\label{tab:comparative_overhead_summary}
+\centering
+\begin{tabular}[c]{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{3cm}|C{2.5cm}|}
+\hline
+\textbf{Component Type} & \textbf{Lines of Code} & \textbf{Percentage Overhead} & \textbf{Complexity Impact} & \textbf{Primary Contributors} \\
+\hline
+Buttons & 60 & 13.3\% & Low & Labels, Roles \\
+\hline
+Forms & 153 & 21.5\% & Medium & State, Labels, Errors \\
+\hline
+Dialogs & 94 & 16.2\% & Medium & Focus Management \\
+\hline
+Media & 68 & 12.7\% & Low & Alt Text, Controls \\
+\hline
+Advanced & 183 & 22.7\% & High & Slider Controls, Announcements \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+This comparison reveals several important implementation patterns:
+
+\begin{enumerate}
+    \item A direct correlation exists between component interaction complexity and accessibility implementation overhead;
+    
+    \item Simple, static components like media content require the lowest overhead (12.7\%), primarily for alternative text;
+    
+    \item Components with complex state management and alternative interaction patterns (forms, advanced components) require significantly higher overhead (21-23\%);
+    
+    \item Components requiring focus management (dialogs) fall in the middle range (16.2\%);
+    
+    \item Even for the most complex components, the accessibility implementation overhead remains below 25\% of the total codebase.
+\end{enumerate}
+
+The Accessible Components section demonstrates that implementing comprehensive accessibility features across diverse component types typically requires a 12-23\% code overhead, with complexity scaling according to the interaction patterns involved. This relatively modest overhead delivers significant improvements in usability for users relying on assistive technologies, making a compelling case for incorporating accessibility as a core development consideration rather than an optional enhancement.
+
+More detailed analysis of each component screen, including code listings, implementation patterns, and screen reader compatibility findings, can be found in the {Technical Appendix}~\href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}.
+
+\subsection{Best practices section summary}
+\label{subsec:best-practices-section-summary}
+The Best practices screens provide educational content on key accessibility implementation patterns, divided into five specialized areas: WCAG Guidelines, Semantic Structure, Gesture Tutorial, Screen Reader Support, and Logical Focus Order. Each screen demonstrates proper implementation techniques while serving as both functional examples and educational references. The detailed analysis of these implementations can be found in Appendix~\ref{subsec:best-practices-screens}, while this section summarizes key findings and insights.
+
+\subsubsection{Implementation overhead analysis}
+\label{subsubsec:best-practices-screens-overhead-summary}
+Implementing accessibility features in educational screens adds measurable but manageable overhead to the development process. Table~\ref{tab:best_practices_screens_overhead_summary} quantifies this overhead across the five specialized screens.
+
+\begin{table}[ht]
+\caption{Best practices screens accessibility implementation overhead}
+\label{tab:best_practices_screens_overhead_summary}
+\centering
+\begin{tabular}[c]{|C{2.5cm}|C{2cm}|C{2.8cm}|C{2.8cm}|C{4.7cm}|}
+\hline
+\textbf{Screen Type} & \textbf{Lines of Code} & \textbf{Percentage Overhead} & \textbf{Complexity Impact} & \textbf{Primary Contributors} \\
+\hline
+WCAG Guidelines & 42 & 10.8\% & Low & Screen Reader Hiding, Semantic Roles \\
+\hline
+Semantic Structure & 68 & 15.2\% & Medium & Content Hierarchy, ARIA Roles \\
+\hline
+Gesture Tutorial & 103 & 22.5\% & High & Screen Reader Detection, Custom Actions \\
+\hline
+Screen Reader Support & 89 & 17.4\% & Medium & Platform Adaptations, Example Code \\
+\hline
+Logical Focus Order & 74 & 16.3\% & Medium & Skip Links, Focus Management \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+This analysis reveals several important implementation patterns:
+\begin{enumerate}
+    \item The Gesture Tutorial screen requires the highest overhead (22.5\%) due to complex interaction patterns and adaptations for screen reader users;
+    
+    \item Screens with primarily static content (WCAG Guidelines) require substantially less accessibility overhead (10.8\%);
+    
+    \item Focus management and keyboard navigation features contribute significantly to implementation complexity in the Logical Focus Order screen;
+    
+    \item Even with extensive educational content, accessibility overhead remains below 25\% across all screens.
+\end{enumerate}
+
+\subsubsection{WCAG criteria implementation}
+\label{subsubsec:best-practices-wcag-implementation-summary}
+The Best practices screens implement accessibility features addressing multiple WCAG 2.2 conformance levels. Table~\ref{tab:best_practices_wcag_implementation_summary} analyzes the implementation by screen type.
+
+\begin{table}[ht]
+\caption{WCAG criteria implementation by best practices screen type}
+\label{tab:best_practices_wcag_implementation_summary}
+\centering
+\begin{tabular}[c]{|C{3.5cm}|C{2.0cm}|C{2.0cm}|C{2.0cm}|C{2.0cm}|C{2.0cm}|}
+\hline
+\textbf{WCAG Success Criteria} & \textbf{WCAG Guidelines} & \textbf{Semantic Structure} & \textbf{Gesture Tutorial} & \textbf{Screen Reader} & \textbf{Focus Order} \\
+\hline
+1.1.1 Non-text Content (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+1.3.1 Info and Relationships (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+1.4.3 Contrast (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+2.1.1 Keyboard (A) & {\color{red}\ding{55}} & {\color{red}\ding{55}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+2.4.3 Focus Order (A) & {\color{red}\ding{55}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+2.4.6 Headings (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+2.4.10 Section Headings (AAA) & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{55}} & {\color{purple}\ding{51}} & {\color{purple}\ding{55}} \\
+\hline
+2.5.2 Pointer Cancellation (A) & {\color{red}\ding{55}} & {\color{red}\ding{55}} & {\color{green}\ding{51}} & {\color{red}\ding{55}} & {\color{red}\ding{55}} \\
+\hline
+2.5.5 Target Size (Enhanced) (AAA) & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} \\
+\hline
+2.5.8 Target Size (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+3.2.5 Change on Request (AAA) & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} \\
+\hline
+3.3.2 Labels or Instructions (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+4.1.2 Name, Role, Value (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+4.1.3 Status Messages (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+\textbf{Total A/AA Implementation} & \textbf{5/8} & \textbf{6/8} & \textbf{8/8} & \textbf{7/8} & \textbf{7/8} \\
+\hline
+\textbf{Total AAA Implementation} & \textbf{3/3} & \textbf{3/3} & \textbf{2/3} & \textbf{3/3} & \textbf{2/3} \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\begin{table}[ht]
+\caption{Legend for WCAG criteria implementation colors}
+\label{tab:wcag_legend_best_practices_screens}
+\centering
+\begin{tabular}{|C{3cm}|C{8cm}|}
+\hline
+\textbf{Color} & \textbf{Meaning} \\
+\hline
+{\color{green}\ding{51}} & A-level criteria implemented \\
+\hline
+{\color{blue}\ding{51}} & AA-level criteria implemented \\
+\hline
+{\color{purple}\ding{51}} & AAA-level criteria implemented \\
+\hline
+{\color{red}\ding{55}} & Criteria not implemented \\
+\hline
+\end{tabular}
+\end{table}
+
+Key patterns identified in this analysis include:
+\begin{enumerate}
+    \item All screens implement core A-level criteria (1.1.1 Non-text Content, 1.3.1 Info and Relationships, 4.1.2 Name, Role, Value);
+    
+    \item The Gesture Tutorial screen achieves the highest A/AA compliance level (8/8) due to its comprehensive implementation of interaction patterns;
+    
+    \item AAA-level criteria implementation is notably strong across all screens, with three screens implementing all applicable AAA criteria;
+    
+    \item Keyboard accessibility (2.1.1) is implemented only in screens with complex interaction patterns, highlighting an area for potential improvement in the more static screens.
+\end{enumerate}
+
+\subsubsection{Screen reader compatibility analysis}
+\label{subsubsec:best-practices-screen-reader-summary}
+Empirical testing with screen readers on both major mobile platforms reveals important patterns in accessibility implementation. Table~\ref{tab:best_practices_screen_reader_summary} presents key findings from this analysis.
+
+\begin{table}[ht]
+\caption{Best practices screens screen reader testing highlights}
+\label{tab:best_practices_screen_reader_summary}
+\centering
+\begin{tabular}[c]{|C{2.5cm}|C{5cm}|C{7.5cm}|}
+\hline
+\textbf{Screen Type} & \textbf{Key Accessibility Features} & \textbf{Screen Reader Behavior} \\
+\hline
+WCAG Guidelines & Element Hiding, Semantic Structure & Icons properly hidden, consistent heading hierarchy announced \\
+\hline
+Semantic Structure & Role Assignments, Hierarchical Headings & Proper heading levels announced, landmarks communicated \\
+\hline
+Gesture Tutorial & Screen Reader Detection, Alternative Actions & Screen reader-specific instructions provided, custom actions supported \\
+\hline
+Screen Reader Support & Platform-Specific Adaptations, Code Examples & Platform detection informs appropriate guidance, examples properly labeled \\
+\hline
+Focus Order & Skip Links, Focus Management & Skip links operational, logical tab order maintained \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+These findings demonstrate several effective accessibility implementation patterns:
+\begin{enumerate}
+    \item Screen reader detection enables adaptive experiences tailored to assistive technology users;
+    
+    \item Proper element hiding streamlines navigation and reduces cognitive load;
+    
+    \item Implementation of custom actions provides alternative input methods when standard gestures are unavailable;
+    
+    \item Logical focus management enables efficient keyboard and screen reader navigation.
+\end{enumerate}
+
+\subsubsection{Implementation techniques comparison}
+\label{subsubsec:best-practices-implementation-comparison}
+Analysis of the implementation techniques across the best practices screens reveals distinct approaches to addressing common accessibility challenges. Table~\ref{tab:best_practices_implementation_comparison} compares these techniques.
+
+\begin{table}[ht]
+\caption{Implementation techniques comparison across best practices screens}
+\label{tab:best_practices_implementation_comparison}
+\centering
+\begin{tabular}[c]{|C{3cm}|C{5cm}|C{6cm}|}
+\hline
+\textbf{Accessibility Challenge} & \textbf{Implementation Technique} & \textbf{Screen Examples} \\
+\hline
+Non-visual Access & \texttt{accessibilityLabel}, \texttt{accessibilityRole}, \texttt{accessibilityHint} & All screens implement these properties consistently \\
+\hline
+Decorative Elements & \texttt{accessibilityElements \ Hidden}, \texttt{importantFor \ Accessibility} & Guidelines screen for icons, Screen Reader screen for platform icons \\
+\hline
+Screen Reader Adaptation & Screen reader detection, conditional rendering & Gesture Tutorial provides alternative interaction patterns \\
+\hline
+Interactive Elements & accessibilityState, accessibilityActions & Gesture Tutorial demonstrates custom actions for alternative input \\
+\hline
+Navigation Structure & Skip links, focus management & Logical Focus Order demonstrates programmatic focus control \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+The implementation comparison reveals robust patterns that can be applied across diverse interface types:
+\begin{enumerate}
+    \item Core accessibility properties are implemented consistently across all screens;
+    
+    \item Screen reader adaptations provide equivalent functionality through alternative interaction patterns;
+    
+    \item Skip links enable efficient navigation of complex content structures;
+    
+    \item Custom actions extend screen reader capabilities beyond standard interactions.
+\end{enumerate}
+
+The Best practices screens demonstrate that implementing accessibility requires consideration of both standard WCAG criteria and platform-specific interaction patterns. While the implementation overhead varies by screen complexity (10.8\% to 22.5\%), the resulting accessibility benefits provide substantial value for users relying on assistive technologies. These screens not only serve as educational resources but also demonstrate practical implementation patterns that developers can adapt to their own applications.
+
+\subsection{Best practices main screen summary}
+\label{subsec:best-practices-summary}
+
+The Best practices main screen serves as the educational knowledge hub within \textit{AccessibleHub}, providing developers with a structured approach to mobile accessibility implementation. It organizes accessibility knowledge into five key categories: WCAG Guidelines, Semantic Structure, Gesture Tutorial, Screen Reader Support, and Logical Focus Order. Each category employs a unified card-based interface that combines visual cues, descriptive labels, and educational badges to create an accessible learning path. The detailed analysis of this screen's implementation can be found in Appendix~\ref{subsec:best-practices-main-screen}, while this section presents key findings and insights from the analysis.
+
+\subsubsection{Implementation overhead analysis}
+\label{subsubsec:best-practices-overhead-summary}
+
+Implementing comprehensive accessibility features in the Best practices screen adds a measurable but manageable overhead to the development process. Table~\ref{tab:best_practices_overhead_summary} quantifies this overhead across the primary accessibility features.
+
+\begin{table}[ht]
+\caption{Best practices screen accessibility implementation overhead}
+\label{tab:best_practices_overhead_summary}
+\centering
+\begin{tabular}[c]{|C{3.8cm}|C{2.3cm}|C{2.8cm}|C{2.8cm}|}
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+Semantic Roles & 14 LOC & 2.5\% & Low \\
+\hline
+Descriptive Labels & 25 LOC & 4.5\% & Medium \\
+\hline
+Element Hiding & 30 LOC & 5.4\% & Low \\
+\hline
+Screen Announcements & 15 LOC & 2.7\% & Low \\
+\hline
+Contrast Handling & 18 LOC & 3.2\% & Medium \\
+\hline
+Gradient Background & 12 LOC & 2.2\% & Low \\
+\hline
+Touch Target Sizing & 20 LOC & 3.6\% & Medium \\
+\hline
+\textbf{Total} & \textbf{134 LOC} & \textbf{24.1\%} & \textbf{Medium} \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+This analysis reveals that accessibility implementation accounts for approximately 24.1\% of the screen's total code base, with element hiding (5.4\%) and descriptive labels (4.5\%) representing the largest contributors to this overhead. Despite this additional code, the overall complexity impact remains moderate, suggesting that accessibility features can be integrated into educational interfaces without imposing excessive development burden. Notably, this implementation overhead is lower than that observed in more complex interactive screens like the Component screen (32.8\%), indicating that educational content with a consistent structure can achieve high accessibility standards with relatively modest code additions.
+
+\subsubsection{WCAG criteria implementation}
+\label{subsubsec:best-practices-wcag-implementation}
+
+The Best practices screen implements accessibility features that address multiple WCAG 2.2 conformance levels. Table~\ref{tab:best_practices_wcag_summary} analyzes the implementation by conformance level, using color-coded indicators to highlight compliance status.
+
+\begin{table}[ht]
+\caption{Best practices screen WCAG implementation by conformance level}
+\label{tab:best_practices_wcag_summary}
+\centering
+\begin{tabular}[c]{|C{2.5cm}|C{4cm}|C{3.5cm}|C{5cm}|}
+\hline
+\textbf{Conformance Level} & \textbf{Description} & \textbf{Implementation Rate} & \textbf{Notable Implementations} \\
+\hline
+A (Level A) & Basic accessibility requirements that must be satisfied & {\color{green}15/15} (100\%) & {\color{green}\ding{51}} 1.1.1 Non-text Content\newline {\color{green}\ding{51}} 1.3.1 Info and Relationships\newline {\color{green}\ding{51}} 4.1.2 Name, Role, Value \\
+\hline
+AA (Level AA) & Advanced requirements beyond Level A & {\color{blue}13/13} (100\%) & {\color{blue}\ding{51}} 1.4.3 Contrast (Minimum)\newline {\color{blue}\ding{51}} 2.4.6 Headings and Labels\newline {\color{blue}\ding{51}} 4.1.3 Status Messages \\
+\hline
+AAA (Level AAA) & Highest level of accessibility & {\color{purple}2/5} (40\%) & {\color{purple}\ding{51}} 2.5.5 Target Size (Enhanced)\newline {\color{purple}\ding{51}} 3.2.5 Change on Request\newline {\color{red}\ding{55}} 2.4.10 Section Headings \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\begin{table}[ht]
+\caption{Legend for WCAG criteria implementation colors}
+\label{tab:wcag_legend_best_practices}
+\centering
+\begin{tabular}{|C{3cm}|C{8cm}|}
+\hline
+\textbf{Color} & \textbf{Meaning} \\
+\hline
+{\color{green}\ding{51}} & A-level criteria implemented \\
+\hline
+{\color{blue}\ding{51}} & AA-level criteria implemented \\
+\hline
+{\color{purple}\ding{51}} & AAA-level criteria implemented \\
+\hline
+{\color{red}\ding{55}} & Criteria not implemented \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+This analysis reveals complete compliance with Level A and AA requirements, while also implementing two key AAA-level criteria:
+
+\begin{enumerate}
+    \item 2.5.5 Target Size (Enhanced): The implementation exceeds the enhanced target size requirement of 44×44 pixels through large, card-based interaction targets that provide ample touch area;
+    
+    \item 3.2.5 Change on Request: All navigation and state changes occur only in response to explicit user actions, with clear announcements of context changes for screen reader users.
+\end{enumerate}
+
+The remaining AAA criteria were not implemented either because they were not applicable to this screen type or because implementation would have added significant complexity without proportional benefit.
+
+\subsubsection{Screen reader compatibility analysis}
+\label{subsubsec:best-practices-screen-reader}
+
+Empirical testing with screen readers on both major mobile platforms reveals consistent behavior patterns that contribute to a streamlined navigation experience. Table~\ref{tab:best_practices_screen_reader_summary} highlights key findings from this testing.
+
+\begin{table}[ht]
+\caption{Best practices screen screen reader testing highlights}
+\label{tab:best_practices_screen_reader_summary}
+\centering
+\begin{tabular}[c]{|C{3.8cm}|C{3.8cm}|C{5.8cm}|}
+\hline
+\textbf{Component Type} & \textbf{Screen Reader Behavior} & \textbf{Accessibility Benefit} \\
+\hline
+Headings & Both VoiceOver and TalkBack correctly announce heading role and content & Provides clear navigation landmarks and content structure \\
+\hline
+Practice Cards & Announced as buttons with complete descriptive labels & Communicates both control type and destination content in a single announcement \\
+\hline
+Decorative Elements & Successfully hidden from screen reader focus & Reduces navigation steps by approximately 60\% compared to non-optimized implementation \\
+\hline
+Screen Transitions & Destination screen explicitly announced & Maintains context during navigation between different sections \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+The screen reader analysis reveals that careful implementation of accessibility properties significantly improves the navigation experience by:
+
+\begin{enumerate}
+    \item Streamlining the swipe path through elimination of decorative and redundant focus stops;
+    
+    \item Providing comprehensive context through detailed card labels that include both identification and purpose information;
+    
+    \item Maintaining orientation through explicit announcements of destination screens during navigation;
+    
+    \item Preserving semantic meaning through proper role assignments that communicate component types.
+\end{enumerate}
+
+These findings demonstrate that educational interfaces can achieve both comprehensive content delivery and efficient screen reader navigation when accessibility properties are thoughtfully applied.
+
+\subsubsection{Mobile-specific considerations}
+\label{subsubsec:best-practices-mobile-specific}
+
+The Best practices screen implementation addresses several mobile-specific accessibility considerations that extend beyond standard WCAG requirements. These considerations are particularly important for educational interfaces on mobile devices, where limited screen space and touch-based interaction present unique challenges.
+
+Key mobile-specific implementations include:
+
+\begin{enumerate}
+    \item \textbf{Card-based architecture}: The screen uses semantically and visually distinct content cards that create clear information boundaries, addressing the mobile challenge of limited screen space while maintaining content separation;
+    
+    \item \textbf{Badge-based categorization}: Compact visual badges efficiently communicate content types without consuming excessive screen space, providing important educational context within the constraints of mobile interfaces;
+    
+    \item \textbf{Touch-optimized targets}: All interactive elements maintain minimum dimensions of 44×44dp, with practice cards providing substantially larger touch targets that accommodate various motor capabilities;
+    
+    \item \textbf{Minimal navigation depth}: The implementation maintains a shallow information architecture with all primary categories accessible from a single scrollable view, reducing the risk of disorientation common in deeply-nested mobile interfaces.
+\end{enumerate}
+
+These mobile-specific considerations demonstrate that effective accessibility implementation must adapt to the unique constraints and interaction patterns of mobile platforms, extending beyond generic WCAG guidelines to address platform-specific challenges.
+
+The Best practices screen combines standard accessibility techniques with mobile-specific adaptations to create an educational interface that is both accessible and pedagogically effective. The complete technical analysis, including detailed code implementation, WCAG mapping, and component-level assessments, can be found in Appendix~\ref{subsec:best-practices-main-screen}.
+
+\subsection{Accessibility tools screen summary}
+\label{subsec:accessibility-tools-screen-summary}
+
+The Accessibility tools screen serves as a comprehensive resource guide within \textit{AccessibleHub}, providing developers with a structured catalog of essential tools and resources for testing and improving mobile application accessibility. The screen organizes tools into three key categories: screen readers, development tools, and testing utilities, presenting each with expandable cards that offer practical usage guidance and direct links to official documentation. The implementation demonstrates both educational value and accessibility-first design patterns.
+
+\subsubsection{Implementation overhead analysis}
+\label{subsubsec:tools-implementation-overhead-summary}
+
+Implementing accessibility features in the Tools screen adds a quantifiable but manageable overhead to the development process. Table~\ref{tab:tools_implementation_overhead_summary} presents the analysis of this implementation overhead.
+
+\begin{table}[ht]
+\caption{Tools screen accessibility implementation overhead}
+\label{tab:tools_implementation_overhead_summary}
+\centering
+\begin{tabular}[c]{|C{3.8cm}|C{2.3cm}|C{2.8cm}|C{2.8cm}|}
+\hline
+\textbf{Accessibility Feature} & \textbf{Lines of Code} & \textbf{Percentage of Total} & \textbf{Complexity Impact} \\
+\hline
+Semantic Roles & 16 LOC & 2.7\% & Low \\
+\hline
+Descriptive Labels & 24 LOC & 4.1\% & Medium \\
+\hline
+Element Hiding & 32 LOC & 5.5\% & Low \\
+\hline
+List Semantics & 10 LOC & 1.7\% & Low \\
+\hline
+Link Announcements & 12 LOC & 2.1\% & Low \\
+\hline
+Expansion State Management & 18 LOC & 3.1\% & Medium \\
+\hline
+\textbf{Total} & \textbf{112 LOC} & \textbf{19.2\%} & \textbf{Medium} \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+This analysis reveals that implementing a fully accessible tools catalog requires approximately 19.2\% additional code, with element hiding (5.5\%) and descriptive labels (4.1\%) representing the largest contributors. The information-dense nature of this screen necessitates careful screen reader optimization, yet the overall complexity impact remains moderate, suggesting that accessibility can be effectively integrated into educational reference screens without imposing excessive development burden.
+
+\subsubsection{WCAG criteria implementation}
+\label{subsubsec:tools-wcag-implementation-summary}
+
+The Tools screen implements accessibility features addressing multiple WCAG 2.2 conformance levels. Table~\ref{tab:tools_wcag_implementation_summary} presents the analysis of this implementation by conformance level.
+
+\begin{table}[ht]
+\caption{Tools screen WCAG implementation by conformance level}
+\label{tab:tools_wcag_implementation_summary}
+\centering
+\begin{tabular}[c]{|C{3.5cm}|c|c|c|}
+\hline
+\textbf{WCAG Success Criteria} & \textbf{Screen Readers} & \textbf{Development Tools} & \textbf{Testing Checklist} \\
+\hline
+1.1.1 Non-text Content (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+1.3.1 Info and Relationships (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+1.4.3 Contrast (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+2.1.1 Keyboard (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+2.4.3 Focus Order (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+2.4.4 Link Purpose (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+2.4.6 Headings (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+2.5.5 Target Size (Enhanced) (AAA) & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} \\
+\hline
+2.5.8 Target Size (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+3.2.5 Change on Request (AAA) & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} & {\color{purple}\ding{51}} \\
+\hline
+4.1.2 Name, Role, Value (A) & {\color{green}\ding{51}} & {\color{green}\ding{51}} & {\color{green}\ding{51}} \\
+\hline
+4.1.3 Status Messages (AA) & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} & {\color{blue}\ding{51}} \\
+\hline
+\textbf{Total A/AA Implementation} & \textbf{9/9} & \textbf{9/9} & \textbf{9/9} \\
+\hline
+\textbf{Total AAA Implementation} & \textbf{2/2} & \textbf{2/2} & \textbf{2/2} \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+\begin{table}[ht]
+\caption{Legend for WCAG criteria implementation colors}
+\label{tab:wcag_legend_tools}
+\centering
+\begin{tabular}{|C{3cm}|C{8cm}|}
+\hline
+\textbf{Color} & \textbf{Meaning} \\
+\hline
+{\color{green}\ding{51}} & A-level criteria implemented \\
+\hline
+{\color{blue}\ding{51}} & AA-level criteria implemented \\
+\hline
+{\color{purple}\ding{51}} & AAA-level criteria implemented \\
+\hline
+{\color{red}\ding{55}} & Criteria not implemented \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+This analysis demonstrates complete A and AA compliance across all tool categories, with consistent implementation of two key AAA criteria:
+
+\begin{enumerate}
+    \item 2.5.5 Target Size (Enhanced): All interactive elements implement the enhanced target size requirement through large, card-based interaction targets;
+    
+    \item 3.2.5 Change on Request: All content expansions and link activations occur only through explicit user actions, with appropriate screen reader announcements.
+\end{enumerate}
+
+\subsubsection{Screen reader support analysis}
+\label{subsubsec:tools-screen-reader-support-summary}
+
+Empirical testing with screen readers reveals consistent behavior patterns across platforms. Table~\ref{tab:tools_screen_reader_support_summary} highlights key findings from this testing.
+
+\begin{table}[ht]
+\caption{Tools screen screen reader testing highlights}
+\label{tab:tools_screen_reader_support_summary}
+\centering
+\begin{tabular}[c]{|C{3.8cm}|C{3.8cm}|C{5.8cm}|}
+\hline
+\textbf{Component Type} & \textbf{Screen Reader Behavior} & \textbf{Accessibility Benefit} \\
+\hline
+Headings & Both VoiceOver and TalkBack correctly announce heading role and content & Provides clear navigation landmarks and content structure \\
+\hline
+Tool Cards & Announced as buttons with state information & Communicates both control type and expansion state clearly \\
+\hline
+Decorative Elements & Successfully hidden from screen reader focus & Reduces navigation steps by approximately 60\% compared to non-optimized implementation \\
+\hline
+Documentation Links & Properly labeled with destination context & Prepares users for context changes when activating external links \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+The screen reader analysis demonstrates that proper implementation of accessibility properties significantly improves navigation efficiency through:
+
+\begin{enumerate}
+    \item Streamlined focus path via strategic element hiding;
+    
+    \item Clear state communication in expandable components;
+    
+    \item Proper semantic structuring of content with appropriate headings and lists;
+    
+    \item Contextual hints for external link activation.
+\end{enumerate}
+
+\subsubsection{Mobile-specific implementation considerations}
+\label{subsubsec:tools-mobile-specific-summary}
+
+The Tools screen addresses several mobile-specific accessibility considerations that extend beyond standard WCAG requirements. Table~\ref{tab:tools_mobile_considerations_summary} presents the analysis of these mobile-specific implementations.
+
+\begin{table}[ht]
+\caption{Tools screen mobile-specific implementation considerations}
+\label{tab:tools_mobile_considerations_summary}
+\centering
+\begin{tabular}[c]{|C{3.8cm}|C{5.5cm}|C{4.5cm}|}
+\hline
+\textbf{Mobile Consideration} & \textbf{Implementation Approach} & \textbf{Accessibility Benefit} \\
+\hline
+Progressive Disclosure & Expandable card implementation & Reduces cognitive load on small screens while maintaining content completeness \\
+\hline
+Touch Target Optimization & Large card headers (>44×44dp) & Improves usability for users with motor impairments \\
+\hline
+Platform-Specific Content & Explicit iOS/Android tool separation & Addresses differences in platform-specific accessibility implementations \\
+\hline
+External Link Context & Clear \texttt{accessibilityHint} for browser opening & Prepares users for disruptive context switches on mobile \\
+\hline
+Practical Usage Emphasis & Dedicated sections for real-world application & Bridges the gap between tool features and implementation needs \\
+\hline
+\end{tabular}
+\end{table}
+\FloatBarrier
+
+These mobile-specific implementations demonstrate that accessibility on mobile platforms requires considerations beyond standard WCAG criteria, particularly in areas of interaction design, content organization, and context management.
+
+Key patterns identified in this analysis include:
+
+\begin{enumerate}
+    \item Comprehensive implementation of A and AA-level WCAG criteria across all tool categories;
+    
+    \item Strategic implementation of AAA criteria with significant usability impact;
+    
+    \item Consistent patterns for element hiding and descriptive labeling;
+    
+    \item Mobile-specific adaptations focused on reducing cognitive load and optimizing touch interactions;
+    
+    \item Educational content organization that supports a developmental learning path.
+\end{enumerate}
+
+The Tools screen demonstrates that implementing accessibility in educational reference screens requires thoughtful consideration of both standard guidelines and mobile-specific interaction patterns. The implementation overhead (19.2\%) delivers significant improvements in usability for all users, demonstrating that accessibility can be effectively integrated into educational interfaces with reasonable development effort.
+
+\subsection{Instruction and community screen summary}
+
+\subsection{Settings screen summary}
 
 \newpage
 

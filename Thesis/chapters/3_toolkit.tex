@@ -224,7 +224,7 @@ The core of the application is divided into different main screens, following:
 
 \pagebreak
 
-    \item \textbf{Accessible Components} - Developers can learn how to implement accessible UI components in their mobile applications (\ref{fig:components}). 
+    \item \textbf{Accessible Components} - The Components section embodies a progressive learning pathway, beginning with fundamental elements (buttons, forms) before advancing to complex patterns (dialogs, advanced controls). Each component demonstrates implementation patterns through three integrated learning elements: interactive examples, annotated code, and explicit connections to relevant WCAG criteria, creating a complete educational cycle. (\ref{fig:components}). 
 
     \begin{figure}[ht]
     \centering
@@ -368,7 +368,7 @@ The core of the application is divided into different main screens, following:
         
     \end{itemize}
 
-\item \textbf{Best Practices} - Designed to give developers a general understanding of the overarching principles and guidelines for creating accessible mobile applications (\ref{fig:best-practices}).
+\item \textbf{Best Practices} - This section implements a conceptual learning pathway that organizes accessibility knowledge into cognitive domains rather than technical implementations. Each practice area utilizes visual encoding through color and iconography to reinforce conceptual boundaries, while badges differentiate learning modalities (documentation, code examples and guides) to accommodate diverse learning styles (\ref{fig:best-practices}).
 
 \begin{figure}[ht]
 \centering
@@ -498,7 +498,7 @@ It is divided into five subscreens, each addressing a key aspect of mobile acces
         
     \end{itemize}
 
-\item \textbf{Framework Comparison} - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter (\ref{fig:frameworks-comparison}). This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. This is divided into different categories, offering a practical and formal overview on how such frameworks are compared with each other. By highlighting the similarities and differences between frameworks, developers can make informed decisions about which framework to use for their accessibility needs and how to optimize their implementations for each platform;
+\item \textbf{Framework Comparison} - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter (\ref{fig:frameworks-comparison}). This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. This is divided into different categories, offering a practical and formal overview on how such frameworks are compared with each other. By structuring comparisons using consistent metrics, it teaches developers to evaluate accessibility implementation strategies based on objective criteria, reinforcing the quantitative approach introduced in the Home screen;
 
 \begin{figure}[ht]
 \centering
@@ -508,7 +508,7 @@ It is divided into five subscreens, each addressing a key aspect of mobile acces
 
 \pagebreak
 
-\item \textbf{Tools} - It serves as a central hub for accessing various accessibility-related tools and resources (\ref{fig:tools}). This includes links to official documentation, such as the React Native Accessibility \acrshort{api} reference and the \textit{Flutter Accessibility package} documentation. It also provides quick access to popular accessibility testing tools, such as \textit{Accessibility Scanner} for \textit{Android} and \textit{Accessibility Inspector} for \textit{iOS}. By consolidating these resources in one place, the Tools screen makes it easy for developers to find the information and tools they need to ensure their applications are fully accessible; 
+\item \textbf{Tools} - It serves as a central hub for accessing various accessibility-related tools and resources (\ref{fig:tools}). Each tool includes practical usage guidance, demonstrating workflow integration rather than isolated technical knowledge. This includes links to official documentation, such as the React Native Accessibility \acrshort{api} reference and the \textit{Flutter Accessibility package} documentation. It also provides quick access to popular accessibility testing tools, such as \textit{Accessibility Scanner} for \textit{Android} and \textit{Accessibility Inspector} for \textit{iOS}. This screen teaches developers that accessibility implementation is a continuous process spanning the entire development lifecycle; 
 
 \begin{figure}[ht]
 \centering
@@ -518,7 +518,7 @@ It is divided into five subscreens, each addressing a key aspect of mobile acces
 
 \pagebreak
 
-\item \textbf{Settings} - Allows users to customize various aspects of the \textit{AccessibleHub} application to suit their individual learning needs and preferences (\ref{fig:settings}). This includes options for adjusting the font size, color contrast (including options for gray scale and dark mode), reduced motion settings and others to help users and ensure the application itself is accessible to a wide range of users. It also provides information on how to configure the accessibility settings on the user's device, such as enabling screen readers or adjusting the display settings. By offering these customization options and guidance, the page reinforces the importance of accessibility as an everyday tool, meant to accompany practical user needs in an easy and quick way;
+\item \textbf{Settings} - Allows users to customize various aspects of the \textit{AccessibleHub} application to suit their individual learning needs and preferences (\ref{fig:settings}). This includes options for adjusting the font size, color contrast (including options for gray scale and dark mode), reduced motion settings and others to help users and ensure the application itself is accessible to a wide range of users. By providing live demos of various accessibility adaptations (dark mode, contrast adjustment, text resizing), it allows developers to experience accessibility features firsthand, reinforcing the principle that accessibility is about personalization rather than one-size-fits-all solutions.
 
 \begin{figure}[ht]
 \centering
@@ -604,7 +604,7 @@ To illustrate this methodology in practice, we first map the \textit{UI} element
 \section{Accessibility implementation guidelines}
 \label{sec:implementation-guidelines}
 
-Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Gaggi and Perinello's approach \cite{budai2024mobile} analyzying Budai's Flutter code - following guidelines and then giving advice into introducing new ones. These screens follow the structure presented in Section~\ref{sec:accessiblehub-educational-framework}, analyzed both as main screens and sections.
+Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Gaggi and Perinello's approach \cite{budai2024mobile} analyzying Budai's Flutter code - following guidelines and then giving advice into introducing new ones. These screens follow the structure presented in Section~\ref{sec:accessiblehub-educational-framework}, analyzed both as main screens and sections. A detailed analysis is given for the Home Screen and the Accessible Components main screen. For comprehensive, screen-by-screen analysis, readers are directed to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis} into §Chapter 1, where additional WCAG guidelines are introduced to accommodate future research on the field into §Chapter 2.
 
 \subsection{Home screen}
 
@@ -1130,7 +1130,7 @@ This analysis reveals that implementing comprehensive accessibility adds approxi
 
 \subsubsection{WCAG conformance by principle}
 
-Table~\ref{tab:wcag_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle, including AAA criteria. The analysis organizes WCAG success criteria into the four fundamental principles of web accessibility: Perceivable, Operable, Understandable, and Robust. This structure helps assess the overall accessibility coverage of the Components screen, highlighting its comprehensive implementation of both required (A, AA) and enhanced (AAA) accessibility features. While AA compliance is typically considered the target standard for most applications, this implementation achieves 100\% compliance in three of the four principles, with only a single Perceivable criterion not fully implemented.:
+Table~\ref{tab:wcag_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle, including AAA criteria. The analysis organizes WCAG success criteria into the four fundamental principles of web accessibility: Perceivable, Operable, Understandable, and Robust. This organization reveals the application's implementation priorities, demonstrating a strong technical foundation (100\% Robust implementation) while highlighting areas that require additional attention, particularly in cognitive accessibility features (76.5\% Understandable implementation). The varying implementation rates across principles reflect the inherent challenges in balancing comprehensive accessibility with practical implementation constraints, especially when addressing the more nuanced AAA criteria that enhance the experience for users with specific accessibility needs. 
 
 \begin{longtable}[c]{|C{2.5cm}|C{3.8cm}|C{3.2cm}|C{5.2cm}|}
 \caption{WCAG compliance analysis by principle}
@@ -1150,11 +1150,11 @@ Table~\ref{tab:wcag_by_principle} provides a detailed analysis of WCAG 2.2 compl
 \endfoot
 \hline
 \endlastfoot
-1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 12/15 (80.0\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A)\newline 1.3.4 Orientation (AA)\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.6 Contrast (Enhanced) (AAA) \\
+1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 14/15 (93.3\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A)\newline 1.3.4 Orientation (AA)\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.6 Contrast (Enhanced) (AAA) \\
 \hline
 2. Operable & UI components and navigation must be operable & 19/22 (86.4\%) & 2.1.1 Keyboard (A)\newline 2.4.3 Focus Order (A)\newline 2.4.7 Focus Visible (AA)\newline 2.5.2 Pointer Cancellation (A)\newline 2.5.8 Target Size (Minimum) (AA)\newline 2.4.8 Location (AAA)\newline 2.4.9 Link Purpose (Link Only) (AAA)\newline 2.4.10 Section Headings (AAA) \\
 \hline
-3. Understandable & Information and operation of UI must be understandable & 9/17 (52.9\%) & 3.1.1 Language of Page (A)\newline 3.2.1 On Focus (A)\newline 3.2.3 Consistent Navigation (AA)\newline 3.2.4 Consistent Identification (AA)\newline 3.3.2 Labels or Instructions (A)\newline 3.2.5 Change on Request (AAA) \\
+3. Understandable & Information and operation of UI must be understandable & 13/17 (76.5\%) & 3.1.1 Language of Page (A)\newline 3.2.1 On Focus (A)\newline 3.2.3 Consistent Navigation (AA)\newline 3.2.4 Consistent Identification (AA)\newline 3.3.2 Labels or Instructions (A)\newline 3.2.5 Change on Request (AAA) \\
 \hline
 4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.1 Parsing (A)\newline 4.1.2 Name, Role, Value (A)\newline 4.1.3 Status Messages (AA) \\
 \hline
@@ -1171,24 +1171,6 @@ The Home screen implementation addresses several mobile-specific accessibility c
     \item \textbf{Screen reader gesture optimization}: The implementation carefully manages focus to ensure efficient navigation with touch gestures, as shown in the screen reader testing results;
     \item \textbf{One-handed operation}: The layout places primary interactive elements within reach of a thumb during one-handed use, a critical mobile accessibility consideration not explicitly covered by WCAG.
 \end{enumerate}
-
-\subsubsection{Beyond WCAG: metrics-driven accessibility guidelines}
-
-The Home screen implementation highlights several accessibility principles that extend beyond standard WCAG requirements, specifically addressing quantitative accessibility evaluation in mobile applications:
-
-\begin{enumerate}
-    \item \textbf{Comprehensive metrics visualization}: Accessibility compliance are quantified and presented in a transparent, understandable format. The Home screen implements this through dedicated metric cards with clear visual indicators of implementation status, moving beyond binary compliance to represent different degrees of accessibility achievement;
-    
-    \item \textbf{Multi-dimensional evaluation framework}: Accessibility assessment consider multiple dimensions including component implementation, standards compliance, and empirical testing. This weighted approach, implemented in the metrics calculation system, recognizes that true accessibility extends beyond technical conformance to include real-world usability;
-    
-    \item \textbf{Transparency in methodology}: Applications should provide clear documentation of accessibility evaluation methodology including test devices, standards versions, and measurement approaches. The modal details system implements this principle by exposing the entire evaluation framework to users, creating accountability in accessibility claims;
-    
-    \item \textbf{Academic grounding principle}: Accessibility implementations benefit from explicit connection to peer-reviewed research and formal standards. The References tab implements this by connecting implementation practices to specific academic papers and standards documentation;
-    
-    \item \textbf{Progressive disclosure of complexity}: Technical accessibility details should be organized in layers of increasing complexity, allowing users to access the appropriate level of detail for their needs. The tabbed modal system implements this by separating overview information from detailed implementation specifics.
-\end{enumerate}
-
-These guidelines extend WCAG by formalizing the quantitative evaluation of accessibility status, providing developers with concrete metrics to track implementation progress rather than treating accessibility as a binary, achieved/not-achieved state. Additionally, the incorporation of Level AAA criteria demonstrates a commitment to achieving the highest possible level of accessibility, recognizing that while AAA compliance may not be required for all components, striving toward these aspirational goals leads to a better experience for all users.
 
 \subsection{Accessible components main screen}
 
@@ -1621,30 +1603,14 @@ The breadcrumb implementation required careful consideration of several accessib
 
 This implementation represents a comprehensive accessibility solution that benefits all users while specifically addressing mobile navigation challenges unique to handheld touch devices.
 
-\FloatBarrier
-
-\subsubsection{Beyond WCAG: component categorization guidelines}
-
-The Components screen defines several accessibility principles specifically focused on organizing and categorizing interface elements to promote systematic accessibility implementation:
-
-\begin{enumerate}
-    \item \textbf{Feature-oriented grouping}: Accessibility features are grouped by functional similarity rather than WCAG criteria, creating more intuitive implementation pathways. The Components screen implements this by organizing related controls together (e.g., "Buttons \& Touchables") regardless of which specific WCAG criteria they address;
-    
-    \item \textbf{Progressive implementation pathway}: Components are organized in a sequence that builds accessibility knowledge progressively, beginning with fundamental elements before introducing more complex patterns. The Components screen implements this through its hierarchical organization from basic elements (buttons) to complex patterns (dialogs, navigation);
-    
-    \item \textbf{Cross-cutting feature indication}: Key accessibility features that apply across multiple component types should be visually highlighted to reinforce their importance. The feature icons within each component card implement this by consistently identifying common accessibility considerations (e.g., touch target sizing, focus management);
-    
-    \item \textbf{Transition announcement principle}: Navigation between component categories should be explicitly announced to assist screen reader users in maintaining context. The Components screen implements this through the \texttt{announceForAccessibility} announcements during navigation;
-    
-    \item \textbf{Contextual documentation integration}: Each component implementation include direct references to relevant accessibility guidelines, helping developers understand not just how to implement accessibility features but why they matter. The code samples in each component detail screen implement this by including explanatory comments that connect implementation choices to specific WCAG success criteria.
-\end{enumerate}
-
 \FloatBarrier 
 
 \subsection{Accessible components section summary}
 \label{subsec:accessible-components-summary}
 
-From this section onwards, a comprehensive summary is retained for each of the screens presented, keeping the details of tables and general data for more immediate comparison. sFor comprehensive, screen-by-screen analysis, readers are directed to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis}. 
+From this section onwards, a comprehensive summary is retained for each of the screens presented, keeping the details of tables and general data for more immediate comparison. For comprehensive, screen-by-screen analysis, readers are directed to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis} into §Chapter 1, where additional WCAG guidelines are introduced to accommodate future research on the field into §Chapter 2. \\
+
+
 The Accessible Components section forms the core educational element of \textit{AccessibleHub}, providing practical implementations of accessibility patterns across five representative component categories: buttons and touchables, forms, dialogs, media content, and advanced components. Each screen demonstrates implementation techniques according to standard Web Content Accessibility Guidelines (WCAG) and Mobile Content Accessibility Guidelines (MCAG), providing both functional examples and educational code snippets.
 
 \subsubsection{Implementation overhead analysis}
@@ -2626,25 +2592,6 @@ The settings screen addresses several mobile-specific accessibility consideratio
     
     \item \textbf{Platform-specific integration}: The implementation follows platform conventions for controls and feedback, integrating with native expectations on both iOS and Android.
 \end{enumerate}
-
-\subsubsection{Self-adapting interface principles}
-\label{subsubsec:settings-self-adapting-principles}
-
-The settings screen exemplifies several principles for self-adapting interfaces that extend beyond standard WCAG requirements:
-
-\begin{enumerate}
-    \item \textbf{Embedded customization principle}: Accessibility adjustments are directly embedded within the application rather than relying solely on system-level settings;
-    
-    \item \textbf{Multi-sensory feedback guideline}: Setting changes provide feedback through multiple sensory channels to ensure perceivability regardless of user capabilities;
-    
-    \item \textbf{Contextual help principle}: Setting controls provide context-specific guidance through comprehensive labels that explain both purpose and current state;
-    
-    \item \textbf{Complementary settings grouping}: Related accessibility features are organized into logical categories (Visual Settings, Readability Enhancements, Color \& Touch Settings) that help users understand how different options work together;
-    
-    \item \textbf{Proportional adaptation}: The implementation includes both binary toggles and settings that affect the degree of adaptation (text size, contrast levels), providing fine-grained control.
-\end{enumerate}
-
-The settings screen demonstrates that proper accessibility implementation extends beyond compliance with standards to embrace the concept of interfaces that adapt to diverse user needs. With a reasonable implementation overhead of 18.0\%, the screen provides substantial accessibility benefits, illustrating how adaptability can be integrated as a core application feature rather than a specialized accommodation.
 
 \newpage
 

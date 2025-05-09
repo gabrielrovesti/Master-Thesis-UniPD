@@ -8,6 +8,13 @@
 \newacronym{api}{API}{Application Programming Interface}
 \newacronym{loc}{LOC}{Lines of Code}
 
+\newacronym{cas}{CAS}{Component Accessibility Score}
+\newacronym{imo}{IMO}{Implementation Overhead}
+\newacronym{cif}{CIF}{Complexity Impact Factor}
+\newacronym{srss}{SRSS}{Screen Reader Support Score}
+\newacronym{wcr}{WCR}{WCAG Compliance Ratio}
+\newacronym{dte}{DTE}{Developer Time Estimation}
+
 % Glossary
 \newglossaryentry{uig}{
     name={User Interface},
@@ -105,4 +112,46 @@
     text={LOC},
     sort=loc,
     description={A metric used to quantify the size or complexity of a software program by counting the number of lines in its source code. LOC is often used as an indicator of development effort, code maintenance, and project scale.}
+}
+
+\newglossaryentry{casg}{ 
+ name={Component Accessibility Score},
+ text={Component Accessibility Score},
+ sort=cas,
+ description={A quantitative metric that measures the percentage of components that are accessible by default without requiring additional developer intervention. This score reflects the baseline accessibility support provided by a framework before any explicit accessibility enhancements are applied}
+}
+
+\newglossaryentry{imog}{ 
+ name={Implementation Overhead},
+ text={Implementation Overhead},
+ sort=imo,
+ description={A metric that quantifies the additional code required to implement accessibility features, measured both in absolute lines of code (LOC) and as a percentage increase over baseline implementations. Implementation overhead provides a direct measure of the development effort required to achieve accessibility compliance}
+}
+
+\newglossaryentry{cifg}{ 
+ name={Complexity Impact Factor},
+ text={Complexity Impact Factor},
+ sort=cif,
+ description={A weighted measure of implementation complexity that considers not just code volume but also structural factors such as nesting depth, dependency requirements, and property count. CIF is calculated using the formula: CIF = (IMO/TC) × CF, where TC is total component code and CF is a complexity factor based on implementation characteristics}
+}
+
+\newglossaryentry{srssg}{ 
+ name={Screen Reader Support Score},
+ text={Screen Reader Support Score},
+ sort=srss,
+ description={An empirical score (1-5) based on testing with VoiceOver (iOS) and TalkBack (Android) that measures how effectively screen readers can interact with implemented accessibility features. The score evaluates multiple dimensions including role announcement, content reading, and focus behavior}
+}
+
+\newglossaryentry{wcrg}{ 
+ name={WCAG Compliance Ratio},
+ text={WCAG Compliance Ratio},
+ sort=wcr,
+ description={A percentage-based metric that measures the proportion of applicable WCAG 2.2 success criteria that are satisfied by an implementation. WCR is typically calculated separately for each WCAG principle (Perceivable, Operable, Understandable, Robust) to provide granular insight into compliance patterns}
+}
+
+\newglossaryentry{dteg}{ 
+ name={Developer Time Estimation},
+ text={Developer Time Estimation},
+ sort=dte,
+ description={A metric that quantifies the estimated development time required to implement accessibility features, calculated by combining empirical measurements with complexity-based adjustments. DTE provides a practical measure of the real-world effort required for accessibility implementation}
 }

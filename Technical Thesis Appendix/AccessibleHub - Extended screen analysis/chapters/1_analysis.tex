@@ -2849,8 +2849,6 @@ The categorization system addresses several additional accessibility considerati
 
 The category structure also supports the AAA criteria 3.2.5 Change on Request by organizing information into logical groups that users can expand at their own pace, maintaining user control over content presentation and information density.
 
-
-
 \subsection{Instruction and community screen}
 \label{subsec:instruction-community}
 
@@ -3641,7 +3639,7 @@ The Settings screen implementation addresses several mobile-specific accessibili
 
 To provide a comprehensive, empirical foundation for comparing implementation patterns, the \textit{AccessibleHub} includes a dedicated Framework comparison screen that offers a formal, evidence-based analysis tool for evaluating accessibility implementation across mobile development frameworks. This screen transforms the theoretical architectural differences discussed above into quantifiable metrics and side-by-side comparisons.
 
-The Framework comparison screen's formal methodology extends the Master Thesis' analysis through visual representation and interactive exploration of metrics. Unlike other screens in the \textit{AccessibleHub} application that focus primarily on educational content or component examples, this screen implements a structured, academically-grounded system for comparing React Native and Flutter using transparent metrics, formal methodology, and verifiable data. Figure~\ref{fig:framework_comparison_main} shows the main interface of the Framework comparison screen.
+The Framework comparison screen's formal methodology extends the Master Thesis' analysis through visual representation and interactive exploration of metrics. Unlike other screens in the \textit{AccessibleHub} application that focus primarily on educational content or component examples, this screen implements a structured, academically-grounded system for comparing React Native and Flutter using transparent metrics, formal methodology, and verifiable data. Figure~\ref{fig:framework_comparison_main} shows the main interface of this screen.
 
 \begin{figure}[ht]
     \centering
@@ -3747,7 +3745,7 @@ The formal methodology system implements several critical characteristics of aca
     \item \textbf{Device specification}: The methodology includes explicit hardware specifications (iPhone 14, Pixel 7), creating reproducibility for the evaluation.
 \end{enumerate}
 
-This formal methodology implementation exemplifies the application's commitment to rigorous, evidence-based accessibility evaluation that moves beyond subjective assessments to create verifiable, reproducible comparisons.
+This methodology implementation exemplifies the application's commitment to rigorous, evidence-based accessibility evaluation that moves beyond subjective assessments to create verifiable, reproducible comparisons.
 
 \subsubsection{Academic reference implementation}
 
@@ -3879,20 +3877,22 @@ Figure~\ref{fig:implementation_details} shows the detailed implementation compar
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Implementation Details tab showing feature comparisons}]{img/implementation-methodology.jpg}
+        \includegraphics[width=\linewidth, alt={Implementation Details tab showing feature comparisons}]{img/implementation2.jpg}
         \caption{Feature implementation comparison}
         \label{fig:implementation-feature-comparison}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Implementation Details tab showing code examples}]{img/implementation-calculation.jpg}
+        \includegraphics[width=\linewidth, alt={Implementation Details tab showing code examples}]{img/implementation1.jpg}
         \caption{Implementation code examples}
         \label{fig:implementation-code-examples}
     \end{subfigure}
     \caption{Implementation details showing feature-level comparison and code examples}
     \label{fig:implementation_details}
 \end{figure}
+
+\FloatBarrier
 
 The feature-level implementation analysis in Figure~\ref{fig:implementation_details} demonstrates significant differences between frameworks:
 
@@ -3962,7 +3962,7 @@ The Framework comparison screen implements several modal dialogs that incorporat
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Modal dialog showing academic references for Implementation tab section}]{img/implementation-methodology.jpg}
+        \includegraphics[width=\linewidth, alt={Modal dialog showing academic references for Implementation tab section}]{img/implementation-references.jpg}
         \caption{References of Implementation modal}
         \label{fig:academic-references-dialog}
     \end{subfigure}
@@ -4152,14 +4152,14 @@ The Framework comparison screen implements a rigorous methodology for evaluating
     \centering
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Screen reader support comparison methodology}]{img/methodology-details.jpg}
-        \caption{Screen reader testing methodology}
-        \label{fig:screen-reader-methodology}
+        \includegraphics[width=\linewidth, alt={Screen reader support overview}]{img/screen-reader-overview.jpg}
+        \caption{Screen reader overview}
+        \label{fig:screen-reader-overview}
     \end{subfigure}
     \hfill
     \begin{subfigure}[b]{0.48\textwidth}
         \centering
-        \includegraphics[width=\linewidth, alt={Screen reader support metrics calculation}]{img/accessibility-calculation.jpg}
+        \includegraphics[width=\linewidth, alt={Screen reader support metrics calculation}]{img/screen-reader-methodology.jpg}
         \caption{Screen reader metrics calculation}
         \label{fig:screen-reader-calculation}
     \end{subfigure}
@@ -4183,14 +4183,7 @@ This formal screen reader evaluation methodology establishes a systematic approa
 
 \subsubsection{Implementation complexity calculation methodology}
 
-The Framework comparison screen implements a formal methodology for calculating implementation complexity, shown in Figure~\ref{fig:screen_reader_methodology}.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.4\linewidth, alt={Implementation complexity calculation methodology}]{img/implementation-calculation.jpg}
-    \caption{Formal calculation methodology for implementation complexity}
-    \label{fig:implementation_complexity_methodology}
-\end{figure}
+The Framework comparison screen implements a formal methodology for calculating implementation complexity, as was shown by Figure~\ref{fig:implementation_complexity}.
 
 The implementation complexity calculation methodology includes several key components:
 
@@ -4510,10 +4503,6 @@ While WCAG provides a solid foundation for accessibility requirements, our analy
     \item \textbf{Contextual documentation principle}: Links to external resources are contextually relevant and provide appropriate expectations about content (e.g., official documentation vs. community resources). This reduces the cognitive load of finding appropriate resources for specific accessibility challenges.
 \end{enumerate}
 
-These guidelines extend WCAG principles to address the specific needs of developers implementing accessibility features, focusing on workflow integration and practical application of accessibility knowledge.
-
-Beyond the standard WCAG requirements, the development-focused guidelines also address AAA-level considerations including 3.1.5 Reading Level (by providing practical usage sections that simplify complex technical concepts) and 3.3.6 Error Prevention (by guiding developers toward appropriate tool selection for specific accessibility challenges).
-
 \subsection{Instruction and Community: Community-centered}
 
 The Instruction and Community screen defines several accessibility principles that extend beyond standard WCAG requirements, focusing on the social and community aspects of accessibility implementation:
@@ -4545,5 +4534,103 @@ The Settings screen defines several accessibility principles that extend beyond 
     
     \item \textbf{Complementary settings grouping}: Related accessibility settings are grouped together to help users understand their relationships and combined effects. The implementation organizes settings into logical categories (Visual, Readability, Color \& Touch) that reflect how features work together to create accessible experiences.
 \end{enumerate}
+
+\subsection{Framework comparison: quality-over-quantity}
+
+The Framework comparison screen not only serves as an analytical tool for current accessibility implementation patterns but also demonstrates several forward-looking principles that extend beyond standard WCAG requirements. This section explores how the screen incorporates emerging accessibility concepts and measurement methodologies that anticipate future extensions to formal accessibility guidelines.
+
+\subsubsection{Quantitative accessibility measurement models}
+
+While WCAG provides a comprehensive qualitative framework for evaluating accessibility, it offers limited guidance on quantitative measurement. These quantitative models extend beyond standard WCAG evaluation approaches in several important ways:
+
+\begin{enumerate}
+    \item \textbf{Implementation effort quantification}: The screen formalizes the concept of accessibility implementation effort through lines of code (LOC) metrics, creating a reproducible measurement system for comparing framework approaches;
+    
+    \item \textbf{Complexity impact rating}: Through the explicit formulaic approach shown in the calculation methodology, the screen implements a structured system for converting qualitative complexity assessments to quantitative scores;
+    
+    \item \textbf{Weighted component scoring}: The implementation demonstrates a formal approach to weighting different accessibility components based on their relative importance, something not addressed in current WCAG criteria;
+    
+    \item \textbf{Comparative metrics visualization}: Through rating bars and visual indicators, the screen provides intuitive representation of comparative accessibility metrics that go beyond binary compliance assessment;
+    
+    \item \textbf{Implementation overhead tracking}: The formal tracking of accessibility implementation overhead represents a novel approach to evaluating the development cost of accessibility features.
+\end{enumerate}
+
+These quantitative models anticipate a potential future direction for accessibility standards that could incorporate more specific guidance on implementation effort and complexity measurement, helping development teams make more informed decisions about accessibility approaches.
+
+\begin{table}[ht]
+\caption{Implementation complexity quantification model}
+\label{tab:implementation_complexity_model}
+\centering
+\begin{tabular}{|C{3cm}|C{3.5cm}|C{3.5cm}|C{4cm}|}
+\hline
+\textbf{Complexity Level} & \textbf{Quantitative Score} & \textbf{Defining Characteristics} & \textbf{Development Impact} \\
+\hline
+Low & 5 & Minimal additional code, simple property additions & Minimal learning curve, straightforward implementation \\
+\hline
+Medium & 3 & Moderate code addition, some structural changes & Requires framework-specific knowledge, moderate learning curve \\
+\hline
+High & 1 & Significant code overhead, complex structural changes & Substantial learning curve, significant development overhead \\
+\hline
+\end{tabular}
+\end{table}
+
+\FloatBarrier
+
+\subsubsection{Framework transparency principles}
+\label{subsubsec:framework-transparency-principles}
+
+The Framework comparison screen implements several transparency principles that extend beyond current WCAG requirements but align with emerging trends in ethical accessibility implementation:
+
+\begin{enumerate}
+    \item \textbf{Methodological transparency}: The explicit presentation of evaluation methodologies creates accountability in accessibility assessment that goes beyond standard compliance checklists;
+    
+    \item \textbf{Implementation overhead disclosure}: By quantifying and visualizing the development overhead required for accessibility features, the screen addresses an often-overlooked aspect of accessibility implementation—the resource requirements;
+    
+    \item \textbf{Academic reference integration}: The implementation of formal academic citations and methodology references (shown in the References tab) establishes a scientific foundation for accessibility evaluation;
+    
+    \item \textbf{Platform-specific limitation disclosure}: Through explicit platform testing notes and version-specific results, the screen acknowledges the reality of platform differences in accessibility implementation.
+\end{enumerate}
+
+These transparency principles anticipate future accessibility guidelines that may require more explicit disclosure of evaluation methodologies and implementation limitations, helping users and developers make more informed decisions about accessibility approaches.
+
+\subsubsection{Future WCAG implementation anticipation}
+\label{subsubsec:future-wcag-anticipation}
+
+The Framework comparison screen implements several features that align with anticipated future directions for WCAG and mobile accessibility guidelines:
+
+\begin{enumerate}
+    \item \textbf{Quantitative implementation metrics}: As accessibility standards evolve, quantitative implementation metrics similar to those in the Framework comparison screen may become formalized in future guidelines;
+    
+    \item \textbf{Framework-specific guidance}: Future WCAG versions may provide more framework-specific implementation guidance, similar to the comparative approach demonstrated in the screen;
+    
+    \item \textbf{Developer experience consideration}: As accessibility becomes increasingly integrated into development workflows, future guidelines may address developer experience factors more explicitly;
+    
+    \item \textbf{Cross-platform consistency requirements}: Future mobile accessibility guidelines may formalize requirements for cross-platform consistency, building on the comparative approach demonstrated in the screen;
+    
+    \item \textbf{Implementation overhead disclosure}: Transparency about accessibility implementation overhead may become a formal requirement in future guidelines, particularly for enterprise and government applications.
+\end{enumerate}
+
+Through these forward-looking implementations, the Framework comparison screen not only provides valuable current analysis but also demonstrates a potential future direction for accessibility evaluation that integrates quantitative metrics, developer experience considerations, and transparent methodology.
+
+\begin{table}[ht]
+\caption{Potential future WCAG extensions anticipated by Framework comparison screen}
+\label{tab:future_wcag_extensions}
+\centering
+\begin{tabular}{|C{3.5cm}|C{3.5cm}|C{7cm}|}
+\hline
+\textbf{Potential Extension} & \textbf{Current Implementation} & \textbf{Future Standards Implication} \\
+\hline
+Implementation Metrics & LOC and complexity quantification & Standardized metrics for implementation effort \\
+\hline
+Developer Experience & Learning curve and overhead assessment & Formal consideration of developer factors in accessibility \\
+\hline
+Cross-platform Consistency & Platform variance metrics & Requirements for consistent behavior across platforms \\
+\hline
+Empirical Validation & Device-specific testing protocols & Standardized testing methodologies and reproducibility requirements \\
+\hline
+Educational Requirements & Pattern visualization and explanation & Formal requirements for accessibility knowledge transfer \\
+\hline
+\end{tabular}
+\end{table}
 
 \newpage

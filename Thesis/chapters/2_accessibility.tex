@@ -62,7 +62,67 @@ While \acrshort{wcagacr} offers a comprehensive foundation, mobile platforms int
 
 In practice, \acrshort{mcagacr} complements \acrshort{wcagacr} by providing more granular, mobile-oriented guidance considering specific factors. Developers who follow these guidelines in addition to \acrshort{wcagacr} are better equipped to deliver an inclusive experience that accounts for real-world mobile usage. 
 
-\subsection{Mobile-specific accessibility considerations}
+\subsection{WCAG2Mobile: Mobile-specific interpretations of WCAG 2.2}
+\label{subsec:wcag2mobile}
+
+The W3C Mobile Accessibility Task Force (MATF) has developed specific guidance for applying WCAG 2.2 success criteria to mobile applications. The document, titled ``Guidance on Applying WCAG 2.2 to Mobile Applications (WCAG2Mobile)'' \cite{w3c-wcag2mobile}, builds upon both the previous mobile accessibility mapping \cite{mobile-accessibility-mapping} and the WCAG2ICT document \cite{wcag2ict-22}, providing authoritative interpretations specifically tailored to mobile contexts.
+
+WCAG2Mobile addresses a critical gap in accessibility guidance by focusing explicitly on:
+
+\begin{itemize}
+    \item Native mobile applications developed for specific platforms;
+    \item Mobile web applications designed for mobile browsers;
+    \item Hybrid applications that combine native components with web views; and
+    \item Cross-platform frameworks such as Flutter and React Native.
+\end{itemize}
+
+This document is particularly relevant for the comparative analysis in this thesis, as it directly addresses how WCAG 2.2 success criteria should be interpreted when applied to different mobile application architectures, including the frameworks analyzed in Chapter~\ref{chap:accessibility-implementation}.
+
+\subsubsection{Mobile-specific terminology and adaptations}
+
+WCAG2Mobile introduces important terminological adaptations that reflect the different context of mobile applications compared to web content. Table~\ref{tab:wcag2mobile-terminology} presents the key terminology replacements that facilitate the application of WCAG 2.2 to mobile contexts.
+
+\begin{longtable}[c]{|C{3.5cm}|C{5cm}|C{5.5cm}|}
+\caption{WCAG2Mobile terminology adaptations}
+\label{tab:wcag2mobile-terminology}\\
+\hline
+\textbf{Web Terminology} & \textbf{Mobile Terminology} & \textbf{Application Context} \\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Web Terminology} & \textbf{Mobile Terminology} & \textbf{Application Context} \\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+Web page & Screen/View & Individual application screens that users navigate between \\
+\hline
+Set of web pages & Set of screens & Related screens within an application that share common navigation or functionality \\
+\hline
+CSS pixel & Device-independent pixel & Consistent measurement unit across different device resolutions \\
+\hline
+Web content & Application content & Any information and sensory experience communicated to the user \\
+\hline
+Web accessibility API & Platform accessibility services & Native APIs that expose accessibility information to assistive technologies \\
+\hline
+\end{longtable}
+
+\FloatBarrier
+
+These terminological adaptations enable precise application of accessibility criteria to mobile contexts without losing the fundamental intent of the original success criteria. For example, Success Criterion 1.4.2 (Audio Control) is adapted in WCAG2Mobile as follows:
+
+\begin{quote}
+``If any audio in a view plays automatically for more than 3 seconds, either a mechanism is available to pause or stop the audio, or a mechanism is available to control audio volume independently from the overall system volume level.''
+\end{quote}
+
+This simple replacement of ``web page'' with ``view'' maintains the accessibility requirement while adapting it to mobile application terminology.
+
+\subsubsection{Mobile-specific accessibility considerations}
 
 While the previous guidelines provide by themselves a solid foundation for digital accessibility, mobile apps present unique challenges and considerations that require additional attention. Some of the key mobile-specific accessibility factors include:
 
@@ -79,6 +139,54 @@ While the previous guidelines provide by themselves a solid foundation for digit
 \end{itemize}
 
 By understanding and addressing these mobile-specific accessibility considerations, developers can create apps that are more inclusive and usable for a wider range of users.
+
+\subsubsection{Impact on framework evaluation}
+
+The release of WCAG2Mobile provides a formal validation methodology for the comparative framework analysis presented in Chapter~\ref{chap:accessibility-implementation}. Table~\ref{tab:wcag2mobile-criteria} presents key mobile-specific success criteria that are particularly relevant to our analysis of React Native and Flutter.
+
+\begin{longtable}[c]{|C{3cm}|C{6cm}|C{6cm}|}
+\caption{Key mobile-specific success criteria and implementations}
+\label{tab:wcag2mobile-criteria}\\
+\hline
+\textbf{Success Criterion} & \textbf{Mobile Interpretation} & \textbf{Framework Considerations} \\
+\hline
+\endfirsthead
+\multicolumn{3}{c}%
+{{\bfseries Table \thetable\ -- continued from previous page}} \\
+\hline
+\textbf{Success Criterion} & \textbf{Mobile Interpretation} & \textbf{Framework Considerations} \\
+\hline
+\endhead
+\hline
+\multicolumn{3}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+1.3.4 Orientation (AA) & Content must not restrict to a single display orientation & Both frameworks need explicit implementation \\
+\hline
+1.4.10 Reflow (AA) & Content must adapt to small screens without horizontal scrolling & Frameworks must support responsive layouts \\
+\hline
+2.5.1 Pointer Gestures (A) & Multi-point gestures must have single-point alternatives & Different implementation patterns for complex gestures \\
+\hline
+2.5.4 Motion Actuation (A) & Device motion-activated functions must have UI alternatives & Platform-specific sensor access differs \\
+\hline
+2.5.7 Dragging Movements (AA) & Dragging operations must have single-pointer alternatives & Implementation patterns affect complexity \\
+\hline
+2.5.8 Target Size (AA) & Touch targets must be at least 24×24 CSS pixels & React Native and Flutter implement differently \\
+\hline
+3.3.7 Redundant Entry (A) & Previously entered information must be auto-populated & Framework data management capabilities differ \\
+\hline
+\end{longtable}
+
+\FloatBarrier
+
+Of particular relevance to the research questions in this thesis is how WCAG2Mobile addresses default accessibility features in mobile applications. Success Criterion 4.1.2 (Name, Role, Value) requires that:
+
+\begin{quote}
+``For all user interface components (including but not limited to: form elements, links and components generated by scripts), the name and role can be programmatically determined; states, properties, and values that can be set by the user can be programmatically set; and notification of changes to these items is available to user agents, including assistive technologies.''
+\end{quote}
+
+WCAG2Mobile provides guidance on how to implement these requirements in mobile contexts, distinguishing between platform-native implementations and cross-platform frameworks. As demonstrated in \textit{AccessibleHub}, cross-platform frameworks like React Native and Flutter implement these requirements through different architectural approaches, as will be shown into Section~\ref{sec:implementation-guidelines}, then relating the implementation overhead between the two frameworks in Chapter~\ref{chap:accessibility-implementation}.
 
 \section{State of research and literature review}
 \label{chap:accessibility-literature}

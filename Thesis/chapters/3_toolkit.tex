@@ -581,10 +581,10 @@ Figure~\ref{fig:settings_notifications} demonstrates the visual feedback mechani
 \includegraphics[width=0.4\linewidth, alt={Screenshot of the Instruction and community screen of AccessibleHub}]{img/instruction-community.jpg}
 \caption{The Instruction and community screen of \textit{AccessibleHub}}\label{fig:instruction-community}
 \end{figure}
+
+\FloatBarrier
     
 \end{enumerate}
-
-\pagebreak
 
 \subsection{From guidelines to implementation: a screen-based methodology}
 \label{sec:accessiblehub-screen-methodology}
@@ -599,12 +599,16 @@ Accessibility guidelines and standards - most notably the \acrshort{wcagacr}  an
     \item \textit{User interaction flow} – Finally, we consider how end users interact with these components. This includes the behavior of assistive technologies (like screen readers), proper focus management, and the overall usability of the component within its real-world context.
 \end{enumerate}
 
-To illustrate this methodology in practice, we first map the \textit{UI} elements of a representative screen to their corresponding semantic roles. Next, we link each component to the relevant \acrshort{wcagacr} and \acrshort{mcagacr} criteria presented in the previous subsections, noting both the minimum compliance requirements and potential enhancements. Finally, we describe the technical solution—specifically, how React Native accessibility code properties are applied to meet and exceed these standards. This structured approach not only bridges the gap between abstract guidelines and real-world coding tasks but also sets the stage for the more detailed, screen-by-screen analyses presented in the next section.
+To illustrate this methodology in practice, we first map the \textit{UI} elements of a representative screen to their corresponding semantic roles. Next, we link each component to the relevant \acrshort{wcagacr} and \acrshort{mcagacr} criteria presented in the previous subsections, noting both the minimum compliance requirements and potential enhancements. Finally, we describe the technical solution—specifically, how React Native accessibility code properties are applied to meet and exceed these standards. This structured approach not only bridges the gap between abstract guidelines and real-world coding tasks but also sets the stage for the more detailed, screen-by-screen analyses presented in the next section. \\
+
+To ensure alignment with the latest mobile accessibility standards, the \textit{AccessibleHub} analysis incorporates principles from the W3C's "Guidance on applying WCAG 2.2 to mobile applications" (WCAG2Mobile) \cite{w3c-wcag2mobile}. This authoritative interpretation adapts web-oriented accessibility criteria for mobile contexts, addressing unique challenges such as touch interactions, limited screen real estate, and platform-specific considerations. Throughout our screen-based methodology, we reference WCAG2Mobile's mobile-specific terminology and success criteria interpretations, particularly for component categories like touchable elements, forms, and media content. This integration ensures that \textit{AccessibleHub} provides guidance that is both theoretically sound and practically applicable in modern mobile development. 
 
 \section{Accessibility implementation guidelines}
 \label{sec:implementation-guidelines}
 
-Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Gaggi and Perinello's approach \cite{budai2024mobile} analyzying Budai's Flutter code - following guidelines and then giving advice into introducing new ones. These screens follow the structure presented in Section~\ref{sec:accessiblehub-educational-framework}, analyzed both as main screens and sections. A detailed analysis is given for the Home Screen and the Accessible Components main screen. For comprehensive, screen-by-screen analysis, readers are directed to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis} into §Chapter 1, where additional WCAG guidelines are introduced to accommodate future research on the field into §Chapter 2.
+Having established the overall architecture of \textit{AccessibleHub} and the guiding principles from both \textit{WCAG} and \textit{MCAG}, we now present a screen-by-screen analysis. Each subsection highlights the key \textit{success criteria} addressed, references relevant \textit{mobile-specific considerations}, and demonstrates practical solutions in React Native. Where applicable, we contrast these with Flutter's approach, building upon the insights from Gaggi and Perinello's approach \cite{budai2024mobile} analyzying Budai's Flutter code - following guidelines and then giving advice into introducing new ones. These screens follow the structure presented in Section~\ref{sec:accessiblehub-educational-framework}, analyzed both as main screens and sections. \\ 
+
+Below, a detailed analysis is given for the Home Screen and the Accessible Components main screen. For comprehensive, screen-by-screen analysis, readers are directed to the extended technical appendix available at \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis} into §Chapter 1, where additional WCAG guidelines are introduced to accommodate future research on the field into §Chapter 2. Detailed mapping of the quoted WCAG2Mobile criteria to specific component implementations is also provided in the technical appendix.
 
 \subsection{Home screen}
 
@@ -631,22 +635,22 @@ The Home screen serves as the primary entry point of the \textit{AccessibleHub} 
 
 \pagebreak
 
-\subsubsection{Component inventory and WCAG/MCAG mapping}
+\subsubsection{Component inventory and WCAG/MCAG/WCAG2Mobile mapping}
 
-Table~\ref{tab:component_criteria_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties.
+Table~\ref{tab:component_criteria_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties, with specific WCAG2Mobile considerations included.
 
 
-\begin{longtable}[c]{|C{2.5cm}|C{2cm}|C{2.8cm}|C{2.8cm}|C{4.7cm}|}
-\caption{Home screen component-criteria mapping}
+\begin{longtable}[c]{|C{2.7cm}|C{1.8cm}|C{3cm}|C{3.5cm}|C{4.5cm}|}
+\caption{Home screen component-criteria mapping with WCAG2Mobile considerations}
 \label{tab:component_criteria_mapping}\\
 \hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
 \hline
 \endfirsthead
 \multicolumn{5}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
 \hline
 \endhead
 \hline
@@ -654,20 +658,22 @@ Table~\ref{tab:component_criteria_mapping} provides a formal mapping between the
 \endfoot
 \hline
 \endlastfoot
-Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA)\newline 1.4.6 Contrast (Enhanced) (AAA) & Text readability on variable screen sizes & \texttt{accessibility \ Role="header"} \\
+Hero Title & header & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes; Proper semantic structure in screen context & \texttt{accessibility \ Role="header"} \\
 \hline
-Stats Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (Link Only) (AAA) & Touch target size & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{value\}\% \$\{type\}, tap for details"}\\
+Stats Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (AAA) & Touch target optimization; Screen reader focus; Target tap area minimum of 44×44dp; Context-specific labeling & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{value\}\% \$\{type\}, tap for details"}\\
 \hline
-Decorative Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibility\-ElementsHidden=true},\newline \texttt{important\-ForAccessibility="no"} \\
+Decorative Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden=true},\newline \texttt{important \ ForAccessibility="no"} \\
 \hline
-Quick Start Button & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 2.5.2 Pointer Cancellation (A)\newline 2.4.10 Section Headings (AAA) & One-handed operation & \texttt{accessibilityRole \ ="button"},\newline \texttt{minHeight: 48},\newline \texttt{minWidth: 150} \\
+Quick Start Button & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 2.5.2 Pointer Cancellation (A)\newline 2.4.10 Section Headings (AAA) & One-handed operation; Clear touch feedback; Sufficient tap target area exceeding minimum requirements & \texttt{accessibility \ Role="button"},\newline \texttt{minHeight: 48},\newline \texttt{minWidth: 150} \\
 \hline
-Feature Cards & button & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 3.2.5 Change on Request (AAA) & Logical grouping & \texttt{accessibility \ Role="button"},\newline \texttt{accessibilityLabel= \ "\$\{title\}"},\newline \texttt{accessibility \ Hint="\$\{hint\}"} \\
+Feature Cards & button & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 3.2.5 Change on Request (AAA) & Logical grouping; Clear component boundaries; Screen reader context preservation & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{title\}"},\newline \texttt{accessibility \ Hint="\$\{hint\}"} \\
 \hline
-Modal Dialog & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.8 Location (AAA) & Keyboard trap prevention & \texttt{accessibility \ Role="dialog"},\newline Focus management implementation \\
+Modal Dialog & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.8 Location (AAA) & Focus management in modal context; Proper dialog role in mobile screen context; Keyboard trap prevention & \texttt{accessibility \ Role="dialog"},\newline Focus management implementation \\
 \hline
-Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (Link Only) (AAA) & Touch interaction & \texttt{accessibilityRole \ ="tablist"},\newline \texttt{accessibility\-State=\{\{ selected: isActive \}\}} \\
+Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (AAA) & Touch interaction patterns; State communication; Active tab indication for screen readers & \texttt{accessibility \ Role="tablist"},\newline \texttt{accessibility \ State=\{\{ selected: isActive \}\}} \\
 \end{longtable}
+
+\FloatBarrier
 
 \subsubsection{Formal metrics calculation methodology}
 
@@ -753,9 +759,9 @@ An overview of the test done with screen reader with the methodology and referen
     \label{fig:methodology_references}
 \end{figure}
 
-\paragraph{Component accessibility score}
+\paragraph{Component Accessibility Score}
 
-The Component Accessibility Score is calculated using the following formula:
+The Component Accessibility Score (CAS) is calculated using the following formula:
 \begin{equation}
 \text{ComponentScore}
 = \left(\frac{\text{AccessibleComponents}}{\text{TotalComponents}}\right) \times 100
@@ -1042,19 +1048,19 @@ The code sample in Listing~\ref{lst:home-screen-accessibility} shows the key acc
 
 \subsubsection{Screen reader support analysis}
 
-Table~\ref{tab:home_screen_reader_analysis} presents results from systematic testing of the Home screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:home_screen_reader_analysis} presents results from systematic testing of the Home screen with screen readers on both iOS and Android platforms, aligning with WCAG2Mobile's approach to platform-specific accessibility services.
 
 \begin{longtable}[c]{|C{2.8cm}|C{3.5cm}|C{3.5cm}|C{4cm}|}
-\caption{Home screen screen reader testing results}
+\caption{Home screen screen reader testing results with WCAG2Mobile considerations}
 \label{tab:home_screen_reader_analysis}\\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG/WCAG2Mobile Criteria} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG/WCAG2 \ Mobile Criteria} \\
 \hline
 \endhead
 \hline
@@ -1077,12 +1083,17 @@ Modal Tab Navigation & \ding{51} Announces tab selection state & \ding{51} Annou
 Modal Dialog Closing & \ding{51} Focus returns to triggering element & \ding{54} Occasional focus loss (fixed in v1.0.3) & 2.4.3 Focus Order (Level A) \\
 \end{longtable}
 
-The implementation addresses several key MCAG considerations:
+\FloatBarrier
+
+The implementation addresses several key MCAG and WCAG2Mobile considerations:
 \begin{enumerate}
-    \item \textbf{Swipe optimization}: Decorative elements are marked with \\ \texttt{importantForAccessibility="no"} to reduce unnecessary swipes;
-    \item \textbf{Clear instructions}: The modal tabs implementation provides clear state announcements, ensuring screen reader users understand the current selection;
-    \item \textbf{Platform-specific adaptations}: The implementation accounts for differences between VoiceOver and TalkBack behavior, as evidenced by the test results;
-    \item \textbf{Enhanced context awareness}: Implementation of AAA criteria like 2.4.8 (Location) and 2.4.9 (Link Purpose) provides enhanced context for users of assistive technologies.
+    \item \textbf{Swipe optimization}: Decorative elements are marked with \\ \texttt{importantForAccessibility="no"} to reduce unnecessary swipes, addressing WCAG2Mobile 4.1.2 (Name, Role, Value) mobile interpretation;
+    
+    \item \textbf{Clear instructions}: The modal tabs implementation provides clear state announcements, ensuring screen reader users understand the current selection, in line with WCAG2Mobile 4.1.3 (Status Messages) mobile interpretation;
+    
+    \item \textbf{Platform-specific adaptations}: The implementation accounts for differences between VoiceOver and TalkBack behavior, as evidenced by the test results, addressing WCAG2Mobile's guidance on platform-specific accessibility services;
+    
+    \item \textbf{Enhanced context awareness}: Implementation of AAA criteria like 2.4.8 (Location) and 2.4.9 (Link Purpose) provides enhanced context for users of assistive technologies as interpreted for mobile screens by WCAG2Mobile.
 \end{enumerate}
 
 \subsubsection{Implementation overhead analysis}
@@ -1133,16 +1144,16 @@ This analysis reveals that implementing comprehensive accessibility adds approxi
 Table~\ref{tab:wcag_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle, including AAA criteria. The analysis organizes WCAG success criteria into the four fundamental principles of web accessibility: Perceivable, Operable, Understandable, and Robust. This organization reveals the application's implementation priorities, demonstrating a strong technical foundation (100\% Robust implementation) while highlighting areas that require additional attention, particularly in cognitive accessibility features (76.5\% Understandable implementation). The varying implementation rates across principles reflect the inherent challenges in balancing comprehensive accessibility with practical implementation constraints, especially when addressing the more nuanced AAA criteria that enhance the experience for users with specific accessibility needs. 
 
 \begin{longtable}[c]{|C{2.5cm}|C{3.8cm}|C{3.2cm}|C{5.2cm}|}
-\caption{WCAG compliance analysis by principle}
+\caption{WCAG compliance analysis by principle with WCAG2Mobile considerations}
 \label{tab:wcag_by_principle}\\
 \hline
-\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria with Mobile Context} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria with Mobile Context} \\
 \hline
 \endhead
 \hline
@@ -1150,15 +1161,17 @@ Table~\ref{tab:wcag_by_principle} provides a detailed analysis of WCAG 2.2 compl
 \endfoot
 \hline
 \endlastfoot
-1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 14/15 (93.3\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A)\newline 1.3.4 Orientation (AA)\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.6 Contrast (Enhanced) (AAA) \\
+1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 14/15 (93.3\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.3.2 Meaningful Sequence (A)\newline 1.3.4 Orientation (AA)\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.6 Contrast (Enhanced) (AAA)\newline 1.4.10 Reflow (AA) - Mobile emphasis \\
 \hline
-2. Operable & UI components and navigation must be operable & 19/22 (86.4\%) & 2.1.1 Keyboard (A)\newline 2.4.3 Focus Order (A)\newline 2.4.7 Focus Visible (AA)\newline 2.5.2 Pointer Cancellation (A)\newline 2.5.8 Target Size (Minimum) (AA)\newline 2.4.8 Location (AAA)\newline 2.4.9 Link Purpose (Link Only) (AAA)\newline 2.4.10 Section Headings (AAA) \\
+2. Operable & UI components and navigation must be operable & 19/22 (86.4\%) & 2.1.1 Keyboard (A)\newline 2.4.3 Focus Order (A)\newline 2.4.7 Focus Visible (AA)\newline 2.5.1 Pointer Gestures (A) - Mobile emphasis\newline 2.5.2 Pointer Cancellation (A) - Mobile emphasis\newline 2.5.8 Target Size (Minimum) (AA) - Mobile emphasis\newline 2.4.8 Location (AAA)\newline 2.4.9 Link Purpose (AAA)\newline 2.4.10 Section Headings (AAA) \\
 \hline
-3. Understandable & Information and operation of UI must be understandable & 13/17 (76.5\%) & 3.1.1 Language of Page (A)\newline 3.2.1 On Focus (A)\newline 3.2.3 Consistent Navigation (AA)\newline 3.2.4 Consistent Identification (AA)\newline 3.3.2 Labels or Instructions (A)\newline 3.2.5 Change on Request (AAA) \\
+3. Understandable & Information and operation of UI must be understandable & 13/17 (76.5\%) & 3.1.1 Language of Screen (A)\newline 3.2.1 On Focus (A)\newline 3.2.3 Consistent Navigation (AA)\newline 3.2.4 Consistent Identification (AA)\newline 3.3.2 Labels or Instructions (A)\newline 3.2.5 Change on Request (AAA) \\
 \hline
-4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.1 Parsing (A)\newline 4.1.2 Name, Role, Value (A)\newline 4.1.3 Status Messages (AA) \\
+4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.2 Name, Role, Value (A) - Mobile emphasis\newline 4.1.3 Status Messages (AA) - Mobile emphasis \\
 \hline
 \end{longtable}
+
+\FloatBarrier
 
 \subsubsection{Mobile-specific considerations}
 

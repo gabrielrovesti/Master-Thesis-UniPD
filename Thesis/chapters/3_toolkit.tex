@@ -1210,21 +1210,21 @@ The Accessible components screen serves as a catalog of reusable accessibility p
 
 \FloatBarrier
 
-\subsubsection{Component inventory and WCAG/MCAG mapping}
+\subsubsection{Component inventory and WCAG/MCAG/WCAG2Mobile mapping}
 
-Table~\ref{tab:components_screen_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 and MCAG criteria they address, and their React Native implementation properties.
+Table~\ref{tab:components_wcag2mobile_mapping} provides a comprehensive mapping between UI components, their semantic roles, the specific WCAG 2.2 criteria they address, their WCAG2Mobile considerations, and their React Native implementation properties. This mapping demonstrates how existing components already address many WCAG2Mobile requirements while identifying areas for enhancement.
 
-\begin{longtable}[c]{|C{2.5cm}|C{2cm}|C{2.8cm}|C{2.8cm}|C{4.5cm}|}
-\caption{Components screen component-criteria mapping}
-\label{tab:components_screen_mapping}\\
+\begin{longtable}[c]{|C{2.7cm}|C{1.8cm}|C{3cm}|C{3.5cm}|C{4.5cm}|}
+\caption{Components screen component-criteria mapping with WCAG2Mobile considerations}
+\label{tab:components_wcag2mobile_mapping}\\
 \hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
 \hline
 \endfirsthead
 \multicolumn{5}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{MCAG Considerations} & \textbf{Implementation Properties} \\
+\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
 \hline
 \endhead
 \hline
@@ -1232,19 +1232,20 @@ Table~\ref{tab:components_screen_mapping} provides a formal mapping between the 
 \endfoot
 \hline
 \endlastfoot
-Hero Title & heading & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA)\newline 1.4.6 Contrast (Enhanced) (AAA) & Text readability on variable screen sizes & \texttt{accessibility\-Role="header"} \\
+ScrollView Container & scrollview & 2.1.1 Keyboard (A)\newline 2.4.3 Focus Order (A) & Screen-based navigation patterns; Touch-based scrolling alternatives & \texttt{accessibility \ Role="scrollview"},\newline \texttt{accessibility \ Label="Accessibility Components Screen"} \\
 \hline
-Component Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.4 Link Purpose (A)\newline 2.4.9 Link Purpose (AAA) & Touch target size\newline Meaningful labels\newline Single finger operation & \texttt{accessibility\-Role="button"},\newline \texttt{accessibility\-Label=},\newline \texttt{onPress=handle\-ComponentPress} \\
+Hero Title & header & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Screen title differentiation; Proper semantic structure in screen context & \texttt{accessibility \ Role="header"} \\
 \hline
-Badges (Essential, Complex, etc.) & text & 1.4.3 Contrast (AA)\newline 1.3.1 Info and Relationships (A) & Descriptive labeling\newline Non-interactive elements & Part of parent button's \texttt{accessibility\-Label} \\
+Component Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target optimization; Comprehensive button labeling with context; Target tap area exceeding 44×44dp & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="[Component] component. [Description]. [Type] component type."} \\
 \hline
-Decorative Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops & \texttt{accessibility\-Elements\-Hidden=true} \\
+Card Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden} \\
 \hline
-Breadcrumb Navigation & navigation & 2.4.4 Link Purpose (A)\newline 2.4.8 Location (AAA)\newline 3.2.3 Consistent Navigation (AA) & Context retention\newline Current location & \texttt{accessibility\-Role="button"},\newline \texttt{accessibility\-Label="Go to \$\{label\}"} \\
+Feature Icons & none & 1.1.1 Non-text Content (A) & Reduction of swipe interactions for decorative elements & \texttt{accessibility \ ElementsHidden} \\
 \hline
-Drawer Menu & menu & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A)\newline 3.2.3 Consistent Navigation (AA) & Keyboard trap prevention\newline Persistent navigation & \texttt{accessibility\-Role="menu"},\newline \texttt{accessibility\-Label="Main navigation menu"} \\
+Card Badges & text & 1.3.1 Info and Relationships (A)\newline 1.4.11 Non-text Contrast (AA) & Visual categorization with color and text; Contrast properties meeting mobile viewing conditions & Inherited from parent button's \texttt{accessibility \ Label} \\
 \hline
-Drawer Menu Items & menuitem & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A) & Touch interaction\newline Current location & \texttt{accessibility\-Role="menuitem"},\newline \texttt{accessibility\-State=\{\{selected: isActive\}\}} \\
+Linear Gradient Background & none & 1.4.3 Contrast (AA)\newline 1.4.11 Non-text Contrast (AA) & Mobile-specific background adaptation for varying lighting conditions & Adaptive colors based on theme \\
+\hline
 \end{longtable}
 
 \FloatBarrier
@@ -1431,19 +1432,19 @@ The implementation of the Components screen addresses several important accessib
 
 \subsubsection{Screen reader support analysis}
 
-Table~\ref{tab:components_screen_reader_analysis} presents results from systematic testing of the Components screen with screen readers on both iOS and Android platforms.
+Table~\ref{tab:components_screen_reader_wcag2mobile} presents results from systematic testing of the Components screen with screen readers on both iOS and Android platforms, with a specific focus on WCAG2Mobile considerations. This analysis highlights how WCAG2Mobile's mobile-specific interpretations affect screen reader behavior and user experience.
 
 \begin{longtable}[c]{|C{2.8cm}|C{3.5cm}|C{3.5cm}|C{4cm}|}
-\caption{Components screen screen reader testing results}
-\label{tab:components_screen_reader_analysis}\\
+\caption{Components screen screen reader testing with WCAG2Mobile focus}
+\label{tab:components_screen_reader_wcag2mobile}\\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS)} & \textbf{TalkBack (Android)} & \textbf{WCAG2Mobile Considerations} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Test Case} & \textbf{VoiceOver (iOS 16)} & \textbf{TalkBack (Android 14-15)} & \textbf{WCAG Criteria Addressed} \\
+\textbf{Test Case} & \textbf{VoiceOver (iOS)} & \textbf{TalkBack (Android)} & \textbf{WCAG2Mobile Considerations} \\
 \hline
 \endhead
 \hline
@@ -1451,24 +1452,23 @@ Table~\ref{tab:components_screen_reader_analysis} presents results from systemat
 \endfoot
 \hline
 \endlastfoot
-Hero Title & \ding{51} Announces ``Accessibility Components, heading'' & \ding{51} Announces ``Accessibility Components, heading'' & 1.3.1 - Info and Relationships (Level A), 2.4.6 - Headings and Labels (Level AA) \\
+Screen Title & \ding{51} Announces ``Accessibility Components, heading'' & \ding{51} Announces ``Accessibility Components, heading'' & SC 1.3.1 and 2.4.6 interpreted for screens instead of web pages \\
 \hline
-Component Card & \ding{51} Announces full component description with purpose and complexity & \ding{51} Announces full component description with purpose and complexity & 2.4.4 Link Purpose (In Context) (Level A), 4.1.2 Name, Role, Value (Level A), 2.4.9 Link Purpose (Link Only) (Level AAA) \\
+Component Card & \ding{51} Announces complete label with component description and complexity & \ding{51} Announces complete label with component description and complexity & SC 4.1.2 for mobile context requires comprehensive labels for navigation decisions \\
 \hline
-Decorative Icons & \ding{51} Not focused or announced & \ding{51} Not focused or announced & 1.1.1 Non-text Content (Level A), 2.4.1 Bypass Blocks (Level A) \\
+Decorative Icons & \ding{51} Skipped in navigation & \ding{51} Skipped in navigation & SC 1.1.1 applied to reduce navigation friction on small screens \\
 \hline
-Breadcrumb Navigation & \ding{51} Announces parent and current location & \ding{51} Announces parent and current location & 2.4.4 Link Purpose (In Context) (Level A), 2.4.8 Location (Level AAA) \\
+Component Navigation & \ding{51} Announces screen change & \ding{51} Announces screen change & SC 3.2.1 and 3.2.2 applied to ensure users understand navigation context \\
 \hline
-Drawer Opening & \ding{51} Announces ``Navigation menu opened'' & \ding{51} Announces ``Navigation menu opened'' & 4.1.3 Status Messages (Level AA) \\
+Screen Orientation Change & \ding{51} Layout adapts without focus loss & \ding{51} Layout adapts without focus loss & SC 1.3.4 applied to ensure consistent experience in all orientations \\
 \hline
-Drawer Menu Items & \ding{51} Announces item name and selection state & \ding{51} Announces item name and selection state & 4.1.2 Name, Role, Value (Level A) \\
+Touch Target Testing & \ding{51} Components easily activated & \ding{51} Components easily activated & SC 2.5.8 applied to ensure touchable areas exceed minimum requirements \\
 \hline
-Navigation between Screens & \ding{51} Announces destination screen & \ding{51} Announces destination screen & 3.2.5 Change on Request (Level AAA) \\
 \end{longtable}
 
 \FloatBarrier
 
-The implementation addresses several key MCAG considerations specific to mobile platforms:
+The implementation addresses several key WCAG2Mobile and MCAG considerations specific to mobile platforms:
 \begin{enumerate}
     \item \textbf{Touch target optimization}: All interactive elements exceed the minimum recommendation of 44×44dp, implementing MCAG best practices for touch interactions that accommodate users with motor control limitations and varying finger sizes;
     
@@ -1533,19 +1533,19 @@ This analysis reveals that implementing comprehensive accessibility adds approxi
 
 \subsubsection{WCAG conformance by principle}
 
-Table~\ref{tab:components_wcag_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle:
+Table~\ref{tab:components_wcag2mobile_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle:
 
 \begin{longtable}[c]{|C{2.5cm}|C{3.8cm}|C{3.2cm}|C{5.2cm}|}
-\caption{Components screen WCAG compliance analysis by principle}
-\label{tab:components_wcag_by_principle}\\
+\caption{Components screen WCAG compliance analysis by principle with WCAG2Mobile considerations}
+\label{tab:components_wcag2mobile_by_principle}\\
 \hline
-\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria with Mobile Context} \\
 \hline
 \endfirsthead
 \multicolumn{4}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria} \\
+\textbf{Principle} & \textbf{Description} & \textbf{Implementation Level} & \textbf{Key Success Criteria with Mobile Context} \\
 \hline
 \endhead
 \hline
@@ -1553,16 +1553,15 @@ Table~\ref{tab:components_wcag_by_principle} provides a detailed analysis of WCA
 \endfoot
 \hline
 \endlastfoot
-1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 13/14 (92.8\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.6 Contrast (Enhanced) (AAA)\newline 1.4.10 Reflow (AA) \\
+1. Perceivable & Information and UI components must be presentable to users in ways they can perceive & 13/14 (92.8\%) & 1.1.1 Non-text Content (A)\newline 1.3.1 Info and Relationships (A)\newline 1.3.4 Orientation (AA) - Mobile emphasis\newline 1.4.3 Contrast (Minimum) (AA)\newline 1.4.6 Contrast (Enhanced) (AAA)\newline 1.4.10 Reflow (AA) - Mobile emphasis\newline 1.4.11 Non-text Contrast (AA) - Mobile emphasis \\
 \hline
-2. Operable & UI components and navigation must be operable & 18/18 (100\%) & 2.4.3 Focus Order (A)\newline 2.4.6 Headings and Labels (AA)\newline 2.4.8 Location (AAA)\newline 2.4.9 Link Purpose (Link Only) (AAA)\newline 2.4.10 Section Headings (AAA)\newline 2.5.8 Target Size (Minimum) (AA) \\
+2. Operable & UI components and navigation must be operable & 18/18 (100\%) & 2.4.3 Focus Order (A)\newline 2.4.6 Headings and Labels (AA)\newline 2.4.8 Location (AAA)\newline 2.4.9 Link Purpose (Link Only) (AAA)\newline 2.4.10 Section Headings (AAA)\newline 2.5.1 Pointer Gestures (A) - Mobile emphasis\newline 2.5.2 Pointer Cancellation (A) - Mobile emphasis\newline 2.5.8 Target Size (Minimum) (AA) - Mobile emphasis \\
 \hline
-3. Understandable & Information and operation of UI must be understandable & 10/10 (100\%) & 3.2.3 Consistent Navigation (AA)\newline 3.2.4 Consistent Identification (AA)\newline 3.2.5 Change on Request (AAA)\newline 3.3.2 Labels or Instructions (A) \\
+3. Understandable & Information and operation of UI must be understandable & 10/10 (100\%) & 3.2.3 Consistent Navigation (AA) - Mobile context for screens\newline 3.2.4 Consistent Identification (AA)\newline 3.2.5 Change on Request (AAA)\newline 3.2.6 Consistent Help (A) - Mobile emphasis\newline 3.3.2 Labels or Instructions (A)\newline 3.3.7 Redundant Entry (A) - Mobile emphasis \\
 \hline
-4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.1 Parsing (A)\newline 4.1.2 Name, Role, Value (A)\newline 4.1.3 Status Messages (AA) \\
+4. Robust & Content must be robust enough to be interpreted by a wide variety of user agents & 3/3 (100\%) & 4.1.2 Name, Role, Value (A) - Mobile platform adaptation\newline 4.1.3 Status Messages (AA) - Mobile notification context \\
+\hline
 \end{longtable}
-
-\FloatBarrier
 
 \subsubsection{Mobile-specific considerations}
 
@@ -1978,7 +1977,7 @@ The Best practices screens demonstrate that implementing accessibility requires 
 \subsection{Best practices main screen summary}
 \label{subsec:best-practices-summary}
 
-The Best practices main screen serves as the educational knowledge hub within \textit{AccessibleHub}, providing developers with a structured approach to mobile accessibility implementation. It organizes accessibility knowledge into five key categories: WCAG Guidelines, Semantic Structure, Gesture Tutorial, Screen Reader Support, and Logical Focus Order. Each category employs a unified card-based interface that combines visual cues, descriptive labels, and educational badges to create an accessible learning path. The detailed analysis of this screen's implementation can be found in Appendix~\ref{subsec:best-practices-main-screen}, while this section presents key findings and insights from the analysis.
+The Best practices main screen serves as the educational knowledge hub within \textit{AccessibleHub}, providing developers with a structured approach to mobile accessibility implementation. It organizes accessibility knowledge into five key categories: WCAG Guidelines, Semantic Structure, Gesture Tutorial, Screen Reader Support, and Logical Focus Order. Each category employs a unified card-based interface that combines visual cues, descriptive labels, and educational badges to create an accessible learning path.
 
 \subsubsection{Implementation overhead analysis}
 \label{subsubsec:best-practices-overhead-summary}
@@ -2024,7 +2023,7 @@ The Best practices screen implements accessibility features that address multipl
 \caption{Best practices screen WCAG implementation by conformance level}
 \label{tab:best_practices_wcag_summary}
 \centering
-\begin{tabular}[c]{|C{3cm}|C{4cm}|C{3.5cm}|C{5cm}|}
+\begin{tabular}{|C{3cm}|C{4cm}|C{3.5cm}|C{5cm}|}
 \hline
 \textbf{Conformance Level} & \textbf{Description} & \textbf{Implementation Rate} & \textbf{Notable Implementations} \\
 \hline

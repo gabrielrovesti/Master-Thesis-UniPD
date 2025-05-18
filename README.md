@@ -9,10 +9,10 @@ This repository hosts the **LaTeX source files** for the Master’s Thesis:
 
 ---
 
-## ⚠️ TO-DO (Latest Update - 09-05)
-- Check in detail ALL of the thesis and see if there are errors and cross-search here and appendix to fix everything properly
-- Check in detail all of the code to see redundancy (I think everything was fixed properly)
-- Read carefully: https://www.w3.org/TR/2025/DNOTE-wcag2mobile-22-20250506/ to see if we can reference the WCAG2Mobile Draft, very interesting for my thesis (from supervisor email)
+## ⚠️ TO-DO (Latest Update - 18-05)
+- Read the entire thesis from the start and check if everything is coherent
+- Apply WCAG2Mobile for Frameworks Comparison
+- Build the app and check compliance
 
 ## ✨ Overview
 

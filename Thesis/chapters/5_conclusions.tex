@@ -4,14 +4,14 @@
     This chapter synthesizes the key findings from our comparative analysis of React Native and Flutter accessibility implementations, presents implications for mobile developers, and outlines directions for future research in cross-platform mobile accessibility. By contextualizing our findings within the broader landscape of accessible mobile development, we bridge theoretical understanding with practical implementation guidance.
 }
 
-The comparative analysis of React Native and Flutter reveals significant insights for accessible mobile application development. Based on our rigorous quantitative metrics, React Native demonstrates a 45\% reduction in implementation overhead while maintaining higher screen reader compatibility scores (4.2 vs 3.8). Flutter's explicit semantic model, while requiring more code and presenting a steeper learning curve, provides benefits for complex UI components and long-term maintenance in larger teams. Neither framework offers comprehensive accessibility by default (38\% and 32\% respectively), highlighting the necessity for deliberate developer intervention regardless of platform choice.
+The comparative analysis of React Native and Flutter reveals significant insights for accessible mobile application development. Based on our rigorous quantitative metrics, React Native demonstrates a 45\% reduction in implementation overhead while maintaining higher screen reader compatibility scores ($4.2$ versus $3.8$). Flutter's explicit semantic model, while requiring more code and presenting a steeper learning curve, provides benefits for complex \gls{uig} components and long-term maintenance in larger teams. Neither framework offers comprehensive accessibility by default ($38$\% and $32$\% respectively), highlighting the necessity for deliberate developer intervention regardless of platform choice.
 
 \section{Results and discussion}
 \label{sec:results-discussion}
 
 This section synthesizes our findings into actionable insights for developers and project stakeholders, addressing our research questions and providing practical guidelines for framework selection and implementation strategies.
 
-Table~\ref{tab:consolidated_comparison} provides a comprehensive overview of the framework comparison across multiple dimensions, consolidating our findings on default accessibility, implementation costs, and screen reader support for each component type. This consolidated view clearly demonstrates the trade-offs between React Native's more concise implementation approach and Flutter's more explicit semantic model. While React Native consistently requires less code for equivalent accessibility implementations, Flutter offers advantages in certain areas such as focus management. The overall metrics confirm that React Native provides a 45\% reduction in implementation overhead on average, while maintaining higher screen reader compatibility scores across most component categories.
+Table~\ref{tab:consolidated_comparison} provides a comprehensive overview of the framework comparison across multiple dimensions, consolidating our findings on default accessibility, implementation costs, and screen reader support for each component type. This consolidated view clearly demonstrates the trade-offs between React Native's more concise implementation approach and Flutter's more explicit semantic model. While React Native consistently requires less code for equivalent accessibility implementations, Flutter offers advantages in certain areas such as focus management. The overall metrics confirm that React Native provides a $45$\% reduction in implementation overhead on average, while maintaining higher screen reader compatibility scores across most component categories.
 
 \begin{table}[ht]
 \caption{Consolidated framework accessibility comparison}
@@ -57,7 +57,7 @@ Addressing RQ1 (Default accessibility support), our analysis reveals that both f
     \item Neither framework provides comprehensive default accessibility, with both requiring explicit developer intervention for full compliance.
 \end{itemize}
 
-The Component Accessibility Score (CAS) calculations reveal that React Native achieves a slightly higher default accessibility score (38\% vs. 32\%), though both frameworks fall well short of complete accessibility compliance without developer intervention.
+The Component Accessibility Score (\gls{casg}) calculations reveal that React Native achieves a slightly higher default accessibility score (38\% vs. 32\%), though both frameworks fall well short of complete accessibility compliance without developer intervention.
 
 This finding underscores the importance of explicit accessibility implementation regardless of framework choice, as neither provides ``accessibility by default'' across the component spectrum.
 
@@ -96,7 +96,7 @@ Addressing RQ3 (Development overhead), our quantitative analysis reveals consist
     
     \item Flutter implementations showed higher complexity factors, particularly for text components and custom gestures;
     
-    \item Developer Time Estimation (DTE) measurements indicated approximately 35\% longer implementation times for Flutter across component categories.
+    \item Developer Time Estimation (\gls{dteg}) measurements indicated approximately 35\% longer implementation times for Flutter across component categories.
 \end{itemize}
 
 These differences stem from fundamental architectural approaches:
@@ -142,7 +142,7 @@ Our analysis revealed several practical strategies that developers can employ to
 
     These component libraries provide significant benefits:
     \begin{itemize}
-        \item Reduction in implementation overhead metrics (IO, CIF) by up to 80\% for frequently used components;
+        \item Reduction in implementation overhead metrics (\gls{imog}, \gls{cifg}) by up to 80\% for frequently used components;
         \item Improved consistency in accessibility implementation across the application;
         \item Simplified code reviews for accessibility compliance;
         \item Reduced knowledge requirements for team members implementing accessibility features.
@@ -318,7 +318,7 @@ The consistency of these findings across multiple components and metrics establi
 This research makes several significant contributions to both theory and practice:
 
 \begin{itemize}
-    \item \textbf{Empirical measurement framework}: The formal metrics developed for this analysis (CAS, IMO, CIF, SRSS, WCR, DTE) provide a structured methodology for evaluating accessibility implementation across frameworks;
+    \item \textbf{Empirical measurement framework}: The formal metrics developed for this analysis (CAS, IMO, CIF, \gls{srssg}, \gls{wcrg}, DTE) provide a structured methodology for evaluating accessibility implementation across frameworks;
 
     \item \textbf{Component-level analysis}: By examining accessibility implementation at the component level, we have identified specific patterns that explain the quantitative differences between frameworks;
 

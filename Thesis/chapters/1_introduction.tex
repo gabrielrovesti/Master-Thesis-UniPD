@@ -29,7 +29,7 @@ This encompasses a wide range of considerations to be made on the actual product
 In the mobile environment, such considerations is important, since there is a complex web of interactions to be considered, mainly focusing on two aspects:
 
 \begin{enumerate}
-    \item Device diversity and integration - accommodating different gestures, interfaces and interaction modalities
+    \item \textit{Device diversity and integration} - accommodating different gestures, interfaces and interaction modalities
         \begin{itemize}
             \item Standard mobile devices (smartphones, tablets);
             \item Emerging device formats (foldables, dual-screen devices);
@@ -37,7 +37,7 @@ In the mobile environment, such considerations is important, since there is a co
             \item Embedded systems (vehicle interfaces, smart home controls);
             \item IoT devices with mobile interfaces.
         \end{itemize}
-    \item Usage context variations - may influence the overload of information and the cognitive load perceived by the user
+    \item \textit{Usage context variations} - may influence the overload of information and the cognitive load perceived by the user
         \begin{itemize}
             \item Environmental conditions (lighting, noise, movement);
             \item User posture and mobility situations;
@@ -95,7 +95,7 @@ It's useful to analyze such commands since the focus would be describing how to 
         \end{itemize}
 \end{itemize}
 
-This thesis examines the implementation of accessibility support in two leading mobile development frameworks—Flutter and React Native—with particular attention to their integration with native accessibility features. The architectural approaches differ significantly: Flutter creates a structured accessibility tree that maps to native accessibility APIs, while React Native establishes direct bindings to platform-specific accessibility features. This fundamental difference profoundly influences how developers must conceptualize and implement accessibility within their applications, a distinction that will be thoroughly explored throughout this work.
+This thesis examines the implementation of accessibility support in two leading mobile development frameworks—Flutter and React Native—with particular attention to their integration with native accessibility features. The architectural approaches differ significantly: Flutter creates a structured accessibility tree that maps to native accessibility \acrshort{api}, while React Native establishes direct bindings to platform-specific accessibility features. This fundamental difference profoundly influences how developers must conceptualize and implement accessibility within their applications, a distinction that will be thoroughly explored throughout this work.
 
 \section{Thesis structure}
 \label{chap:intro-structure} 
@@ -109,7 +109,7 @@ In this subsection, a brief description of the rest of the thesis is given:
     
     \item[{\hyperref[chap:accessibility-implementation]{The fourth chapter}}] provides a detailed analysis of WCAG guideline implementation across frameworks, examining implementation complexity, performance implications, developer experience, and testing methodologies. This chapter offers comparative insights into accessibility implementation between React Native and Flutter, identifying best practices, common pitfalls, and optimization strategies;
     
-    \item[{\hyperref[chap:conclusions]{The final chapter}}] synthesizes key findings, presents actionable recommendations for accessible mobile development, highlights best practices derived from the research, and outlines promising directions for future investigation in this rapidly evolving field.
+    \item[{\hyperref[chap:conclusions]{The final chapter}}] synthesizes research findings into actionable guidance for developers and project stakeholders. The chapter discusses implications for mobile developers, including framework-specific optimization approaches and evidence-based implementation priorities. It acknowledges methodological, technical, and scope limitations of the research, including component selection constraints and framework version dependencies.
 \end{description}
 
 To enhance readability and ensure clarity, this thesis adopts the following typographical conventions:

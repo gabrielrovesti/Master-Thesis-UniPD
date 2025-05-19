@@ -9,11 +9,6 @@ This repository hosts the **LaTeX source files** for the Master’s Thesis:
 
 ---
 
-## ⚠️ TO-DO (Latest Update - 18-05)
-- Read the entire thesis from the start and check if everything is coherent
-- Apply WCAG2Mobile for Frameworks Comparison
-- Build the app and check compliance
-
 ## ✨ Overview
 
 This thesis conducts a **comparative analysis** of two popular cross-platform frameworks—**React Native** and **Flutter**—with respect to **accessibility** implementation. Building upon prior research (including Budai’s work on Flutter accessibility and Perinello & Gaggi’s comparative study), this project introduces **AccessibleHub**, a developer-focused toolkit designed to:

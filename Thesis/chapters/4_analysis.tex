@@ -80,7 +80,7 @@ These metrics are calculated using the same methodology established in Chapter~\
 \subsection{Metric calculation methodologies}
 \label{subsec:metric-methodologies}
 
-To ensure rigor and reproducibility, each metric employed in our comparative analysis follows a formalized methodology. These methodologies build upon the approaches already established while incorporating analytical frameworks specific to cross-platform comparison.
+To ensure rigor and reproducibility, each metric employed in our comparative analysis follows a formalized methodology. These methodologies build upon the approaches already established while incorporating analytical frameworks specific to cross-platform comparison. Such metrics are introduced and expanded as shown by the Home Screen in Section~\ref{sec:implementation-guidelines}.
 
 \subsubsection{Component Accessibility Score methodology}
 \label{subsubsec:cas-methodology}
@@ -571,77 +571,25 @@ React Native's JavaScript bridge mediates between components and native accessib
 The different architectural approaches also impact testing and debugging workflows. React Native's property-based model makes it easier to inspect accessibility properties directly within component definitions.
 
 Flutter's separate semantic tree can be more challenging to debug, but the framework provides specialized tools like the \texttt{SemanticsDebugger} widget that visualizes the accessibility tree, offering more comprehensive introspection capabilities.
-\subsection{Framework architecture comparison}
-
-The comparative analysis implemented in the Framework comparison screen reveals fundamental architectural differences between React Native and Flutter that significantly impact accessibility implementation patterns. These differences can be categorized into five key areas:
-
-\subsubsection{Mental model and developer workflow}
-
-React Native encourages developers to think about accessibility as properties to be added to existing components, similar to adding styling properties. This approach integrates accessibility naturally into the component development process, as shown in Listing~\ref{lst:react-native-property-pattern}.
-
-\begin{lstlisting}[style=ReactNativeStyle, caption=Property-based accessibility pattern in React Native, label=lst:react-native-property-pattern]
-<TouchableOpacity
-  onPress={handlePress}
-  accessibilityRole="button"
-  accessibilityLabel="Submit form"
-  accessibilityHint="Activates form submission"
->
-  <Text>Submit</Text>
-</TouchableOpacity>
-\end{lstlisting}
-
-\FloatBarrier
-
-Flutter, in contrast, requires developers to think about accessibility as a separate layer of widgets that wrap content widgets. This separation creates a clearer distinction between visual presentation and accessibility semantics, but it also requires developers to maintain two parallel structures, as shown in Listing~\ref{lst:flutter-widget-pattern}.
-
-\begin{lstlisting}[style=DartStyle, caption=Widget-based accessibility pattern in Flutter, label=lst:flutter-widget-pattern]
-Semantics(
-  label: 'Submit form',
-  button: true,
-  child: ElevatedButton(
-    onPressed: handleSubmit,
-    child: Text('Submit'),
-  ),
-)
-\end{lstlisting}
-
-\FloatBarrier
-
-\subsubsection{Code organization and implementation overhead}
-
-The property-based approach of React Native generally results in more concise and readable code, as accessibility information is integrated directly into component definitions. This can make the code easier to understand at a glance, particularly for simpler components.
-
-Flutter's widget-based approach tends to increase code verbosity and nesting depth, potentially making code more difficult to follow. However, this explicit structure can also make accessibility considerations more visible and harder to overlook.
-
-As quantified in Table~\ref{tab:implementation_overhead_comparison}, Flutter implementations typically require more lines of code than equivalent React Native implementations, with differences ranging from 40\% to 200\% for common components.
-
-\subsubsection{Platform integration approach}
-
-React Native's JavaScript bridge mediates between components and native accessibility APIs, which can introduce performance considerations for complex interfaces. Flutter's direct C++ implementation provides more direct access to native accessibility features, potentially offering performance benefits for accessibility-heavy applications.
-
-The different architectural approaches also impact testing and debugging workflows. React Native's property-based model makes it easier to inspect accessibility properties directly within component definitions.
-
-Flutter's separate semantic tree can be more challenging to debug, but the framework provides specialized tools like the \texttt{SemanticsDebugger} widget that visualizes the accessibility tree, offering more comprehensive introspection capabilities.
 
 \section{Framework comparison screen: an analytical tool}
 \label{sec:framework-comparison}
 
-The Framework comparison screen serves as an interactive analytical tool that embodies and validates the formal evaluation methodology established in Section~\ref{subsec:metric-methodologies}. Unlike traditional documentation or static analysis, this screen provides developers with an evidence-based framework for comparing accessibility implementation across React Native and Flutter, directly addressing the research questions through empirical measurements.
-
-For a comprehensive analysis with complete code listings and detailed implementation metrics for this screen similarly to the complete analysis made into Section~{\ref{sec:implementation-guidelines} for Home and Accessible Components screens, readers are directed to the \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis}. As for the screens presented into \ref{sec:implementation-guidelines} Framework comparison screen also incorporates the emerging W3C ``Guidance on Applying WCAG 2.2 to Mobile Applications'' \cite{w3c-wcag2mobile} framework, providing developers with insights into mobile-specific accessibility interpretations. 
+The Framework comparison screen serves as an interactive analytical tool that embodies and validates the formal evaluation methodology established in Section~\ref{subsec:metric-methodologies}. Unlike traditional documentation or static analysis, this screen provides developers with an evidence-based framework for comparing accessibility implementation across React Native and Flutter, directly addressing the research questions through empirical measurements. 
+For a comprehensive analysis with complete code listings and detailed implementation metrics for this screen similarly to the complete analysis made into Section~{\ref{sec:implementation-guidelines} for Home and Accessible Components screens, readers are directed to the \href{https://github.com/gabrielrovesti/AccessibleHub/blob/main/Technical\%20Thesis\%20Appendix/AccessibleHub\%20-\%20Extended\%20screen\%20analysis.pdf}{AccessibleHub Extended Screen Analysis}. 
 
 Figure~\ref{fig:framework_comparison_main} shows the main interface of the Framework comparison screen, which transforms theoretical architectural differences into quantifiable metrics and side-by-side comparisons.
 
 \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.40\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={Framework comparison screen with React Native selected}]{img/overview1.jpg}
         \caption{React Native framework view}
         \label{fig:framework-comparison-reactnative}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.40\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={Framework comparison screen with Flutter selected}]{img/overview2.jpg}
         \caption{Flutter framework view}
@@ -682,14 +630,14 @@ The screen implements five key analytical functions that together provide a comp
 
 \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.37\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={Framework selection interface showing React Native details}]{img/overview1.jpg}
         \caption{Framework selection interface with React Native selected}
         \label{fig:framework-selection-reactnative}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.37\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={Framework selection interface showing Flutter details}]{img/overview2.jpg}
         \caption{Framework selection interface with Flutter selected}
@@ -1565,64 +1513,7 @@ Semantics(
 )
 \end{lstlisting}
 
-\pagebreak
-
-Examining the implementation from Budai's Flutter code in Listing~\ref{lst:budai-button} versus \textit{AccessibleHub}'s React Native implementation in Listing~\ref{lst:accessiblehub-button}, we observe significant differences in the approach to button accessibility:
-
-\begin{lstlisting}[style=DartStyle, caption=Budai's Flutter implementation of accessible buttons, label=lst:budai-button]
-ListTile(
-  title: Semantics(
-    button: true,
-    child: Text(
-      'Documentation MCAG',
-    ),
-  ),
-  onTap: () {
-    Navigator.pushNamed(context, '/screen-element2');
-  },
-)
-\end{lstlisting}
-
 \FloatBarrier
-
-\begin{lstlisting}[style=ReactNativeStyle, caption=\textit{AccessibleHub}'s React Native implementation of accessible buttons, label=lst:accessiblehub-button]
-<TouchableOpacity
-  style={themedStyles.card}
-  onPress={() => handleComponentPress(route, title)}
-  accessibilityRole="button"
-  accessibilityLabel="Buttons and Touchables component"
-  accessibilityHint="Navigate to component details"
-  accessibilityState={{ disabled: false }}
->
-  <View style={themedStyles.cardHeader}>
-    <View style={themedStyles.iconWrapper}>
-      <Ionicons
-        name="radio-button-on-outline"
-        size={24}
-        color={colors.primary}
-        accessibilityElementsHidden={true}
-        importantForAccessibility="no-hide-descendants"
-      />
-    </View>
-    <Text style={themedStyles.cardTitle}>Buttons &amp; Touchables</Text>
-    <View style={themedStyles.badgeContainer}>
-      <View style={themedStyles.badge}>
-        <Text style={themedStyles.badgeText}>Essential</Text>
-      </View>
-    </View>
-    <Ionicons
-      name="chevron-forward"
-      size={20}
-      color={colors.textSecondary}
-      style={themedStyles.chevron}
-      accessibilityElementsHidden={true}
-      importantForAccessibility="no-hide-descendants"
-    />
-  </View>
-</TouchableOpacity>
-\end{lstlisting}
-
-\pagebreak
 
 The analysis confirms the findings from Table~\ref{tab:implementation_overhead_analysis}, showing that React Native's button implementation requires approximately 30\% fewer lines of code while achieving equivalent accessibility outcomes. Flutter's standard button widgets provide some accessibility by default, but complex scenarios often necessitate additional semantic wrappers, increasing implementation overhead.
 
@@ -1685,8 +1576,6 @@ When examining the projects' implementations, \textit{AccessibleHub}'s React Nat
 )}
 \end{lstlisting}
 
-\pagebreak
-
 This contrasts with Budai's Flutter implementation in Listing~\ref{lst:budai-form}, which relies more on Flutter's built-in form accessibility:
 
 \begin{lstlisting}[style=DartStyle, caption=Form implementation in Budai's Flutter code, label=lst:budai-form]
@@ -1696,7 +1585,9 @@ TextFormField(
 ),
 \end{lstlisting}
 
-For radio buttons and checkboxes, \textit{AccessibleHub} implements a comprehensive approach that includes proper state management and accessibility annotations, as shown in Listing~\ref{lst:accessiblehub-selection-controls}:
+\FloatBarrier
+
+For radio buttons and checkboxes, \textit{AccessibleHub} implements a comprehensive approach that includes proper state management and accessibility annotations, as shown in Listing~\ref{lst:accessiblehub-selection-controls}.
 
 \begin{lstlisting}[style=ReactNativeStyle, caption=Selection controls in \textit{AccessibleHub}, label=lst:accessiblehub-selection-controls]
 <TouchableOpacity
@@ -1719,7 +1610,7 @@ For radio buttons and checkboxes, \textit{AccessibleHub} implements a comprehens
 </TouchableOpacity>
 \end{lstlisting}
 
-Budai's Flutter implementation leverages Flutter's built-in widgets for selection controls, which provide basic accessibility functionality, as shown in Listing~\ref{lst:budai-selection-controls}:
+Budai's Flutter implementation leverages Flutter's built-in widgets for selection controls, which provide basic accessibility functionality, as shown in Listing~\ref{lst:budai-selection-controls}.
 
 \begin{lstlisting}[style=DartStyle, caption=Selection controls in Budai's Flutter code, label=lst:budai-selection-controls]
 SwitchListTile(
@@ -1733,11 +1624,9 @@ SwitchListTile(
 ),
 \end{lstlisting}
 
-\pagebreak
+\FloatBarrier
 
 The comparison reveals that while Flutter's form controls provide basic accessibility, the React Native implementation offers more explicit accessibility annotations with lower implementation overhead. The explicit error state handling in React Native using \\ \texttt{accessibilityRole="alert"} demonstrates a more comprehensive approach to accessible form validation, directly supporting the WCAG compliance metrics shown in Table~\ref{tab:wcag_compliance_comparison}.
-
-Screen reader testing showed React Native's form controls provide more consistent state announcements, particularly for error conditions, contributing to its higher score for the Understandable principle in Table~\ref{tab:wcag_compliance_comparison}.
 
 \subsubsection{Custom gesture handlers}
 \label{subsubsec:gesture-handlers}

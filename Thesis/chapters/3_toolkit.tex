@@ -477,14 +477,14 @@ It is divided into five subscreens, each addressing a key aspect of mobile acces
 
         \begin{figure}[ht]
             \centering
-            \begin{subfigure}[b]{0.48\textwidth}
+            \begin{subfigure}[b]{0.43\textwidth}
                 \centering
                 \includegraphics[width=\linewidth, alt={First part of the WCAG guidelines screen}]{img/guidelines1.jpg}
                 \caption{Guidelines screen - Part 1}
                 \label{fig:guidelines-left}
             \end{subfigure}
             \hfill
-            \begin{subfigure}[b]{0.48\textwidth}
+            \begin{subfigure}[b]{0.43\textwidth}
                 \centering
                 \includegraphics[width=\linewidth, alt={Second part of the WCAG guidelines screen}]{img/guidelines2.jpg}
                 \caption{Guidelines screen - Part 2}
@@ -498,7 +498,7 @@ It is divided into five subscreens, each addressing a key aspect of mobile acces
         
     \end{itemize}
 
-\item \textbf{Framework Comparison} - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter (\ref{fig:frameworks-comparison}). This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. This is divided into different categories, offering a practical and formal overview on how such frameworks are compared with each other. By structuring comparisons using consistent metrics, it teaches developers to evaluate accessibility implementation strategies based on objective criteria, reinforcing the quantitative approach introduced in the Home screen;
+\item \textbf{Framework Comparison} - It provides a side-by-side comparison of the accessibility features and implementation differences between popular mobile development frameworks, such as React Native and Flutter (\ref{fig:frameworks-comparison}). This section helps developers understand how accessibility is handled in each framework and provides guidance on leveraging the specific accessibility APIs and tools available in each one. This is divided into different categories, offering a practical and formal overview on how such frameworks are compared with each other;
 
 \begin{figure}[ht]
 \centering
@@ -574,7 +574,7 @@ Figure~\ref{fig:settings_notifications} demonstrates the visual feedback mechani
 
 \pagebreak
 
-\item \textbf{Instruction and community} - It provides a collaborative learning environment that extends beyond technical implementation (\ref{fig:instruction-community}). This section offers developers an opportunity to dive deeper into accessibility knowledge through curated resources and community engagement allowing for easier exploration towards other online resources. This provides an overview of currently open projects in the field of accessibility, provides advices on specific plugins and offers community examples of interest for a developers to be motivated into the creation of other accessible projects. By providing a platform for continuous learning and collaboration, this screen reinforces the importance of accessibility as a collective effort and a fundamental aspect of modern mobile application development.
+\item \textbf{Instruction and community} - It provides a collaborative learning environment that extends beyond technical implementation (\ref{fig:instruction-community}). This section offers developers an opportunity to dive deeper into accessibility knowledge through curated resources and community engagement allowing for easier exploration towards other online resources. This provides an overview of currently open projects in the field of accessibility, provides advices on specific plugins and offers community examples of interest for a developers to be motivated into the creation of other accessible projects.
 
 \begin{figure}[ht]
 \centering
@@ -616,14 +616,14 @@ The Home screen serves as the primary entry point of the \textit{AccessibleHub} 
 
 \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{0.44\textwidth}
+    \begin{subfigure}[b]{0.37\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={First part of the Home screen}]{img/home1.png}
         \caption{Home screen - Part 1}
         \label{fig:home-left}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.37\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={Second part of the Home screen}]{img/home2.png}
         \caption{Home screen - Part 2}
@@ -677,7 +677,7 @@ Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value 
 
 \subsubsection{Formal metrics calculation methodology}
 
-The Home screen displays three key metrics that provide quantitative measurements of the application's accessibility. These metrics are calculated using a formal methodology defined in the \texttt{calculateAccessibilityScore} function within \texttt{index.tsx}, as shown by Figure~\ref{fig:wcag_modal_pair} and Figure~\ref{fig:component_modal_pair}.
+The Home screen displays three key metrics that provide quantitative measurements of the application's accessibility. Such metrics will be expanded and explained in detail in \ref{subsec:metric-methodologies}. These metrics are calculated using a formal methodology defined in the \texttt{calculateAccessibilityScore} function within \texttt{index.tsx}, as shown by Figure~\ref{fig:wcag_modal_pair} and Figure~\ref{fig:component_modal_pair}.
 
 \begin{figure}[ht]
     \centering
@@ -761,7 +761,7 @@ An overview of the test done with screen reader with the methodology and referen
 
 \paragraph{Component Accessibility Score}
 
-The Component Accessibility Score (CAS) is calculated using the following formula:
+The Component Accessibility Score (\gls{casg}) is calculated using the following formula:
 \begin{equation}
 \text{ComponentScore}
 = \left(\frac{\text{AccessibleComponents}}{\text{TotalComponents}}\right) \times 100
@@ -820,9 +820,9 @@ const componentScore = Math.round((accessibleComponents /
 
 \FloatBarrier
 
-\paragraph{WCAG compliance score}
+\paragraph{WCAG Compliance Ratio}
 
-The WCAG compliance score employs a weighted approach that prioritizes fundamental accessibility requirements while acknowledging the aspirational nature of higher-level criteria:
+The WCAG Compliance Ratio {\gls{wcrg}} employs a weighted approach that prioritizes fundamental accessibility requirements while acknowledging the aspirational nature of higher-level criteria:
 \begin{align}
 \text{WCAGCompliance} = \Bigg(&\left(\frac{\text{AAndAAImplemented}}{\text{AAndAACriteria}}\right) \times 0.8 + \
 &\left(\frac{\text{AllImplemented}}{\text{AllCriteria}}\right) \times 0.2\Bigg) \times 100
@@ -894,9 +894,9 @@ const levelACompliance = Math.round((levelACriteriaMet / levelACriteria) * 100);
 
 \FloatBarrier
 
-\paragraph{Screen reader testing score}
+\paragraph{Screen Reader Testing Score}
 
-The Screen Reader Testing Score represents empirical testing with VoiceOver (iOS) and TalkBack (Android):
+The Screen Reader Testing Score \gls{srss} represents empirical testing with VoiceOver (iOS) and TalkBack (Android):
 
 \begin{equation}
 \text{TestingScore} 
@@ -961,7 +961,7 @@ const testingScore = Math.round(((voiceOverAvg + talkBackAvg) / 2) * 20);
 
 \paragraph{Overall accessibility score}
 
-The overall Accessibility Score is calculated using weighted components:
+The overall accessibility score is calculated using weighted components:
 \begin{equation}
 \begin{split}
 \text{OverallScore}
@@ -1050,7 +1050,7 @@ The code sample in Listing~\ref{lst:home-screen-accessibility} shows the key acc
 
 Table~\ref{tab:home_screen_reader_analysis} presents results from systematic testing of the Home screen with screen readers on both iOS and Android platforms, aligning with WCAG2Mobile's approach to platform-specific accessibility services.
 
-\begin{longtable}[c]{|C{2.8cm}|C{3.5cm}|C{3.5cm}|C{4cm}|}
+\begin{longtable}[c]{|C{2.8cm}|C{3.5cm}|C{3.5cm}|C{5cm}|}
 \caption{Home screen screen reader testing results with WCAG2Mobile considerations}
 \label{tab:home_screen_reader_analysis}\\
 \hline
@@ -1087,7 +1087,7 @@ Modal Dialog Closing & \ding{51} Focus returns to triggering element & \ding{54}
 
 The implementation addresses several key MCAG and WCAG2Mobile considerations:
 \begin{enumerate}
-    \item \textbf{Swipe optimization}: Decorative elements are marked with \\ \texttt{importantForAccessibility="no"} to reduce unnecessary swipes, addressing WCAG2Mobile 4.1.2 (Name, Role, Value) mobile interpretation;
+    \item \textbf{Swipe optimization}: Decorative elements are marked with \\ \texttt{importantForAccessibility="no"} to reduce unnecessary swipes, addressing \\ WCAG2Mobile 4.1.2 (Name, Role, Value) mobile interpretation;
     
     \item \textbf{Clear instructions}: The modal tabs implementation provides clear state announcements, ensuring screen reader users understand the current selection, in line with WCAG2Mobile 4.1.3 (Status Messages) mobile interpretation;
     
@@ -1191,14 +1191,14 @@ The Accessible components screen serves as a catalog of reusable accessibility p
 
 \begin{figure}[ht]
     \centering
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.42\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={First part of the Components screen}]{img/components1.png}
         \caption{Components screen - Top section}
         \label{fig:components-top}
     \end{subfigure}
     \hfill
-    \begin{subfigure}[b]{0.48\textwidth}
+    \begin{subfigure}[b]{0.40\textwidth}
         \centering
         \includegraphics[width=\linewidth, alt={Second part of the Components screen}]{img/components2.png}
         \caption{Components screen - Bottom section}
@@ -1866,7 +1866,19 @@ The Best practices screens implement accessibility features addressing multiple 
 \hline
 \end{tabular}
 \end{table}
+
 \FloatBarrier
+
+Key patterns identified in this analysis include:
+\begin{enumerate}
+    \item All screens implement core A-level criteria (1.1.1 Non-text Content, 1.3.1 Info and Relationships, 4.1.2 Name, Role, Value);
+    
+    \item The Gesture Tutorial screen achieves the highest A/AA compliance level (8/8) due to its comprehensive implementation of interaction patterns;
+    
+    \item AAA-level criteria implementation is notably strong across all screens, with three screens implementing all applicable AAA criteria;
+    
+    \item Keyboard accessibility (2.1.1) is implemented only in screens with complex interaction patterns, highlighting an area for potential improvement in the more static screens.
+\end{enumerate}
 
 \begin{table}[ht]
 \caption{Legend for WCAG criteria implementation colors}
@@ -1887,16 +1899,7 @@ The Best practices screens implement accessibility features addressing multiple 
 \end{tabular}
 \end{table}
 
-Key patterns identified in this analysis include:
-\begin{enumerate}
-    \item All screens implement core A-level criteria (1.1.1 Non-text Content, 1.3.1 Info and Relationships, 4.1.2 Name, Role, Value);
-    
-    \item The Gesture Tutorial screen achieves the highest A/AA compliance level (8/8) due to its comprehensive implementation of interaction patterns;
-    
-    \item AAA-level criteria implementation is notably strong across all screens, with three screens implementing all applicable AAA criteria;
-    
-    \item Keyboard accessibility (2.1.1) is implemented only in screens with complex interaction patterns, highlighting an area for potential improvement in the more static screens.
-\end{enumerate}
+\FloatBarrier
 
 \subsubsection{Screen reader compatibility analysis}
 \label{subsubsec:best-practices-screen-reader-summary}

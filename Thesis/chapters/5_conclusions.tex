@@ -6,7 +6,7 @@
 
 The comparative analysis of React Native and Flutter reveals significant insights for accessible mobile application development. Based on our rigorous quantitative metrics, React Native demonstrates a 45\% reduction in implementation overhead while maintaining higher screen reader compatibility scores ($4.2$ versus $3.8$). Flutter's explicit semantic model, while requiring more code and presenting a steeper learning curve, provides benefits for complex \gls{uig} components and long-term maintenance in larger teams. Neither framework offers comprehensive accessibility by default ($38$\% and $32$\% respectively), highlighting the necessity for deliberate developer intervention regardless of platform choice.
 
-\section{Results and discussion}
+\section{Results and discussion: Addressing research questions}
 \label{sec:results-discussion}
 
 This section synthesizes our findings into actionable insights for developers and project stakeholders, addressing our research questions and providing practical guidelines for framework selection and implementation strategies.
@@ -44,7 +44,7 @@ Focus management & \ding{55} & \ding{55} & 14 LOC (baseline) & 22 LOC (+57\%) & 
 
 \FloatBarrier
 
-\subsection{Default accessibility comparison}
+\subsection{Research Question 1: Default accessibility comparison}
 \label{subsec:default-accessibility}
 
 Addressing RQ1 (Default accessibility support), our analysis reveals that both frameworks provide limited default accessibility, as quantified in Table~\ref{tab:component_comparison}.
@@ -61,7 +61,7 @@ The Component Accessibility Score (\gls{casg}) calculations reveal that React Na
 
 This finding underscores the importance of explicit accessibility implementation regardless of framework choice, as neither provides ``accessibility by default'' across the component spectrum.
 
-\subsection{Implementation feasibility analysis}
+\subsection{Research Question 2: Implementation feasibility analysis}
 \label{subsec:implementation-feasibility}
 
 Addressing RQ2 (Implementation feasibility), our analysis demonstrates that both frameworks provide comprehensive technical capabilities for implementing accessible components:
@@ -86,7 +86,7 @@ The implementation feasibility differs not in capability but in approach:
 
 These findings indicate that implementation feasibility depends more on developer familiarity and team expertise than inherent framework limitations. Both frameworks provide the necessary tools for complete accessibility implementation, though with different conceptual approaches.
 
-\subsection{Development effort evaluation}
+\subsection{Research Question 3: Development effort evaluation}
 \label{subsec:development-effort}
 
 Addressing RQ3 (Development overhead), our quantitative analysis reveals consistent differences in development effort requirements:
@@ -131,68 +131,6 @@ Maintenance & Less code to maintain but implicit relationships & More explicit s
 \FloatBarrier
 
 As shown in Table~\ref{tab:implementation_tradeoffs}, the development effort evaluation directly impacts team productivity and project timelines, particularly for applications with extensive accessibility requirements. While React Native generally offers lower implementation overhead, Flutter's more explicit model may provide advantages for long-term maintenance and team scalability.
-
-\subsection{Mitigating implementation overhead}
-\label{subsec:mitigating-overhead}
-
-Our analysis revealed several practical strategies that developers can employ to reduce implementation overhead, with framework-specific considerations:
-
-\begin{enumerate}
-    \item \textbf{Component libraries}: Building reusable accessible component libraries significantly reduces implementation costs over time. In \textit{AccessibleHub}, a library of pre-configured accessible components was created to encapsulate  common patterns, as was shown by the code in Listings \ref{lst:react-native-component-abstraction} and \ref{lst:flutter-custom-semantic}.
-
-    These component libraries provide significant benefits:
-    \begin{itemize}
-        \item Reduction in implementation overhead metrics (\gls{imog}, \gls{cifg}) by up to 80\% for frequently used components;
-        \item Improved consistency in accessibility implementation across the application;
-        \item Simplified code reviews for accessibility compliance;
-        \item Reduced knowledge requirements for team members implementing accessibility features.
-    \end{itemize}
-    
-    \item \textbf{Integrated accessibility testing}: Integrating from the start accessibility testing into the development workflow can significantly reduce long-term implementation costs. The accessibility evaluation approach implemented in \textit{AccessibleHub} follows a structured, empirical methodology rather than automated testing. This approach includes:
-
-    \begin{enumerate}
-        \item \textbf{Systematic manual inspection}: Each component is manually evaluated against a predefined checklist of accessibility requirements, including proper role assignment, adequate labeling, and appropriate state communication;
-
-        \item \textbf{Screen reader verification}: Components are tested with VoiceOver and TalkBack to verify correct announcement of content, roles, and states, with results documented using the Likert scale described in Section~\ref{subsubsec:srss-methodology};
-
-        \item \textbf{Contextual evaluation}: Components are assessed within realistic usage scenarios to ensure they maintain accessibility when integrated into complete user flows.
-    \end{enumerate}
-    
-    This approach yields practical benefits throughout the development lifecycle:
-    \begin{itemize}
-        \item Early detection of accessibility issues, reducing rework costs;
-        \item Automated verification of accessibility properties, reducing manual testing requirements;
-        \item Continuous monitoring of accessibility compliance during development;
-        \item Documentation of accessibility requirements through test cases.
-    \end{itemize}
-    
-    \item \textbf{Context-based accessibility patterns}: Using application context to manage accessibility properties can significantly reduce implementation overhead. In \textit{AccessibleHub}, we implemented a theme context that includes accessibility considerations, as was shown in Listing~\ref{lst:react-native-context-accessibility}.
-    
-    This pattern provides practical benefits:
-    \begin{itemize}
-        \item Centralized management of accessibility settings;
-        \item Responsive adaptation to user preferences;
-        \item Reduced duplication of accessibility logic;
-        \item Simplified implementation of dynamic accessibility features.
-    \end{itemize}
-    
-    \item \textbf{Progressive enhancement approach}: Implementing accessibility features incrementally can help manage development overhead. In \textit{AccessibleHub}, a prioritized implementation approach was followed:
-    \begin{itemize}
-        \item Phase 1: Implement basic accessibility properties (roles, labels) on all components;
-        \item Phase 2: Add enhanced features (hints, states, actions) to critical interactive components;
-        \item Phase 3: Implement advanced features (custom actions, focus management) for complex interactions.
-    \end{itemize}
-    
-    This approach delivers practical benefits:
-    \begin{itemize}
-        \item Immediate improvements in baseline accessibility;
-        \item Prioritized allocation of development resources;
-        \item Gradual adoption of more complex accessibility patterns;
-        \item Opportunity for testing and feedback between implementation phases.
-    \end{itemize}
-\end{enumerate}
-
-These mitigation strategies can substantially reduce the implementation overhead gap between frameworks, making accessibility implementation more practical and cost-effective for development teams.
 
 \subsection{Practical guidelines for framework selection}
 \label{subsec:framework-selection}

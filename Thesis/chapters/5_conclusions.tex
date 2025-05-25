@@ -92,7 +92,7 @@ These findings indicate that implementation feasibility depends more on develope
 Addressing RQ3 (Development overhead), our quantitative analysis reveals consistent differences in development effort requirements:
 
 \begin{itemize}
-    \item React Native implementations required on average 45\% less code than equivalent Flutter implementations, as demonstrated in Table~\ref{tab:implementation_overhead_analysis};
+    \item React Native implementations required on average 45\% less code than equivalent Flutter implementations, as demonstrated in Section~\ref{sec:quantitative-comparison};
     
     \item Flutter implementations showed higher complexity factors, particularly for text components and custom gestures;
     
@@ -188,7 +188,7 @@ Our comparative analysis yields several key implications for stakeholders involv
 \subsection{Framework-specific optimization approaches}
 \label{subsec:implications-optimization}
 
-The architectural differences between React Native and Flutter, quantified through our metrics in Section~\ref{subsec:arch-differences}, necessitate different optimization approaches:
+The architectural differences between React Native and Flutter, quantified through our metrics necessitate different optimization approaches:
 
 \begin{itemize}
     \item \textbf{React Native optimization}: The property-based model enables composition of accessibility properties, reducing duplication through higher-order components. As demonstrated in Section~\ref{subsec:react-native-optimization}, this approach can reduce implementation overhead by 35-40\% in complex interfaces;

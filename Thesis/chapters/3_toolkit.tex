@@ -639,18 +639,17 @@ The Home screen serves as the primary entry point of the \textit{AccessibleHub} 
 
 Table~\ref{tab:component_criteria_mapping} provides a formal mapping between the UI components, their semantic roles, the specific WCAG 2.2 criteria they address, and their React Native implementation properties, with specific WCAG2Mobile considerations included.
 
-
 \begin{longtable}[c]{|C{2.7cm}|C{1.8cm}|C{3cm}|C{3.5cm}|C{4.5cm}|}
 \caption{Home screen component-criteria mapping with WCAG2Mobile considerations}
 \label{tab:component_criteria_mapping}\\
 \hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
+\textbf{Component and Location} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
 \hline
 \endfirsthead
 \multicolumn{5}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
+\textbf{Component and Location} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
 \hline
 \endhead
 \hline
@@ -658,19 +657,19 @@ Table~\ref{tab:component_criteria_mapping} provides a formal mapping between the
 \endfoot
 \hline
 \endlastfoot
-Hero Title & header & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes; Proper semantic structure in screen context & \texttt{accessibility \ Role="header"} \\
+Hero Title (The ultimate / Quick Start) & header & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Text readability on variable screen sizes; Proper semantic structure in screen context & \texttt{accessibility \ Role="header"} \\
 \hline
-Stats Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (AAA) & Touch target optimization; Screen reader focus; Target tap area minimum of 44×44dp; Context-specific labeling & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{value\}\% \$\{type\}, tap for details"}\\
+Stats Cards (20/88\%/85\% metrics center) & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (AAA) & Touch target optimization; Screen reader focus; Target tap area minimum of 44×44dp; Context-specific labeling & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{value\}\% \$\{type\}, tap for details"}\\
 \hline
-Decorative Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden=true},\newline \texttt{important \ ForAccessibility="no"} \\
+Decorative Icons (Book, Info, others) & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden=true},\newline \texttt{important \ ForAccessibility="no"} \\
 \hline
-Quick Start Button & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 2.5.2 Pointer Cancellation (A)\newline 2.4.10 Section Headings (AAA) & One-handed operation; Clear touch feedback; Sufficient tap target area exceeding minimum requirements & \texttt{accessibility \ Role="button"},\newline \texttt{minHeight: 48},\newline \texttt{minWidth: 150} \\
+Quick Start Button (Used to navigate to other app sections) & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 2.5.2 Pointer Cancellation (A)\newline 2.4.10 Section Headings (AAA) & One-handed operation; Clear touch feedback; Sufficient tap target area exceeding minimum requirements & \texttt{accessibility \ Role="button"},\newline \texttt{minHeight: 48},\newline \texttt{minWidth: 150} \\
 \hline
-Feature Cards & button & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 3.2.5 Change on Request (AAA) & Logical grouping; Clear component boundaries; Screen reader context preservation & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{title\}"},\newline \texttt{accessibility \ Hint="\$\{hint\}"} \\
+Feature Cards (Best Practices, Tools, Instructions) & button & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 3.2.5 Change on Request (AAA) & Logical grouping; Clear component boundaries; Screen reader context preservation & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{title\}"},\newline \texttt{accessibility \ Hint="\$\{hint\}"} \\
 \hline
-Modal Dialog & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.8 Location (AAA) & Focus management in modal context; Proper dialog role in mobile screen context; Keyboard trap prevention & \texttt{accessibility \ Role="dialog"},\newline Focus management implementation \\
+Modal Dialog (Popup when clicking metric cards) & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.8 Location (AAA) & Focus management in modal context; Proper dialog role in mobile screen context; Keyboard trap prevention & \texttt{accessibility \ Role="dialog"},\newline Focus management implementation \\
 \hline
-Modal Tabs & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (AAA) & Touch interaction patterns; State communication; Active tab indication for screen readers & \texttt{accessibility \ Role="tablist"},\newline \texttt{accessibility \ State=\{\{ selected: isActive \}\}} \\
+Modal Tabs (Navigation within metric detail popups) & tablist & 2.4.7 Focus Visible (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (AAA) & Touch interaction patterns; State communication; Active tab indication for screen readers & \texttt{accessibility \ Role="tablist"},\newline \texttt{accessibility \ State=\{\{ selected: isActive \}\}} \\
 \end{longtable}
 
 \FloatBarrier
@@ -1224,7 +1223,7 @@ Table~\ref{tab:components_wcag2mobile_mapping} provides a comprehensive mapping 
 \multicolumn{5}{c}%
 {{\bfseries Table \thetable\ -- continued from previous page}} \\
 \hline
-\textbf{Component} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
+\textbf{Component and Location} & \textbf{Semantic Role} & \textbf{WCAG 2.2 Criteria} & \textbf{WCAG2Mobile Considerations} & \textbf{Implementation Properties} \\
 \hline
 \endhead
 \hline
@@ -1232,19 +1231,19 @@ Table~\ref{tab:components_wcag2mobile_mapping} provides a comprehensive mapping 
 \endfoot
 \hline
 \endlastfoot
-ScrollView Container & scrollview & 2.1.1 Keyboard (A)\newline 2.4.3 Focus Order (A) & Screen-based navigation patterns; Touch-based scrolling alternatives & \texttt{accessibility \ Role="scrollview"},\newline \texttt{accessibility \ Label="Accessibility Components Screen"} \\
+ScrollView Container (main screen container) & scrollview & 2.1.1 Keyboard (A)\newline 2.4.3 Focus Order (A) & Screen-based navigation patterns; Touch-based scrolling alternatives & \texttt{accessibility \ Role="scrollview"},\newline \texttt{accessibility \ Label="Accessibility Components Screen"} \\
 \hline
-Hero Title & header & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Screen title differentiation; Proper semantic structure in screen context & \texttt{accessibility \ Role="header"} \\
+Hero Title (top center: "Accessibility Components") & header & 1.4.3 Contrast (AA)\newline 2.4.6 Headings (AA) & Screen title differentiation; Proper semantic structure in screen context & \texttt{accessibility \ Role="header"} \\
 \hline
-Component Cards & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target optimization; Comprehensive button labeling with context; Target tap area exceeding 44×44dp & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="[Component] component. [Description]. [Type] component type."} \\
+Component Cards (Buttons, Form, Media, etc.) & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A) & Touch target optimization; Comprehensive button labeling with context; Target tap area exceeding 44×44dp & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="[Component] component. [Description]. [Type] component type."} \\
 \hline
-Card Icons & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden} \\
+Card Icons (decorative icons within component cards) & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden} \\
 \hline
-Feature Icons & none & 1.1.1 Non-text Content (A) & Reduction of swipe interactions for decorative elements & \texttt{accessibility \ ElementsHidden} \\
+Feature Icons (icons throughout the interface) & none & 1.1.1 Non-text Content (A) & Reduction of swipe interactions for decorative elements & \texttt{accessibility \ ElementsHidden} \\
 \hline
-Card Badges & text & 1.3.1 Info and Relationships (A)\newline 1.4.11 Non-text Contrast (AA) & Visual categorization with color and text; Contrast properties meeting mobile viewing conditions & Inherited from parent button's \texttt{accessibility \ Label} \\
+Card Badges (Essential, Complex, Advanced, Basic tags) & text & 1.3.1 Info and Relationships (A)\newline 1.4.11 Non-text Contrast (AA) & Visual categorization with color and text; Contrast properties meeting mobile viewing conditions & Inherited from parent button's \texttt{accessibility \ Label} \\
 \hline
-Linear Gradient Background & none & 1.4.3 Contrast (AA)\newline 1.4.11 Non-text Contrast (AA) & Mobile-specific background adaptation for varying lighting conditions & Adaptive colors based on theme \\
+Linear Gradient Background (overall screen background) & none & 1.4.3 Contrast (AA)\newline 1.4.11 Non-text Contrast (AA) & Mobile-specific background adaptation for varying lighting conditions & Adaptive colors based on theme \\
 \hline
 \end{longtable}
 
@@ -1533,7 +1532,9 @@ This analysis reveals that implementing comprehensive accessibility adds approxi
 
 \subsubsection{WCAG conformance by principle}
 
-Table~\ref{tab:components_wcag2mobile_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle:
+Table~\ref{tab:components_wcag2mobile_by_principle} provides a detailed analysis of WCAG 2.2 compliance by principle. High scores in Operable, Understandable, and Robust principles show that the framework’s component model naturally supports strong interaction patterns, navigation, and programmatic accessibility. The lower Perceivable score (92.8\%) accurately reflects the technical challenges of implementing advanced visual accessibility features—such as color contrast, text scaling, and orientation—on mobile platforms.
+
+The inclusion of AAA criteria (e.g., Location, Link Purpose) indicates a commitment to best practices beyond basic compliance, which is appropriate for an educational toolkit. The explicit mobile-specific considerations (touch targets, gestures, navigation) reinforce the idea that mobile accessibility demands distinct technical solutions compared to the web.
 
 \begin{longtable}[c]{|C{2.5cm}|C{3.8cm}|C{3.2cm}|C{5.2cm}|}
 \caption{Components screen WCAG compliance analysis by principle with WCAG2Mobile considerations}

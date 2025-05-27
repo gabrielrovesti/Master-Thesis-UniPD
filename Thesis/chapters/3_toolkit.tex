@@ -661,11 +661,11 @@ Hero Title (The ultimate / Quick Start) & header & 1.4.3 Contrast (AA)\newline 2
 \hline
 Stats Cards (20/88\%/85\% metrics center) & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.9 Link Purpose (AAA) & Touch target optimization; Screen reader focus; Target tap area minimum of 44×44dp; Context-specific labeling & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{value\}\% \$\{type\}, tap for details"}\\
 \hline
-Decorative Icons (Book, Info, others) & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden=true},\newline \texttt{important \ ForAccessibility="no"} \\
+Decorative Icons (book, info and others into app sections) & none & 1.1.1 Non-text Content (A) & Reduction of unnecessary focus stops; Efficiency in screen reader navigation sequence & \texttt{accessibility \ ElementsHidden=true},\newline \texttt{important \ ForAccessibility="no"} \\
 \hline
 Quick Start Button (Used to navigate to other app sections) & button & 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 2.5.2 Pointer Cancellation (A)\newline 2.4.10 Section Headings (AAA) & One-handed operation; Clear touch feedback; Sufficient tap target area exceeding minimum requirements & \texttt{accessibility \ Role="button"},\newline \texttt{minHeight: 48},\newline \texttt{minWidth: 150} \\
 \hline
-Feature Cards (Best Practices, Tools, Instructions) & button & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 3.2.5 Change on Request (AAA) & Logical grouping; Clear component boundaries; Screen reader context preservation & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{title\}"},\newline \texttt{accessibility \ Hint="\$\{hint\}"} \\
+Feature Cards (Best Practices, Tools, Framework, etc.) & button & 1.3.1 Info and Relationships (A)\newline 1.4.3 Contrast (AA)\newline 2.5.8 Target Size (AA)\newline 3.2.5 Change on Request (AAA) & Logical grouping; Clear component boundaries; Screen reader context preservation & \texttt{accessibility \ Role="button"},\newline \texttt{accessibility \ Label="\$\{title\}"},\newline \texttt{accessibility \ Hint="\$\{hint\}"} \\
 \hline
 Modal Dialog (Popup when clicking metric cards) & dialog & 2.4.3 Focus Order (A)\newline 4.1.2 Name, Role, Value (A)\newline 2.4.8 Location (AAA) & Focus management in modal context; Proper dialog role in mobile screen context; Keyboard trap prevention & \texttt{accessibility \ Role="dialog"},\newline Focus management implementation \\
 \hline

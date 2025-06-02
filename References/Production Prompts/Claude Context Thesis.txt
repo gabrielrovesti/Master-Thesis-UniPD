@@ -1,0 +1,54 @@
+Dear Claude, I ask you kindly to be complete, formal and precise. 
+I introduce you my master thesis project.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+AccessibleHub is a React Native application I've developed as part of my master's thesis research to address the gap between theoretical accessibility guidelines and practical implementation in mobile development. The application serves as both a research vehicle and an educational toolkit for developers.
+
+The core purpose of AccessibleHub is to demonstrate how abstract WCAG (Web Content Accessibility Guidelines) and MCAG (Mobile Content Accessibility Guidelines) requirements can be translated into concrete code implementations across different frameworks, particularly React Native and Flutter. The application systematically compares accessibility implementation patterns, quantifies development overhead, and provides practical guidance for developers.
+
+AccessibleHub is structured around several key sections:
+- Component examples showing accessible implementations of common UI elements
+- Framework comparison tools providing quantitative metrics on implementation differences
+- Testing utilities for validating accessibility features
+- Educational resources explaining accessibility principles and patterns
+
+The application implements a formal evaluation methodology using metrics like Component Accessibility Score (CAS), Implementation Overhead (IMO), and Screen Reader Support Score (SRSS) to provide evidence-based comparisons. Through interactive examples and code snippets, it demonstrates the architectural differences between React Native's property-based accessibility model and Flutter's widget-based semantic system.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Be precise and account what present below.
+
+Formatting in LaTeX to account:
+
+- All titles should not be mixed Upper and Lower; just put the beginning title upper (for instance not Mobile Accessibility Framework, but put Mobile accessibility framework), this has to hold true for each subsection. 
+
+- Also, checkmarks and ticks are formatted exactly as seen into previous section. 
+
+- Ensure all itemized list have semicolon and the last has full stop. 
+
+- Ensure also code blocks don't "overflow" the page and do not make them so much verbose, instead quote only the relevant parts for a reader, both technical and non-technical, about accessibility. 
+
+- Ensure all code blocks follow the proper customized formatting for listings given by me for both React Native and Flutter and ensure they are not too verbose/long, since they have to stay in a single page. Remove the non-useful parts.
+
+- Ensure also textt does not break margins, otherwise send them next line with double backslash
+
+- Ensure AccessibleHub name is coherent always, having \textit{AccessibleHub} and special chars like % (percentages) or $ (dollars) when in tables are escaped with backslash. \checkmark does not exist in my case, replace it with ding, same for X and adopt the presented style for code listings, ensuring they are referenced correctly always.
+
+- Ensure each field in table is correctly broken e.g. accessibilityRole = button becomes accessibility \ Role="button", also for text, otherwise they go out of margins (note: DO NOT PUT THERE DOUBLE BACKSLASH), but space \ space word, no to avoid problems you already caused
+
+- Avoid usage of should but "are" implemented
+
+- After each code listing, table or figure apply FloatBarrier to separate stuff
+
+- ALL tables should be formatted with C -> \begin{longtable}[c]{|C{2.5cm}|C{2cm}|C{2.8cm}|C{2.8cm}|C{4.7cm}|} given I configured tables to center their inside content with: \usepackage{array}     % estende col spec
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}, may them be tabular or longtables. Make sure content is large enough to be large.
+
+Keep in mind EACH TABLE, EACH FIGURE AND EACH CODE LISTING HAS TO BE QUOTED IN TEXT (ref) - so if I say Table, it has to appear exactly where is in code, so use breaks or stuff to make this happen. I lost a lot of time because of this.
+
+Writing context to account:
+
+Please, write in a "human" way and not chatbot like, being expansive and careful in considerations when you write following what done into previous sections. Consider not be excessively verbose.
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++

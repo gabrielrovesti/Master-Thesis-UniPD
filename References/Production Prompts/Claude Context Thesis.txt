@@ -27,7 +27,7 @@ Formatting in LaTeX to account:
 
 - Ensure all itemized list have semicolon and the last has full stop. 
 
-- Ensure also code blocks don't "overflow" the page and do not make them so much verbose, instead quote only the relevant parts for a reader, both technical and non-technical, about accessibility. 
+- Ensure also code blocks don't "overflow" the page and do not make them so much verbose, instead quote only the relevant parts for a reader, both technical and non-technical, about accessibility. ENSURE THEY ALL USE THE STYLE PRESENTED, SO style=ReactNativeStyle for React Native or style=DartStyle for Flutter, and ensure they are not too long, so they fit in a single page.
 
 - Ensure all code blocks follow the proper customized formatting for listings given by me for both React Native and Flutter and ensure they are not too verbose/long, since they have to stay in a single page. Remove the non-useful parts.
 
@@ -44,6 +44,10 @@ Formatting in LaTeX to account:
 - ALL tables should be formatted with C -> \begin{longtable}[c]{|C{2.5cm}|C{2cm}|C{2.8cm}|C{2.8cm}|C{4.7cm}|} given I configured tables to center their inside content with: \usepackage{array}     % estende col spec
 
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}, may them be tabular or longtables. Make sure content is large enough to be large.
+
+- AVOID putting stuff like greater signs or less signs in the end, like in prompts I had in the past \end{enumerate> instead of \end{enumerate} or stuff like that; keep an eye to that, fucking annoying.
+
+
 
 Keep in mind EACH TABLE, EACH FIGURE AND EACH CODE LISTING HAS TO BE QUOTED IN TEXT (ref) - so if I say Table, it has to appear exactly where is in code, so use breaks or stuff to make this happen. I lost a lot of time because of this.
 

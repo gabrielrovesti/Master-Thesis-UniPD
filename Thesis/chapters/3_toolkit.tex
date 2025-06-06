@@ -822,18 +822,20 @@ const componentScore = Math.round((accessibleComponents /
 \paragraph{WCAG Compliance Ratio}
 
 The WCAG Compliance Ratio {\gls{wcrg}} employs a weighted approach that prioritizes fundamental accessibility requirements while acknowledging the aspirational nature of higher-level criteria:
+
 \begin{align}
-\text{WCAGCompliance} = \Bigg(&\left(\frac{\text{AAndAAImplemented}}{\text{AAndAACriteria}}\right) \times 0.8 + \
-&\left(\frac{\text{AllImplemented}}{\text{AllCriteria}}\right) \times 0.2\Bigg) \times 100
+\text{WCAGCompliance} = \Bigg(&\left(\frac{\text{AAndAAImplemented}}{\text{AAndAACriteria}}\right) \times 0.8 + \\
+&\left(\frac{\text{AAAImplemented}}{\text{AAACriteria}}\right) \times 0.2\Bigg) \times 100
 \end{align}
-Where:
+
 \begin{itemize}
 \item \texttt{AAndAAImplemented} = Number of Level A and AA success criteria implemented;
 \item \texttt{AAndAACriteria} = Total number of Level A and AA criteria;
-\item \texttt{AllImplemented} = Number of all criteria implemented (including AAA);
-\item \texttt{AllCriteria} = Total number of all criteria across all levels.
+\item \texttt{AAAImplemented} = Number of Level AAA criteria implemented;
+\item \texttt{AAACriteria} = Total number of Level AAA criteria.
 \end{itemize}
-This weighted approach acknowledges that Level A and AA criteria represent essential accessibility requirements that must be implemented for basic conformance (80\% of the weight), while Level AAA criteria represent more advanced and specialized enhancements (20\% of the weight), implemented for the highest standard of accessibility. 
+
+This weighted approach acknowledges that Level A and AA criteria represent essential accessibility requirements that must be implemented for basic conformance (80\% of the weight), while Level AAA criteria represent more advanced and specialized enhancements (20\% of the weight), implemented for the highest standard of accessibility.
 
 To enable more granular analysis, extended variables are introduced to preserve formal criteria and compliance levels reached:
 \begin{itemize}

@@ -71,7 +71,7 @@ Addressing RQ2 (Implementation feasibility), our analysis demonstrates that both
     
     \item Flutter's \texttt{Semantics} system offers equivalent capabilities, though with different implementation patterns;
     
-    \item Both frameworks can achieve 100\% WCAG compliance as shown in Table~\ref{tab:wcag_compliance_comparison}, with appropriate implementation techniques.
+    \item Both frameworks can achieve high WCAG compliance as shown in Table~\ref{tab:wcag_compliance_comparison}, with appropriate implementation techniques.
 \end{itemize}
 
 The implementation feasibility differs not in capability but in approach:
@@ -243,7 +243,7 @@ The empirical evidence presented in this thesis answers our three research quest
 \begin{itemize}
     \item \textbf{RQ1 (Default accessibility)}: Neither framework provides comprehensive accessibility by default, with React Native achieving 38\% and Flutter 32\% on our Component Accessibility Score (CAS) metric. This finding definitively establishes that explicit developer intervention is required regardless of framework choice;
 
-    \item \textbf{RQ2 (Implementation feasibility)}: Both frameworks can achieve WCAG compliance through different architectural approaches. React Native's property-based model achieved 92\% WCAG compliance on the Perceivable principle compared to Flutter's 85\% (Table~\ref{tab:wcag_compliance_comparison}), demonstrating slightly better alignment with accessibility standards;
+    \item \textbf{RQ2 (Implementation feasibility)}: Both frameworks can achieve 100\% WCAG compliance through different architectural approaches. React Native's property-based model achieved 92\% WCAG compliance on the Perceivable principle compared to Flutter's 85\% (Table~\ref{tab:wcag_compliance_comparison}), demonstrating slightly better alignment with accessibility standards;
 
     \item \textbf{RQ3 (Development overhead)}: React Native requires objectively less code (average 45\% reduction) for equivalent accessibility implementations. This finding is consistent across all component categories tested, with the most significant difference observed in text language declarations (200\% more code in Flutter).
 \end{itemize}

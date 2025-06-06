@@ -14,7 +14,7 @@ The importance of mobile app accessibility extends beyond mere compliance with l
 Despite the clear benefits and moral imperatives of mobile app accessibility, many developers still struggle to effectively implement accessibility guidelines in their projects. The \acrshort{wcagacr}, developed by the \gls{w3cg}, serve as the international standard for digital accessibility. However, translating these guidelines into practical implementation can be a challenging task, particularly starting from pure formal guidelines into everyday code. \\
 
 One of the primary challenges lies in the complexity of the guidelines themselves. WCAG encompasses a wide range of \textit{success criteria}, organized under four main general \textit{principles}: perceivable, operable, understandable, and robust. Each principle contains multiple guidelines, and each guideline has several success criteria at different levels of \textit{conformance}. Navigating this intricate web of requirements and understanding how to apply them to specific mobile app components can be overwhelming for developers, especially those new to accessibility. 
-Moreover, the practical implementation of accessibility guidelines often varies across different platforms and frameworks. \textit{iOS} and \textit{Android}, the two dominant mobile operating systems, have their own unique accessibility \gls{apig}, tools, and best practices. Cross-platform frameworks like React Native and Flutter add another layer of complexity, as developers must ensure that their accessibility implementations are compatible with the underlying platform-specific mechanisms. \\ 
+Moreover, the practical implementation of accessibility guidelines often varies across different platforms and frameworks. \textit{iOS} and \textit{Android}, the two dominant mobile operating systems, have their own unique accessibility \acrshort{api}, tools, and best practices. Cross-platform frameworks like React Native and Flutter add another layer of complexity, as developers must ensure that their accessibility implementations are compatible with the underlying platform-specific mechanisms. \\ 
 
 Furthermore, there is often a lack of clear, practical examples and guidance on how to implement accessibility features in real-world mobile app projects. While the \textit{WCAG} provides a solid foundation, it is primarily focused on web content and may not always directly address the unique challenges and interaction patterns of mobile apps. Developers often struggle to bridge the gap between the theoretical guidelines and the specific implementation details required for their projects.
 
@@ -44,7 +44,7 @@ Despite widespread accessibility guidelines and standard, mobile application dev
 \begin{itemize}
     \item Complex testing requirements - developers must validate across multiple devices, \gls{screenreaderg}, and interaction modes;
     
-    \item Framework-specific implementations - each platform has unique accessibility \gls{apig}s and requirements;
+    \item Framework-specific implementations - each platform has unique accessibility \acrshort{api}s and requirements;
     
     \item Limited practical examples - most documentation focuses on theoretical guidelines rather than concrete implementation patterns;
     
@@ -164,7 +164,7 @@ Using React Native offers several benefits for developers, briefly listed here:
 \subsection{Differences from native iOS/Android and web development}
 \begin{itemize}
     \item \textit{Native iOS/Android:}  
-    In native development, accessibility is handled through platform-specific \gls{apig}: \gls{voiceover} on \textit{iOS} and \gls{talkback} on \textit{Android}, which require different tools and approaches. React Native provides a unified \textit{API}s, streamlining the implementation of accessibility features across both platforms.
+    In native development, accessibility is handled through platform-specific \acrshort{api}: \gls{voiceover} on \textit{iOS} and \gls{talkback} on \textit{Android}, which require different tools and approaches. React Native provides a unified \textit{API}s, streamlining the implementation of accessibility features across both platforms.
     
     \item \textit{Web development:}  
     Whereas web accessibility is achieved by adding \gls{ariag} attributes to \textit{HTML}, React Native integrates accessibility directly within its component structure. This intrinsic approach treats accessibility as a core attribute of each component, rather than an external addition.
@@ -897,7 +897,7 @@ const levelACompliance = Math.round((levelACriteriaMet / levelACriteria) * 100);
 
 \paragraph{Screen Reader Testing Score}
 
-The Screen Reader Testing Score \gls{srss} represents empirical testing with VoiceOver (iOS) and TalkBack (Android):
+The \gls{srssg} represents empirical testing with VoiceOver (iOS) and TalkBack (Android):
 
 \begin{equation}
 \text{TestingScore} 

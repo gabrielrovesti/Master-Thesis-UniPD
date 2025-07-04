@@ -18,41 +18,41 @@
 \usetheme[pageofpages=of]{Unipd}
 
 % Title and author information
-\title{Designing an Accessibility Learning Toolkit}
-\subtitle{Bridging the Gap Between Guidelines and Implementation}
-\author[G. Rovesti]{Gabriel Rovesti (ID: 2103389)}
-\institute[Dept. Mathematics - UniPD]{Department of Mathematics ``Tullio Levi-Civita'', Master Degree in Computer Science, University of Padua}
+\title{AccessibleHub - Designing an accessibility learning toolkit}
+\subtitle{Bridging the gap between guidelines and implementation}
+\author[Gabriel Rovesti]{\textbf{Graduate}: Gabriel Rovesti}
+\institute[Dept. Mathematics - UniPD]{Department of Mathematics ``Tullio Levi-Civita'' - Master Degree in Computer Science}
 \date{July 2025}
 
-% Code highlighting setup for accessibility examples
-\lstset{
-    basicstyle=\tiny\ttfamily,
-    keywordstyle=\color{blue}\bfseries,
-    commentstyle=\color{gray}\itshape,
-    stringstyle=\color{red},
-    showstringspaces=false,
-    breaklines=true,
-    frame=single,
-    backgroundcolor=\color{gray!10},
-    language={},
-    morekeywords={TouchableOpacity,accessibilityRole,accessibilityLabel,accessibilityHint,onPress,Text,Semantics,label,button,onTap,child,ElevatedButton,onPressed}
-}
-
-% Define emptyframe environment
-\newenvironment{emptyframe}[1][]{\begin{frame}[plain,#1]}{\end{frame}}
-
-% Automatic table of contents at section beginnings
-\AtBeginSection[]{
-    \begin{frame}
-        \frametitle{Outline}
-        \tableofcontents[currentsection]
-    \end{frame}
-}
+% Supervisor information
+\newcommand{\supervisor}{Prof. Ombretta Gaggi}
+\newcommand{\academicyear}{Academic Year 2024-2025 - Graduation Session: 25/07/2025}
 
 \begin{document}
 
 % Title slide
-\frame{\titlepage}
+\begin{frame}[plain]
+    \usebeamercolor[fg]{title page}
+    \begin{center}
+        \vspace{0.3cm}
+        {\Huge \textcolor{white}{\textbf{\inserttitle}}}
+        
+        \vspace{0.3cm}
+        {\Large \textcolor{white}{\insertsubtitle}}
+        
+        \vspace{1cm}
+        {\large \textcolor{white} \insertauthor}
+        
+        \vspace{0.3cm}
+        {\large \textcolor{white}{\textbf{Supervisor:} \supervisor}}
+
+        \vspace{1cm}
+        {\normalsize \textcolor{white}{\insertinstitute}}
+        
+        \vspace{0.3cm}
+        {\normalsize \textcolor{white}{\academicyear}}
+    \end{center}
+\end{frame}
 
 % Table of contents
 \begin{frame}{Table of Contents}
@@ -350,8 +350,8 @@ Semantics(
     \end{columns}
 \end{frame}
 
-% Empty frame for clean transition
-\begin{emptyframe}
+% Final slide
+\begin{frame}[plain]
     \begin{center}
         \Huge Thank You
         
@@ -366,6 +366,6 @@ Semantics(
         gabriel.rovesti@studenti.unipd.it \\
         GitHub: gabrielrovesti/AccessibleHub
     \end{center}
-\end{emptyframe}
+\end{frame}
 
 \end{document}

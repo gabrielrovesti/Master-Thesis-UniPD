@@ -1,0 +1,104 @@
+\mode<presentation>
+
+% Handle missing image files gracefully
+% ==============================================================================
+% Use IfFileExists to conditionally declare images only if they exist
+
+\IfFileExists{images/bg.pdf}{
+    \pgfdeclareimage[width=\paperwidth]{titleBackground}{images/bg}
+}{
+    % Fallback: create a simple gradient background
+    \pgfdeclareimage[width=\paperwidth]{titleBackground}{images/bg}
+}
+
+\IfFileExists{images/bgWave.pdf}{
+    \pgfdeclareimage[width=\paperwidth]{pageBackground}{images/bgWave}
+}{
+    % No background wave if file doesn't exist
+}
+
+\IfFileExists{images/unipd_logo.png}{
+    \pgfdeclareimage[width=4cm]{logoUnipd}{images/unipd_logo}
+}{
+    % No logo if file doesn't exist
+}
+
+\IfFileExists{images/unipd_logo_white.png}{
+    \pgfdeclareimage[width=2cm]{logoUnipdWhite}{images/unipd_logo_white}
+}{
+    % No white logo if file doesn't exist
+}
+
+% Actual beamer definitions
+% ==============================================================================
+
+\defbeamertemplate*{title page}{pd theme} {
+	\centering\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
+	\ifx\insertsubtitle\@empty
+	\else
+		\vskip2ex
+		{\centering\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}
+	\fi
+	\ifx\insertauthor\@empty
+	\else
+		\vskip2.5ex
+		{\raggedright\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}
+	\fi
+	\ifx\insertdate\@empty
+	\else
+		{\raggedright\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}
+	\fi
+	\vfill
+}
+
+\defbeamertemplate*{background canvas}{pd theme} {
+	\ifnum\c@framenumber=1
+		\IfFileExists{images/bg.pdf}{
+			\pgfuseimage{titleBackground}
+		}{
+			% Fallback: create a simple colored background for title page
+			\begin{pgfpicture}
+				\pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\paperheight}}
+				\pgfsetcolor{rossoPantano!20}
+				\pgfusepath{fill}
+			\end{pgfpicture}
+		}
+	\fi
+}
+
+\defbeamertemplate*{footline}{pd theme} {
+	\ifnum\c@framenumber=1
+		\ifbeamerpadovanologos
+			\IfFileExists{images/unipd_logo.png}{
+				\pgftext[right,bottom,at=\pgfpoint{0.95\paperwidth}{.4cm}]{\pgfuseimage{logoUnipd}}
+			}{
+				% Fallback: University text for title page
+				\pgftext[right,bottom,at=\pgfpoint{0.95\paperwidth}{.4cm}]{
+					\usebeamerfont{frame number in foot}
+					\usebeamercolor[fg]{frame number in foot}University of Padua
+				}
+			}
+		\fi
+	\else
+		\ifbeamerpadovanologos
+			\IfFileExists{images/unipd_logo_white.png}{
+				\pgftext[right,bottom,at=\pgfpoint{0.97\paperwidth}{0.896\paperheight}]{\pgfuseimage{logoUnipdWhite}}
+			}{
+				% Fallback: Small university text for regular pages
+				\pgftext[right,bottom,at=\pgfpoint{0.97\paperwidth}{0.896\paperheight}]{
+					\usebeamerfont{frame number in foot}
+					\usebeamercolor[fg]{frame number in foot}UniPD
+				}
+			}
+		\fi
+		\IfFileExists{images/bgWave.pdf}{
+			\pgftext[right,bottom,at=\pgfpoint{\paperwidth}{0cm}]{\pgfuseimage{pageBackground}}
+		}{}
+		\pgftext[right,bottom,at=\pgfpoint{0.98\paperwidth}{0.02\paperwidth}]{
+			\usebeamerfont{frame number in foot}
+			\usebeamercolor[fg]{frame number in foot}\insertframenumber{} of \inserttotalframenumber
+		}
+	\fi
+}
+
+\mode<all>

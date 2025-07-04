@@ -1,0 +1,6 @@
+- https://github.com/lusergit/presentation-slides
+- https://github.com/lusergit/master-thesis
+- https://github.com/DrBurraco/Cybersecurity-MsC-Unipd
+- https://github.com/Kekkodf/Master-Thesis
+- https://github.com/Gheeroppa/UnipdMasterThesis
+- https://github.com/FilippoFantinato/model-checking-and-synthesis-of-best-effort-strategies-for-safety-and-co-safety-ltl

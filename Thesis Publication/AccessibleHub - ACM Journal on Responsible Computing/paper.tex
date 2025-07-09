@@ -1,0 +1,242 @@
+%% ACM Journal Article Template for Accessibility Research
+
+\documentclass[sigconf]{acmart} % - two column, full author details
+% \documentclass[sigconf,manuscript]{acmart} - % one column, details of authors later
+
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+%% Rights management - to be updated with actual submission
+\setcopyright{acmlicensed}
+\copyrightyear{2025}
+\acmYear{2025}
+% \acmDOI{XXXXXXX.XXXXXXX}
+
+%% Journal information - for JRC (Journal on Responsible Computing)
+% \acmJournal{JRC}
+% \acmVolume{XX}
+% \acmNumber{XX}
+% \acmArticle{XX}
+% \acmMonth{XX}
+
+%%
+%% Title and authors
+%%
+\title{Bridging Guidelines and Implementation: A Quantitative Framework for Cross-Platform Mobile Accessibility Evaluation}
+
+\author{Ombretta Gaggi}
+\email{gaggi@math.unipd.it}
+\affiliation{%
+  \institution{University of Padua}
+  \department{Department of Mathematics "Tullio Levi-Civita"}
+  \city{Padua}
+  \country{Italy}
+}
+
+\author{Gabriel Rovesti}
+\email{gabriel.rovesti@studenti.unipd.it}
+\affiliation{%
+  \institution{University of Padua}
+  \department{Department of Mathematics "Tullio Levi-Civita"}
+  \city{Padua}
+  \country{Italy}
+}
+
+\renewcommand{\shortauthors}{Gaggi and Rovesti}
+
+%%
+%% Abstract
+%%
+\begin{abstract}
+Despite widespread adoption of cross-platform mobile development frameworks, a significant gap persists between accessibility guidelines and practical implementation. This study addresses this challenge by introducing a comprehensive quantitative evaluation framework for mobile accessibility implementation across React Native and Flutter platforms. We develop six novel metrics—Component Accessibility Score (CAS), Implementation Overhead (IMO), Screen Reader Support Score (SRSS), WCAG Compliance Ratio (WCR), Development Time Estimate (DTE), and Complexity Impact Factor (CIF)—enabling systematic comparison of accessibility implementation approaches. Through empirical analysis of 30 common UI components and real-world testing with VoiceOver and TalkBack screen readers, we demonstrate that React Native achieves 45\% reduction in implementation overhead compared to Flutter while maintaining superior screen reader compatibility (4.2 vs 3.8 average score). Our research contributes AccessibleHub, a React Native educational toolkit that serves as both an empirical research platform and practical learning resource, bridging the gap between theoretical accessibility guidelines and implementable solutions. The findings reveal that while both frameworks achieve equivalent WCAG 2.2 compliance (95.3\%), React Native's property-based accessibility model offers significant efficiency advantages for rapid development, whereas Flutter's explicit semantic approach provides benefits for complex components and long-term maintenance in larger development teams.
+\end{abstract}
+
+%%
+%% CCS concepts - to be generated from ACM CCS system
+%%
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>10003120.10003121.10003122.10003334</concept_id>
+  <concept_desc>Human-centered computing~Accessibility</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10003120.10003121.10003124.10003125</concept_id>
+  <concept_desc>Human-centered computing~Mobile computing</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>10011007.10011006.10011008.10011024</concept_id>
+  <concept_desc>Software and its engineering~Software development techniques</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Human-centered computing~Accessibility}
+\ccsdesc[500]{Human-centered computing~Mobile computing}
+\ccsdesc[300]{Software and its engineering~Software development techniques}
+
+%%
+%% Keywords
+%%
+\keywords{mobile accessibility, cross-platform development, React Native, Flutter, accessibility metrics, WCAG compliance, screen reader support, quantitative evaluation}
+
+\received{XX Month 2025}
+\received[revised]{XX Month 2025}
+\received[accepted]{XX Month 2025}
+
+%%
+%% Document begins
+%%
+\begin{document}
+
+\maketitle
+
+%% =============================================================================
+%% TABLE OF CONTENTS / ARTICLE STRUCTURE OUTLINE
+%% =============================================================================
+%% 
+%% TITLE: Quantitative Accessibility Evaluation of Cross-Platform Mobile 
+%%        Frameworks: A Systematic Comparison with AccessibleHub Toolkit
+%%
+%% AUTHORS: Gabriel Rovesti, Ombretta Gaggi
+%%          University of Padua, Department of Mathematics "Tullio Levi-Civita"
+%%
+%% ABSTRACT: Mobile accessibility comparison of React Native vs Flutter using
+%%           6 novel quantitative metrics (CAS, IMO, SRSS, WCR, DTE, CIF)
+%%           Key finding: React Native 45% reduction in implementation overhead
+%%           Contribution: AccessibleHub educational toolkit
+%%
+%% ARTICLE STRUCTURE:
+%% 1. Introduction
+%%    1.1 Mobile Accessibility as Computing Imperative
+%%    1.2 Problem Statement
+%%    1.3 Research Objectives and Contributions
+%%
+%% 2. Related Work
+%%    2.1 Mobile Accessibility Frameworks and Guidelines
+%%    2.2 Cross-Platform Development Accessibility
+%%    2.3 Quantitative Evaluation Methodologies
+%%
+%% 3. Methodology
+%%    3.1 Novel Quantitative Metrics Framework
+%%    3.2 Experimental Design and Validation
+%%    3.3 AccessibleHub Implementation Architecture
+%%
+%% 4. Results and Analysis
+%%    4.1 Quantitative Comparison Results
+%%    4.2 Framework-Specific Advantages and Trade-offs
+%%    4.3 AccessibleHub Validation and Impact
+%%
+%% 5. Discussion
+%%    5.1 Implications for Developers and Organizations
+%%    5.2 Methodology Contributions to Research Community
+%%    5.3 Limitations and Future Research Directions
+%%
+%% 6. Conclusion
+%%
+%% Acknowledgments
+%% References
+%% =============================================================================
+
+\section{Introduction}
+\label{sec:introduction}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\subsection{Mobile Accessibility as Computing Imperative}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi imperdiet, nulla ac condimentum tempor, magna augue cursus ipsum, at dignissim magna magna ut magna.
+
+\subsection{Problem Statement}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed euismod, nulla vel tincidunt lacinia, nisl nisl aliquam nisl, eget aliquam nisl nisl sit amet nisl.
+
+\subsection{Research Objectives and Contributions}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed in felis eu ante lobortis imperdiet. Nulla facilisi. Sed in felis eu ante lobortis imperdiet.
+
+\section{Related Work}
+\label{sec:related-work}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua~\cite{gaggi2024accessibility,budai2024mobile}.
+
+\subsection{Mobile Accessibility Frameworks and Guidelines}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\subsection{Cross-Platform Development Accessibility}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Building upon the foundational work of Gaggi and Perinello~\cite{gaggi2024accessibility} and extending the research initiated by Budai~\cite{budai2024mobile}, this study provides a comprehensive quantitative framework for accessibility evaluation.
+
+\subsection{Quantitative Evaluation Methodologies}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+\section{Methodology}
+\label{sec:methodology}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+\subsection{Novel Quantitative Metrics Framework}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Our framework introduces six innovative metrics for comprehensive accessibility evaluation:
+
+\begin{itemize}
+\item \textbf{Component Accessibility Score (CAS):} Comprehensive scoring system for UI component accessibility
+\item \textbf{Implementation Overhead (IMO):} Systematic measurement of development time and complexity costs
+\item \textbf{Screen Reader Support Score (SRSS):} Evaluation framework for assistive technology compatibility
+\item \textbf{WCAG Compliance Ratio (WCR):} Automated compliance assessment methodology
+\item \textbf{Development Time Estimate (DTE):} Systematic timing and effort measurement
+\item \textbf{Complexity Impact Factor (CIF):} Framework for measuring implementation complexity
+\end{itemize}
+
+\subsection{Experimental Design and Validation}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\subsection{AccessibleHub Implementation Architecture}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+\section{Results and Analysis}
+\label{sec:results}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+\subsection{Quantitative Comparison Results}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Our empirical analysis reveals that React Native demonstrates 45\% reduction in implementation overhead compared to Flutter while maintaining higher screen reader compatibility (4.2 vs 3.8 average score).
+
+\subsection{Framework-Specific Advantages and Trade-offs}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\subsection{AccessibleHub Validation and Impact}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+\section{Discussion}
+\label{sec:discussion}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+\subsection{Implications for Developers and Organizations}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+\subsection{Methodology Contributions to Research Community}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+\subsection{Limitations and Future Research Directions}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. This research establishes a robust quantitative framework for accessibility evaluation in cross-platform mobile development, providing evidence-based guidance for framework selection and implementation strategies.
+
+%%
+%% Acknowledgments
+%%
+\begin{acks}
+The authors would like to thank the University of Padua for providing the research environment and resources necessary for this study. Special recognition goes to the accessibility community for their valuable feedback and contributions to the AccessibleHub toolkit.
+\end{acks}
+
+%%
+%% Bibliography
+%%
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\end{document}

@@ -7,6 +7,7 @@
 **Degree:** Master of Science in Computer Science  
 **Academic Year:** 2024-2025  
 **Supervisor:** Prof. Ombretta Gaggi
+**Co-relator:** Prof. Catia Prandi
 
 ---
 
